@@ -1,0 +1,13 @@
+{
+  "HomePage": {
+    "title": "Ali Portfolio",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "blog": "Blog"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "Change Language"
+  }
+}

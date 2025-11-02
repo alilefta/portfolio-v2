@@ -1,0 +1,13 @@
+{
+  "HomePage": {
+    "title": "السيرة الذاتية لعلي",
+    "home": "الصفحة الرئيسية",
+    "about": "من انا",
+    "projects": "مشاريعي",
+    "contacts": "اتصل بي",
+    "blog": "مقالاتي"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "تغيير اللغة"
+  }
+}

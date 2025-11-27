@@ -17,7 +17,7 @@ export default function AboutMe() {
         </div>
 
         <div className="relative py-2">
-          <h1 className="from-foreground/40 font- bg-linear-to-b to-white bg-clip-text text-left text-9xl leading-[108px] font-bold">
+          <h1 className="from-foreground/40 bg-linear-to-b to-white bg-clip-text text-left text-5xl font-bold md:text-9xl md:leading-[108px]">
             From <br />
             <span className="">
               Dental <br /> Tech to

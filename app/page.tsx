@@ -1,9 +1,12 @@
 import AboutMe from "@/components/home/AboutMe";
 import { HeroSection } from "@/components/home/Hero";
+import HowIWork from "@/components/home/HowIWork";
 import SelectedWork from "@/components/home/SelectedWork";
+import ServicesSection from "@/components/home/ServicesSection";
 import SkillsSection from "@/components/home/Skills";
 import SocialProof from "@/components/home/SocialProof";
 import TechStack from "@/components/home/TechStack";
+import TheEvolutionSection from "@/components/home/TheEvolution";
 import WhyHiringMeIsDifferent from "@/components/home/WhyHiringMeIsDifferent";
 
 // export const generateMetadata = async (): Promise<Metadata> => {
@@ -24,6 +27,9 @@ export default async function Home() {
       <SkillsSection />
       <AboutMe />
       <WhyHiringMeIsDifferent />
+      <TheEvolutionSection />
+      <HowIWork />
+      <ServicesSection />
     </div>
   );
 }

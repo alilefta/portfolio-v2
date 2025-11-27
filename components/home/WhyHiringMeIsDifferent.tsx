@@ -5,7 +5,7 @@ export default function WhyHiringMeIsDifferent() {
   return (
     <section className="relative mx-auto max-w-7xl gap-12 px-6 py-8 lg:px-8 lg:py-16">
       <div className="mx-auto mb-20">
-        <h2 className="mb-4 text-center text-5xl capitalize">
+        <h2 className="mb-4 text-center text-5xl font-medium capitalize">
           Why hiring Me{" "}
           <span className="text-foreground/50"> is Different</span>
         </h2>
@@ -15,7 +15,7 @@ export default function WhyHiringMeIsDifferent() {
 
       <div className="grid gap-6 md:grid-cols-3">
         {/* Card 1 */}
-        <div className="border-foreground/8 bg-foreground/2 group hover:border-foreground/20 relative overflow-hidden rounded-3xl border-2 p-8 shadow-sm duration-500">
+        <div className="border-foreground/8 bg-foreground/2 group hover:border-foreground/20 relative overflow-hidden rounded-3xl border-2 p-8 shadow-sm duration-500 hover:-translate-y-1">
           <div className="relative z-10">
             <Badge
               className="mb-6 rounded-xl p-3"
@@ -40,7 +40,7 @@ export default function WhyHiringMeIsDifferent() {
         </div>
 
         {/* Card 2 */}
-        <div className="border-foreground/8 bg-foreground/2 group hover:border-foreground/20 relative overflow-hidden rounded-3xl border-2 p-8 shadow-sm duration-500">
+        <div className="border-foreground/8 bg-foreground/2 group hover:border-foreground/20 relative overflow-hidden rounded-3xl border-2 p-8 shadow-sm duration-500 hover:-translate-y-1">
           <div className="relative z-10">
             <Badge
               className="mb-6 rounded-xl p-3"
@@ -65,7 +65,7 @@ export default function WhyHiringMeIsDifferent() {
         </div>
 
         {/* Card 3 */}
-        <div className="border-foreground/8 bg-foreground/2 group hover:border-foreground/20 relative overflow-hidden rounded-3xl border-2 p-8 shadow-sm duration-500">
+        <div className="border-foreground/8 bg-foreground/2 group hover:border-foreground/20 relative overflow-hidden rounded-3xl border-2 p-8 shadow-sm duration-500 hover:-translate-y-1">
           <div className="relative z-10">
             <Badge
               className="mb-6 rounded-xl p-3"

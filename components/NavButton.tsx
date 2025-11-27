@@ -13,7 +13,7 @@ export function NavButton({ icon: Icon, label, href }: NavButtonProps) {
       variant={"ghost"}
       aria-label={label}
       title={label}
-      className={`rounded-md hover:bg-transparent ${Icon ? "" : "text-base"} tracking-tight`}
+      className={`rounded-md ${Icon ? "" : "text-base"} text-foreground/70 text-sm tracking-tight`}
       asChild
     >
       {href ? (

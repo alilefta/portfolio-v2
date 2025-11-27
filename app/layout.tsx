@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {
+  Alexandria,
   Amiri,
   Fustat,
   Geist,
@@ -12,14 +13,40 @@ import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 
+import localFont from "next/font/local";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
+const alexandria = Alexandria({
+  variable: "--font-alexandria",
+  subsets: ["arabic", "latin"],
+});
+
+const bixie = localFont({
+  src: [
+    {
+      path: "../public/fonts/BIXIE-Regular.ttf",
+    },
+  ],
+  variable: "--font-bixie",
+});
+
+const tido = localFont({
+  src: [
+    {
+      path: "../public/fonts/TIDO-B.otf",
+    },
+  ],
+  variable: "--font-tido",
+});
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 const noto_kufi = Noto_Kufi_Arabic({
@@ -51,7 +78,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${noto_kufi.variable} tracking-normal antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${noto_kufi.variable} ${bixie.variable} ${tido.variable} ${alexandria.variable} tracking-normal antialiased`}
       >
         <ThemeProvider
           attribute="class"

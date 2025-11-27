@@ -1,13 +1,61 @@
 {
+  "MainTitles": {
+    "Ali": "Ali",
+    "Mohsin": "Mohsin"
+  },
   "HomePage": {
     "title": "Ali Portfolio",
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
-    "contacts": "Contacts",
-    "blog": "Blog"
+    "Home": "Home",
+    "About": "About",
+    "Projects": "Projects",
+    "Contacts": "Contacts",
+    "Blog": "Blog",
+
+    "Cards": {
+      "Intro_Heading_Part1": "Engineering With",
+      "Intro_Heading_Part2": "Clinical Precision.",
+      "Intro_Paragraph": "I don't just write code; I architect solutions. Leveraging 6 years of dental laboratory precision to build pixel-perfect, high-performance software for startups and enterprises.",
+      "CTA_SeeSelectedWork": "See Selected Work",
+      "ObsessedWithDetail": "Obsessed With Detail.",
+      "ObsessedWithDetail_Paragraph": "My background in dental prosthetics taught me that a single millimeter matters. I bring that same rigor to my code.",
+      "Location": "Hilla, Iraq",
+      "RemoteReady": "Remote Ready"
+    },
+    "SocialProof": {
+      "Stack": "Stack",
+      "TechnologiesMastered": "Technologies Mastered",
+      "Platforms": "Platforms",
+      "Web": "Web",
+      "App": "App",
+      "UnifiedArchitecture": "Unified Architecture",
+      "Commercial": "Commercial",
+      "Exit": "Exit",
+      "Education": "Education",
+      "Dual": "Dual",
+      "CSAndDentalTech": "CS & Dental Tech",
+      "ProductAcquired": "Product Acquired"
+    }
   },
-  "LocaleSwitcher": {
-    "changeLanguage": "Change Language"
+  "Controls": {
+    "ChangeLanguage": "Change Language",
+    "DownloadCV": "Download CV",
+    "ToggleTheme": "Toggle Theme",
+    "Dark": "Dark",
+    "Light": "Light",
+    "System": "System"
+  },
+  "Common": {
+    "Settings": "Settings",
+    "QuickLinks": "Quick Links",
+    "Navigation": "Navigation",
+    "NavigationMenu": "Navigation Menu",
+    "CV": "CV",
+    "CoreStack": "Core Stack"
+  },
+  "Tags": {
+    "AvaliableForProjects": "Avaliable For Projects",
+    "FullStackDentalTech": "Full Stack • Dental Tech",
+    "Tolerance": "Tolerance",
+    "0_1MM": "0.1 mm"
   }
 }

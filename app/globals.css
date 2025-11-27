@@ -37,11 +37,14 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-geist);
   --font-inter: var(--font-inter);
   --font-noto-kufi: var(--font-noto-kufi);
+  --font-bixie: var(--font-bixie);
+  --font-tido: var(--font-tido);
+  --font-alexandria: var(--font-alexandria);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -98,14 +101,14 @@
   --sidebar-accent-foreground: oklch(0.5198 0.0936 223.128);
   --sidebar-border: oklch(0.9288 0.0126 255.5078);
   --sidebar-ring: oklch(0.5854 0.2041 277.1173);
-  --font-sans:
+  /* --font-sans:
     "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+    "Courier New", monospace; */
   --radius: 0.5rem;
   --shadow-x: 0;
   --shadow-y: 0.25rem;
@@ -131,12 +134,120 @@
     0 0.25rem 0.75rem 0.125rem hsl(0 0 0 / 0.1),
     0 8px 10px -0.875px hsl(0 0 0 / 0.1);
   --shadow-2xl: 0 0.25rem 0.75rem 0.125rem hsl(0 0 0 / 0.25);
-  --tracking-normal: normal;
+  --tracking-normal: 0em;
   --spacing: 0.25rem;
+
+  /* =========================================
+       1. SURFACE VARIANT (Status/Signal)
+       "The Highlighter" (Light) vs "The Neon" (Dark)
+       ========================================= */
+  /* Neutral */
+  --badge-surface-neutral-bg: #f4f4f5;
+  --badge-surface-neutral-fg: #52525b;
+  --badge-surface-neutral-border: #e4e4e7;
+  /* Success */
+  --badge-surface-success-bg: #ecfdf5;
+  --badge-surface-success-fg: #047857;
+  --badge-surface-success-border: #a7f3d0;
+  /* Warning */
+  --badge-surface-warning-bg: #fffbeb;
+  --badge-surface-warning-fg: #b45309;
+  --badge-surface-warning-border: #fde68a;
+  /* Accent */
+  --badge-surface-accent-bg: #eff6ff;
+  --badge-surface-accent-fg: #1d4ed8;
+  --badge-surface-accent-border: #bfdbfe;
+
+  /* =========================================
+       2. OUTLINE VARIANT (Tech Stack)
+       "The Plastic Chip" (Light) vs "The Etched Glass" (Dark)
+       ========================================= */
+  --badge-outline-bg: #ffffff;
+  --badge-outline-fg: #52525b; /* zinc-600 */
+  --badge-outline-border: #e4e4e7; /* zinc-200 */
+  --badge-outline-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+
+  /* =========================================
+       3. GLASS VARIANT (Premium/Hook)
+       "The Ceramic Plate" (Light) vs "The Frosted Layer" (Dark)
+       ========================================= */
+  --badge-glass-bg: rgba(255, 255, 255, 0.8);
+  --badge-glass-fg: #27272a; /* zinc-800 */
+  --badge-glass-border: #e4e4e7; /* zinc-200 */
+  --badge-glass-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+
+  /* =========================================
+       4. GHOST VARIANT (Context/Meta)
+       "Ink" (Light) vs "Dimmed Light" (Dark)
+       ========================================= */
+  --badge-ghost-fg: #71717a; /* zinc-500 */
+  --badge-ghost-hover-bg: #f4f4f5; /* zinc-100 */
+  --badge-ghost-hover-fg: #18181b; /* zinc-900 */
+
+  /* Buttons */
+  /* 1. PRIMARY (The CTA) - "Obsidian" vs "Phosphorus" */
+  --btn-primary-bg: #18181b; /* zinc-950 */
+  --btn-primary-fg: #ffffff;
+  --btn-primary-border: transparent;
+  --btn-primary-hover: #27272a; /* zinc-800 */
+  --btn-primary-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  /* 2. SECONDARY (The Alternative) - "Ceramic" vs "Glass" */
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-fg: #27272a; /* zinc-800 */
+  --btn-secondary-border: #e4e4e7; /* zinc-200 */
+  --btn-secondary-hover: #f4f4f5; /* zinc-100 */
+  --btn-secondary-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+  /* 3. OUTLINE (The Technical) */
+  --btn-outline-bg: transparent;
+  --btn-outline-fg: #52525b; /* zinc-600 */
+  --btn-outline-border: #e4e4e7; /* zinc-200 */
+  --btn-outline-hover-bg: #f4f4f5; /* zinc-100 */
+  --btn-outline-hover-fg: #18181b; /* zinc-900 */
+
+  /* 4. GHOST (The Link) */
+  --btn-ghost-fg: #52525b; /* zinc-600 */
+  --btn-ghost-hover-bg: #f4f4f5; /* zinc-100 */
+  --btn-ghost-hover-fg: #18181b; /* zinc-900 */
+
+  /* 5. DESTRUCTIVE (The Error) */
+  --btn-destructive-bg: #ef4444; /* red-500 */
+  --btn-destructive-fg: #ffffff;
+  --btn-destructive-hover: #dc2626; /* red-600 */
+
+  /* Gradients */
+  --aurora-bg-color: #f9fafb;
+  --aurora-gradient-1: radial-gradient(
+    circle at 50% 0%,
+    rgba(59, 130, 246, 0.08) 0%,
+    transparent 50%
+  );
+  --aurora-gradient-2: radial-gradient(
+    circle at 100% 0%,
+    rgba(99, 102, 241, 0.05) 0%,
+    transparent 40%
+  );
+
+  /* Glass Cards */
+  /* Base State */
+  --glass-card-bg: rgba(255, 255, 255, 0.8);
+  --glass-card-backdrop: blur(12px);
+  --glass-card-border: 1px solid rgba(228, 228, 231, 0.4); /* zinc-200 @ 40% */
+  /* Soft diffused shadow to show depth */
+  --glass-card-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02),
+    0 12px 24px -8px rgba(0, 0, 0, 0.04);
+
+  /* Hover State (The Lift) */
+  --glass-card-border-hover: 1px solid rgba(59, 130, 246, 0.3); /* Blue hint */
+  /* Deeper shadow to simulate lifting up */
+  --glass-card-shadow-hover:
+    0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
 }
 
 .dark {
-  --background: oklch(0.1363 0.0364 259.201);
+  --background: oklch(9.839% 0.02451 260.986);
   --foreground: oklch(0.9842 0.0034 247.8575);
   --card: oklch(0.1363 0.0364 259.201);
   --card-foreground: oklch(0.9842 0.0034 247.8575);
@@ -168,14 +279,14 @@
   --sidebar-accent-foreground: oklch(0.9514 0.025 236.8242);
   --sidebar-border: oklch(0.2795 0.0368 260.031);
   --sidebar-ring: oklch(0.5854 0.2041 277.1173);
-  --font-sans:
+  /* --font-sans:
     "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+    "Courier New", monospace; */
   --radius: 0.5rem;
   --shadow-x: 0;
   --shadow-y: 0.25rem;
@@ -201,6 +312,152 @@
     0 0.25rem 0.75rem 0.125rem hsl(0 0 0 / 0.3),
     0 8px 10px -0.875px hsl(0 0 0 / 0.3);
   --shadow-2xl: 0 0.25rem 0.75rem 0.125rem hsl(0 0 0 / 0.75);
+
+  /* =========================================
+       DARK MODE OVERRIDES
+       ========================================= */
+
+  /* 1. SURFACE */
+  --badge-surface-neutral-bg: rgba(255, 255, 255, 0.05);
+  --badge-surface-neutral-fg: #a1a1aa;
+  --badge-surface-neutral-border: rgba(255, 255, 255, 0.1);
+
+  --badge-surface-success-bg: rgba(16, 185, 129, 0.1);
+  --badge-surface-success-fg: #34d399;
+  --badge-surface-success-border: rgba(16, 185, 129, 0.2);
+
+  --badge-surface-warning-bg: rgba(245, 158, 11, 0.1);
+  --badge-surface-warning-fg: #fbbf24;
+  --badge-surface-warning-border: rgba(245, 158, 11, 0.2);
+
+  --badge-surface-accent-bg: rgba(59, 130, 246, 0.1);
+  --badge-surface-accent-fg: #60a5fa;
+  --badge-surface-accent-border: rgba(59, 130, 246, 0.2);
+
+  /* 2. OUTLINE */
+  --badge-outline-bg: rgba(255, 255, 255, 0.05);
+  --badge-outline-fg: #a1a1aa; /* zinc-400 */
+  --badge-outline-border: rgba(255, 255, 255, 0.222);
+  --badge-outline-shadow: none; /* No shadow in dark mode, flat etch */
+
+  /* 3. GLASS */
+  --badge-glass-bg: rgba(255, 255, 255, 0.05);
+  --badge-glass-fg: #dbeafe; /* blue-100 (Subtle tint) */
+  --badge-glass-border: rgba(255, 255, 255, 0.1);
+  /* The "Inner Glow" trick for dark mode glass */
+  --badge-glass-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+
+  /* 4. GHOST */
+  --badge-ghost-fg: #71717a; /* zinc-500 */
+  --badge-ghost-hover-bg: rgba(255, 255, 255, 0.05);
+  --badge-ghost-hover-fg: #d4d4d8; /* zinc-300 */
+
+  /* Buttons */
+  /* =========================================
+       BUTTON TOKENS
+       ========================================= */
+
+  /* DARK MODE OVERRIDES */
+
+  /* 1. PRIMARY: Becomes White/Glowy */
+  --btn-primary-bg: #ffffff;
+  --btn-primary-fg: #000000;
+  --btn-primary-hover: #e4e4e7; /* zinc-200 */
+  /* Use a glow instead of a shadow in dark mode */
+  --btn-primary-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+
+  /* 2. SECONDARY: Becomes Glass */
+  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --btn-secondary-fg: #f4f4f5; /* zinc-100 */
+  --btn-secondary-border: rgba(255, 255, 255, 0.1);
+  --btn-secondary-hover: rgba(255, 255, 255, 0.1);
+  --btn-secondary-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+
+  /* 3. OUTLINE */
+  --btn-outline-fg: #a1a1aa; /* zinc-400 */
+  --btn-outline-border: rgba(255, 255, 255, 0.1);
+  --btn-outline-hover-bg: rgba(255, 255, 255, 0.05);
+  --btn-outline-hover-fg: #ffffff;
+
+  /* 4. GHOST */
+  --btn-ghost-fg: #a1a1aa; /* zinc-400 */
+  --btn-ghost-hover-bg: rgba(255, 255, 255, 0.05);
+  --btn-ghost-hover-fg: #ffffff;
+
+  /* 5. DESTRUCTIVE */
+  --btn-destructive-bg: rgba(239, 68, 68, 0.2); /* red-500 @ 20% */
+  --btn-destructive-fg: #fca5a5; /* red-300 */
+  --btn-destructive-hover: rgba(239, 68, 68, 0.3);
+
+  /* Gradients */
+  --aurora-bg-color: #000000;
+  --aurora-gradient-1: radial-gradient(
+    circle at 50% 0%,
+    rgba(59, 130, 246, 0.15) 0%,
+    transparent 50%
+  );
+  --aurora-gradient-2: radial-gradient(
+    circle at 100% 0%,
+    rgba(139, 92, 246, 0.1) 0%,
+    transparent 40%
+  );
+
+  /* Glass Card */
+  /* Base State */
+  --glass-card-bg: rgba(20, 20, 20, 0.6); /* zinc-950 @ 60% */
+  --glass-card-backdrop: blur(12px);
+  --glass-card-border: 1px solid rgba(255, 255, 255, 0.08); /* white @ 8% */
+  --glass-card-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Basic depth */
+
+  /* Hover State (The Glow) */
+  --glass-card-border-hover: 1px solid rgba(59, 130, 246, 0.5); /* Strong Blue */
+  /* The "Scientific" Center Glow */
+  --glass-card-shadow-hover: 0 0 40px -5px rgba(59, 130, 246, 0.3);
+}
+
+@utility bg-aurora {
+  background-color: var(--aurora-bg-color);
+  background-image: var(--aurora-gradient-1), var(--aurora-gradient-2);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+@layer components {
+  .glass-card {
+    /* Layout & Transition */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Important for the border-radius */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth physics */
+
+    /* The Tokens */
+    background: var(--glass-card-bg);
+    -webkit-backdrop-filter: var(--glass-card-backdrop);
+    backdrop-filter: var(--glass-card-backdrop);
+    border: var(--glass-card-border);
+    box-shadow: var(--glass-card-shadow);
+  }
+  /* Separate Hover Block */
+  .glass-card:hover {
+    border: var(--glass-card-border-hover);
+    box-shadow: var(--glass-card-shadow-hover);
+  }
+
+  .glass-shimmer {
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 6s infinite linear;
+  }
 }
 
 @layer base {
@@ -209,5 +466,15 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
   }
 }

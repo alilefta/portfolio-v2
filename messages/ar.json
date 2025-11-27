@@ -1,13 +1,61 @@
 {
+  "MainTitles": {
+    "Ali": "علي",
+    "Mohsin": "محسن"
+  },
   "HomePage": {
     "title": "السيرة الذاتية لعلي",
-    "home": "الصفحة الرئيسية",
-    "about": "من انا",
-    "projects": "مشاريعي",
-    "contacts": "اتصل بي",
-    "blog": "مقالاتي"
+    "Home": "الصفحة الرئيسية",
+    "About": "من انا",
+    "Projects": "مشاريعي",
+    "Contacts": "اتصل بي",
+    "Blog": "مقالاتي",
+
+    "Cards": {
+      "Intro_Heading_Part1": "الهندسة زائد",
+      "Intro_Heading_Part2": "الدقة الطبية.",
+      "Intro_Paragraph": "ما أكتب كود وبس—أنا أبني حلول متكاملة. أستفيد من 6 سنوات خبرة في دقة مختبرات الأسنان لأصمم برمجيات عالية الأداء، متقنة، ومصقولة لروّاد الأعمال والشركات.",
+      "CTA_SeeSelectedWork": "شاهد الاعمال المختارة",
+      "ObsessedWithDetail": "مهووس بالتفاصيل.",
+      "ObsessedWithDetail_Paragraph": "خبرتي في تصنيع التعويضات السنية علّمتني إن جزء من المليمتر يغيّر كل شيء. أطبّق نفس مستوى الدقّة والانضباط في الكود الذي أكتبه.",
+      "Location": "الحلة، العراق",
+      "RemoteReady": "جاهز للعمل عن بعد"
+    },
+    "SocialProof": {
+      "Stack": "المسار",
+      "TechnologiesMastered": "التقنيات المحترف بها",
+      "Platforms": "المنصّات",
+      "Web": "ويب",
+      "App": "تطبيق",
+      "UnifiedArchitecture": "هندسة موحّدة",
+      "Commercial": "الإنجاز التجاري",
+      "Exit": "خروج",
+      "Education": "التعليم",
+      "Dual": "مزدوج",
+      "CSAndDentalTech": "علوم حاسوب + تقنيات أسنان",
+      "ProductAcquired": "منتج تم الاستحواذ عليه"
+    }
   },
-  "LocaleSwitcher": {
-    "changeLanguage": "تغيير اللغة"
+  "Controls": {
+    "ChangeLanguage": "تغيير اللغة",
+    "DownloadCV": "تحميل السيرة الذاتية",
+    "ToggleTheme": "تغيير المظهر",
+    "Light": "نهاري",
+    "Dark": "ليلي",
+    "System": "حسب النظام"
+  },
+  "Common": {
+    "Settings": "الاعدادات",
+    "QuickLinks": "روابط سريعة",
+    "Navigation": "التنقل",
+    "NavigationMenu": "قائمة التنقل",
+    "CV": "السيرة الذاتية",
+    "CoreStack": "المسار التقني"
+  },
+  "Tags": {
+    "AvaliableForProjects": "متوفر للمشاريع",
+    "FullStackDentalTech": "مطور كامل المسار • تقني صناعة اسنان",
+    "Tolerance": "الدقّة",
+    "0_1MM": "0.1 مم"
   }
 }

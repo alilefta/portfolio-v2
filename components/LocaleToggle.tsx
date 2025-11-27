@@ -1,7 +1,6 @@
 "use client";
 
 import { Languages } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -22,7 +21,7 @@ export function LocaleToggle() {
     }
     return "en";
   });
-  const t = useTranslations("LocaleSwitcher");
+  const t = useTranslations("Controls");
 
   useEffect(() => {
     startTransition(() => {
@@ -33,17 +32,30 @@ export function LocaleToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Languages className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all" />
-          <span className="sr-only">{t("changeLanguage")}</span>
+        <Button variant="outline" size="icon" title={t("ChangeLanguage")}>
+          <Languages className="size-5" absoluteStrokeWidth={false} />
+          <span className="sr-only">{t("ChangeLanguage")}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setLang("en")}>
+      <DropdownMenuContent
+        align="end"
+        className="flex flex-col items-start rtl:items-end"
+      >
+        <DropdownMenuItem
+          onClick={() => {
+            setLang("en");
+          }}
+          className="font-inter"
+        >
           English
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setLang("ar")}>
-          Arabic
+        <DropdownMenuItem
+          onClick={() => {
+            setLang("ar");
+          }}
+          className="font-alexandria font-light"
+        >
+          عربي
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -3,7 +3,10 @@ import { Button } from "../ui/custom/Button";
 import { ServiceItem, services } from "@/lib/data/services_section";
 import { DynamicIcon } from "lucide-react/dynamic";
 import { Star } from "lucide-react";
-export default function ServicesSection() {
+import { getLocale } from "next-intl/server";
+export default async function ServicesSection() {
+  const locale = await getLocale();
+
   return (
     <section className="relative mx-auto max-w-7xl gap-12 rounded-2xl px-6 py-8 lg:px-8 lg:py-16">
       <div className="mx-auto mb-20">

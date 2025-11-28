@@ -1,6 +1,8 @@
 import AboutMe from "@/components/home/AboutMe";
+import CTASection from "@/components/home/CTA";
 import { HeroSection } from "@/components/home/Hero";
 import HowIWork from "@/components/home/HowIWork";
+import MyApproach from "@/components/home/MyAppraoch";
 import SelectedWork from "@/components/home/SelectedWork";
 import ServicesSection from "@/components/home/ServicesSection";
 import SkillsSection from "@/components/home/Skills";
@@ -30,6 +32,8 @@ export default async function Home() {
       <TheEvolutionSection />
       <HowIWork />
       <ServicesSection />
+      <MyApproach />
+      <CTASection />
     </div>
   );
 }

@@ -31,8 +31,6 @@ export function NavigationMenu() {
     }
   }, [local, memoizedLocal]);
 
-  console.log("Locale", local, "memoized Version", memoizedLocal);
-
   return (
     <Drawer
       defaultOpen={false}
@@ -47,7 +45,7 @@ export function NavigationMenu() {
         </Button>
       </DrawerTrigger>
       <DrawerContent
-        className="max-h-dvh min-h-dvh overflow-y-auto"
+        className="max-h-dvh min-h-dvh overflow-y-hidden"
         dir={memoizedLocal === "ar" ? "rtl" : "ltr"}
       >
         <DrawerHeader className="flex items-center">

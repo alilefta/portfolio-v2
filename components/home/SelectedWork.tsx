@@ -19,7 +19,7 @@ export default async function SelectedWork() {
     <section className="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-6 py-6 lg:grid-cols-12 lg:px-8 lg:py-8">
       {/* Selected Work */}
       <div className="col-span-12 flex flex-col gap-6 lg:col-span-4">
-        <Card className="glass-card flex flex-col p-4 px-6 lg:min-h-96">
+        <Card className="glass-card flex flex-col p-8 lg:min-h-96">
           <div className="mb-12 flex-1">
             <h2 className="mb-6 text-2xl tracking-tighter">Selected Work</h2>
             <p className="text-foreground/60 text-sm capitalize">

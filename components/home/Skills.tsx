@@ -7,7 +7,7 @@ export default async function SkillsSection() {
     <section className="mx-auto flex max-w-7xl flex-col gap-12 px-6 py-8 lg:px-8 lg:py-16">
       <div className="text-center">
         <h3 className="mb-1 text-4xl tracking-tighter lg:text-6xl">
-          The <span className="font-bold">Skills</span>
+          The <span className="text-foreground/50">Skills</span>
         </h3>
         <p className="text-foreground/40 mx-auto max-w-3xl text-lg lg:text-xl">
           Beyond code—what makes me effective
@@ -15,20 +15,15 @@ export default async function SkillsSection() {
       </div>
 
       {/* 2. SPECIFICATION MATRIX CONTAINER: Reintroducing Depth and Glass Effect */}
-      <div className="grid w-full grid-cols-1 gap-12 rounded-4xl border border-zinc-200 bg-zinc-100/70 p-6 shadow-xl backdrop-blur-sm md:grid-cols-2 lg:p-12 dark:border-white/10 dark:bg-zinc-900/40">
+      <div className="grid w-full grid-cols-1 gap-16 rounded-4xl border border-zinc-200 bg-zinc-100/70 p-6 shadow-xl backdrop-blur-sm md:grid-cols-2 md:gap-12 lg:p-12 dark:border-white/10 dark:bg-zinc-900/40">
         {/* Core Development Column */}
         <ColumnContainer
           title="professional Skills"
           data={professionalSkills}
-          color="text-indigo-500" // Example accent color
         />
 
         {/* Frameworks And Libraries Column */}
-        <ColumnContainer
-          title="Technicial Skills"
-          data={technicalSkills}
-          color="text-amber-500" // Example accent color
-        />
+        <ColumnContainer title="Technicial Skills" data={technicalSkills} />
       </div>
     </section>
   );
@@ -37,18 +32,17 @@ export default async function SkillsSection() {
 function ColumnContainer({
   title,
   data,
-  color,
 }: {
   title: string;
   data: SkillItem[];
-  color: string;
+  color?: string;
 }) {
   return (
     <div className="flex flex-col">
       {/* 3. COLUMN HEADER: Applied Architectural Styling */}
       <div className="mb-8 border-b border-zinc-200/50 pb-3 dark:border-white/10">
         <h3
-          className={`font-mono text-sm tracking-widest uppercase ${color} mb-1`}
+          className={`text-foreground/80 mb-1 font-mono text-lg tracking-wide uppercase`}
         >
           {title}
         </h3>

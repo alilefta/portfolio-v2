@@ -1,10 +1,10 @@
+import { Navbar } from "@/components/home/Navbar";
 import AboutMe from "@/components/home/AboutMe";
 import CTASection from "@/components/home/CTA";
-import { HeroSection } from "@/components/home/Hero";
-import HowIWork from "@/components/home/HowIWork";
-import MyApproach from "@/components/home/MyAppraoch";
+import FooterSection from "@/components/home/Footer";
+import HeroSection from "@/components/home/Hero";
 import SelectedWork from "@/components/home/SelectedWork";
-import ServicesSection from "@/components/home/ServicesSection";
+import Services2 from "@/components/home/Services2";
 import SkillsSection from "@/components/home/Skills";
 import SocialProof from "@/components/home/SocialProof";
 import TechStack from "@/components/home/TechStack";
@@ -21,19 +21,22 @@ import WhyHiringMeIsDifferent from "@/components/home/WhyHiringMeIsDifferent";
 
 export default async function Home() {
   return (
-    <div className="font-inter rtl:font-alexandria">
-      <HeroSection />
-      <SocialProof />
-      <SelectedWork />
-      <TechStack />
-      <SkillsSection />
-      <AboutMe />
-      <WhyHiringMeIsDifferent />
-      <TheEvolutionSection />
-      <HowIWork />
-      <ServicesSection />
-      <MyApproach />
-      <CTASection />
+    <div className="font-inter rtl:font-alexandria relative">
+      <Navbar />
+
+      <main className="w-full">
+        <HeroSection />
+        <SocialProof />
+        <SelectedWork />
+        <TechStack />
+        <SkillsSection />
+        <AboutMe />
+        <WhyHiringMeIsDifferent />
+        <TheEvolutionSection />
+        <Services2 />
+        <CTASection />
+      </main>
+      <FooterSection />
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default async function SocialProof() {
               10<span className="text-blue-400 dark:text-blue-500">+</span>
             </div>
             <p className="mt-1 text-xs text-zinc-500">
-              {t("TechnologiesMastered")}
+              {t("CoreTechnologies")}
             </p>
           </div>
 

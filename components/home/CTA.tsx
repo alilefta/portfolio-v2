@@ -6,7 +6,7 @@ export default async function CTASection() {
   return (
     <section className="relative mx-auto max-w-7xl px-4 py-12 md:px-8 lg:py-24">
       {/* 1. THE CONTAINER (Glass + Spotlight) */}
-      <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900 shadow-2xl">
+      <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-blue-600 shadow-2xl">
         {/* Background Texture (Grid) */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-50"></div>
 
@@ -20,13 +20,13 @@ export default async function CTASection() {
             <div>
               <h2 className="mb-6 text-5xl font-bold tracking-tighter text-white md:text-7xl">
                 Let’s build <br />
-                <span className="bg-linear-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-blue-400 to-indigo-400 bg-clip-text text-wrap text-transparent">
                   something real.
                 </span>
               </h2>
               <p className="max-w-md text-lg leading-relaxed text-zinc-400 md:text-xl">
-                Whether it's a complex SaaS architecture, a dental lab system,
-                or an AI integration — I'm ready to engineer it.
+                Whether it&apos;s a complex SaaS architecture, a dental lab
+                system, or an AI integration — I&apos;m ready to engineer it.
               </p>
             </div>
 

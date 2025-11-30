@@ -1,47 +1,21 @@
 import { getTranslations, getLocale } from "next-intl/server";
 
-import { NavigationMenu } from "../NavigationMenu";
 import { Button } from "../ui/custom/Button";
 import { Cpu, Download, MapPin, MoveLeft, MoveRight } from "lucide-react";
 import { Badge } from "../ui/custom/Badge";
 
-export async function HeroSection() {
+export default async function HeroSection() {
   const t = await getTranslations();
   const local = await getLocale();
 
   return (
-    <section className="rtl:font-alexandria font-inter flex max-w-7xl flex-col xl:mx-auto">
-      {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-5 md:px-8 rtl:font-normal rtl:tracking-normal">
-        {/* logo */}
-        <div className="flex items-center gap-2">
-          <span className="from-foreground/90 rounded-md bg-linear-to-br to-indigo-950/80 p-2 text-xs font-medium">
-            AM
-          </span>
-          <h2 className="flex flex-row items-start gap-1 text-base font-medium tracking-tight md:text-lg">
-            <span className="font-light">{t("MainTitles.Ali")}</span>{" "}
-            <span className="font-bold">{t("MainTitles.Mohsin")}</span>
-          </h2>
-        </div>
-        <div className="flex items-center gap-6">
-          {/* Available Tag */}
-          <div className="flex items-center justify-center">
-            <Badge variant="surface" className="gap-1.5">
-              <span className="size-2 animate-pulse rounded-full bg-emerald-700 dark:bg-emerald-400"></span>
-              <p>{t("Tags.AvaliableForProjects")}</p>
-            </Badge>
-          </div>
-
-          <NavigationMenu />
-        </div>
-      </nav>
-
+    <section className="rtl:font-alexandria font-inter flex flex-col pt-18">
       {/* Hero */}
-      <div className="min-h-[calc(min-h-dvh - 40px)] relative py-4">
-        <div className="pointer-events-none absolute top-0 left-0 z-0 h-[700px] w-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-        <div className="relative z-10 grid grid-cols-1 gap-5 px-8 py-12 lg:grid-cols-12">
+      <div className="min-h-[calc(min-h-dvh - 40px)] relative mx-auto w-full py-4">
+        <div className="pointer-events-none absolute top-0 left-0 z-0 h-[700px] w-full rounded-2xl bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-5 py-12 lg:grid-cols-12">
           {/* Big card */}
-          <div className="glass-card group min-h-[500px] rounded-4xl p-8 md:p-12 lg:col-span-8">
+          <div className="glass-card group min-h-[500px] rounded-2xl p-8 md:p-12 lg:col-span-8">
             <div className="relative z-10">
               <Badge
                 className="mb-6"
@@ -63,7 +37,7 @@ export async function HeroSection() {
                 {t("HomePage.Cards.Intro_Paragraph")}
               </p>
 
-              <div className="flex items-center justify-start gap-4">
+              <div className="flex flex-wrap items-center justify-start gap-4">
                 <Button
                   className="group cursor-pointer"
                   size={"lg"}
@@ -118,7 +92,7 @@ export async function HeroSection() {
           {/* Right Cards */}
           <div className="col-span-1 flex h-full flex-col gap-5 lg:col-span-4">
             {/* Top Card */}
-            <div className="glass-card group relative flex-1 overflow-hidden rounded-4xl p-6">
+            <div className="glass-card group relative flex-1 overflow-hidden rounded-2xl p-6">
               <div className="absolute inset-0 flex items-center bg-linear-to-b from-blue-500/20 to-transparent opacity-5 transition duration-500 group-hover:opacity-50">
                 <div className="relative h-32 w-full lg:h-64">
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')] bg-repeat-round opacity-30"></div>
@@ -156,7 +130,7 @@ export async function HeroSection() {
             </div>
 
             {/* Bottom Card */}
-            <div className="glass-card group relative h-auto overflow-hidden rounded-4xl p-6">
+            <div className="glass-card group relative h-auto overflow-hidden rounded-2xl p-6">
               <div className="relative z-10">
                 <div className="flex flex-col gap-8">
                   <div>

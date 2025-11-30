@@ -138,6 +138,7 @@ export function HomeCTAForm() {
                     fieldState={fieldState}
                     nameInSchema="firstName"
                     fieldTitle="First Name"
+                    placeholder="Your First Name"
                     className={precisionInputStyle}
                   />
                 )}
@@ -152,6 +153,7 @@ export function HomeCTAForm() {
                     fieldState={fieldState}
                     nameInSchema="lastName"
                     fieldTitle="Last Name"
+                    placeholder="Your Last Name"
                     className={precisionInputStyle}
                   />
                 )}
@@ -167,6 +169,7 @@ export function HomeCTAForm() {
                   nameInSchema="email"
                   field={field}
                   fieldState={fieldState}
+                  placeholder="Your Email Address"
                   fieldTitle="Email Address"
                   type="email"
                   className={precisionInputStyle}
@@ -186,7 +189,7 @@ export function HomeCTAForm() {
                   fieldTitle="Interested Service"
                   data={services}
                   // We style the Trigger here
-                  className="h-12 rounded-none border-0 border-b border-white/20 bg-transparent px-0 text-white focus:border-blue-400 focus:ring-0"
+                  className={`${precisionInputStyle} font-normal`}
                 />
               )}
             />
@@ -200,6 +203,7 @@ export function HomeCTAForm() {
                   nameInSchema="message"
                   field={field}
                   fieldState={fieldState}
+                  placeholder="Your Message"
                   fieldTitle="Project Details"
                   className={`${precisionInputStyle} min-h-[100px] resize-none pt-4`}
                 />

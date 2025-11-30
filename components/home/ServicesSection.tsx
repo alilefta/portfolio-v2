@@ -17,7 +17,7 @@ export default async function ServicesSection() {
         <hr className="mr-auto ml-auto h-0.5 w-24 bg-linear-to-r from-transparent via-zinc-500 to-transparent" />
       </div>
 
-      <div className="mb-12 grid grid-cols-2 gap-6 lg:grid-cols-3">
+      <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
           <ServiceCard
             service={service}

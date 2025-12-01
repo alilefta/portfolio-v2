@@ -28,7 +28,7 @@ export function CTASection() {
             className="mx-auto mb-6 flex items-center gap-2"
           >
             <Stars size={14} />
-            <span>Let's work together</span>
+            <span>Let&apos;s work together</span>
           </Badge>
           <h2 className="text-foreground mb-6 text-center text-5xl font-light tracking-tighter md:text-7xl">
             Ready to build

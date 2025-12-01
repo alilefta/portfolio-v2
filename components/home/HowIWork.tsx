@@ -15,11 +15,11 @@ export default function HowIWork() {
 
       <div className="flex flex-col gap-6">
         {/* Row 1 */}
-        <div className="bg-foreground/5 group relative flex items-center justify-between overflow-hidden rounded-2xl px-6 py-6">
-          <div className="absolute inset-0 w-full translate-x-1200 rotate-x-2 bg-blue-700 transition-transform duration-500 group-hover:translate-x-0"></div>
+        <div className="bg-foreground/8 group relative flex items-center justify-between overflow-hidden rounded-2xl px-6 py-6">
+          <div className="absolute inset-0 w-full translate-x-1200 rotate-x-2 bg-blue-700/70 transition-transform duration-500 group-hover:translate-x-0"></div>
 
           <div className="relative z-10 flex items-center gap-4">
-            <div className="text-foreground/2 group-hover:text-foreground/10 text-6xl transition-colors sm:text-9xl">
+            <div className="text-foreground/8 group-hover:text-foreground/15 text-6xl transition-colors sm:text-9xl">
               01
             </div>
             <div className="">
@@ -37,11 +37,11 @@ export default function HowIWork() {
         </div>
 
         {/* Row 2 */}
-        <div className="bg-foreground/5 group relative flex items-center justify-between overflow-hidden rounded-2xl px-6 py-6 md:ml-48">
-          <div className="absolute inset-0 w-full translate-x-1200 rotate-x-2 bg-blue-700 transition-transform duration-500 group-hover:translate-x-0"></div>
+        <div className="bg-foreground/8 group relative flex items-center justify-between overflow-hidden rounded-2xl px-6 py-6 md:ml-48">
+          <div className="absolute inset-0 w-full translate-x-1200 rotate-x-2 bg-blue-700/70 transition-transform duration-500 group-hover:translate-x-0"></div>
 
           <div className="relative z-10 flex items-center gap-4">
-            <div className="text-foreground/2 group-hover:text-foreground/10 text-6xl transition-colors duration-700 sm:text-9xl">
+            <div className="text-foreground/8 group-hover:text-foreground/15 text-6xl transition-colors duration-700 sm:text-9xl">
               02
             </div>
             <div className="">
@@ -59,11 +59,11 @@ export default function HowIWork() {
         </div>
 
         {/* Row 3 */}
-        <div className="bg-foreground/5 group relative flex items-center justify-between overflow-hidden rounded-2xl px-6 py-6">
-          <div className="absolute inset-0 w-full translate-x-1200 rotate-x-2 bg-blue-700 transition-transform duration-500 group-hover:translate-x-0"></div>
+        <div className="bg-foreground/8 group relative flex items-center justify-between overflow-hidden rounded-2xl px-6 py-6">
+          <div className="absolute inset-0 w-full translate-x-1200 rotate-x-2 bg-blue-700/70 transition-transform duration-500 group-hover:translate-x-0"></div>
 
           <div className="relative z-10 flex items-center gap-4">
-            <div className="text-foreground/2 group-hover:text-foreground/10 text-6xl transition-colors sm:text-9xl">
+            <div className="text-foreground/8 group-hover:text-foreground/15 text-6xl transition-colors sm:text-9xl">
               03
             </div>
             <div className="">
@@ -81,11 +81,11 @@ export default function HowIWork() {
         </div>
 
         {/* Row 4 */}
-        <div className="bg-foreground/5 group relative flex items-center justify-between overflow-hidden rounded-2xl px-6 py-6 md:ml-48">
-          <div className="absolute inset-0 w-full translate-x-1200 rotate-x-2 bg-blue-700 transition-transform duration-500 group-hover:translate-x-0"></div>
+        <div className="bg-foreground/8 group relative flex items-center justify-between overflow-hidden rounded-2xl px-6 py-6 md:ml-48">
+          <div className="absolute inset-0 w-full translate-x-1200 rotate-x-2 bg-blue-700/70 transition-transform duration-500 group-hover:translate-x-0"></div>
 
           <div className="relative z-10 flex items-center gap-4">
-            <div className="text-foreground/2 group-hover:text-foreground/10 text-6xl transition-colors sm:text-9xl">
+            <div className="text-foreground/8 group-hover:text-foreground/15 text-6xl transition-colors sm:text-9xl">
               04
             </div>
             <div className="">

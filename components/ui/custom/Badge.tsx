@@ -126,6 +126,7 @@ const badgeVariants = cva(
           "text-[var(--badge-outline-fg)] ",
           "border-[var(--badge-outline-border)] ",
           "shadow-[var(--badge-outline-shadow)]",
+          "border-[1px]",
         ],
 
         // 3. GLASS (Referencing Glass Tokens)

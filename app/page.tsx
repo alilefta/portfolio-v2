@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/home/Navbar";
 import AboutMe from "@/components/home/AboutMe";
-import CTASection from "@/components/home/CTA";
+import { CTASection } from "@/components/home/CTA";
 import FooterSection from "@/components/home/Footer";
 import HeroSection from "@/components/home/Hero";
 import SelectedWork from "@/components/home/SelectedWork";
@@ -10,6 +10,8 @@ import SocialProof from "@/components/home/SocialProof";
 import TechStack from "@/components/home/TechStack";
 import TheEvolutionSection from "@/components/home/TheEvolution";
 import WhyHiringMeIsDifferent from "@/components/home/WhyHiringMeIsDifferent";
+import HowIWork from "@/components/home/HowIWork";
+import SelectedWork2 from "@/components/home/SelectedWork2";
 
 // export const generateMetadata = async (): Promise<Metadata> => {
 //   const t = await getTranslations("HomePage");
@@ -27,12 +29,13 @@ export default async function Home() {
       <main className="w-full">
         <HeroSection />
         <SocialProof />
-        <SelectedWork />
+        <SelectedWork2 />
         <TechStack />
         <SkillsSection />
         <AboutMe />
-        <WhyHiringMeIsDifferent />
+        {/* <WhyHiringMeIsDifferent /> */}
         <TheEvolutionSection />
+        <HowIWork />
         <Services2 />
         <CTASection />
       </main>

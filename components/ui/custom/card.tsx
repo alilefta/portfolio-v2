@@ -4,9 +4,11 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
+// Note: If orientation is horizontal, put CardHeader, CardContent and CardFooter inside a div of block type
 // 1. THE PHYSICS ENGINE
 const cardVariants = cva(
-  "relative flex flex-col overflow-hidden transition-all duration-300 ease-out",
+  // Removed 'flex-col' from base, moved to orientation variant
+  "relative flex overflow-hidden transition-all duration-300 ease-out",
   {
     variants: {
       variant: {
@@ -29,10 +31,17 @@ const cardVariants = cva(
         ],
         false: "",
       },
+      // NEW: Orientation Logic
+      orientation: {
+        vertical: "flex-col",
+        horizontal: "flex-col md:flex-row", // Stack on mobile, row on desktop
+        horizontalReverse: "flex-col md:flex-row-reverse", // Image on right
+      },
     },
     defaultVariants: {
       variant: "glass",
       interactive: false,
+      orientation: "vertical",
     },
   },
 );
@@ -43,12 +52,12 @@ interface CardProps
     VariantProps<typeof cardVariants> {}
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant, interactive, ...props }, ref) => (
+  ({ className, variant, interactive, orientation, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
-        cardVariants({ variant, interactive }),
-        "rounded-4xl",
+        cardVariants({ variant, interactive, orientation }),
+        "rounded-4xl", // Updated to your preferred large radius
         className,
       )}
       {...props}
@@ -57,17 +66,14 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 );
 Card.displayName = "Card";
 
-// 3. SUB-COMPONENTS (Standard Layouts)
+// 3. SUB-COMPONENTS
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      "flex flex-col space-y-1.5 p-6 md:p-6 md:pb-2 lg:px-8 lg:py-8 lg:pb-4",
-      className,
-    )}
+    className={cn("flex flex-col space-y-1.5 p-6 md:p-8", className)}
     {...props}
   />
 ));
@@ -107,11 +113,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("px-6 py-6 pt-2 md:px-6 md:pt-2 lg:px-8", className)}
-    {...props}
-  />
+  <div ref={ref} className={cn("p-6 pt-0 md:p-8", className)} {...props} />
 ));
 CardContent.displayName = "CardContent";
 
@@ -122,7 +124,7 @@ const CardFooter = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "mt-auto flex items-center border-t border-zinc-100 p-6 pt-2 md:px-6 md:py-6 dark:border-white/5",
+      "mt-auto flex items-center border-t border-zinc-100 p-6 pt-0 md:p-8 dark:border-white/5",
       className,
     )}
     {...props}
@@ -130,7 +132,8 @@ const CardFooter = React.forwardRef<
 ));
 CardFooter.displayName = "CardFooter";
 
-// 4. IMAGE WRAPPER (For that "Window" look)
+// 4. IMAGE WRAPPER
+// Updated to handle both vertical (aspect-video) and horizontal (h-full) scenarios
 const CardImage = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -138,7 +141,9 @@ const CardImage = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "relative aspect-video w-full overflow-hidden border-b border-zinc-100 bg-zinc-100 dark:border-white/5 dark:bg-black/20",
+      "relative overflow-hidden bg-zinc-100 dark:bg-black/20",
+      // Default borders assuming vertical layout (can be overridden)
+      "border-b border-zinc-100 dark:border-white/5",
       className,
     )}
     {...props}
@@ -146,6 +151,7 @@ const CardImage = React.forwardRef<
 ));
 CardImage.displayName = "CardImage";
 
+// 5. FLOATING BAR
 interface CardFloatingBarProps extends React.HTMLAttributes<HTMLDivElement> {
   position?: "top" | "bottom";
 }
@@ -155,9 +161,7 @@ const CardFloatingBar = React.forwardRef<HTMLDivElement, CardFloatingBarProps>(
     <div
       ref={ref}
       className={cn(
-        // Base Layout: Absolute, full width, transparent, flex row
         "absolute left-0 z-20 flex w-full items-center justify-between p-4 md:p-6",
-        // Positioning logic
         position === "top" ? "top-0" : "bottom-0",
         className,
       )}

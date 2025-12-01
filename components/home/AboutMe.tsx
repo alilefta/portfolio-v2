@@ -1,5 +1,4 @@
-import { ArrowUpRight, GraduationCap, Sparkles } from "lucide-react";
-import { Badge } from "../ui/custom/Badge";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 export default function AboutMe() {
   return (
@@ -17,7 +16,7 @@ export default function AboutMe() {
         </div>
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] mask-[radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)] bg-size-[64px_64px]" />
 
         {/* Spotlight Effect */}
         <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-blue-500/20 opacity-0 blur-[100px] transition-opacity duration-700 group-hover:opacity-100" />
@@ -59,9 +58,9 @@ export default function AboutMe() {
                   <span className="font-semibold text-white">
                     0.1mm precision
                   </span>{" "}
-                  or it's rejected. That's where I learned that{" "}
+                  or it&apos;s rejected. That&apos;s where I learned that{" "}
                   <span className="font-semibold text-white">
-                    details aren't optional
+                    details aren&apos;t optional
                   </span>
                   .
                 </p>
@@ -111,7 +110,7 @@ export default function AboutMe() {
             <div className="space-y-4">
               {/* Card 1: The Big Win */}
               <div className="group/card relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-blue-500/50 hover:bg-white/10">
-                <div className="absolute -right-8 -bottom-8 text-[120px] leading-none font-bold text-white/[0.02] transition-all group-hover/card:text-white/[0.04]">
+                <div className="absolute -right-8 -bottom-8 text-[120px] leading-none font-bold text-white/2 transition-all group-hover/card:text-white/4">
                   01
                 </div>
                 <div className="relative">
@@ -195,7 +194,7 @@ export default function AboutMe() {
               <h4 className="mb-2 text-lg font-semibold">Precision Training</h4>
               <p className="text-sm leading-relaxed text-zinc-400">
                 Six years creating dental restorations taught me that perfection
-                isn't optional—it's the baseline.
+                isn&apos;t optional—it&apos;s the baseline.
               </p>
             </div>
           </div>
@@ -211,8 +210,8 @@ export default function AboutMe() {
               </div>
               <h4 className="mb-2 text-lg font-semibold">Industry Insider</h4>
               <p className="text-sm leading-relaxed text-zinc-400">
-                I don't learn your industry—I lived it. Real workflows. Real
-                problems. Real solutions.
+                I don&apos;t learn your industry—I lived it. Real workflows.
+                Real problems. Real solutions.
               </p>
             </div>
           </div>
@@ -229,7 +228,7 @@ export default function AboutMe() {
               <h4 className="mb-2 text-lg font-semibold">Proven Builder</h4>
               <p className="text-sm leading-relaxed text-zinc-400">
                 Not just coding tutorials. Built a product. Sold it. Supported
-                real users. That's the difference.
+                real users. That&apos;s the difference.
               </p>
             </div>
           </div>
@@ -242,7 +241,7 @@ export default function AboutMe() {
           href="#selected-work"
           className="group inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-white"
         >
-          <span>See what I've built</span>
+          <span>See what I&apos;ve built</span>
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>

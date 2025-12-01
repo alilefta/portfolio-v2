@@ -73,6 +73,9 @@ export function NavigationMenu() {
               <Link href={"/projects"} className="text-2xl rtl:text-base">
                 {t("HomePage.Projects")}
               </Link>
+              <Link href={"/contact"} className="text-2xl rtl:text-base">
+                {t("HomePage.Contact")}
+              </Link>
               <Link href={"/blog"} className="text-2xl rtl:text-base">
                 {t("HomePage.Blog")}
               </Link>

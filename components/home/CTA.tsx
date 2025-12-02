@@ -1,25 +1,12 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "../ui/custom/Button";
 import { MoveUpRight, Stars } from "lucide-react";
 import { Badge } from "../ui/custom/Badge";
-import { useTheme } from "next-themes";
 
 export function CTASection() {
-  const { theme } = useTheme();
   return (
     <section className="from-background bg-aurora to-background via-80& relative mx-auto min-h-96 w-full bg-radial from-10% via-indigo-400/30 to-100% px-4 py-0 md:px-8 lg:py-0 dark:via-indigo-600/30">
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            theme === "dark"
-              ? "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)"
-              : "linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)",
-          backgroundSize: "4rem 4rem",
-        }}
-      />
+      <div className={`bg-cta-section absolute inset-0`} />
 
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center gap-8 rounded-4xl bg-purple-500/20 px-4 py-4 backdrop-blur-3xl md:px-8 lg:py-12 dark:bg-indigo-600">
         <div className="flex flex-col">

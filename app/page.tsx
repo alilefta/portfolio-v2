@@ -12,6 +12,7 @@ import TheEvolutionSection from "@/components/home/TheEvolution";
 import WhyHiringMeIsDifferent from "@/components/home/WhyHiringMeIsDifferent";
 import HowIWork from "@/components/home/HowIWork";
 import SelectedWork2 from "@/components/home/SelectedWork2";
+import AboutMe_Redesign from "@/components/home/AboutMe_Redesign";
 
 // export const generateMetadata = async (): Promise<Metadata> => {
 //   const t = await getTranslations("HomePage");
@@ -32,8 +33,7 @@ export default async function Home() {
         <SelectedWork2 />
         <TechStack />
         <SkillsSection />
-        <AboutMe />
-        {/* <WhyHiringMeIsDifferent /> */}
+        <AboutMe_Redesign />
         <TheEvolutionSection />
         <HowIWork />
         <Services2 />

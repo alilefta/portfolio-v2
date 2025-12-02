@@ -218,7 +218,8 @@ export function HomeCTAForm() {
         <Button
           type="submit"
           form="contact-form"
-          className="h-14 w-full border-none bg-white text-base text-black hover:bg-zinc-200"
+          variant={"primary"}
+          className="w-full"
         >
           Send Message
         </Button>

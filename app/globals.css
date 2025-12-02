@@ -245,6 +245,10 @@
   /* Deeper shadow to simulate lifting up */
   --glass-card-shadow-hover:
     0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+
+  --bg-cta-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
 }
 
 .dark {
@@ -414,6 +418,15 @@
   --glass-card-border-hover: 1px solid rgba(59, 130, 246, 0.5); /* Strong Blue */
   /* The "Scientific" Center Glow */
   --glass-card-shadow-hover: 0 0 40px -5px rgba(59, 130, 246, 0.3);
+
+  --bg-cta-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+@utility bg-cta-section {
+  background-image: var(--bg-cta-image);
+  background-size: "4rem 4rem";
 }
 
 @utility bg-aurora {

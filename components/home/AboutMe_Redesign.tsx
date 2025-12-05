@@ -3,7 +3,7 @@ import { ArrowUpRight, Hospital } from "lucide-react";
 
 export default function AboutMe_Redesign() {
   return (
-    <section className="relative mx-auto max-w-7xl overflow-hidden rounded-md px-6 py-24 lg:px-0 lg:py-32">
+    <section className="relative mx-auto max-w-7xl overflow-hidden rounded-md px-6 py-24 lg:px-6 lg:py-32 xl:px-0">
       <div className="">
         <h3 className="mb-1 text-4xl tracking-tighter lg:text-6xl">
           Who <span className="text-foreground/50">I am</span>
@@ -24,8 +24,7 @@ export default function AboutMe_Redesign() {
             </div>
             <div className="col-span-8">
               <h2 className="mb-12 max-w-2xl text-5xl leading-tight font-light tracking-tighter text-zinc-900 capitalize md:text-6xl lg:text-6xl dark:text-white">
-                <span>Full Stack Developer</span>
-                <span className="ml-2.5">and Dental Technician</span>
+                Full Stack Developer and Dental Technician
               </h2>
             </div>
           </div>
@@ -33,13 +32,13 @@ export default function AboutMe_Redesign() {
           {/* Biography Section */}
           <div className="col-span-12 grid grid-cols-12 gap-4 border-y border-zinc-200 py-12 md:gap-0 dark:border-zinc-800">
             <div className="col-span-4">
-              <h5 className="text-sm text-zinc-500 dark:text-zinc-400">
+              <h5 className="mb-2 text-xs text-zinc-500 md:text-sm dark:text-zinc-400">
                 Biography
               </h5>
             </div>
-            <div className="col-span-6 flex max-w-2xl flex-col gap-8 font-serif text-lg text-zinc-700 dark:text-zinc-300">
+            <div className="col-span-6 flex max-w-2xl flex-col gap-8 font-serif text-base text-zinc-700 md:text-lg dark:text-zinc-300">
               <p>
-                I'm a full-stack engineer with a strong focus on building
+                I'm Ali, a full-stack engineer with a strong focus on building
                 practical, high-impact software. My background in both
                 technology and medical environments taught me how to solve
                 real-world problems with clarity, structure, and a calm,
@@ -63,7 +62,7 @@ export default function AboutMe_Redesign() {
           {/* Stats Section - Minimal Typography Focus */}
           <div className="grid grid-cols-12 gap-4 py-12 md:gap-0">
             <div className="col-span-4">
-              <h5 className="text-sm text-zinc-500 dark:text-zinc-400">
+              <h5 className="mt-1 text-xs text-zinc-500 md:text-sm dark:text-zinc-400">
                 Key Facts
               </h5>
             </div>
@@ -72,14 +71,14 @@ export default function AboutMe_Redesign() {
               <div className="group/stat border-b border-zinc-200 pb-8 transition-all hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600">
                 <div className="flex items-baseline justify-between">
                   <div>
-                    <div className="mb-2 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+                    <div className="mb-2 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
                       Achievement
                     </div>
                     <div className="text-2xl font-light tracking-tight text-zinc-900 md:text-3xl dark:text-white">
-                      Built and sold a SaaS product
+                      Built and sold an Enterprise product
                     </div>
                   </div>
-                  <div className="font-mono text-sm text-zinc-400 dark:text-zinc-500">
+                  <div className="mt-1 font-mono text-xs text-zinc-400 md:text-sm dark:text-zinc-500">
                     2024
                   </div>
                 </div>
@@ -88,7 +87,7 @@ export default function AboutMe_Redesign() {
               {/* Stat Row 2 - Experience Grid */}
               <div className="grid grid-cols-2 gap-8">
                 <div className="group/stat">
-                  <div className="mb-3 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+                  <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
                     Experience
                   </div>
                   <div className="flex items-baseline gap-1">
@@ -105,7 +104,7 @@ export default function AboutMe_Redesign() {
                 </div>
 
                 <div className="group/stat">
-                  <div className="mb-3 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+                  <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
                     Education
                   </div>
                   <div className="flex items-baseline gap-1">
@@ -124,9 +123,9 @@ export default function AboutMe_Redesign() {
 
               {/* Stat Row 3 - GPA Emphasis */}
               <div className="group/stat border-y border-zinc-200 py-8 transition-all hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600">
-                <div className="flex items-end justify-between">
+                <div className="flex flex-wrap items-end justify-between gap-2 sm:gap-0">
                   <div>
-                    <div className="mb-3 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+                    <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
                       Academic Performance
                     </div>
                     <div className="flex items-baseline gap-2">
@@ -153,9 +152,9 @@ export default function AboutMe_Redesign() {
               </div>
 
               {/* Stat Row 4 - Tech Stack Count */}
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 <div className="group/stat">
-                  <div className="mb-3 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+                  <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
                     Technologies
                   </div>
                   <div className="flex items-baseline gap-1">
@@ -172,15 +171,15 @@ export default function AboutMe_Redesign() {
                 </div>
 
                 <div className="group/stat">
-                  <div className="mb-3 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+                  <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
                     Availability
                   </div>
                   <div className="mt-2 flex items-center gap-2">
-                    <span className="animate-pulse text-6xl font-light text-zinc-900 dark:text-white">
-                      Available
+                    <span className="animate-pulse text-6xl font-light tracking-tighter text-zinc-900 md:text-7xl dark:text-white">
+                      Sure.
                     </span>
                   </div>
-                  <div className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+                  <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
                     Remote • UTC+3
                   </div>
                 </div>
@@ -188,7 +187,7 @@ export default function AboutMe_Redesign() {
 
               {/* Stat Row 5 - Location (Minimal) */}
               <div className="group/stat border-t border-zinc-200 py-8 transition-all hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600">
-                <div className="mb-3 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+                <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
                   Based in
                 </div>
                 <div className="flex items-center gap-3">

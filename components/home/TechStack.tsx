@@ -2,7 +2,7 @@ import {
   coreDevelopment,
   frameworksAndLibraries,
   toolsAndPlatforms,
-} from "@/lib/data/techstack_section";
+} from "@/lib/db/techstack_section";
 import { TechStackItem } from "@/lib/types/common";
 import { MoveRight } from "lucide-react";
 

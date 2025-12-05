@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/custom/Badge";
 import { Button } from "../ui/custom/Button";
-import { ServiceItem, services } from "@/lib/data/services_section";
+import { ServiceItem, services } from "@/lib/db/services_section";
 import { DynamicIcon } from "lucide-react/dynamic";
 import { Star } from "lucide-react";
 import { getLocale } from "next-intl/server";

@@ -78,7 +78,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${noto_kufi.variable} ${bixie.variable} ${tido.variable} ${alexandria.variable} tracking-normal antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${noto_kufi.variable} ${bixie.variable} ${tido.variable} ${alexandria.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

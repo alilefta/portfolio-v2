@@ -1,4 +1,4 @@
-import { professionalSkills, technicalSkills } from "@/lib/data/skills_section";
+import { professionalSkills, technicalSkills } from "@/lib/db/skills_section";
 
 import { SkillItem } from "@/lib/types/common";
 

@@ -1,3 +1,6 @@
+import z from "zod";
+import { Environment, Technology } from "../db/environments_tech/types";
+
 /** Defines the structure for a technology or tool in the Tech Stack Matrix. */
 export interface TechStackItem {
   name: string;
@@ -45,25 +48,4 @@ export interface ProjectSummary {
   badge_tag_2?: string;
 }
 
-export type Environment = "web" | "desktop" | "cloud";
-
-export type Technology =
-  | "react"
-  | "nextjs"
-  | "python"
-  | "csharp"
-  | "node"
-  | ".NET & WPF"
-  | "typescript"
-  | "postgreSQL"
-  | "drizzle"
-  | "prisma"
-  | "sqlite"
-  | "eFCore"
-  | "mathematics"
-  | "chaos theory"
-  | "custom-tkinter-UI"
-  | "numPy"
-  | "flask"
-  | "django"
-  | "stripe";
+export const Project = z.object();

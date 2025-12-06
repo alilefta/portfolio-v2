@@ -1,103 +1,57 @@
 "use client";
-
-import { getAllTechstack } from "@/lib/techstack-actions";
-import { TechStackItem } from "@/lib/types/common";
 import { Filter } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "@/components/ui/select";
+import {
+  EnvironmentsFilter,
+  TechnologiesFilter,
+  technologiesFilter,
+} from "@/lib/db/environments_tech/schema";
+import { useRouter } from "next/navigation";
 
-export function FilterProjectsByTech() {
-  const [techStack, setTechStack] = useState<TechStackItem[]>([
-    {
-      name: "All",
-      context: "Show All Technologies",
-    },
-  ]);
-  const [selectedTech, setSelectedTech] = useState<TechStackItem | null>(null);
+export function FilterProjectsByTech({
+  currentEnvironment,
+  currentTechnology,
+}: {
+  currentEnvironment: EnvironmentsFilter;
+  currentTechnology: TechnologiesFilter;
+}) {
+  const technologies = technologiesFilter;
 
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const techParam = searchParams.get("technology");
-
-    const getEnvs = async () => {
-      const techStack: TechStackItem[] = await getAllTechstack();
-
-      setTechStack((s) => [...s, ...techStack]);
-      // console.log(techStack);
-
-      if (techParam) {
-        setSelectedTech(
-          techStack.find((el) => el.name.toLowerCase() === techParam) ?? {
-            name: "All",
-            context: "Show All Technologies",
-          },
-        );
-      } else {
-        setSelectedTech(
-          techStack.find((el) => el.name.toLowerCase() === "all") ?? {
-            name: "All",
-            context: "Show All Technologies",
-          },
-        );
-      }
-    };
-
-    getEnvs();
-  }, []);
-
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams],
-  );
-
-  useEffect(() => {
-    if (selectedTech) {
-      router.push(
-        pathname +
-          "?" +
-          createQueryString(
-            "technology",
-            selectedTech.name.toLocaleLowerCase(),
-          ),
-      );
-    }
-  }, [selectedTech]);
 
   return (
     <div className="col-span-12 flex items-center justify-stretch md:col-span-6 lg:col-span-4">
       <div className="flex flex-1 items-center gap-2">
         <Filter className="h-4 w-4 text-zinc-400" />
         <Select
-          defaultValue={
-            techStack.find((t) => t.name === "All")?.name ?? undefined
+          defaultValue={"All Technologies"}
+          value={
+            currentTechnology[0].toUpperCase() + currentTechnology.slice(1)
           }
-          onValueChange={(val) =>
-            setSelectedTech(techStack.find((t) => t.name === val) ?? null)
+          onValueChange={(value) =>
+            router.push(
+              `/projects?environment=${currentEnvironment}&technology=${value}`,
+            )
           }
-          value={selectedTech?.name ?? ""}
         >
           <SelectTrigger title="filter technologies" className="w-full">
-            <SelectValue placeholder={"All Technologies"}></SelectValue>
+            <SelectValue
+              placeholder={"All Technologies"}
+              className="capitalize"
+            >
+              {currentTechnology[0].toUpperCase() + currentTechnology.slice(1)}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent>
-            {techStack.map((tech) => (
-              <SelectItem key={tech.name} value={tech.name}>
-                {tech.name === "All" ? "All Technologies" : tech.name}
+            {technologies.map((tech) => (
+              <SelectItem key={tech} value={tech} className="capitalize">
+                {tech.toString()}
               </SelectItem>
             ))}
           </SelectContent>

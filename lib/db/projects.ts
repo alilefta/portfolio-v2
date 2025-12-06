@@ -12,8 +12,8 @@ export const projects: ProjectSummary[] = [
     },
     description:
       "An enterprise desktop application managing case workflows, staff compensation, and client relationships for Dental Laboratories.",
-    environment: "desktop",
-    tech_stack: [".NET & WPF", "csharp", "eFCore", "sqlite"],
+    environment: "Desktop",
+    tech_stack: [".NET", "WPF", "C#", "EFCore", "SQLite"],
     github_url: "https://github.com/alilefta/OscarLab-Distro",
     privacy: "close_source",
     additional_info: {
@@ -37,8 +37,8 @@ export const projects: ProjectSummary[] = [
     },
     description:
       "Next-generation cloud-based lab management with real-time collaboration, scheduling, and integrated mini-services marketplace.",
-    environment: "cloud",
-    tech_stack: ["nextjs", "typescript", "react", "postgreSQL"],
+    environment: "Cloud",
+    tech_stack: ["Next.js", "Typescript", "React", "PostgreSQL"],
     github_url: "https://github.com/alilefta/labora",
     privacy: "close_source",
     screenshots: {
@@ -58,13 +58,13 @@ export const projects: ProjectSummary[] = [
     },
     description:
       "Advanced encryption algorithm using 5D chaotic system for secure image transmission and storage.",
-    environment: "desktop",
+    environment: "Desktop",
     tech_stack: [
-      "chaos theory",
-      "mathematics",
-      "python",
-      "custom-tkinter-UI",
-      "numPy",
+      "Chaos_Theory",
+      "Mathematics",
+      "Python",
+      "Custom_Tkinter_UI",
+      "NumPy",
     ],
     github_url: "https://github.com/alilefta/chaotic_5D_novel_crypto",
     privacy: "close_source",
@@ -86,8 +86,8 @@ export const projects: ProjectSummary[] = [
     },
     description:
       "All-in-one dashboard for freelancers to manage projects, track time, invoice clients, and monitor finances. Built for solo developers who need simple, powerful tools.",
-    environment: "cloud",
-    tech_stack: ["nextjs", "typescript", "postgreSQL", "stripe"],
+    environment: "Cloud",
+    tech_stack: ["Next.js", "Typescript", "PostgreSQL", "Stripe"],
 
     github_url: "https://github.com/alilefta/Freelancer-Command-Center",
     privacy: "close_source",

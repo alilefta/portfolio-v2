@@ -26,6 +26,8 @@ export default async function Project({ params }: PageProps) {
     notFound();
   }
 
+  const { default: Project } = await import(`@/content/projects/${slug}.mdx`);
+
   return (
     <div className="mx-auto min-h-dvh max-w-7xl px-8 py-12 pt-18 lg:px-0">
       <Breadcrumb className="mt-8">
@@ -56,23 +58,23 @@ export default async function Project({ params }: PageProps) {
         </div>
 
         <div className="w-full">
-          <div className="mb-12 grid grid-cols-12 gap-12">
+          <div className="mb-12 grid gap-4 md:grid-cols-12 md:gap-12">
             <div className="col-span-12 lg:col-span-4">
               <h5 className="mb-4 text-sm text-zinc-500 dark:text-zinc-400">
                 Work
               </h5>
             </div>
             <div className="col-span-12 lg:col-span-8">
-              <h1 className="mb-6 max-w-3xl text-5xl leading-tight font-light tracking-tighter text-zinc-900 capitalize md:text-6xl lg:text-7xl dark:text-white">
+              <h1 className="mb-6 max-w-3xl text-4xl leading-tight font-light tracking-tighter text-wrap text-zinc-900 capitalize md:text-6xl lg:text-7xl dark:text-white">
                 {project.title}
               </h1>
-              <p className="text-foreground/70 max-w-2xl font-serif text-lg">
+              <p className="text-foreground/70 max-w-2xl font-serif text-sm md:text-lg">
                 {project.description}
               </p>
             </div>
           </div>
 
-          <div className="mb-12 grid grid-cols-12 gap-12">
+          <div className="mb-12 grid grid-cols-12 gap-4 lg:gap-12">
             <div className="col-span-12 lg:col-span-4"></div>
             <div className="col-span-12 flex items-center gap-4 lg:col-span-8">
               {project.tech_stack.map((tech) => (
@@ -84,7 +86,7 @@ export default async function Project({ params }: PageProps) {
           </div>
 
           {/* Gallary here */}
-          <div className="grid grid-cols-12 gap-12">
+          <div className="mb-12 grid grid-cols-12 gap-4 lg:gap-12">
             <div className="col-span-12 lg:col-span-4"></div>
             <div className="col-span-12 lg:col-span-8">
               {project.screenshots.theme !== "none" ? (
@@ -110,6 +112,13 @@ export default async function Project({ params }: PageProps) {
           {/* Features */}
           {/* Architecture and decisions */}
           {/* MDX Content for case study */}
+
+          <div className="grid grid-cols-12 gap-4 lg:gap-12">
+            <div className="col-span-12 lg:col-span-4"></div>
+            <div className="col-span-12 lg:col-span-8">
+              <Project />
+            </div>
+          </div>
         </div>
       </section>
     </div>

@@ -2,8 +2,6 @@ import { FilterProjectsByEnvironments } from "@/components/projects/FilterProjec
 import { FilterProjectsByTech } from "@/components/projects/FilterProjectsByTech";
 import { Badge } from "@/components/ui/custom/Badge";
 import { getFilteredProjects } from "@/lib/projects-actions";
-import { ProjectSummary } from "@/lib/types/common";
-import { ExternalLink, Github, MoveUpRight, Search, Smile } from "lucide-react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,8 +10,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Image from "next/image";
 import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
+import { filtersSchema } from "@/lib/db/environments_tech/schema";
+import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
+import { Search } from "lucide-react";
 export const metadata = {
   title: "Projects",
   description: "Selected work from concept to production",
@@ -23,9 +24,22 @@ interface PageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;
 }
 export default async function ProjectsPage({ searchParams }: PageProps) {
-  const { environment, technology, q } = await searchParams;
+  const params = await searchParams;
+
+  const { data, error } = filtersSchema.safeParse(params);
+
+  if (error) {
+    notFound();
+  }
+
+  if (!data) {
+    redirect("/projects?environment=All&technology=All");
+  }
+  const { environment, technology } = data;
+
   const { projects, filteredCount, totalCount, hasSelectedFilters } =
     await getFilteredProjects(environment, technology);
+
   return (
     <div className="mx-auto min-h-dvh max-w-7xl px-8 py-12 pt-18 lg:px-0">
       <Breadcrumb className="mt-8">
@@ -95,10 +109,16 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
             </div>
 
             {/* Environment Filter */}
-            <FilterProjectsByEnvironments />
+            <FilterProjectsByEnvironments
+              currentEnvironment={environment}
+              currentTechnology={technology}
+            />
 
             {/* Technology Filter */}
-            <FilterProjectsByTech />
+            <FilterProjectsByTech
+              currentEnvironment={environment}
+              currentTechnology={technology}
+            />
           </div>
           <div className="mt-4 flex items-center gap-2.5 lg:mt-2.5">
             {/* Results count */}
@@ -126,7 +146,12 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
       >
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectSummaryCard
+              key={project.id}
+              project={project}
+              orientation="vertical"
+              interactive={false}
+            />
           ))}
         </div>
 
@@ -146,109 +171,5 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
         )}
       </section>
     </div>
-  );
-}
-
-function ProjectCard({ project }: { project: ProjectSummary }) {
-  return (
-    <article className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700">
-      {/* Image */}
-      <div className="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-        {project.screenshots.theme !== "none" ? (
-          <Image
-            src={
-              project.screenshots.theme === "dark"
-                ? `/images/projects/${project.slug}/${project.slug}_dark.${project.screenshots.ext}`
-                : `/images/projects/${project.slug}/${project.slug}_light.${project.screenshots.ext}`
-            }
-            width={800}
-            height={800}
-            alt={project.title}
-          />
-        ) : (
-          <div className="text-foreground/40 flex h-full w-full flex-col items-center justify-center gap-6">
-            <Smile className="" size={40} />
-            <h2 className="text-3xl tracking-tight">Comming soon</h2>
-          </div>
-        )}
-
-        {/* Status Badge */}
-        <div className="absolute top-4 left-4">
-          <span
-            className={`rounded-full px-3 py-1 text-xs font-medium ${
-              project.status.type === "deployed" ||
-              project.status.type === "undeployed"
-                ? "bg-emerald-500/20 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400"
-                : "bg-blue-500/20 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400"
-            }`}
-          >
-            {project.status.type === "deployed" ? "Deployed" : "In Development"}
-          </span>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6">
-        {/* Year */}
-        <div className="mb-2 font-mono text-xs text-zinc-500 dark:text-zinc-400">
-          {project.year}
-        </div>
-
-        {/* Title */}
-        <h3 className="mb-3 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-          <Link href={`/projects/${project.slug}`}>{project.title}</Link>
-        </h3>
-
-        {/* Description */}
-        <p className="mb-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-          {project.description}
-        </p>
-
-        {/* Tags */}
-        <div className="mb-6 flex flex-wrap gap-2">
-          {project.tech_stack.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-lg border border-zinc-200 bg-zinc-50 px-2 py-1 text-xs text-zinc-700 dark:border-zinc-800 dark:bg-zinc-800/50 dark:text-zinc-300"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Links */}
-        <div className="flex items-center gap-4">
-          <a
-            href={`/projects/${project.slug}`}
-            className="group/link inline-flex items-center gap-2 text-sm font-medium text-zinc-900 transition-colors hover:text-zinc-700 dark:text-white dark:hover:text-zinc-300"
-          >
-            View Details
-            <MoveUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-          </a>
-
-          {project.github_url && (
-            <a
-              href={project.github_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-          )}
-
-          {project.live_preview && (
-            <a
-              href={project.live_preview}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-            >
-              <ExternalLink className="h-5 w-5" />
-            </a>
-          )}
-        </div>
-      </div>
-    </article>
   );
 }

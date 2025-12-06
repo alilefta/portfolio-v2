@@ -5,6 +5,7 @@ import {
   Fustat,
   Geist,
   Geist_Mono,
+  Playfair_Display,
   Inter,
   Noto_Kufi_Arabic,
 } from "next/font/google";
@@ -18,6 +19,12 @@ import localFont from "next/font/local";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const playfair_display = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 const alexandria = Alexandria({
@@ -78,7 +85,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${noto_kufi.variable} ${bixie.variable} ${tido.variable} ${alexandria.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${noto_kufi.variable} ${playfair_display.variable} ${bixie.variable} ${tido.variable} ${alexandria.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

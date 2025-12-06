@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/custom/Badge";
 import { getProjectBySlug } from "@/lib/projects-actions";
-import { Smile } from "lucide-react";
+import { Info, Smile, XCircle } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -11,6 +11,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { getLocale } from "next-intl/server";
+import { ReactNode } from "react";
 interface PageProps {
   params: Promise<{
     slug: string;
@@ -26,7 +28,12 @@ export default async function Project({ params }: PageProps) {
     notFound();
   }
 
-  const { default: Project } = await import(`@/content/projects/${slug}.mdx`);
+  const locale = await getLocale();
+
+  const { default: ProjectContent } = await safeImport(
+    `@/content/projects/${slug}_${locale}.mdx`,
+    () => <ContentNotFound title={project.title} />,
+  );
 
   return (
     <div className="mx-auto min-h-dvh max-w-7xl px-8 py-12 pt-18 lg:px-0">
@@ -74,12 +81,13 @@ export default async function Project({ params }: PageProps) {
             </div>
           </div>
 
+          {/* tech stack */}
           <div className="mb-12 grid grid-cols-12 gap-4 lg:gap-12">
             <div className="col-span-12 lg:col-span-4"></div>
             <div className="col-span-12 flex items-center gap-4 lg:col-span-8">
               {project.tech_stack.map((tech) => (
                 <Badge key={`${project.slug}_${tech}`} variant={"outline"}>
-                  {tech}
+                  {tech.replaceAll("_", " ")}
                 </Badge>
               ))}
             </div>
@@ -116,11 +124,31 @@ export default async function Project({ params }: PageProps) {
           <div className="grid grid-cols-12 gap-4 lg:gap-12">
             <div className="col-span-12 lg:col-span-4"></div>
             <div className="col-span-12 lg:col-span-8">
-              <Project />
+              <ProjectContent />
             </div>
           </div>
         </div>
       </section>
     </div>
   );
+}
+
+function ContentNotFound({ title }: { title: string }) {
+  return (
+    <div className="mt-16 flex items-center gap-2.5 rounded-2xl border-2 border-red-600/20 bg-red-900/15 px-8 py-8 text-red-700/60 dark:border-red-600/15 dark:bg-red-900/20 dark:text-red-400/50">
+      <XCircle size={20} />
+      <h5 className="text-lg tracking-tight capitalize">
+        Opps, the content is not available for{" "}
+        <span className="font-semibold">{`${title}`}</span> at this time.
+      </h5>
+    </div>
+  );
+}
+
+export async function safeImport(path: string, fallback: () => ReactNode) {
+  try {
+    return await import(path);
+  } catch {
+    return { default: fallback };
+  }
 }

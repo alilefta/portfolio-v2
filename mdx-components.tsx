@@ -38,7 +38,7 @@ const components = {
       {children}
     </ol>
   ),
-  li: ({ children }) => <li className="leading-6">{children}</li>,
+  li: ({ children }) => <li className="[ul]: leading-6">{children}</li>,
   blockquote: ({ children }) => (
     <blockquote className="border-primary/60 mt-6 border-l-4 pl-6 text-gray-700 italic dark:text-gray-300">
       {children}

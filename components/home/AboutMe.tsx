@@ -44,7 +44,7 @@ export default function AboutMe() {
             </Badge>
 
             {/* The Hook */}
-            <h2 className="mb-12 text-5xl leading-[1] font-light tracking-tighter text-zinc-900 md:text-6xl lg:text-8xl dark:text-white">
+            <h2 className="mb-12 text-5xl leading-none font-light tracking-tighter text-zinc-900 md:text-6xl lg:text-8xl dark:text-white">
               <span className="text-foreground">
                 From Dental Labs To Software engineering
               </span>
@@ -53,17 +53,17 @@ export default function AboutMe() {
             {/* The Narrative Blocks */}
             <div className="text-foreground/80 flex flex-col gap-4 font-serif">
               <p>
-                I’m a full-stack engineer with a strong focus on building
+                I&apos;m a full-stack engineer with a strong focus on building
                 practical, high-impact software. My background in both
                 technology and medical environments taught me how to solve
                 real-world problems with clarity, structure, and a calm,
-                analytical mindset. Whether I’m architecting a SaaS system,
+                analytical mindset. Whether I&apos;m architecting a SaaS system,
                 designing a UI, or optimizing backend logic, I care about the
                 details that make a product dependable, efficient, and pleasant
                 to use.
               </p>
               <p>
-                Outside of code, I’m someone who enjoys learning deeply,
+                Outside of code, I&apos;m someone who enjoys learning deeply,
                 simplifying complex ideas, and creating things that feel
                 intentional. I love systems thinking, clean design, and the
                 craft behind turning an idea into something functional and
@@ -173,13 +173,13 @@ export default function AboutMe() {
           <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white">
             What Makes This Different
           </h3>
-          <div className="ml-6 h-px flex-1 bg-gradient-to-r from-zinc-300 to-transparent dark:from-zinc-700" />
+          <div className="ml-6 h-px flex-1 bg-linear-to-r from-zinc-300 to-transparent dark:from-zinc-700" />
         </div>
 
         {/* Cards Grid */}
         <div className="grid gap-6 md:grid-cols-3">
           {/* Card 1 */}
-          <div className="group/diff relative overflow-hidden rounded-3xl border border-zinc-200 bg-gradient-to-br from-blue-500/5 to-transparent p-8 transition-all hover:border-blue-500/30 hover:from-blue-500/10 dark:border-zinc-800 dark:from-blue-500/5">
+          <div className="group/diff relative overflow-hidden rounded-3xl border border-zinc-200 bg-linear-to-br from-blue-500/5 to-transparent p-8 transition-all hover:border-blue-500/30 hover:from-blue-500/10 dark:border-zinc-800 dark:from-blue-500/5">
             <div className="absolute -top-6 -right-6 text-8xl opacity-[0.03] transition-opacity group-hover/diff:opacity-[0.08] dark:opacity-[0.03] dark:group-hover/diff:opacity-[0.06]">
               🦷
             </div>
@@ -192,13 +192,13 @@ export default function AboutMe() {
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Six years creating dental restorations taught me that perfection
-                isn't optional—it's the baseline.
+                isn&apos;t optional—it&apos;s the baseline.
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="group/diff relative overflow-hidden rounded-3xl border border-zinc-200 bg-gradient-to-br from-purple-500/5 to-transparent p-8 transition-all hover:border-purple-500/30 hover:from-purple-500/10 dark:border-zinc-800 dark:from-purple-500/5">
+          <div className="group/diff relative overflow-hidden rounded-3xl border border-zinc-200 bg-linear-to-br from-purple-500/5 to-transparent p-8 transition-all hover:border-purple-500/30 hover:from-purple-500/10 dark:border-zinc-800 dark:from-purple-500/5">
             <div className="absolute -top-6 -right-6 text-8xl opacity-[0.03] transition-opacity group-hover/diff:opacity-[0.08] dark:opacity-[0.03] dark:group-hover/diff:opacity-[0.06]">
               🏥
             </div>
@@ -210,14 +210,14 @@ export default function AboutMe() {
                 Industry Insider
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                I don't learn your industry—I lived it. Real workflows. Real
-                problems. Real solutions.
+                I don&apos;t learn your industry—I lived it. Real workflows.
+                Real problems. Real solutions.
               </p>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="group/diff relative overflow-hidden rounded-3xl border border-zinc-200 bg-gradient-to-br from-emerald-500/5 to-transparent p-8 transition-all hover:border-emerald-500/30 hover:from-emerald-500/10 dark:border-zinc-800 dark:from-emerald-500/5">
+          <div className="group/diff relative overflow-hidden rounded-3xl border border-zinc-200 bg-linear-to-br from-emerald-500/5 to-transparent p-8 transition-all hover:border-emerald-500/30 hover:from-emerald-500/10 dark:border-zinc-800 dark:from-emerald-500/5">
             <div className="absolute -top-6 -right-6 text-8xl opacity-[0.03] transition-opacity group-hover/diff:opacity-[0.08] dark:opacity-[0.03] dark:group-hover/diff:opacity-[0.06]">
               🚀
             </div>
@@ -230,7 +230,7 @@ export default function AboutMe() {
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Not just coding tutorials. Built a product. Sold it. Supported
-                real users. That's the difference.
+                real users. That&apos;s the difference.
               </p>
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function AboutMe() {
           href="#selected-work"
           className="group inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
         >
-          <span>See what I've built</span>
+          <span>See what I&apos;ve built</span>
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>

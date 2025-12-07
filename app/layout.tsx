@@ -15,7 +15,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 
 import localFont from "next/font/local";
-
+import { Analytics } from "@vercel/analytics/next";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -94,6 +94,7 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider> {children}</NextIntlClientProvider>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

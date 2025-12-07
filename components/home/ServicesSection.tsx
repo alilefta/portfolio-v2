@@ -3,9 +3,9 @@ import { Button } from "../ui/custom/Button";
 import { ServiceItem, services } from "@/lib/db/services_section";
 import { DynamicIcon } from "lucide-react/dynamic";
 import { Star } from "lucide-react";
-import { getLocale } from "next-intl/server";
+// import { getLocale } from "next-intl/server";
 export default async function ServicesSection() {
-  const locale = await getLocale();
+  // const locale = await getLocale();
 
   return (
     <section className="relative mx-auto max-w-7xl gap-12 rounded-2xl px-6 py-8 lg:px-8 lg:py-16">
@@ -42,8 +42,9 @@ export default async function ServicesSection() {
             Not Sure Where To Start?
           </h2>
           <p className="mb-10 text-lg font-light text-blue-100">
-            Book a free 30-minute call. Tell me what you're working on — I'll
-            help you figure out the best next step, even if it's not hiring me.
+            Book a free 30-minute call. Tell me what yo&apos;re working on —
+            I&apos;ll help you figure out the best next step, even if it&apos;s
+            not hiring me.
           </p>
 
           <button className="transform rounded-xl bg-white px-8 py-4 text-sm font-semibold text-indigo-900 shadow-xl transition-all hover:-translate-y-1 hover:bg-blue-50">

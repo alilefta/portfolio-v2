@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowUpRight, Hospital } from "lucide-react";
 
 export default function AboutMe_Redesign() {
@@ -38,17 +37,17 @@ export default function AboutMe_Redesign() {
             </div>
             <div className="col-span-6 flex max-w-2xl flex-col gap-8 font-serif text-base text-zinc-700 md:text-lg dark:text-zinc-300">
               <p>
-                I'm Ali, a full-stack engineer with a strong focus on building
-                practical, high-impact software. My background in both
+                I&apos;m Ali, a full-stack engineer with a strong focus on
+                building practical, high-impact software. My background in both
                 technology and medical environments taught me how to solve
                 real-world problems with clarity, structure, and a calm,
-                analytical mindset. Whether I'm architecting a SaaS system,
+                analytical mindset. Whether I&apos;m architecting a SaaS system,
                 designing a UI, or optimizing backend logic, I care about the
                 details that make a product dependable, efficient, and pleasant
                 to use.
               </p>
               <p>
-                Outside of code, I'm someone who enjoys learning deeply,
+                Outside of code, I&apos;m someone who enjoys learning deeply,
                 simplifying complex ideas, and creating things that feel
                 intentional. I love systems thinking, clean design, and the
                 craft behind turning an idea into something functional and
@@ -231,7 +230,7 @@ export default function AboutMe_Redesign() {
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Six years creating dental restorations taught me that perfection
-                isn't optional—it's the baseline.
+                isn&apos;t optional—it&apos;s the baseline.
               </p>
             </div>
           </div>
@@ -249,8 +248,8 @@ export default function AboutMe_Redesign() {
                 Industry Insider
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                I don't learn your industry—I lived it. Real workflows. Real
-                problems. Real solutions.
+                I don&apos;t learn your industry—I lived it. Real workflows.
+                Real problems. Real solutions.
               </p>
             </div>
           </div>
@@ -269,7 +268,7 @@ export default function AboutMe_Redesign() {
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Not just coding tutorials. Built a product. Sold it. Supported
-                real users. That's the difference.
+                real users. That&apos;s the difference.
               </p>
             </div>
           </div>
@@ -282,7 +281,7 @@ export default function AboutMe_Redesign() {
           href="#selected-work"
           className="group inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
         >
-          <span>See what I've built</span>
+          <span>See what I&apos;ve built</span>
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>

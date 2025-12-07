@@ -67,7 +67,7 @@ export function ColumnAccordion({
       <div className="flex flex-row gap-x-2 overflow-x-auto py-4 md:flex-col md:items-start md:gap-1 md:overflow-hidden md:p-0">
         {data.map(({ name, context }, i) => (
           <TechStackRow
-            key={`${i}_${name}_${context.substring(0, 4)}`}
+            key={`${i}_${name}_${context?.substring(0, 4) ?? ""}`}
             name={name}
             context={context}
           />

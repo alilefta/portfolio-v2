@@ -26,6 +26,7 @@
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-use-controllable-state": "^1.2.2",
+    "@shikijs/transformers": "^3.19.0",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.6.1",
     "class-variance-authority": "^0.7.1",

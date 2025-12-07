@@ -53,6 +53,9 @@ importers:
       '@radix-ui/react-use-controllable-state':
         specifier: ^1.2.2
         version: 1.2.2(@types/react@19.2.2)(react@19.2.1)
+      '@shikijs/transformers':
+        specifier: ^3.19.0
+        version: 3.19.0
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.13
@@ -1297,6 +1300,9 @@ packages:
 
   '@shikijs/themes@3.19.0':
     resolution: {integrity: sha512-H36qw+oh91Y0s6OlFfdSuQ0Ld+5CgB/VE6gNPK+Hk4VRbVG/XQgkjnt4KzfnnoO6tZPtKJKHPjwebOCfjd6F8A==}
+
+  '@shikijs/transformers@3.19.0':
+    resolution: {integrity: sha512-e6vwrsyw+wx4OkcrDbL+FVCxwx8jgKiCoXzakVur++mIWVcgpzIi8vxf4/b4dVTYrV/nUx5RjinMf4tq8YV8Fw==}
 
   '@shikijs/types@3.19.0':
     resolution: {integrity: sha512-Z2hdeEQlzuntf/BZpFG8a+Fsw9UVXdML7w0o3TgSXV3yNESGon+bs9ITkQb3Ki7zxoXOOu5oJWqZ2uto06V9iQ==}
@@ -4585,6 +4591,11 @@ snapshots:
 
   '@shikijs/themes@3.19.0':
     dependencies:
+      '@shikijs/types': 3.19.0
+
+  '@shikijs/transformers@3.19.0':
+    dependencies:
+      '@shikijs/core': 3.19.0
       '@shikijs/types': 3.19.0
 
   '@shikijs/types@3.19.0':

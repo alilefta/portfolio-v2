@@ -144,7 +144,7 @@ export default function AboutMe_Redesign() {
                       Computer Science
                     </div>
                     <div className="font-mono text-xs text-zinc-500 dark:text-zinc-500">
-                      Bachelor's Degree
+                      Bachelor&apos;s Degree
                     </div>
                   </div>
                 </div>

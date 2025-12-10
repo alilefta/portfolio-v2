@@ -19,7 +19,7 @@ interface PageProps {
   }>;
 }
 
-export default async function Project({ params }: PageProps) {
+export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
 
   const project = await getProjectBySlug(slug);
@@ -135,7 +135,7 @@ export default async function Project({ params }: PageProps) {
 
 function ContentNotFound({ title }: { title: string }) {
   return (
-    <div className="mt-16 flex items-center gap-2.5 rounded-2xl border-2 border-red-600/20 bg-red-900/15 px-8 py-8 text-red-700/60 dark:border-red-600/15 dark:bg-red-900/20 dark:text-red-400/50">
+    <div className="mt-16 flex items-center gap-2.5 rounded-2xl border-2 border-red-600/20 bg-red-500/15 px-8 py-6 text-red-700/60 dark:border-red-600/15 dark:bg-red-900/20 dark:text-red-400/50">
       <XCircle size={20} />
       <h5 className="text-lg tracking-tight capitalize">
         Opps, the content is not available for{" "}

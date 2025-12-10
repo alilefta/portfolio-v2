@@ -49,3 +49,17 @@ export interface ProjectSummary {
 }
 
 export const Project = z.object();
+
+export interface BlogPost {
+  slug: string;
+  metadata: {
+    title: string;
+    publishedAt: string;
+    summary: string;
+    category?: string;
+    tags?: string[];
+    readTime: string;
+    imageUrl?: string;
+  };
+  content: string; // The raw MDX content
+}

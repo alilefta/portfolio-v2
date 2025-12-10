@@ -87,7 +87,7 @@ export const CodeSnippet = ({
             {(item) => (
               <CodeBlockItem key={item.language} value={item.language}>
                 <CodeBlockContent
-                  className="overflow-x-auto p-5 text-sm leading-6"
+                  className="overflow-x-auto p-4 text-sm leading-6"
                   language={item.language as BundledLanguage}
                 >
                   {item.code}

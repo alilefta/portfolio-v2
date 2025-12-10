@@ -30,7 +30,7 @@ export async function generateMetadata({
       title: post.metadata.title,
       description: post.metadata.summary,
       type: "article",
-      images: [post.metadata.imageUrl || "/images/og-default.jpg"],
+      images: [post.metadata.coverImage || "/images/og-default.jpg"],
     },
   };
 }
@@ -96,10 +96,10 @@ export default async function BlogPost({
           </p>
 
           {/* Featured Image */}
-          {post.metadata.imageUrl && (
+          {post.metadata.coverImage && (
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm dark:border-zinc-800">
               <Image
-                src={post.metadata.imageUrl}
+                src={post.metadata.coverImage}
                 alt={post.metadata.title}
                 fill
                 className="object-cover"
@@ -142,7 +142,7 @@ export default async function BlogPost({
             <div className="flex items-center gap-4">
               <div className="relative h-12 w-12 overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-700">
                 <Image
-                  src="/images/avatar.jpg" // Ensure this path is correct
+                  src="/images/avatars/avatar.jpg" // Ensure this path is correct
                   alt="Ali Mohsin"
                   fill
                   className="object-cover"

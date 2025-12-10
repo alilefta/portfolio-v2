@@ -9,14 +9,11 @@ import {
 
 import BlogHero from "@/components/blog/BlogHero";
 import PostList from "@/components/blog/PostList";
-// import { getBlogPosts } from "@/lib/blog";
-import { BlogPost } from "@/lib/types/common";
 import FocusSpotlight from "@/components/blog/FocusSpotlight";
 import LabNotesScroll from "@/components/blog/LabNotesScroll";
 import AuthorCTA from "@/components/blog/AuthorCTA";
-import NewsletterCTA from "@/components/blog/NewsletterCta";
-import Footer from "@/components/blog/Footer";
 import SystemStatus from "@/components/blog/SystemStatus";
+import { BlogPost } from "@/lib/blog";
 
 export const metadata = {
   title: "Blog | Ali Mohsin",
@@ -32,7 +29,7 @@ const FEATURED_POST: BlogPost = {
     publishedAt: "Dec 02, 2025",
     readTime: "8 min read",
     category: "System Design",
-    imageUrl: "/images/projects/oscar_lab_system/oscar_lab_system_dark.png", // Using one of your existing images as placeholder
+    coverImage: "/images/projects/oscar-lab-system/oscar-lab-system-dark.png", // Using one of your existing images as placeholder
   },
   content: "", //raw mdx content
 };

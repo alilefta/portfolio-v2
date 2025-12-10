@@ -1,0 +1,28 @@
+---
+title: "Simple PostgreSQL Index Optimization Query"
+date: "2024-05-02"
+tags: ["PostgreSQL", "Database", "Optimization"]
+type: "Snippet"
+noteNumber: "003"
+---
+
+Indexes that are never used consume disk space and slow down `INSERT`/`UPDATE`/`DELETE` operations. This simple query identifies unused indexes that may be candidates for deletion.
+
+Run this query to find indexes that haven't been used since the last database restart or statistics reset.
+
+```sql
+SELECT
+  relname AS table_name,
+  indexrelid::regclass AS index_name,
+  pg_size_pretty(pg_relation_size(indexrelid)) AS index_size,
+  idx_scan
+FROM
+  pg_stat_user_indexes
+WHERE
+  idx_scan = 0
+  AND schemaname = 'public' -- Adjust schema if needed
+ORDER BY
+  pg_relation_size(indexrelid) DESC;
+```
+
+_Note_: Always verify with `EXPLAIN ANALYZE` before dropping an index in production!

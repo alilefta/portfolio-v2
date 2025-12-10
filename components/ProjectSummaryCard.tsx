@@ -11,33 +11,33 @@ import {
   CardImage,
   CardTitle,
 } from "@/components/ui/custom/card";
-import { ProjectSummary } from "@/lib/types/common";
 import { Button } from "./ui/custom/Button";
 import { MoveUpRight, Smile } from "lucide-react";
+import { Project } from "@/lib/projects";
 
 export function ProjectSummaryCard({
   project,
   orientation,
   interactive = false,
 }: {
-  project: ProjectSummary;
+  project: Project;
   orientation: "vertical" | "horizontal";
   interactive?: boolean;
 }) {
   return (
-    <Card key={project.id} interactive={interactive} orientation={orientation}>
+    <Card interactive={interactive} orientation={orientation}>
       <CardImage className="border-foreground/20 bg-foreground/20 relative aspect-video w-full overflow-hidden border-b dark:border-white/5 dark:bg-black/20">
-        {project.screenshots !== undefined ? (
-          project.screenshots.theme !== "none" ? (
+        {project.metadata.screenshots !== undefined ? (
+          project.metadata.screenshots.theme !== "none" ? (
             <Image
               src={
-                project.screenshots.theme === "dark"
-                  ? `/images/projects/${project.slug}/${project.slug}_dark.${project.screenshots.ext}`
-                  : `/images/projects/${project.slug}/${project.slug}_light.${project.screenshots.ext}`
+                project.metadata.screenshots.theme === "dark"
+                  ? `/images/projects/${project.imagesDir}/${project.imagesDir}-dark.${project.metadata.screenshots.ext}`
+                  : `/images/projects/${project.imagesDir}/${project.imagesDir}-light.${project.metadata.screenshots.ext}`
               }
               width={800}
               height={800}
-              alt={project.title}
+              alt={project.metadata.title}
             />
           ) : (
             <div className="text-foreground/40 flex h-full w-full flex-col items-center justify-center gap-6">
@@ -55,16 +55,16 @@ export function ProjectSummaryCard({
         {/* The Overlay (Dark Mode Only - Adds depth) */}
         <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]"></div>
 
-        {project.badge_tag_1 || project.badge_tag_2 ? (
+        {project.metadata.badge_tag_1 || project.metadata.badge_tag_2 ? (
           <CardFloatingBar position="top">
-            {project.badge_tag_1 && (
+            {project.metadata.badge_tag_1 && (
               <Badge variant="surface" intent="success">
                 <span className="mr-2 h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
-                {project.badge_tag_1}
+                {project.metadata.badge_tag_1}
               </Badge>
             )}
-            {project.badge_tag_2 && (
-              <Badge variant="glass">{project.badge_tag_2}</Badge>
+            {project.metadata.badge_tag_2 && (
+              <Badge variant="glass">{project.metadata.badge_tag_2}</Badge>
             )}
           </CardFloatingBar>
         ) : null}
@@ -76,55 +76,55 @@ export function ProjectSummaryCard({
             <div className="mb-8 flex items-center justify-between">
               {/* Project Type Label */}
               <span className="font-mono text-[10px] tracking-widest text-zinc-500 uppercase dark:text-zinc-400">
-                {project.environment}
+                {project.metadata.environment}
               </span>
 
-              {project.status.type === "deployed" && (
+              {project.metadata.status.type === "deployed" && (
                 <span className="font-mono text-xs text-zinc-400 dark:text-zinc-600">
-                  {project.status.deployement_year}
+                  {project.metadata.status.deployement_year}
                 </span>
               )}
             </div>
 
-            <CardTitle className="mb-2">{project.title}</CardTitle>
+            <CardTitle className="mb-2">{project.metadata.title}</CardTitle>
             <CardDescription className="max-w-3xl">
-              {project.description}
+              {project.metadata.description}
             </CardDescription>
           </CardHeader>
           <CardContent className="py-2 md:py-2">
             <div className="mb-4 flex flex-wrap gap-2">
-              {project.tech_stack.map((tech) => (
-                <Badge variant="outline" key={`${project.id}_${tech}`}>
+              {project.metadata.tech_stack.map((tech) => (
+                <Badge variant="outline" key={`${project.slug}_${tech}`}>
                   {tech.replace("_", " ")}
                 </Badge>
               ))}
             </div>
 
-            {project.additional_info &&
-              project.additional_info.business_impact && (
+            {project.metadata.additional_info &&
+              project.metadata.additional_info.business_impact && (
                 <div className="border-foreground/10 rounded-xl border px-6 py-4">
                   <span className="mb-2 text-xs tracking-wider text-zinc-600 dark:text-zinc-400">
                     Real Business Impact
                   </span>
                   <h5 className="text-foreground/90 text-sm tracking-tight">
-                    {project.additional_info.business_impact}
+                    {project.metadata.additional_info.business_impact}
                   </h5>
                 </div>
               )}
 
-            {project.status.type === "undeployed" && (
+            {project.metadata.status.type === "undeployed" && (
               <div className="border-foreground/10 rounded-xl border px-6 py-4">
                 <span className="mb-2 text-xs tracking-wider text-zinc-600 dark:text-zinc-400">
                   Expected status
                 </span>
                 <h5 className="text-foreground/90 text-sm tracking-tight">
-                  {project.status.expected_deployment}
+                  {project.metadata.status.expected_deployment}
                 </h5>
               </div>
             )}
           </CardContent>
           <CardFooter className="flex items-center justify-between">
-            {project.status.type === "deployed" ? (
+            {project.metadata.status.type === "deployed" ? (
               <>
                 <Button asChild variant={"ghost"}>
                   <Link
@@ -161,55 +161,55 @@ export function ProjectSummaryCard({
             <div className="mb-8 flex items-center justify-between">
               {/* Project Type Label */}
               <span className="font-mono text-[10px] tracking-widest text-zinc-500 uppercase dark:text-zinc-400">
-                {project.environment}
+                {project.metadata.environment}
               </span>
 
-              {project.status.type === "deployed" && (
+              {project.metadata.status.type === "deployed" && (
                 <span className="font-mono text-xs text-zinc-400 dark:text-zinc-600">
-                  {project.status.deployement_year}
+                  {project.metadata.status.deployement_year}
                 </span>
               )}
             </div>
 
-            <CardTitle className="mb-2">{project.title}</CardTitle>
+            <CardTitle className="mb-2">{project.metadata.title}</CardTitle>
             <CardDescription className="max-w-3xl">
-              {project.description}
+              {project.metadata.description}
             </CardDescription>
           </CardHeader>
           <CardContent className="py-2 md:py-2">
             <div className="mb-4 flex flex-wrap gap-2">
-              {project.tech_stack.map((tech) => (
-                <Badge variant="outline" key={`${project.id}_${tech}`}>
+              {project.metadata.tech_stack.map((tech) => (
+                <Badge variant="outline" key={`${project.slug}_${tech}`}>
                   {tech.replace("_", " ")}
                 </Badge>
               ))}
             </div>
 
-            {project.additional_info &&
-              project.additional_info.business_impact && (
+            {project.metadata.additional_info &&
+              project.metadata.additional_info.business_impact && (
                 <div className="border-foreground/10 rounded-xl border px-6 py-4">
                   <span className="mb-2 text-xs tracking-wider text-zinc-600 dark:text-zinc-400">
                     Real Business Impact
                   </span>
                   <h5 className="text-foreground/90 text-sm tracking-tight">
-                    {project.additional_info.business_impact}
+                    {project.metadata.additional_info.business_impact}
                   </h5>
                 </div>
               )}
 
-            {project.status.type === "undeployed" && (
+            {project.metadata.status.type === "undeployed" && (
               <div className="border-foreground/10 rounded-xl border px-6 py-4">
                 <span className="mb-2 text-xs tracking-wider text-zinc-600 dark:text-zinc-400">
                   Expected status
                 </span>
                 <h5 className="text-foreground/90 text-sm tracking-tight">
-                  {project.status.expected_deployment}
+                  {project.metadata.status.expected_deployment}
                 </h5>
               </div>
             )}
           </CardContent>
           <CardFooter className="flex items-center justify-between">
-            {project.status.type === "deployed" ? (
+            {project.metadata.status.type === "deployed" ? (
               <>
                 <Button asChild variant={"ghost"}>
                   <Link

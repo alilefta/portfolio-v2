@@ -5,11 +5,9 @@ import { ReactNode } from "react";
 
 export default function BlogLayout({ children }: { children: ReactNode }) {
   return (
-    <div>
+    <div className="bg-aurora w-full">
       <Navbar />
-      <main className="font-inter rtl:font-alexandria bg-aurora w-full">
-        {children}
-      </main>
+      <main className="font-inter rtl:font-alexandria w-full">{children}</main>
       <NewsletterCTA />
       <FooterSection />
     </div>

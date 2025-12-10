@@ -1,12 +1,12 @@
 import { MoveUpRight } from "lucide-react";
 import { Button } from "@/components/ui/custom/Button";
 
-import { getSelectedProjects } from "@/lib/projects-actions";
 import Link from "next/link";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
+import { getProjects } from "@/lib/projects";
 
-export default async function SelectedWork() {
-  const selectedWork = await getSelectedProjects();
+export default function SelectedWork() {
+  const selectedWork = getProjects();
   return (
     <section className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 px-6 py-8 lg:px-8 lg:py-12">
       <div className="col-span-12 mb-12 flex items-end justify-between">
@@ -34,7 +34,7 @@ export default async function SelectedWork() {
       <div className="flex flex-col gap-8">
         {selectedWork.map((project) => (
           <ProjectSummaryCard
-            key={project.id}
+            key={project.slug}
             project={project}
             orientation="horizontal"
             interactive={true}

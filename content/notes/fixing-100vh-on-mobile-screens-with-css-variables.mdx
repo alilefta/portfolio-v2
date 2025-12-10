@@ -1,0 +1,29 @@
+---
+title: "Fixing 100vh on mobile browsers with CSS variables"
+date: "Dec 02"
+type: "Snippet"
+noteNumber: "007"
+tags: ["CSS", "Mobile"]
+---
+
+Using `100vh` on mobile often causes scroll issues because of the address bar. Here is the modern fix using `dvh` (Dynamic Viewport Height).
+
+```css
+.h-screen-safe {
+  height: 100vh; /* Fallback */
+  height: 100dvh; /* Modern browsers */
+}
+```
+
+If you need to support older iOS versions, use the JS calculation method:
+
+```js
+// app.js
+const setHeight = () => {
+  document.documentElement.style.setProperty(
+    "--vh",
+    `${window.innerHeight * 0.01}px`,
+  );
+};
+window.addEventListener("resize", setHeight);
+```

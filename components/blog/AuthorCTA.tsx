@@ -22,18 +22,18 @@ export default function AuthorCTA() {
       {/* Main Card Container */}
       <div className="relative overflow-hidden rounded-[2.5rem] border border-zinc-200 bg-zinc-50 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-2xl">
         {/* 1. Background Pattern - Adjusted opacity for light/dark */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#000000_1px,transparent_1px)] bg-[size:20px_20px] opacity-[0.03] dark:bg-[radial-gradient(#ffffff_1px,transparent_1px)] dark:opacity-[0.08]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#000000_1px,transparent_1px)] bg-size-[20px_20px] opacity-[0.03] dark:bg-[radial-gradient(#ffffff_1px,transparent_1px)] dark:opacity-[0.08]" />
 
         {/* Subtle Gradient Glow */}
         <div className="pointer-events-none absolute -right-24 -bottom-24 h-64 w-64 bg-blue-500/10 blur-[100px] dark:bg-blue-500/10" />
 
         <div className="relative z-10 flex flex-col items-center gap-10 p-8 md:gap-16 md:p-16 lg:flex-row">
           {/* LEFT: Avatar & Identity */}
-          <div className="group relative flex-shrink-0">
+          <div className="group relative shrink-0">
             {/* Avatar Container */}
             <div className="relative h-32 w-32 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg md:h-44 md:w-44 dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-xl">
               <Image
-                src={"/images/avatars/avatar_2.jpg"}
+                src={"/images/avatars/avatar.jpg"}
                 alt="Ali mohsin's photo"
                 width={400}
                 height={400}
@@ -61,7 +61,7 @@ export default function AuthorCTA() {
           </div>
 
           {/* MIDDLE: Content */}
-          <div className="flex-grow text-center lg:text-left">
+          <div className="grow text-center lg:text-left">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 md:text-5xl dark:text-zinc-100">
               Ali Mohsin
               <span className="mt-2 block text-xl font-medium text-zinc-500 md:text-2xl dark:text-zinc-400">
@@ -74,8 +74,8 @@ export default function AuthorCTA() {
               <span className="font-semibold text-zinc-900 dark:text-zinc-200">
                 6+ years of clinical precision
               </span>{" "}
-              in dental tech with robust software architecture. I don't just
-              write code; I build production-ready systems.
+              in dental tech with robust software architecture. I don&apos;t
+              just write code; I build production-ready systems.
             </p>
 
             {/* Metrics Grid */}
@@ -103,7 +103,7 @@ export default function AuthorCTA() {
           </div>
 
           {/* RIGHT: Primary Action */}
-          <div className="w-full flex-shrink-0 lg:w-auto">
+          <div className="w-full shrink-0 lg:w-auto">
             <Link
               href={CONTACT_LINK}
               className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-zinc-900 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:bg-zinc-800 lg:w-auto dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white"

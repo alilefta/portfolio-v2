@@ -1,6 +1,5 @@
 import { Badge } from "@/components/ui/custom/Badge";
-import { getProjectBySlug } from "@/lib/projects-actions";
-import { Info, Smile, XCircle } from "lucide-react";
+import { Smile } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -12,7 +11,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { getLocale } from "next-intl/server";
-import { ReactNode } from "react";
+import { getProject } from "@/lib/projects";
+import { CustomMDX } from "@/mdx-components";
 interface PageProps {
   params: Promise<{
     slug: string;
@@ -22,18 +22,13 @@ interface PageProps {
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
 
-  const project = await getProjectBySlug(slug);
+  const project = getProject(slug);
 
   if (!project) {
     notFound();
   }
 
-  const locale = await getLocale();
-
-  const { default: ProjectContent } = await safeImport(
-    `@/content/projects/${slug}_${locale}.mdx`,
-    () => <ContentNotFound title={project.title} />,
-  );
+  // const locale = await getLocale();
 
   return (
     <div className="mx-auto min-h-dvh max-w-7xl px-8 py-12 pt-18 lg:px-0">
@@ -48,7 +43,7 @@ export default async function ProjectPage({ params }: PageProps) {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{project.title}</BreadcrumbPage>
+            <BreadcrumbPage>{project.metadata.title}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -73,10 +68,10 @@ export default async function ProjectPage({ params }: PageProps) {
             </div>
             <div className="col-span-12 lg:col-span-8">
               <h1 className="mb-6 max-w-3xl text-4xl leading-tight font-light tracking-tighter text-wrap text-zinc-900 capitalize md:text-6xl lg:text-7xl dark:text-white">
-                {project.title}
+                {project.metadata.title}
               </h1>
               <p className="text-foreground/70 max-w-2xl font-serif text-sm md:text-lg">
-                {project.description}
+                {project.metadata.description}
               </p>
             </div>
           </div>
@@ -85,7 +80,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <div className="mb-12 grid grid-cols-12 gap-4 lg:gap-12">
             <div className="col-span-12 lg:col-span-4"></div>
             <div className="col-span-12 flex items-center gap-4 lg:col-span-8">
-              {project.tech_stack.map((tech) => (
+              {project.metadata.tech_stack.map((tech) => (
                 <Badge key={`${project.slug}_${tech}`} variant={"outline"}>
                   {tech.replaceAll("_", " ")}
                 </Badge>
@@ -97,16 +92,16 @@ export default async function ProjectPage({ params }: PageProps) {
           <div className="mb-12 grid grid-cols-12 gap-4 lg:gap-12">
             <div className="col-span-12 lg:col-span-4"></div>
             <div className="col-span-12 lg:col-span-8">
-              {project.screenshots.theme !== "none" ? (
+              {project.metadata.screenshots.theme !== "none" ? (
                 <Image
                   src={
-                    project.screenshots.theme === "dark"
-                      ? `/images/projects/${project.slug}/${project.slug}_dark.${project.screenshots.ext}`
-                      : `/images/projects/${project.slug}/${project.slug}_light.${project.screenshots.ext}`
+                    project.metadata.screenshots.theme === "dark"
+                      ? `/images/projects/${project.imagesDir}/${project.imagesDir}-dark.${project.metadata.screenshots.ext}`
+                      : `/images/projects/${project.imagesDir}/${project.imagesDir}-light.${project.metadata.screenshots.ext}`
                   }
                   width={800}
                   height={800}
-                  alt={project.title}
+                  alt={project.metadata.title}
                 />
               ) : (
                 <div className="text-foreground/40 flex h-full w-full flex-col items-center justify-center gap-6">
@@ -124,31 +119,11 @@ export default async function ProjectPage({ params }: PageProps) {
           <div className="grid grid-cols-12 gap-4 lg:gap-12">
             <div className="col-span-12 lg:col-span-4"></div>
             <div className="col-span-12 lg:col-span-8">
-              <ProjectContent />
+              <CustomMDX source={project.content} />
             </div>
           </div>
         </div>
       </section>
     </div>
   );
-}
-
-function ContentNotFound({ title }: { title: string }) {
-  return (
-    <div className="mt-16 flex items-center gap-2.5 rounded-2xl border-2 border-red-600/20 bg-red-500/15 px-8 py-6 text-red-700/60 dark:border-red-600/15 dark:bg-red-900/20 dark:text-red-400/50">
-      <XCircle size={20} />
-      <h5 className="text-lg tracking-tight capitalize">
-        Opps, the content is not available for{" "}
-        <span className="font-semibold">{`${title}`}</span> at this time.
-      </h5>
-    </div>
-  );
-}
-
-export async function safeImport(path: string, fallback: () => ReactNode) {
-  try {
-    return await import(path);
-  } catch {
-    return { default: fallback };
-  }
 }

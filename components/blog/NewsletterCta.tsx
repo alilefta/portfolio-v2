@@ -23,7 +23,10 @@ export default function NewsletterCTA() {
   };
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 md:py-20">
+    <section
+      className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 md:py-20"
+      id="join-newsletter"
+    >
       <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 p-6 md:p-12 dark:border-zinc-800 dark:bg-zinc-900/50">
         {/* Decorative Background Pattern */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] opacity-[0.03] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] dark:opacity-[0.05]" />

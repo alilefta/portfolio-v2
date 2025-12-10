@@ -1,7 +1,20 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { BlogPost } from "./types/common";
+
+export interface BlogPost {
+  slug: string;
+  metadata: {
+    title: string;
+    publishedAt: string;
+    summary: string;
+    category?: string;
+    tags?: string[];
+    readTime: string;
+    coverImage?: string;
+  };
+  content: string; //mdx content
+}
 
 const contentDirectory = path.join(process.cwd(), "/content/blog");
 

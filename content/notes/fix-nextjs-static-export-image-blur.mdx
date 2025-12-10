@@ -1,0 +1,30 @@
+---
+title: "Fix: Next.js Static Export Image Blur"
+date: "2024-04-18"
+tags: ["Next.js", "Vercel", "Images"]
+type: "Fix"
+noteNumber: "004"
+---
+
+When running `next export` or using the static output `(output: 'export')`, the built-in Next.js Image Component often results in blurry images due to missing image optimization features that rely on a server.
+
+The Fix (Workaround):
+
+Set the `unoptimized` prop to `true` on the `<Image />` component.
+This bypasses the Next.js optimization logic entirely, ensuring the image is served directly as provided in the `public` directory, and is sharp.
+
+```js
+import Image from "next/image";
+
+function MyComponent() {
+  return (
+    <Image
+      src="/images/static-hero.jpg"
+      alt="Hero"
+      width={800}
+      height={600}
+      unoptimized={true} // <-- The key fix for static exports
+    />
+  );
+}
+```

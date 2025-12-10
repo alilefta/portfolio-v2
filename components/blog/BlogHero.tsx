@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Clock, Rss } from "lucide-react";
-import { BlogPost } from "@/lib/types/common";
+import { BlogPost } from "@/lib/blog";
+import { Button } from "../ui/custom/Button";
 
 const CATEGORIES = [
   { name: "Engineering", count: 12 },
@@ -36,13 +37,13 @@ export default async function BlogHero({
         {/* Fixed: Added min-h-[320px] for mobile image visibility */}
         <Link
           href={`/blog/${featured.slug}`}
-          className="group relative col-span-1 row-span-2 flex min-h-[320px] flex-col justify-end overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-900 shadow-sm transition-all duration-300 hover:shadow-md md:col-span-2 md:min-h-full lg:col-span-2 dark:border-zinc-800 dark:shadow-none"
+          className="group relative col-span-1 row-span-2 flex min-h-80 flex-col justify-end overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-900 shadow-sm transition-all duration-300 hover:shadow-md md:col-span-2 md:min-h-full lg:col-span-2 dark:border-zinc-800 dark:shadow-none"
         >
           {/* Background Image with Gradient Overlay */}
           <div className="absolute inset-0 z-0 h-full w-full">
-            {featured.metadata.imageUrl && (
+            {featured.metadata.coverImage && (
               <Image
-                src={featured.metadata.imageUrl}
+                src={featured.metadata.coverImage}
                 alt={featured.metadata.title}
                 fill
                 className="object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
@@ -51,7 +52,7 @@ export default async function BlogHero({
               />
             )}
             {/* Dark gradient overlay enforced in BOTH modes for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent" />
           </div>
 
           <div className="relative z-10 p-6 md:p-8">
@@ -137,9 +138,14 @@ export default async function BlogHero({
             </p>
           </div>
           <div className="relative z-10">
-            <button className="w-full rounded-lg bg-zinc-900 py-2 text-sm font-bold text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white">
-              Subscribe
-            </button>
+            <Button variant={"ghost"} asChild>
+              <Link
+                href={"/blog#join-newsletter"}
+                className="w-full rounded-lg bg-zinc-900 py-2 text-sm font-bold text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white"
+              >
+                Subscribe
+              </Link>
+            </Button>
           </div>
 
           {/* Decorative element */}

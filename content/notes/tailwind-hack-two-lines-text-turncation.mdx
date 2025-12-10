@@ -1,0 +1,29 @@
+---
+title: "Tailwind Hack: Two-line Text Truncation"
+date: "2024-05-21"
+tags: ["Tailwind", "CSS"]
+type: "Fix"
+noteNumber: "001"
+---
+
+Tailwind's built-in `truncate` utility only supports single-line truncation. To achieve exactly two (or N) lines of text truncation, you need to use the @tailwindcss/line-clamp plugin.
+
+Install the plugin: `npm install @tailwindcss/line-clamp`
+
+Add it to tailwind.config.js:
+
+```js
+// tailwind.config.js
+module.exports = {
+  plugins: [require("@tailwindcss/line-clamp")],
+};
+```
+
+Use the `line-clamp-2` utility in your HTML:
+
+```html
+<p class="line-clamp-2 text-gray-700">
+  This text will automatically truncate after the second line with an ellipsis,
+  ensuring a clean, consistent UI even with variable content lengths.
+</p>
+```

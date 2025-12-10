@@ -1,0 +1,29 @@
+---
+title: "First Look at Velite: The New Content Layer?"
+date: "2024-05-15"
+tags: ["Next.js", "Content", "Dev Tools"]
+type: "Review"
+noteNumber: "002"
+---
+
+Velite is a lightweight, file-based content layer built on top of Zod, designed to replace complex solutions like Contentlayer (now discontinued). It turns Markdown/MDX into strongly-typed JSON data.
+
+Why use it?
+
+Type Safety: Uses Zod schemas to validate and type content structure (e.g., ensuring a `slug` is always a `string`).
+
+Simple Setup: Define your content schemas in `velite.config.js` and run the CLI.
+
+Agnostic: Works great with Next.js, Astro, or any React framework.
+
+```js
+// velite.config.js snippet
+defineCollection({
+  name: "Post",
+  schema: s.object({
+    slug: s.slug(),
+    title: s.string().max(99),
+    content: s.mdx(),
+  }),
+});
+```

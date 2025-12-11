@@ -14,12 +14,13 @@ import { filtersSchema } from "@/lib/db/environments_tech/schema";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { Code2, Database, Globe, Layers } from "lucide-react";
 import { getFilteredProjects } from "@/lib/projects";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Projects",
-  description: "Selected work from concept to production",
+export const metadata: Metadata = {
+  title: "Selected Work",
+  description:
+    "Case studies of production-grade systems. From Enterprise Dental Lab Management to Cloud-based SaaS platforms. Built with precision.",
 };
-
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;
 }

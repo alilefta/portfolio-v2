@@ -8,18 +8,16 @@ import SkillsSection from "@/components/home/Skills";
 import SocialProof from "@/components/home/SocialProof";
 import TechStack from "@/components/home/TechStack";
 import TheEvolutionSection from "@/components/home/TheEvolution";
-import WhyHiringMeIsDifferent from "@/components/home/WhyHiringMeIsDifferent";
 import HowIWork from "@/components/home/HowIWork";
 import SelectedWork from "@/components/home/SelectedWork";
 import AboutMe_Redesign from "@/components/home/AboutMe_Redesign";
+import { Metadata } from "next";
 
-// export const generateMetadata = async (): Promise<Metadata> => {
-//   const t = await getTranslations("HomePage");
-
-//   return {
-//     title: `${t("title")}`,
-//   };
-// };
+export const metadata: Metadata = {
+  title: "Ali Mohsin | System Architect & Full Stack Engineer",
+  description:
+    "Bridging the gap between clinical precision and software architecture. Specialized in building scalable SaaS platforms and enterprise desktop systems.",
+};
 
 export default async function Home() {
   return (

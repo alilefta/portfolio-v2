@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { CategorySlug } from "./taxonomy";
 
 export interface BlogPost {
   slug: string;
@@ -8,7 +9,7 @@ export interface BlogPost {
     title: string;
     publishedAt: string;
     summary: string;
-    category?: string;
+    category?: CategorySlug;
     tags?: string[];
     readTime: string;
     coverImage?: string;

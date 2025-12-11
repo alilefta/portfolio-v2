@@ -14,10 +14,12 @@ import LabNotesScroll from "@/components/blog/LabNotesScroll";
 import AuthorCTA from "@/components/blog/AuthorCTA";
 import SystemStatus from "@/components/blog/SystemStatus";
 import { BlogPost } from "@/lib/blog";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Blog | Ali Mohsin",
-  description: "Engineering notes on dental tech and full-stack architecture.",
+export const metadata: Metadata = {
+  title: "Engineering Log", // Becomes: "Engineering Log | Ali Mohsin"
+  description:
+    "Technical deep dives into System Architecture, Database Scaling, .NET optimization, and Next.js performance. A digital garden of engineering problems solved.",
 };
 
 const FEATURED_POST: BlogPost = {
@@ -28,7 +30,7 @@ const FEATURED_POST: BlogPost = {
       "How I transitioned from 0.1mm physical precision to pixel-perfect system architecture for enterprise healthcare.",
     publishedAt: "Dec 02, 2025",
     readTime: "8 min read",
-    category: "System Design",
+    category: "backend",
     coverImage: "/images/projects/oscar-lab-system/oscar-lab-system-dark.png", // Using one of your existing images as placeholder
   },
   content: "", //raw mdx content
@@ -42,7 +44,7 @@ const RECENT_POST: BlogPost = {
       "Strategies for high-performance rendering in regions with unstable connections.",
     publishedAt: "Nov 28, 2025",
     readTime: "5 min read",
-    category: "Engineering",
+    category: "backend",
   },
   content: "",
 };
@@ -56,7 +58,7 @@ const archive_posts: BlogPost[] = [
       summary:
         "Strategies for SQLite and Cloud sync conflicts using C# and .NET.",
       publishedAt: "Dec 02, 2024",
-      category: "Architecture",
+      category: "architecture",
       tags: ["C#", "WPF", "Offline-First"],
       readTime: "8 mins",
     },
@@ -69,7 +71,7 @@ const archive_posts: BlogPost[] = [
       summary:
         "The mental shifts required when moving from physical fabrication to abstract logic.",
       publishedAt: "Nov 15, 2024",
-      category: "Career",
+      category: "career",
       tags: ["Career", "Personal"],
       readTime: "4 mins",
     },
@@ -82,7 +84,7 @@ const archive_posts: BlogPost[] = [
       summary:
         "Comparing NoSQL vs Relational data models for complex multi-tenant lab systems.",
       publishedAt: "Oct 28, 2024",
-      category: "Database",
+      category: "database",
       tags: ["PostgreSQL", "System Design"],
       readTime: "5 mins",
     },

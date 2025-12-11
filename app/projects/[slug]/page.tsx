@@ -10,14 +10,60 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { getLocale } from "next-intl/server";
-import { getProject } from "@/lib/projects";
+// import { getLocale } from "next-intl/server";
+import { getProject, getProjects } from "@/lib/projects";
 import { CustomMDX } from "@/mdx-components";
 interface PageProps {
   params: Promise<{
     slug: string;
   }>;
 }
+
+// 1. Static Site Generation (SSG)
+// This tells Next.js to build these pages at build time, making them instant.
+export async function generateStaticParams() {
+  const projects = getProjects();
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
+// 2. Dynamic SEO Metadata
+// export async function generateMetadata({ params }: PageProps) {
+//   const { slug } = await params;
+//   const project = getProject(slug);
+
+//   if (!project) {
+//     return;
+//   }
+
+//   const { title, description, screenshots: featuredImage } = project.metadata;
+
+//   return {
+//     title: title, // Result: "Oscar Lab System | Ali Mohsin"
+//     description: description,
+//     openGraph: {
+//       title: title,
+//       description: description,
+//       type: "article",
+//       url: `https://ali-mohsin.dev/projects/${slug}`,
+//       images: [
+//         {
+//           url: featuredImage || "/images/og-default.jpg", // TODO
+//           width: 1200,
+//           height: 630,
+//           alt: title,
+//         },
+//       ],
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       title: title,
+//       description: description,
+//       images: [featuredImage || "/images/og-default.jpg"],
+//     },
+//   };
+// }
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;

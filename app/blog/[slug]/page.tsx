@@ -127,12 +127,13 @@ export default async function BlogPost({
           {post.metadata.tags && (
             <div className="mb-10 flex flex-wrap gap-2">
               {post.metadata.tags.map((tag) => (
-                <span
+                <Link
+                  href={`/blog?q=${tag.toLocaleLowerCase().replaceAll(" ", "-")}#archive`}
                   key={tag}
                   className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400"
                 >
-                  #{tag}
-                </span>
+                  {tag}
+                </Link>
               ))}
             </div>
           )}

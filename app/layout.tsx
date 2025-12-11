@@ -69,8 +69,67 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: process.env.NEXT_PUBLIC_APP_NAME!,
-  description: "Ali's V2 Portfolio",
+  // 1. Base URL: Essential for OG images to work via relative paths
+  metadataBase: new URL("https://ali-mohsin.dev"), // REPLACE with your actual domain
+
+  // 2. Title Template: "Page Name | Ali Mohsin"
+  title: {
+    default: "Ali Mohsin | System Architect & Full Stack Engineer",
+    template: "%s | Ali Mohsin",
+  },
+
+  // 3. Default Description
+  description:
+    "Full Stack Engineer combining 6+ years of clinical dental precision with robust software architecture. Building production-ready systems with Next.js, .NET, and Cloud infrastructure.",
+
+  // 4. Keywords for SEO
+  keywords: [
+    "System Architect",
+    "Full Stack Engineer",
+    "Next.js Developer",
+    ".NET Core",
+    "Dental Technology",
+    "Software Architecture",
+    "React",
+    "TypeScript",
+  ],
+
+  // 5. Open Graph (Facebook, LinkedIn, Discord)
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://ali-mohsin.dev",
+    siteName: "Ali Mohsin",
+    images: [
+      {
+        url: "/images/og-default.jpg", // Create a default brand card in public/images
+        width: 1200,
+        height: 630,
+        alt: "Ali Mohsin - System Architect",
+      },
+    ],
+  },
+
+  // 6. Twitter / X
+  twitter: {
+    card: "summary_large_image",
+    title: "Ali Mohsin | System Architect",
+    creator: "@alimohsin", // Replace with your handle
+    images: ["/images/og-default.jpg"],
+  },
+
+  // 7. Robots (Ensure Google indexes you)
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default async function RootLayout({

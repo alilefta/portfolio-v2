@@ -6,6 +6,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { BlogPost } from "@/lib/blog";
+import { CategoryFilter } from "./CategoryFilter";
+import { getCategoryTitle } from "@/lib/taxonomy";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -31,6 +33,15 @@ export default function PostList({ posts }: { posts: BlogPost[] }) {
     setVisibleCount(ITEMS_PER_PAGE);
   }, [categoryParam, searchParam]);
 
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    posts.forEach((post) => {
+      const cat = post.metadata.category;
+      if (cat) counts[cat] = (counts[cat] || 0) + 1;
+    });
+    return counts;
+  }, [posts]);
+
   // 3. Derived Data: Unique Categories
   const categories = useMemo(() => {
     const cats = new Set(posts.map((p) => p.metadata.category).filter(Boolean));
@@ -49,8 +60,16 @@ export default function PostList({ posts }: { posts: BlogPost[] }) {
       const searchLower = searchParam.toLowerCase();
       const matchesSearch =
         searchParam === "" ||
+        // 1. Check Title
         post.metadata.title.toLowerCase().includes(searchLower) ||
-        post.metadata.summary.toLowerCase().includes(searchLower);
+        // 2. Check Summary
+        post.metadata.summary.toLowerCase().includes(searchLower) ||
+        // 3. Check Category Name (This fixes your issue)
+        post.metadata.category?.toLowerCase().includes(searchLower) ||
+        // 4. Check Tags (This allows searching for "Next.js" or "WPF")
+        post.metadata.tags?.some((tag) =>
+          tag.toLowerCase().includes(searchLower),
+        );
 
       return matchesCategory && matchesSearch;
     });
@@ -127,7 +146,8 @@ export default function PostList({ posts }: { posts: BlogPost[] }) {
           </div>
 
           {/* Filter Tabs (Desktop) */}
-          <div className="hidden flex-wrap gap-1 rounded-lg border border-zinc-200 bg-zinc-100 p-1 md:flex dark:border-zinc-800 dark:bg-zinc-900/50">
+          {/* Nice Buttons UI, I will keep it for reference */}
+          {/* <div className="hidden flex-wrap gap-1 rounded-lg border border-zinc-200 bg-zinc-100 p-1 md:flex dark:border-zinc-800 dark:bg-zinc-900/50">
             {categories.map((cat) => (
               <button
                 key={String(cat)}
@@ -142,7 +162,13 @@ export default function PostList({ posts }: { posts: BlogPost[] }) {
                 {String(cat)}
               </button>
             ))}
-          </div>
+          </div> */}
+
+          <CategoryFilter
+            currentCategory={categoryParam}
+            onSelect={(cat) => updateFilter("category", cat)}
+            counts={categoryCounts}
+          />
         </div>
       </div>
 
@@ -169,7 +195,7 @@ export default function PostList({ posts }: { posts: BlogPost[] }) {
                       updateFilter("category", post.metadata.category || "All");
                     }}
                   >
-                    {post.metadata.category}
+                    {getCategoryTitle(post.metadata.category ?? "")}
                   </span>
                 </div>
 

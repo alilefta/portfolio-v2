@@ -3,6 +3,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { Button } from "../ui/custom/Button";
 import { Cpu, Download, MapPin, MoveLeft, MoveRight } from "lucide-react";
 import { Badge } from "../ui/custom/Badge";
+import Link from "next/link";
 
 export default async function HeroSection() {
   const t = await getTranslations();
@@ -41,13 +42,18 @@ export default async function HeroSection() {
                 size={"lg"}
                 variant={"primary"}
               >
-                {t("HomePage.Cards.CTA_SeeSelectedWork")}
+                <Link
+                  href="#selected-work"
+                  className="flex items-center gap-2.5"
+                >
+                  {t("HomePage.Cards.CTA_SeeSelectedWork")}
 
-                {local === "en" ? (
-                  <MoveRight className="relative h-4 w-4 transition-transform group-hover:translate-x-1" />
-                ) : (
-                  <MoveLeft className="relative h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                )}
+                  {local === "en" ? (
+                    <MoveRight className="relative h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  ) : (
+                    <MoveLeft className="relative h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                  )}
+                </Link>
               </Button>
 
               <Button

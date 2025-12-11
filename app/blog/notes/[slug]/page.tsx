@@ -8,7 +8,12 @@ import Image from "next/image";
 import { Button } from "@/components/ui/custom/Button";
 import { ShareButton } from "@/components/ShareButton";
 
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
 // Generate static pages for performance
+// 1. Static Site Generation
 export async function generateStaticParams() {
   const notes = getLabNotes();
   return notes.map((note) => ({
@@ -16,25 +21,32 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+// 2. Dynamic Metadata
+export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const note = getLabNote(slug);
-  if (!note) return;
+
+  if (!note) {
+    return;
+  }
+
+  const { title, noteNumber, tags } = note.metadata;
+
   return {
-    title: `${note.metadata.title} | Lab Notes`,
-    description: `Engineering snippet: ${note.metadata.title}`,
+    // Result: "Tailwind Hack (Note #005) | Lab Notes"
+    title: `${title} (Note #${noteNumber || "00X"}) | Lab Notes`,
+    description: `Engineering snippet about ${tags?.join(", ") || "development"}.`,
+    openGraph: {
+      title: title,
+      description: `Ali Mohsin Lab Note #${noteNumber}`,
+      type: "article",
+      url: `https://ali-mohsin.dev/blog/notes/${slug}`,
+      // Notes usually rely on the default OG image unless you generate dynamic ones
+    },
   };
 }
 
-export default async function SingleNotePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function SingleNotePage({ params }: PageProps) {
   const { slug } = await params;
   const note = getLabNote(slug);
 

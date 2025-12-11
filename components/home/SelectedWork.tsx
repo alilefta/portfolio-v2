@@ -8,7 +8,10 @@ import { getProjects } from "@/lib/projects";
 export default function SelectedWork() {
   const selectedWork = getProjects();
   return (
-    <section className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 px-6 py-8 lg:px-8 lg:py-12">
+    <section
+      id="selected-work"
+      className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 px-6 py-8 lg:px-8 lg:py-12"
+    >
       <div className="col-span-12 mb-12 flex items-end justify-between">
         <div>
           <h3 className="mb-2 text-4xl tracking-tighter lg:text-6xl">

@@ -1,6 +1,13 @@
 import { HomeCTAForm } from "@/components/HomeCTAForm";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch for consulting, architectural reviews, or full-stack development opportunities. Available for high-impact projects.",
+};
 
 export default function ContactPage() {
   return (

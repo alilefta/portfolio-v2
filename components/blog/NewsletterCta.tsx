@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { Mail, ArrowRight, Check, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 export default function NewsletterCTA() {
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ export default function NewsletterCTA() {
     setTimeout(() => {
       setStatus("success");
       setEmail("");
+      toast.success("Thanks for joining our newsletter!");
       // Reset after 3 seconds
       setTimeout(() => setStatus("idle"), 3000);
     }, 1500);

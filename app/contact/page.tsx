@@ -1,7 +1,9 @@
 import { HomeCTAForm } from "@/components/HomeCTAForm";
 import { Button } from "@/components/ui/button";
+import { EMAIL, GITHUB, INSTAGRAM, TELEGRAM } from "@/lib/info";
 import { Mail, MapPin } from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -30,11 +32,11 @@ export default function ContactPage() {
                 Direct Contact
               </p>
               <a
-                href="mailto:alilefta95@gmail.com"
+                href={`mailto:${EMAIL}`}
                 className="group text-foreground flex items-center gap-3 font-mono text-2xl transition-colors hover:text-blue-400 md:text-3xl"
               >
                 <Mail className="text-foreground/60 h-6 w-6 transition-colors group-hover:text-blue-500" />
-                alilefta95@gmail.com
+                {EMAIL}
               </a>
             </div>
 
@@ -57,14 +59,27 @@ export default function ContactPage() {
                   size="icon"
                   className="border-foreground/10 hover:bg-foreground hover:text-background rounded-full"
                 >
-                  <span className="text-xs font-bold">TE</span>
+                  <Link href={TELEGRAM} target="_blank">
+                    <span className="text-xs font-bold">TE</span>
+                  </Link>
                 </Button>
                 <Button
                   variant="outline"
                   size="icon"
                   className="border-foreground/10 hover:bg-foreground hover:text-background rounded-full"
                 >
-                  <span className="text-xs font-bold">IG</span>
+                  <Link href={INSTAGRAM} target="_blank">
+                    <span className="text-xs font-bold">IG</span>
+                  </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="border-foreground/10 hover:bg-foreground hover:text-background rounded-full"
+                >
+                  <Link href={GITHUB} target="_blank">
+                    <span className="text-xs font-bold">GH</span>
+                  </Link>
                 </Button>
               </div>
             </div>

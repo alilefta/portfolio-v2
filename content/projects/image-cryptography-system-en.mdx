@@ -1,8 +1,10 @@
 ---
 title: "Image Cryptography System"
 status: { type: "deployed", deployement_year: "2024" }
-description: "Advanced encryption algorithm using 5D chaotic system for secure image transmission and storage."
+description: "A novel 5D hyperchaotic encryption algorithm designed specifically for high-correlation digital images, achieving 7.999 entropy and minimal computational overhead."
 environment: "Desktop"
+publishedAt: "2024"
+date: "2024-02-01"
 tech_stack:
   ["Chaos_Theory", "Mathematics", "Python", "Custom_Tkinter_UI", "NumPy"]
 github_url: "https://github.com/alilefta/chaotic_5D_novel_crypto"
@@ -16,4 +18,88 @@ screenshots:
 badge_tag_1: "Reasearch App"
 ---
 
-# Image Cryptography System
+## The Challenge: Analog Chaos in a Digital Industry
+
+Dental Laboratories operate at the intersection of healthcare and manufacturing. A single prosthetic case (like a crown or bridge) moves through 5-10 distinct production stages, involves multiple technicians, and requires precise financial tracking.
+
+Most labs still rely on paper tickets and spreadsheets. This leads to:
+
+1.  **Lost Cases:** Physical trays getting misplaced in the lab.
+2.  **Financial Leakage:** Unbilled work or miscalculated technician commissions.
+3.  **Lack of Insight:** Lab owners have no real-time data on monthly revenue or debts.
+
+I built **Oscar** to replace this analog chaos with a rigid, state-driven digital workflow.
+
+## System Architecture
+
+Since dental labs often operate in environments with unstable internet or require direct hardware integration (printers/scanners), a **Desktop-First** approach was chosen over a web app.
+
+### Core Stack Decisions
+
+- **Framework:** C# / WPF (.NET 8) for maximum performance and native OS integration.
+- **Data Layer:** SQLite with Entity Framework Core. This provides a zero-configuration database that lives locally on the client's machine, ensuring data ownership and speed.
+- **UI Library:** WPF UI (Modern Fluent Design) to break away from the "gray enterprise software" stereotype.
+
+## Key Modules
+
+### 1. State-Machine Case Tracking
+
+The heart of Oscar is the Case Manager. It treats every dental order as a state machine.
+
+- **States:** `Order Received` $\rightarrow$ `Designing` $\rightarrow$ `Milling` $\rightarrow$ `Ceramic` $\rightarrow$ `Quality Control` $\rightarrow$ `Delivered`.
+- **Validation:** A case cannot move to "Delivered" if financial requirements aren't met or if mandatory steps are skipped.
+
+### 2. Automated Financial Engine
+
+Dental technicians are often paid via complex commission structures (e.g., _Technician A gets 15% of the ceramic work, Technician B gets fixed rate per unit_).
+Oscar automates this entirely.
+
+- **Payroll Reports:** Generates detailed salary slips instantly based on completed units.
+- **Debt Tracking:** Tracks dentist payments and outstanding balances with visual alerts.
+
+### 3. Analytics Dashboard
+
+Integrated **LiveCharts2** to visualize lab performance:
+
+- Monthly Revenue vs. Expenses.
+- Case volume per Dentist (identifying top clients).
+- Technician efficiency ratings.
+
+## Technical Highlight: Serverless Licensing System
+
+Since this is **proprietary commercial software**, I needed a robust way to handle license keys without maintaining a dedicated auth server.
+
+I engineered a creative solution using the **GitHub API** as a backend:
+
+1.  **Request:** When a user installs Oscar, it generates a unique hardware fingerprint.
+2.  **Issue Tracking:** The app programmatically creates a "License Request" issue in a private GitHub repository via `Octokit.net`.
+3.  **Verification:** Once I approve the issue (add a specific label or comment), the application detects the status change on its next poll.
+4.  **Activation:** The app unlocks.
+
+This architecture meant **zero server costs** and **zero maintenance** for the licensing infrastructure while leveraging GitHub's enterprise-grade security.
+
+```csharp
+// Simplified Logic of the Activation Check
+public async Task<bool> CheckLicenseStatus(string hardwareId)
+{
+    var github = new GitHubClient(new ProductHeaderValue("OscarLab"));
+    // Queries private repo issues for the hardware ID tag
+    var issue = await github.Issue.GetAllForRepository("Oscar_Auth", new RepositoryIssueRequest {
+        Filter = IssueFilter.All,
+        Labels = { "approved", hardwareId }
+    });
+
+    return issue.Count > 0;
+}
+```
+
+## Deployment & Updates
+
+Desktop apps are notoriously hard to keep updated. Oscar solves this using **AutoUpdater.NET**.
+
+- The app checks an XML file hosted on a public GitHub repo on startup.
+- If a new version exists, it downloads the installer, runs it, and migrates the SQLite database schema automatically using EF Core Migrations.
+
+## Conclusion
+
+Oscar is more than a database; it is an operating system for dental labs. By combining the raw performance of C# with modern architectural patterns, it turned a fragile paper process into a resilient digital workflow.

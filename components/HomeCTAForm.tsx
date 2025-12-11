@@ -83,8 +83,6 @@ const services = [
 ];
 
 export function HomeCTAForm() {
-  // DEFINING THE PRECISION STYLE
-  // distinct from standard inputs: No background, bottom border only
   const precisionInputStyle =
     "bg-transparent! border-0 border-b border-white/20 rounded-none px-2 h-12 focus-visible:ring-0 focus-visible:border-blue-400 focus-visible:shadow-[0_1px_0_0_#60a5fa] placeholder:text-white/30 text-white transition-all shadow-none!";
   const form = useForm<FormSchema>({
@@ -214,7 +212,6 @@ export function HomeCTAForm() {
       </CardContent>
 
       <CardFooter className="flex flex-col items-center px-0 pt-8">
-        {/* Use your 'Primary' button variant here (The Glowing White one we discussed) */}
         <Button
           type="submit"
           form="contact-form"

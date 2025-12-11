@@ -1,5 +1,4 @@
 import { Navbar } from "@/components/home/Navbar";
-import AboutMe from "@/components/home/AboutMe";
 import { CTASection } from "@/components/home/CTA";
 import FooterSection from "@/components/home/Footer";
 import HeroSection from "@/components/home/Hero";
@@ -12,6 +11,8 @@ import HowIWork from "@/components/home/HowIWork";
 import SelectedWork from "@/components/home/SelectedWork";
 import AboutMe_Redesign from "@/components/home/AboutMe_Redesign";
 import { Metadata } from "next";
+import { TrustedBy } from "@/components/home/TrustedBy";
+import { Testimonials } from "@/components/home/Testimonials";
 
 export const metadata: Metadata = {
   title: "Ali Mohsin | System Architect & Full Stack Engineer",
@@ -33,7 +34,9 @@ export default async function Home() {
         <AboutMe_Redesign />
         <TheEvolutionSection />
         <HowIWork />
+        <TrustedBy />
         <Services2 />
+        <Testimonials />
         <CTASection />
       </main>
       <FooterSection />

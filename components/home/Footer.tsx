@@ -6,7 +6,43 @@ import {
   MessageCircle,
   Twitter,
   ArrowUpRight,
+  Linkedin,
+  Github,
+  LucideIcon,
 } from "lucide-react";
+import { EMAIL, INSTAGRAM, GITHUB, LINKEDIN, TELEGRAM } from "@/lib/info";
+
+const socail_links: {
+  label: string;
+  link: string;
+  icon: LucideIcon;
+  alt_icon: string;
+}[] = [
+  {
+    label: "Instagram",
+    link: INSTAGRAM,
+    icon: Instagram,
+    alt_icon: "IG",
+  },
+  {
+    label: "Telegram",
+    link: TELEGRAM,
+    icon: MessageCircle,
+    alt_icon: "IG",
+  },
+  {
+    label: "LinkedIn",
+    link: LINKEDIN,
+    icon: Linkedin,
+    alt_icon: "LI",
+  },
+  {
+    label: "GitHub",
+    link: GITHUB,
+    icon: Github,
+    alt_icon: "GH",
+  },
+];
 
 export default function FooterSection() {
   return (
@@ -80,10 +116,12 @@ export default function FooterSection() {
       <div className="mx-auto flex w-full flex-col gap-8 md:col-span-4 md:ml-auto md:w-fit md:justify-between lg:col-span-1 lg:gap-12">
         {/* Social Icons */}
         <div className="flex items-center gap-4 md:justify-end">
-          {[Instagram, Facebook, Twitter, MessageCircle].map((Icon, i) => (
+          {socail_links.map(({ label, icon: Icon, alt_icon, link }, i) => (
             <Link
-              key={i}
-              href="/"
+              key={`${label}_${i}`}
+              href={link}
+              target="_blank"
+              aria-description={alt_icon}
               className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-600 shadow-sm transition-all hover:scale-110 hover:text-blue-600 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:text-blue-400"
             >
               <Icon size={18} />
@@ -95,10 +133,10 @@ export default function FooterSection() {
         <div className="flex flex-col gap-6 md:items-end">
           {/* Email */}
           <a
-            href="mailto:alilefta95@gmail.com"
+            href={`mailto:${EMAIL}`}
             className="group flex items-center gap-2 font-mono text-xl font-medium text-zinc-900 transition-colors hover:text-blue-600 md:text-xl lg:text-2xl dark:text-zinc-200 dark:hover:text-blue-400"
           >
-            alilefta95@gmail.com
+            {EMAIL}
             <ArrowUpRight className="h-4 w-4 opacity-50 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </a>
 

@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { getBlogPosts } from "@/lib/blog";
 import { getProjects } from "@/lib/projects";
+import { DOMAIN_URL } from "@/lib/info";
 
 // Helper function: Tries to parse the date, falls back to today if invalid
 function safeDate(dateStr: string | undefined): Date {
@@ -20,7 +21,7 @@ function safeDate(dateStr: string | undefined): Date {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://portfolio-v2-cyan-nine.vercel.app"; // No trailing slash is safer
+  const baseUrl = DOMAIN_URL; // No trailing slash is safer
 
   // 1. Static Routes
   const routes = ["", "/blog", "/projects", "/contact", "/blog/notes"].map(

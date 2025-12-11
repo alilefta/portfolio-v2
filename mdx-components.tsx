@@ -7,6 +7,10 @@ import { AlertCircle, FileText, Info } from "lucide-react";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkGfm from "remark-gfm"; // for tables
+
+import remarkMath from "remark-math"; // for powered numbers and LateX support
+import rehypeKatex from "rehype-katex";
 
 const components = {
   // --- Headings ---
@@ -79,22 +83,40 @@ const components = {
   },
 
   // --- Media ---
-  img: (props) => (
-    <div className="my-8 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
-      <Image
-        className="h-auto w-full object-cover transition-all hover:scale-[1.02]"
-        width={1200}
-        height={630}
-        {...(props as ImageProps)}
-        alt={props.alt || "Article image"}
-      />
-      {props.alt && (
-        <span className="block border-t border-zinc-200 bg-zinc-50 px-4 py-2 text-center text-xs text-zinc-500 italic dark:border-zinc-800 dark:bg-zinc-900/50">
-          {props.alt}
+  img: (props) => {
+    // If it's a badge (you can tag your badges in MDX with alt="Badge: License"), render simply
+    const isBadge =
+      props.alt?.toLowerCase().includes("badge") ||
+      props.src?.toString().includes("shields.io");
+
+    if (isBadge) {
+      return (
+        <span className="inline-block align-middle">
+          {/* Standard img tag for badges to avoid Next.js Image optimization overhead on external SVGs */}
+          <img src={props.src as string} alt={props.alt} className="h-auto" />
         </span>
-      )}
-    </div>
-  ),
+      );
+    }
+
+    // Default "Screenshot Card" style for everything else
+    return (
+      <span className="my-8 block w-full overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+        <Image
+          className="h-auto w-full object-cover transition-all hover:scale-[1.02]"
+          width={1200}
+          height={630}
+          {...(props as ImageProps)}
+          alt={props.alt || "Article image"}
+        />
+        {props.alt && (
+          // Also changed inner container to span/block for safety
+          <span className="block border-t border-zinc-200 bg-zinc-50 px-4 py-2 text-center text-xs text-zinc-500 italic dark:border-zinc-800 dark:bg-zinc-900/50">
+            {props.alt}
+          </span>
+        )}
+      </span>
+    );
+  },
 
   hr: () => <hr className="my-10 border-zinc-200 dark:border-zinc-800" />,
 
@@ -174,9 +196,11 @@ export function CustomMDX(props: MDXRemoteProps) {
       components={{ ...components, ...(props.components || {}) }}
       options={{
         mdxOptions: {
+          remarkPlugins: [remarkGfm, remarkMath],
           rehypePlugins: [
             rehypeSlug,
             [rehypeAutolinkHeadings, { behavior: "wrap" }], // Optional: adds anchor links to headers
+            rehypeKatex,
           ],
         },
       }}

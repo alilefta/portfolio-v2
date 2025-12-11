@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import {
   Alexandria,
-  Amiri,
-  Fustat,
   Geist,
   Geist_Mono,
   Playfair_Display,
@@ -10,6 +8,8 @@ import {
   Noto_Kufi_Arabic,
 } from "next/font/google";
 import "./globals.css";
+import "katex/dist/katex.min.css"; // for math
+
 import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
@@ -17,6 +17,7 @@ import { getLocale } from "next-intl/server";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "sonner";
+import { DOMAIN_URL } from "@/lib/info";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -69,20 +70,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  // 1. Base URL: Essential for OG images to work via relative paths
-  metadataBase: new URL("https://portfolio-v2-cyan-nine.vercel.app/"), // REPLACE with your actual domain
+  metadataBase: new URL(DOMAIN_URL),
 
-  // 2. Title Template: "Page Name | Ali Mohsin"
   title: {
     default: "Ali Mohsin | System Architect & Full Stack Engineer",
     template: "%s | Ali Mohsin",
   },
 
-  // 3. Default Description
   description:
     "Full Stack Engineer combining 6+ years of clinical dental precision with robust software architecture. Building production-ready systems with Next.js, .NET, and Cloud infrastructure.",
 
-  // 4. Keywords for SEO
   keywords: [
     "System Architect",
     "Full Stack Engineer",
@@ -94,11 +91,10 @@ export const metadata: Metadata = {
     "TypeScript",
   ],
 
-  // 5. Open Graph (Facebook, LinkedIn, Discord)
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://portfolio-v2-cyan-nine.vercel.app/",
+    url: DOMAIN_URL,
     siteName: "Ali Mohsin",
     images: [
       {
@@ -114,7 +110,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ali Mohsin | System Architect",
-    creator: "@alimohsin", // Replace with your handle
+    creator: "@alilefta", // Replace with your handle
     images: ["/images/og-default.jpg"],
   },
 

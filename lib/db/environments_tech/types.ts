@@ -19,5 +19,7 @@ export type Technology =
   | "Custom_Tkinter_UI"
   | "NumPy"
   | "Flask"
+  | "SciPy"
+  | "GitHub_API"
   | "Django"
   | "Stripe";

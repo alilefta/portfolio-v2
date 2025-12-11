@@ -70,7 +70,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   // 1. Base URL: Essential for OG images to work via relative paths
-  metadataBase: new URL("https://ali-mohsin.dev"), // REPLACE with your actual domain
+  metadataBase: new URL("https://portfolio-v2-cyan-nine.vercel.app/"), // REPLACE with your actual domain
 
   // 2. Title Template: "Page Name | Ali Mohsin"
   title: {
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ali-mohsin.dev",
+    url: "https://portfolio-v2-cyan-nine.vercel.app/",
     siteName: "Ali Mohsin",
     images: [
       {

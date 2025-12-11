@@ -1,9 +1,26 @@
 import { MetadataRoute } from "next";
-import { getBlogPosts } from "@/lib/blog"; // Your existing function
-import { getProjects } from "@/lib/projects"; // Your existing function
+import { getBlogPosts } from "@/lib/blog";
+import { getProjects } from "@/lib/projects";
+
+// Helper function: Tries to parse the date, falls back to today if invalid
+function safeDate(dateStr: string | undefined): Date {
+  if (!dateStr) return new Date(); // Fallback if missing
+
+  const parsedDate = new Date(dateStr);
+
+  // Check if the date is "Invalid Date"
+  if (isNaN(parsedDate.getTime())) {
+    console.warn(
+      `⚠️ Invalid sitemap date found: "${dateStr}". Using current date.`,
+    );
+    return new Date();
+  }
+
+  return parsedDate;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "http://localhost:3000/"; // REPLACE this
+  const baseUrl = "https://portfolio-v2-cyan-nine.vercel.app"; // No trailing slash is safer
 
   // 1. Static Routes
   const routes = ["", "/blog", "/projects", "/contact", "/blog/notes"].map(
@@ -18,7 +35,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 2. Dynamic Blog Posts
   const posts = getBlogPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.metadata.publishedAt),
+    // Use the helper here
+    lastModified: safeDate(post.metadata.publishedAt),
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
@@ -26,7 +44,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 3. Dynamic Projects
   const projects = getProjects().map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
-    lastModified: new Date(project.metadata.date),
+    // Use the helper here (Checks project.metadata.date first)
+    lastModified: safeDate(
+      project.metadata.date || project.metadata.publishedAt,
+    ),
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));

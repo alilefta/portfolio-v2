@@ -143,6 +143,42 @@
       "Title_Line2": "something great?",
       "Subtitle": "Whether it's a complex SaaS architecture, a dental lab system, or an AI integration — I'm ready to engineer it.",
       "Button": "Get In Touch"
+    },
+    "Services": {
+      "Badge": "What I Build",
+      "Title_Two": "Two platforms.",
+      "Title_One": "One obsession with quality.",
+      "Desktop": {
+        "Title": "Desktop Applications",
+        "Desc": "Reliable Windows applications for businesses that need offline-first, high-performance tools.",
+        "List1": "Lab management systems",
+        "List2": "Inventory & workflow tools",
+        "List3": "Data entry & reporting systems",
+        "List4": "Offline apps and tools",
+        "TrackRecord": "Track Record",
+        "TrackRecord_Desc": "Built Oscar Lab—a C#/WPF desktop app. Sold it to an active dental lab. Still in use today.",
+        "CTA": "Need a Windows application?"
+      },
+      "Web": {
+        "Title": "Full-Stack Web Applications",
+        "Desc": "Modern, cloud-based platforms that work anywhere. From simple dashboards to complex SaaS products.",
+        "List1": "SaaS platforms & business tools",
+        "List2": "Custom dashboards & analytics",
+        "List3": "E-commerce & payment systems",
+        "CurrentProject": "Currently Building",
+        "CurrentProject_Desc": "Labora—a multi-tenant SaaS for dental labs with real-time collaboration and marketplace features.",
+        "CTA": "Let's build your web app"
+      },
+      "Healthcare": {
+        "Title": "Healthcare Software Specialist",
+        "Desc": "6 years in dental labs means I understand your workflow, compliance needs (HIPAA-aware), and industry pain points. Whether you need desktop software for a clinic or a cloud platform for multiple locations—I've been in your shoes.",
+        "CTA": "Healthcare project?"
+      },
+      "Footer": {
+        "Question": "Not sure which platform fits your needs?",
+        "Link": "Let's talk—I'll help you choose the right approach"
+      },
+      "Proven": "Proven"
     }
   },
   "ContactPage": {
@@ -215,42 +251,7 @@
       "Clear": "Clear all filters"
     }
   },
-  "Services": {
-    "Badge": "What I Build",
-    "Title_Two": "Two platforms.",
-    "Title_One": "One obsession with quality.",
-    "Desktop": {
-      "Title": "Desktop Applications",
-      "Desc": "Reliable Windows applications for businesses that need offline-first, high-performance tools.",
-      "List1": "Lab management systems",
-      "List2": "Inventory & workflow tools",
-      "List3": "Data entry & reporting systems",
-      "List4": "Offline apps and tools",
-      "TrackRecord": "Track Record",
-      "TrackRecord_Desc": "Built Oscar Lab—a C#/WPF desktop app. Sold it to an active dental lab. Still in use today.",
-      "CTA": "Need a Windows application?"
-    },
-    "Web": {
-      "Title": "Full-Stack Web Applications",
-      "Desc": "Modern, cloud-based platforms that work anywhere. From simple dashboards to complex SaaS products.",
-      "List1": "SaaS platforms & business tools",
-      "List2": "Custom dashboards & analytics",
-      "List3": "E-commerce & payment systems",
-      "CurrentProject": "Currently Building",
-      "CurrentProject_Desc": "Labora—a multi-tenant SaaS for dental labs with real-time collaboration and marketplace features.",
-      "CTA": "Let's build your web app"
-    },
-    "Healthcare": {
-      "Title": "Healthcare Software Specialist",
-      "Desc": "6 years in dental labs means I understand your workflow, compliance needs (HIPAA-aware), and industry pain points. Whether you need desktop software for a clinic or a cloud platform for multiple locations—I've been in your shoes.",
-      "CTA": "Healthcare project?"
-    },
-    "Footer": {
-      "Question": "Not sure which platform fits your needs?",
-      "Link": "Let's talk—I'll help you choose the right approach"
-    },
-    "Proven": "Proven"
-  },
+
   "AboutMe": {
     "Title_Who": "Who",
     "Title_Iam": "I am",

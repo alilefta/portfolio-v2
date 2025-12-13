@@ -1,16 +1,22 @@
 {
-  "MainTitles": {
-    "Ali": "Ali",
-    "Mohsin": "Mohsin"
+  "Navbar": {
+    "SystemArchitect": "System Architect",
+    "Available": "Available",
+    "Log": "Log",
+    "DownloadCV": "Download CV",
+    "Theme": {
+      "Dark": "Dark",
+      "Light": "Light",
+      "System": "System",
+      "ThemeToggle": "Theme Toggle"
+    },
+    "ChangeLanguage": "Change Language"
   },
   "HomePage": {
-    "title": "Ali Portfolio",
     "Home": "Home",
-    "About": "About",
     "Projects": "Projects",
-    "Contact": "Contacts",
+    "Contact": "Contact",
     "Blog": "Blog",
-
     "Cards": {
       "Intro_Heading_Part1": "Engineering With",
       "Intro_Heading_Part2": "Clinical Precision.",
@@ -19,7 +25,8 @@
       "ObsessedWithDetail": "Obsessed With Detail.",
       "ObsessedWithDetail_Paragraph": "My background in dental prosthetics taught me that a single millimeter matters. I bring that same rigor to my code.",
       "Location": "Hilla, Iraq",
-      "RemoteReady": "Remote Ready"
+      "RemoteReady": "Remote Ready",
+      "CommitMessage": "Refining system architecture"
     },
     "SocialProof": {
       "Stack": "Stack",
@@ -29,33 +36,413 @@
       "App": "App",
       "UnifiedArchitecture": "Unified Architecture",
       "Commercial": "Commercial",
-      "Exit": "Exit",
+      "Exit": " Exit",
+      "ProductAcquired": "Product Acquired",
       "Education": "Education",
       "Dual": "Dual",
-      "CSAndDentalTech": "CS & Dental Tech",
-      "ProductAcquired": "Product Acquired"
+      "CSAndDentalTech": "CS & Dental Tech"
+    },
+    "SelectedWork": {
+      "Title_Selected": "Selected",
+      "Title_Work": "Work",
+      "Subtitle": "From concept to production—real projects solving real problems.",
+      "ViewAll": "All Projects"
+    },
+    "TechStack": {
+      "Title_The": "The",
+      "Title_Stack": "Tech Stack",
+      "Subtitle": "Technologies I use to build production-ready applications, built for precision and scalability.",
+      "Columns": {
+        "Core": "Core Languages & Systems",
+        "Frameworks": "Frameworks & Libraries",
+        "Tools": "Tools & Platforms"
+      }
+    },
+    "Skills": {
+      "Title_The": "The",
+      "Title_Skills": "Skills",
+      "Subtitle": "Beyond code—what makes me effective.",
+      "Columns": {
+        "Professional": "Professional Skills",
+        "Technical": "Technical Skills"
+      }
+    },
+    "Evolution": {
+      "Title_The": "The",
+      "Title_Evolution": "Evolution",
+      "Curiosity_Title": "Curiosity",
+      "Curiosity_P1": "10 years old. Pentium 4. Trying to understand how games worked.",
+      "Curiosity_P2": "The obsession started here.",
+      "Precision_Title": "Precision",
+      "Precision_P1": "Dental labs. Every crown, every bridge—0.1mm accuracy or failure.",
+      "Precision_P2": "Learned: Details aren't details. They're everything.",
+      "Transition_Title": "Transition",
+      "Transition_P1": "Back to code. But different. I brought the craftsman mindset with me.",
+      "Transition_P2": "Same obsession. Different medium.",
+      "Execution_Title": "Execution",
+      "Execution_P1": "Two degrees. Completed Computer Science bachelor with 93.8% GPA. Product built and sold.",
+      "Execution_P2": "All while working full-time. No excuses.",
+      "Building_Title": "Building",
+      "Building_P1": "Enterprise software. Healthcare SaaS. Real problems. Real users.",
+      "Building_P2": "No more toy projects. Building for production."
+    },
+    "HowIWork": {
+      "Title_How": "How",
+      "Title_Work": "I Work",
+      "Subtitle": "I follow a 4-step process to deliver the best experience",
+      "Discovery_Title": "Discovery",
+      "Discovery_Desc": "Understanding your needs and requirements",
+      "Design_Title": "Design",
+      "Design_Desc": "Creating the architecture and user experience",
+      "Build_Title": "Build",
+      "Build_Desc": "Writing clean, maintainable code",
+      "Deliver_Title": "Deliver",
+      "Deliver_Desc": "Testing, deployment, and support"
+    },
+    "IndustryImpact": {
+      "Label": "Delivering solutions for",
+      "Dental": "Dental Tech",
+      "SaaS": "B2B SaaS",
+      "Enterprise": "Enterprise Systems",
+      "Data": "Data Engineering"
+    },
+    "Testimonials": {
+      "Title": "Collaboration Log",
+      "Subtitle": "Feedback from founders, engineers, and stakeholders I've built systems with.",
+      "On": "on",
+      "Entries": {
+        "1": {
+          "Name": "Sarah Jenkins",
+          "Role": "Director of Operations",
+          "Company": "Apex Dental Labs",
+          "Quote": "Ali transformed our manual workflow into a seamless digital engine. The precision in his architecture saved us roughly 20 hours a week in administrative overhead. He doesn't just code; he solves business problems."
+        },
+        "2": {
+          "Name": "David Chen",
+          "Role": "Senior Backend Engineer",
+          "Company": "FinTech Corp",
+          "Quote": "I've reviewed a lot of code, and Ali's PRs are a masterclass in clean architecture. He builds systems that are boring in the best way possible—predictable, scalable, and impossible to break."
+        },
+        "3": {
+          "Name": "Marcus Rodriguez",
+          "Role": "Founder",
+          "Company": "StartUp Inc",
+          "Quote": "We needed an MVP in 3 months. Ali delivered a production-ready system in 2. His ability to navigate between frontend polish and database optimization is rare."
+        }
+      },
+      "Roles": {
+        "Client": "Client",
+        "CTO": "CTO",
+        "Peer": "Peer",
+        "Manager": "Manager"
+      }
+    },
+    "CTASection": {
+      "Badge": "Let's work together",
+      "Title_Line1": "Ready to build",
+      "Title_Line2": "something great?",
+      "Subtitle": "Whether it's a complex SaaS architecture, a dental lab system, or an AI integration — I'm ready to engineer it.",
+      "Button": "Get In Touch"
     }
   },
-  "Controls": {
-    "ChangeLanguage": "Change Language",
-    "DownloadCV": "Download CV",
-    "ToggleTheme": "Toggle Theme",
-    "Dark": "Dark",
-    "Light": "Light",
-    "System": "System"
+  "ContactPage": {
+    "Title": "Drop me a message.",
+    "Subtitle": "Whether it's a complex SaaS architecture, a dental lab system, or an AI integration — I'm ready to engineer it.",
+    "DirectContact": "Direct Contact",
+    "LocationLine1": "Babil, Hilla, Iraq",
+    "Metadata": {
+      "Title": "Contact",
+      "Description": "Get in touch for consulting, architectural reviews, or full-stack development opportunities. Available for high-impact projects."
+    },
+    "Form": {
+      "FirstName": "First Name",
+      "LastName": "Last Name",
+      "Email": "Email Address",
+      "Service": "Interested Service",
+      "Message": "Project Details",
+      "Select": "Select",
+      "Placeholders": {
+        "FirstName": "Your First Name",
+        "LastName": "Your Last Name",
+        "Email": "Your Email Address",
+        "Message": "Tell me about your project..."
+      },
+      "Errors": {
+        "FirstName": "First name must be at least 1 character.",
+        "LastName": "Last name must be at least 1 character.",
+        "Email": "Email is required.",
+        "Service": "Please select a service category.",
+        "Message": "Message must be at least 20 characters."
+      },
+      "Submit": "Send Message",
+      "Toast": {
+        "Title": "You submitted the following values:",
+        "Desc": "We will get back to you shortly."
+      }
+    },
+    "Services": {
+      "AI": "AI Integration & Automation",
+      "FullStack": "Full-Stack Web Applications",
+      "Websites": "Websites, Landing Pages & Fixes",
+      "Healthcare": "Healthcare & Medical Software",
+      "Desktop": "Desktop Applications & Tools",
+      "CodeReview": "Code Review & Collaboration",
+      "Other": "Other"
+    }
+  },
+  "ProjectsPage": {
+    "Metadata": {
+      "Title": "Selected Work",
+      "Description": "Case studies of production-grade systems. From Enterprise Dental Lab Management to Cloud-based SaaS platforms. Built with precision."
+    },
+    "Hero": {
+      "SystemOnline": "SYSTEM: ONLINE",
+      "BuiltFor": "Built for",
+      "Scale": "Scale.",
+      "EngineeredFor": "Engineered for",
+      "Speed": "Speed.",
+      "Subtitle": "A collection of high-performance applications, from dental lab management systems to cryptographic research tools. No filler, just production code.",
+      "TotalProjects": "Total Projects",
+      "Shipped": "Shipped",
+      "Focus": "Focus",
+      "SaaS_Desktop": "SaaS & Desktop Systems"
+    },
+    "Filters": {
+      "Reset": "Reset"
+    },
+    "EmptyState": {
+      "Message": "No projects found matching your filters.",
+      "Clear": "Clear all filters"
+    }
+  },
+  "Services": {
+    "Badge": "What I Build",
+    "Title_Two": "Two platforms.",
+    "Title_One": "One obsession with quality.",
+    "Desktop": {
+      "Title": "Desktop Applications",
+      "Desc": "Reliable Windows applications for businesses that need offline-first, high-performance tools.",
+      "List1": "Lab management systems",
+      "List2": "Inventory & workflow tools",
+      "List3": "Data entry & reporting systems",
+      "List4": "Offline apps and tools",
+      "TrackRecord": "Track Record",
+      "TrackRecord_Desc": "Built Oscar Lab—a C#/WPF desktop app. Sold it to an active dental lab. Still in use today.",
+      "CTA": "Need a Windows application?"
+    },
+    "Web": {
+      "Title": "Full-Stack Web Applications",
+      "Desc": "Modern, cloud-based platforms that work anywhere. From simple dashboards to complex SaaS products.",
+      "List1": "SaaS platforms & business tools",
+      "List2": "Custom dashboards & analytics",
+      "List3": "E-commerce & payment systems",
+      "CurrentProject": "Currently Building",
+      "CurrentProject_Desc": "Labora—a multi-tenant SaaS for dental labs with real-time collaboration and marketplace features.",
+      "CTA": "Let's build your web app"
+    },
+    "Healthcare": {
+      "Title": "Healthcare Software Specialist",
+      "Desc": "6 years in dental labs means I understand your workflow, compliance needs (HIPAA-aware), and industry pain points. Whether you need desktop software for a clinic or a cloud platform for multiple locations—I've been in your shoes.",
+      "CTA": "Healthcare project?"
+    },
+    "Footer": {
+      "Question": "Not sure which platform fits your needs?",
+      "Link": "Let's talk—I'll help you choose the right approach"
+    },
+    "Proven": "Proven"
+  },
+  "AboutMe": {
+    "Title_Who": "Who",
+    "Title_Iam": "I am",
+    "Subtitle": "From Dental Labs To Software Engineering",
+    "HeroTitle": "Full Stack Developer and Dental Technician",
+    "Biography": {
+      "Title": "Biography",
+      "P1": "I'm Ali, a full-stack engineer with a strong focus on building practical, high-impact software. My background in both technology and medical environments taught me how to solve real-world problems with clarity, structure, and a calm, analytical mindset. Whether I'm architecting a SaaS system, designing a UI, or optimizing backend logic, I care about the details that make a product dependable, efficient, and pleasant to use.",
+      "P2": "Outside of code, I'm someone who enjoys learning deeply, simplifying complex ideas, and creating things that feel intentional. I love systems thinking, clean design, and the craft behind turning an idea into something functional and polished. Every project I work on—big or small—is an opportunity to improve, refine my approach, and deliver something meaningful."
+    },
+    "Stats": {
+      "KeyFacts": "Key Facts",
+      "Achievement": "Achievement",
+      "Achievement_Desc": "Built and sold an Enterprise product",
+      "Experience": "Experience",
+      "Years": "years",
+      "DentalTech": "Dental Technology",
+      "Education": "Education",
+      "Degrees": "degrees",
+      "DualMajor": "Dental Tech & CS",
+      "Academic": "Academic Performance",
+      "CS_Degree": "Computer Science",
+      "Bachelor": "Bachelor's Degree",
+      "Technologies": "Technologies",
+      "CoreStack": "Core Tech Stack",
+      "Availability": "Availability",
+      "Sure": "Sure.",
+      "Timezone": "Remote • UTC+3",
+      "BasedIn": "Based in",
+      "Location": "Babil, Iraq",
+      "Global": "Working with clients worldwide"
+    },
+    "Differentiators": {
+      "Title": "What Makes This Different",
+      "Card1_Title": "Precision Training",
+      "Card1_Desc": "Six years creating dental restorations taught me that perfection isn't optional—it's the baseline.",
+      "Card2_Tag": "Healthcare",
+      "Card2_Title": "Industry Insider",
+      "Card2_Desc": "I don't learn your industry—I lived it. Real workflows. Real problems. Real solutions.",
+      "Card3_Tag": "Track Record",
+      "Card3_Title": "Proven Builder",
+      "Card3_Desc": "Not just coding tutorials. Built a product. Sold it. Supported real users. That's the difference."
+    },
+    "CTA": "See what I've built"
+  },
+
+  "Tags": {
+    "FullStackDentalTech": "Full Stack Engineer • Dental Tech",
+    "Tolerance": "Tolerance",
+    "0_1MM": "0.1 mm"
   },
   "Common": {
-    "Settings": "Settings",
-    "QuickLinks": "Quick Links",
     "Navigation": "Navigation",
-    "NavigationMenu": "Navigation Menu",
+    "NavigationMenu": "Main Menu",
+    "QuickLinks": "Directory",
+    "Settings": "System Settings",
     "CV": "CV",
     "CoreStack": "Core Stack"
   },
-  "Tags": {
-    "AvaliableForProjects": "Avaliable For Projects",
-    "FullStackDentalTech": "Full Stack • Dental Tech",
-    "Tolerance": "Tolerance",
-    "0_1MM": "0.1 mm"
+  "MainTitles": {
+    "Ali": "Ali",
+    "Mohsin": "Mohsin"
+  },
+  "BlogPage": {
+    "Hero": {
+      "Title": "Engineering Log",
+      "Subtitle": "Documenting the journey between dental precision and software architecture."
+    },
+    "Search": {
+      "Placeholder": "Search articles...",
+      "ArchiveTitle": "Archive",
+      "NoResults": "No articles found matching your criteria.",
+      "ClearFilters": "Clear filters",
+      "LoadMore": "Load More"
+    },
+    "Categories": {
+      "All": "All",
+      "MoreFilters": "More Filters",
+      "OtherTopics": "Other Topics",
+      "SearchTopics": "Search topics...",
+      "NoCategoryFound": "No category found."
+    },
+    "FocusSpotlight": {
+      "Title": "Technical Focus Areas",
+      "Subtitle": "Where engineering precision meets real-world application.",
+      "ViewArticles": "View Related Articles",
+      "Areas": {
+        "Architecture": "System Architecture",
+        "Architecture_Desc": "Deep dives into database scaling, cloud deployment, and designing resilient, modern microservices.",
+        "Dental": "Dental Tech Systems",
+        "Dental_Desc": "Bridging clinical precision with software—exploring custom desktop apps and SaaS solutions for labs.",
+        "Stack": "Core Stack Mastery",
+        "Stack_Desc": "Hands-on tutorials and advanced tips for Next.js, TypeScript, C#, and high-performance Tailwind CSS styling."
+      }
+    },
+    "LabNotes": {
+      "Title": "Lab Notes",
+      "Subtitle": "A digital garden of code snippets, terminal commands, and quick fixes I use in production.",
+      "ViewArchive": "View Archive",
+      "ViewAll": "View All Notes",
+      "ReadNote": "Read Note",
+      "BackToFeed": "Back to Feed"
+    }
+  },
+
+  "Newsletter": {
+    "Badge": "Newsletter",
+    "Title": "Join the Engineering Log.",
+    "Subtitle": "Get notified about new case studies, system architecture deep dives, and quick lab notes. No spam, just code.",
+    "Placeholder": "ali@example.com",
+    "Button": "Subscribe",
+    "Processing": "Processing...",
+    "Success": "Signed Up",
+    "Disclaimer": "Unsubscribe at any time."
+  },
+  "SystemStatus": {
+    "Label": "System Status",
+    "Status": "Online & Building",
+    "Hacking": "Hacking on",
+    "Reading": "Reading",
+    "FueledBy": "Fueled By"
+  },
+  "Footer": {
+    "Slogan": {
+      "Design": "Design.",
+      "Code": "Code.",
+      "Build": "Build.",
+      "Repeat": "Repeat."
+    },
+    "Copyright": "Ali Mohsin — Handcrafted with love & logic.",
+    "Directory": "Directory",
+    "BaseOfOperations": "Base of Operations",
+    "Location": "Babil, Hilla, Iraq",
+    "Services": "Services",
+    "CoursesSoon": "Courses (Soon)"
+  },
+
+  "TechContexts": {
+    "TypeScript": "Type-safe, modern web applications",
+    "JavaScript_/_Node": "Backend services & utility scripting",
+    "C#_/_DOTNET_/_WPF": "Enterprise Desktop Applications",
+    "Python": "AI Integrations, ML, and automation scripts",
+    "Java_/_JavaFX": "Cross-platform desktop tool development",
+    "SQL": "Advanced querying and stored procedures",
+    "Shell": "Environment setup and command-line automation",
+    "NextDOTjs": "Full-stack development (SSR, API Routes)",
+    "React_/_Redux": "Component-driven design and state management",
+    "ExpressDOTjs_/_Node": "Microservices and REST API backends",
+    "Prisma_/_Drizzle": "Type-safe ORMs for schema migration",
+    "Tailwind_CSS": "Utility-first styling and responsive design",
+    "REST_APIs": "Designing and consuming external services",
+    "Tkinter_/_Flask": "Rapid prototyping for desktop/web",
+    "Git_&_GitHub": "Source control, collaboration, and PR flow",
+    "Vercel_/_Netlify": "Serverless deployment and edge functions",
+    "Figma": "Prototyping, mockups, and design system creation",
+    "PostgreSQL_/_Mongo": "Relational and NoSQL database management",
+    "Docker": "Containerization for consistent environments",
+    "Postman": "API testing and endpoint documentation"
+  },
+
+  "SkillNames": {
+    "System_Architecture": "System Architecture",
+    "API_Design": "API Design",
+    "Database_Design": "Database Design",
+    "Performance_Optimization": "Performance Optimization",
+    "Design-to-Code_Workflow": "Design-to-Code Workflow",
+    "CI/CD_&_Deployment": "CI/CD & Deployment",
+    "Full-Stack_Web_Dev": "Full-Stack Web Dev",
+    "Healthcare_/_Lab_Systems": "Healthcare / Lab Systems",
+    "AI_Integrations": "AI Integrations",
+    "Dental_Lab_Operations": "Dental Lab Operations",
+    "Patient_Data_Security": "Patient Data Security",
+    "Project_Management": "Project Management",
+    "Client_Communication": "Client Communication",
+    "Arabic": "Arabic",
+    "English": "English"
+  },
+  "SkillDescriptions": {
+    "System_Architecture": "Design scalable, resilient systems",
+    "API_Design": "RESTful principles & GraphQL adoption",
+    "Database_Design": "Schema optimization and indexing",
+    "Performance_Optimization": "Speed, latency, and resource efficiency",
+    "Design-to-Code_Workflow": "Pixel-perfect implementation from Figma",
+    "CI/CD_&_Deployment": "Vercel, GitHub Actions, and automation",
+    "Full-Stack_Web_Dev": "From database design to frontend deployment",
+    "Healthcare_/_Lab_Systems": "6+ years of relevant industry experience",
+    "AI_Integrations": "ML and automation scripting via Python",
+    "Dental_Lab_Operations": "Deep understanding of the industry workflow",
+    "Patient_Data_Security": "Privacy-first approach (HIPAA awareness)",
+    "Project_Management": "Ship on time, manage scope, and set expectations",
+    "Client_Communication": "Clear, professional, and technical communication",
+    "Arabic": "Native speaker (Fluent in technical discussion)",
+    "English": "Upper Intermediate (Professional environment)"
   }
 }

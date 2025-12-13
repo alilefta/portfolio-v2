@@ -21,7 +21,7 @@ export function LocaleToggle() {
     }
     return "en";
   });
-  const t = useTranslations("Controls");
+  const t = useTranslations("Navbar");
 
   useEffect(() => {
     startTransition(() => {

@@ -115,7 +115,7 @@ export default async function BlogHero({
             {CATEGORIES.map((cat) => (
               <Link
                 key={cat.name}
-                href={`/blog/category/${cat.name.toLowerCase()}`}
+                href={`/blog?category=${cat.name.replaceAll(" ", "-")}#archive`}
                 className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs text-zinc-600 transition-colors hover:border-zinc-300 hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
               >
                 {cat.name}

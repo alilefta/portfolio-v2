@@ -22,16 +22,16 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
-    { href: "/blog", label: "Log" },
+    { href: "/", label: t("HomePage.Home") },
+    { href: "/projects", label: t("HomePage.Projects") },
+    { href: "/contact", label: t("HomePage.Contact") },
+    { href: "/blog", label: t("Navbar.Log") }, // Changed from "Blog" to "Log" based on new persona
   ];
 
   return (
     <nav
       className={clsx(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "rtl:font-alexandria fixed inset-x-0 top-0 z-50 transition-all duration-300",
         {
           "border-b border-zinc-200/50 bg-white/80 py-3 backdrop-blur-md dark:border-zinc-800/50 dark:bg-black/70":
             isScrolled,
@@ -45,12 +45,12 @@ export function Navbar() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-100 text-zinc-900 transition-colors group-hover:border-zinc-300 group-hover:bg-zinc-200 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:group-hover:border-zinc-700">
             <Terminal className="h-4 w-4" />
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm leading-none font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <div className="flex flex-col rtl:gap-1.5">
+            <span className="text-xs leading-none font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               {t("MainTitles.Ali")} {t("MainTitles.Mohsin")}
             </span>
             <span className="text-[10px] font-medium text-zinc-500 dark:text-zinc-400">
-              System Architect
+              {t("Navbar.SystemArchitect")}
             </span>
           </div>
         </Link>
@@ -68,7 +68,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200",
+                  "rounded-full px-4 py-1.5 font-medium transition-all duration-200 ltr:text-sm rtl:text-xs",
                   {
                     "bg-zinc-900 text-white shadow-sm dark:bg-zinc-100 dark:text-zinc-900":
                       isActive,
@@ -92,7 +92,7 @@ export function Navbar() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
             </span>
             <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
-              Available
+              {t("Navbar.Available")}
             </span>
           </div>
 

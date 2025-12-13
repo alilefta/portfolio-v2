@@ -60,7 +60,7 @@ export function InputWithLabel<S extends FieldValues>({
             {...props}
             id={nameInSchema}
             aria-invalid={fieldState.invalid}
-            className={`pr-10 ${className}`}
+            className={`ltr:pr-10 rtl:pl-10 ${className}`}
           />
           <Button
             className={clsx(

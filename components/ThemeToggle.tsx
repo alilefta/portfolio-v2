@@ -13,15 +13,15 @@ import { useTranslations } from "next-intl";
 
 export function ThemeToggle() {
   const { setTheme } = useTheme();
-  const t = useTranslations("Controls");
+  const t = useTranslations("Navbar.Theme");
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size={"icon"} title={t("ToggleTheme")}>
+        <Button variant="outline" size={"icon"} title={t("ThemeToggle")}>
           <Sun className="size-5 scale-100 rotate-0 transition-all lg:size-5 dark:scale-0 dark:-rotate-90" />
           <Moon className="absolute size-5 scale-0 rotate-90 transition-all lg:size-5 dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">{t("ToggleTheme")}</span>
+          <span className="sr-only">{t("ThemeToggle")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

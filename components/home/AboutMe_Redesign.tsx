@@ -1,14 +1,19 @@
 import { ArrowUpRight, Hospital } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import Link from "next/link";
 
-export default function AboutMe_Redesign() {
+export default async function AboutMe_Redesign() {
+  const t = await getTranslations("HomePage.AboutMe");
+
   return (
     <section className="relative mx-auto max-w-7xl overflow-hidden rounded-md px-6 py-24 lg:px-6 lg:py-32 xl:px-0">
       <div className="">
-        <h3 className="mb-1 text-4xl tracking-tighter lg:text-6xl">
-          Who <span className="text-foreground/50">I am</span>
+        <h3 className="mb-1 text-4xl font-bold tracking-tighter lg:text-6xl">
+          {t("Title_Who")}{" "}
+          <span className="text-foreground/50">{t("Title_Iam")}</span>
         </h3>
-        <p className="text-foreground/40 max-w-sm text-sm lg:text-lg">
-          From Dental Labs To Software engineering
+        <p className="text-foreground/40 max-w-sm text-sm font-light lg:text-lg rtl:mt-8">
+          {t("Subtitle")}
         </p>
       </div>
 
@@ -18,12 +23,12 @@ export default function AboutMe_Redesign() {
           <div className="grid grid-cols-12 lg:col-span-12">
             <div className="col-span-4">
               <h5 className="text-sm text-zinc-500 dark:text-zinc-400">
-                Who I am
+                {t("Title_Who")} {t("Title_Iam")}
               </h5>
             </div>
             <div className="col-span-8">
               <h2 className="mb-12 max-w-2xl text-5xl leading-tight font-light tracking-tighter text-zinc-900 capitalize md:text-6xl lg:text-6xl dark:text-white">
-                Full Stack Developer and Dental Technician
+                {t("HeroTitle")}
               </h2>
             </div>
           </div>
@@ -32,29 +37,12 @@ export default function AboutMe_Redesign() {
           <div className="col-span-12 grid grid-cols-12 gap-4 border-y border-zinc-200 py-12 md:gap-0 dark:border-zinc-800">
             <div className="col-span-4">
               <h5 className="mb-2 text-xs text-zinc-500 md:text-sm dark:text-zinc-400">
-                Biography
+                {t("Biography.Title")}
               </h5>
             </div>
             <div className="col-span-6 flex max-w-2xl flex-col gap-8 font-serif text-base text-zinc-700 md:text-lg dark:text-zinc-300">
-              <p>
-                I&apos;m Ali, a full-stack engineer with a strong focus on
-                building practical, high-impact software. My background in both
-                technology and medical environments taught me how to solve
-                real-world problems with clarity, structure, and a calm,
-                analytical mindset. Whether I&apos;m architecting a SaaS system,
-                designing a UI, or optimizing backend logic, I care about the
-                details that make a product dependable, efficient, and pleasant
-                to use.
-              </p>
-              <p>
-                Outside of code, I&apos;m someone who enjoys learning deeply,
-                simplifying complex ideas, and creating things that feel
-                intentional. I love systems thinking, clean design, and the
-                craft behind turning an idea into something functional and
-                polished. Every project I work on—big or small—is an opportunity
-                to improve, refine my approach, and deliver something
-                meaningful.
-              </p>
+              <p>{t("Biography.P1")}</p>
+              <p>{t("Biography.P2")}</p>
             </div>
           </div>
 
@@ -62,7 +50,7 @@ export default function AboutMe_Redesign() {
           <div className="grid grid-cols-12 gap-4 py-12 md:gap-0">
             <div className="col-span-4">
               <h5 className="mt-1 text-xs text-zinc-500 md:text-sm dark:text-zinc-400">
-                Key Facts
+                {t("Stats.KeyFacts")}
               </h5>
             </div>
             <div className="col-span-8 max-w-2xl space-y-12">
@@ -71,10 +59,10 @@ export default function AboutMe_Redesign() {
                 <div className="flex items-baseline justify-between">
                   <div>
                     <div className="mb-2 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
-                      Achievement
+                      {t("Stats.Achievement")}
                     </div>
                     <div className="text-2xl font-light tracking-tight text-zinc-900 md:text-3xl dark:text-white">
-                      Built and sold an Enterprise product
+                      {t("Stats.Achievement_Desc")}
                     </div>
                   </div>
                   <div className="mt-1 font-mono text-xs text-zinc-400 md:text-sm dark:text-zinc-500">
@@ -87,35 +75,35 @@ export default function AboutMe_Redesign() {
               <div className="grid grid-cols-2 gap-8">
                 <div className="group/stat">
                   <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
-                    Experience
+                    {t("Stats.Experience")}
                   </div>
                   <div className="flex items-baseline gap-1">
                     <span className="text-6xl font-light tracking-tighter text-zinc-900 tabular-nums md:text-7xl dark:text-white">
                       6
                     </span>
                     <span className="text-2xl font-light text-zinc-400 dark:text-zinc-500">
-                      years
+                      {t("Stats.Years")}
                     </span>
                   </div>
                   <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    Dental Technology
+                    {t("Stats.DentalTech")}
                   </div>
                 </div>
 
                 <div className="group/stat">
                   <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
-                    Education
+                    {t("Stats.Education")}
                   </div>
                   <div className="flex items-baseline gap-1">
                     <span className="text-6xl font-light tracking-tighter text-zinc-900 tabular-nums md:text-7xl dark:text-white">
                       2
                     </span>
                     <span className="text-2xl font-light text-zinc-400 dark:text-zinc-500">
-                      degrees
+                      {t("Stats.Degrees")}
                     </span>
                   </div>
                   <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    Dental Tech & CS
+                    {t("Stats.DualMajor")}
                   </div>
                 </div>
               </div>
@@ -125,7 +113,7 @@ export default function AboutMe_Redesign() {
                 <div className="flex flex-wrap items-end justify-between gap-2 sm:gap-0">
                   <div>
                     <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
-                      Academic Performance
+                      {t("Stats.Academic")}
                     </div>
                     <div className="flex items-baseline gap-2">
                       <span className="text-7xl font-light tracking-tighter text-zinc-900 tabular-nums md:text-8xl dark:text-white">
@@ -141,10 +129,10 @@ export default function AboutMe_Redesign() {
                   </div>
                   <div className="text-right">
                     <div className="text-sm text-zinc-600 dark:text-zinc-400">
-                      Computer Science
+                      {t("Stats.CS_Degree")}
                     </div>
                     <div className="font-mono text-xs text-zinc-500 dark:text-zinc-500">
-                      Bachelor&apos;s Degree
+                      {t("Stats.Bachelor")}
                     </div>
                   </div>
                 </div>
@@ -154,7 +142,7 @@ export default function AboutMe_Redesign() {
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 <div className="group/stat">
                   <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
-                    Technologies
+                    {t("Stats.Technologies")}
                   </div>
                   <div className="flex items-baseline gap-1">
                     <span className="text-6xl font-light tracking-tighter text-zinc-900 tabular-nums md:text-7xl dark:text-white">
@@ -165,21 +153,21 @@ export default function AboutMe_Redesign() {
                     </span>
                   </div>
                   <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    Core Tech Stack
+                    {t("Stats.CoreStack")}
                   </div>
                 </div>
 
                 <div className="group/stat">
                   <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
-                    Availability
+                    {t("Stats.Availability")}
                   </div>
                   <div className="mt-2 flex items-center gap-2">
                     <span className="animate-pulse text-6xl font-light tracking-tighter text-zinc-900 md:text-7xl dark:text-white">
-                      Sure.
+                      {t("Stats.Sure")}
                     </span>
                   </div>
                   <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    Remote • UTC+3
+                    {t("Stats.Timezone")}
                   </div>
                 </div>
               </div>
@@ -187,16 +175,16 @@ export default function AboutMe_Redesign() {
               {/* Stat Row 5 - Location (Minimal) */}
               <div className="group/stat border-t border-zinc-200 py-8 transition-all hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600">
                 <div className="mb-3 font-mono text-[10px] tracking-wider text-zinc-500 uppercase md:text-xs dark:text-zinc-400">
-                  Based in
+                  {t("Stats.BasedIn")}
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-3xl">🇮🇶</span>
                   <div>
                     <div className="text-xl font-light text-zinc-900 dark:text-white">
-                      Babil, Iraq
+                      {t("Stats.Location")}
                     </div>
                     <div className="text-sm text-zinc-600 dark:text-zinc-400">
-                      Working with clients worldwide
+                      {t("Stats.Global")}
                     </div>
                   </div>
                 </div>
@@ -210,7 +198,7 @@ export default function AboutMe_Redesign() {
       <div className="relative">
         <div className="mb-8 flex items-center justify-between">
           <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white">
-            What Makes This Different
+            {t("Differentiators.Title")}
           </h3>
           <div className="ml-6 h-px flex-1 bg-linear-to-r from-zinc-300 to-transparent dark:from-zinc-700" />
         </div>
@@ -226,11 +214,10 @@ export default function AboutMe_Redesign() {
                 0.1mm
               </div>
               <h4 className="mb-2 text-lg font-medium text-zinc-900 dark:text-white">
-                Precision Training
+                {t("Differentiators.Card1_Title")}
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                Six years creating dental restorations taught me that perfection
-                isn&apos;t optional—it&apos;s the baseline.
+                {t("Differentiators.Card1_Desc")}
               </p>
             </div>
           </div>
@@ -242,14 +229,13 @@ export default function AboutMe_Redesign() {
             </div>
             <div className="relative">
               <div className="mb-4 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-                Healthcare
+                {t("Differentiators.Card2_Tag")}
               </div>
               <h4 className="mb-2 text-lg font-medium text-zinc-900 dark:text-white">
-                Industry Insider
+                {t("Differentiators.Card2_Title")}
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                I don&apos;t learn your industry—I lived it. Real workflows.
-                Real problems. Real solutions.
+                {t("Differentiators.Card2_Desc")}
               </p>
             </div>
           </div>
@@ -261,14 +247,13 @@ export default function AboutMe_Redesign() {
             </div>
             <div className="relative">
               <div className="mb-4 font-mono text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-                Track Record
+                {t("Differentiators.Card3_Tag")}
               </div>
               <h4 className="mb-2 text-lg font-medium text-zinc-900 dark:text-white">
-                Proven Builder
+                {t("Differentiators.Card3_Title")}
               </h4>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                Not just coding tutorials. Built a product. Sold it. Supported
-                real users. That&apos;s the difference.
+                {t("Differentiators.Card3_Desc")}
               </p>
             </div>
           </div>
@@ -277,13 +262,13 @@ export default function AboutMe_Redesign() {
 
       {/* SUBTLE CTA */}
       <div className="mt-16 text-center">
-        <a
+        <Link
           href="#selected-work"
           className="group inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
         >
-          <span>See what I&apos;ve built</span>
+          <span>{t("CTA")}</span>
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
+        </Link>
       </div>
     </section>
   );

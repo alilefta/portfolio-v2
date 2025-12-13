@@ -18,6 +18,7 @@ import { InputWithLabel } from "./ui/inputs/InputWithLabel";
 import { SelectWithLabel } from "./ui/inputs/SelectWithLabel";
 import { TextAreaWithLabel } from "./ui/inputs/TextAreaWithLabel";
 import { Button } from "@/components/ui/custom/Button";
+import { useTranslations } from "next-intl";
 
 export const formSchema = z.object({
   firstName: z
@@ -38,53 +39,22 @@ export const formSchema = z.object({
 
 export type FormSchema = z.infer<typeof formSchema>;
 
-const services = [
-  {
-    id: 1,
-    label: "AI Integration & Automation",
-    value: "ai-integration-and-automation",
-    ar_label: "دمج الذكاء الاصطناعي والأتمتة",
-  },
-  {
-    id: 2,
-    label: "Full-Stack Web Applications",
-    value: "full-stack-web-apps",
-    ar_label: "تطبيقات ويب متكاملة (فول ستاك)",
-  },
-  {
-    id: 3,
+export function ContactForm() {
+  const tServices = useTranslations("ContactPage.Services");
+  const t = useTranslations("ContactPage.Form");
 
-    label: "Websites, Landing Pages & Fixes",
-    value: "website-landing-pages-fixes",
-    ar_label: "مواقع، صفحات هبوط وإصلاحات",
-  },
-  {
-    id: 4,
+  const services = [
+    { id: 1, label: tServices("AI"), value: "ai-integration" },
+    { id: 2, label: tServices("FullStack"), value: "full-stack" },
+    { id: 3, label: tServices("Websites"), value: "websites" },
+    { id: 4, label: tServices("Healthcare"), value: "healthcare" },
+    { id: 5, label: tServices("Desktop"), value: "desktop" },
+    { id: 6, label: tServices("CodeReview"), value: "code-review" },
+    { id: 7, label: tServices("Other"), value: "other" },
+  ];
 
-    label: "Healthcare & Medical Software Development",
-    value: "healthcare-medical-software-development",
-    ar_label: "تطوير برمجيات الرعاية الصحية والطبية",
-  },
-  {
-    id: 5,
-
-    label: "Desktop Applications & Tools",
-    value: "desktop-apps-and-tools",
-    ar_label: "تطبيقات وأدوات سطح المكتب",
-  },
-  {
-    id: 6,
-
-    label: "Code Review & Collaboration",
-    value: "code-review-and-collaboration",
-    ar_label: "مراجعة الشيفرة والتعاون",
-  },
-  { label: "Other", value: "other-services", ar_label: "أخرى", id: 7 },
-];
-
-export function HomeCTAForm() {
   const precisionInputStyle =
-    "bg-transparent! border-0 border-b border-white/20 rounded-none px-2 h-12 focus-visible:ring-0 focus-visible:border-blue-400 focus-visible:shadow-[0_1px_0_0_#60a5fa] placeholder:text-white/30 text-white transition-all shadow-none!";
+    "bg-transparent! border-0 border-b  border-white/20 rounded-none px-2 h-12 focus-visible:ring-0 focus-visible:border-blue-400 focus-visible:shadow-[0_1px_0_0_#60a5fa] placeholder:text-white/30 text-white transition-all shadow-none!";
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -97,24 +67,18 @@ export function HomeCTAForm() {
   });
 
   function onSubmit(data: FormSchema) {
-    toast("You submitted the following values:", {
+    toast(t("Toast.Title"), {
       description: (
         <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
       position: "bottom-right",
-      classNames: {
-        content: "flex flex-col gap-2",
-      },
-      style: {
-        "--border-radius": "calc(var(--radius)  + 4px)",
-      } as React.CSSProperties,
     });
   }
 
   return (
-    <Card className="w-full border-none bg-transparent shadow-none">
+    <Card className="rtl:font-alexandria w-full border-none bg-transparent shadow-none">
       <CardHeader>
         {form.formState.errors.root && (
           <p className="text-sm text-red-500">
@@ -135,8 +99,8 @@ export function HomeCTAForm() {
                     field={field}
                     fieldState={fieldState}
                     nameInSchema="firstName"
-                    fieldTitle="First Name"
-                    placeholder="Your First Name"
+                    fieldTitle={t("FirstName")}
+                    placeholder={t("Placeholders.FirstName")}
                     className={precisionInputStyle}
                   />
                 )}
@@ -150,8 +114,8 @@ export function HomeCTAForm() {
                     field={field}
                     fieldState={fieldState}
                     nameInSchema="lastName"
-                    fieldTitle="Last Name"
-                    placeholder="Your Last Name"
+                    fieldTitle={t("LastName")}
+                    placeholder={t("Placeholders.LastName")}
                     className={precisionInputStyle}
                   />
                 )}
@@ -167,8 +131,8 @@ export function HomeCTAForm() {
                   nameInSchema="email"
                   field={field}
                   fieldState={fieldState}
-                  placeholder="Your Email Address"
-                  fieldTitle="Email Address"
+                  placeholder={t("Placeholders.Email")}
+                  fieldTitle={t("Email")}
                   type="email"
                   className={precisionInputStyle}
                 />
@@ -184,7 +148,8 @@ export function HomeCTAForm() {
                   nameInSchema="service"
                   field={field}
                   fieldState={fieldState}
-                  fieldTitle="Interested Service"
+                  fieldTitle={t("Service")}
+                  placeholder={t("Select")}
                   data={services}
                   // We style the Trigger here
                   className={`${precisionInputStyle} font-normal`}
@@ -201,8 +166,8 @@ export function HomeCTAForm() {
                   nameInSchema="message"
                   field={field}
                   fieldState={fieldState}
-                  placeholder="Your Message"
-                  fieldTitle="Project Details"
+                  placeholder={t("Placeholders.Message")}
+                  fieldTitle={t("Message")}
                   className={`${precisionInputStyle} min-h-[100px] resize-none pt-4`}
                 />
               )}
@@ -216,9 +181,9 @@ export function HomeCTAForm() {
           type="submit"
           form="contact-form"
           variant={"primary"}
-          className="w-full"
+          className="w-full cursor-pointer"
         >
-          Send Message
+          {t("Submit")}
         </Button>
       </CardFooter>
     </Card>

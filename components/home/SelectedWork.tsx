@@ -1,12 +1,18 @@
-import { MoveUpRight } from "lucide-react";
+import { MoveUpLeft, MoveUpRight } from "lucide-react";
 import { Button } from "@/components/ui/custom/Button";
 
 import Link from "next/link";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { getProjects } from "@/lib/projects";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export default function SelectedWork() {
+export default async function SelectedWork() {
+  const t = await getTranslations("HomePage.SelectedWork");
   const selectedWork = getProjects();
+  const local = await getLocale();
+
+  // Take only top 3 or 4 for the homepage if you have many
+  const displayProjects = selectedWork.slice(0, 3);
   return (
     <section
       id="selected-work"
@@ -14,11 +20,12 @@ export default function SelectedWork() {
     >
       <div className="col-span-12 mb-12 flex items-end justify-between">
         <div>
-          <h3 className="mb-2 text-4xl tracking-tighter lg:text-6xl">
-            Selected <span className="text-foreground/50">Work</span>
+          <h3 className="mb-2 text-4xl font-bold tracking-tighter lg:text-6xl">
+            {t("Title_Selected")}{" "}
+            <span className="text-foreground/50">{t("Title_Work")}</span>
           </h3>
-          <p className="text-foreground/40 mx-auto max-w-3xl text-lg lg:text-xl">
-            From concept to production—real projects solving real problems.
+          <p className="text-foreground/40 mx-auto max-w-3xl text-lg font-light lg:text-xl">
+            {t("Subtitle")}
           </p>
         </div>
         <div>
@@ -27,15 +34,19 @@ export default function SelectedWork() {
               href={"/projects"}
               className="text-foreground flex items-center gap-2"
             >
-              <span>All Projects</span>
-              <MoveUpRight size={18} />
+              <span>{t("ViewAll")}</span>
+              {local === "ar" ? (
+                <MoveUpLeft size={18} />
+              ) : (
+                <MoveUpRight size={18} />
+              )}
             </Link>
           </Button>
         </div>
       </div>
 
       <div className="flex flex-col gap-8">
-        {selectedWork.map((project) => (
+        {displayProjects.map((project) => (
           <ProjectSummaryCard
             key={project.slug}
             project={project}

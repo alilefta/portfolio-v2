@@ -51,7 +51,7 @@ export default async function SocialProof() {
                 {t("Commercial")}
               </span>
             </div>
-            <div className="text-foreground/80 text-3xl font-bold tracking-tighter transition-transform duration-300 group-hover:scale-110 md:text-4xl dark:text-white">
+            <div className="text-foreground/80 flex items-center gap-1.5 text-3xl font-bold tracking-tighter transition-transform duration-300 group-hover:scale-110 md:text-4xl dark:text-white">
               1
               <span className="text-emerald-400 dark:text-emerald-500">
                 {t("Exit")}

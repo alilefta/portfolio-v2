@@ -19,13 +19,13 @@ type DataObj = {
   id: number;
   label: string;
   value: string;
-  ar_label: string;
 };
 
 // Generic S for Schema
 type Props<S extends FieldValues> = {
   fieldTitle: string;
   nameInSchema: keyof S & string;
+  placeholder?: string;
   data: DataObj[];
   fieldState: ControllerFieldState;
   field: ControllerRenderProps<S>;
@@ -38,9 +38,12 @@ export function SelectWithLabel<S extends FieldValues>({
   className,
   field,
   fieldState,
+  placeholder,
   data,
 }: Props<S>) {
   const locale = useLocale();
+  const dir = locale === "ar" ? "rtl" : "ltr";
+
   return (
     <Field orientation="vertical" data-invalid={fieldState.invalid}>
       <FieldLabel htmlFor={nameInSchema}>{fieldTitle}</FieldLabel>
@@ -49,18 +52,19 @@ export function SelectWithLabel<S extends FieldValues>({
         name={nameInSchema}
         value={field.value}
         onValueChange={field.onChange}
+        dir={dir}
       >
         <SelectTrigger
           id={nameInSchema}
           aria-invalid={fieldState.invalid}
           className={`min-w-[120px] ${className}`}
         >
-          <SelectValue placeholder="Select" />
+          <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent position="item-aligned">
           {data.map((service) => (
             <SelectItem key={service.value} value={service.value}>
-              {locale === "ar" ? service.ar_label : service.label}
+              {service.label}
             </SelectItem>
           ))}
         </SelectContent>

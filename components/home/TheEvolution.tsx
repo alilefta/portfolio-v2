@@ -1,11 +1,15 @@
 import { Badge } from "@/components/ui/custom/Badge";
+import { getTranslations } from "next-intl/server";
 
-export default function TheEvolutionSection() {
+export default async function TheEvolutionSection() {
+  const t = await getTranslations("HomePage.Evolution");
+
   return (
     <section className="to-foreground/5 relative mx-auto max-w-7xl gap-12 rounded-2xl px-6 py-8 lg:px-8 lg:py-16">
       <div className="mx-auto mb-20">
-        <h2 className="mb-4 text-center text-5xl font-medium capitalize">
-          The <span className="text-foreground/50">Evolution</span>
+        <h2 className="mb-4 text-center text-5xl font-medium capitalize ltr:flex ltr:items-center ltr:gap-1.5">
+          <span>{t("Title_The")}</span>
+          <span className="text-foreground/50">{t("Title_Evolution")}</span>
         </h2>
 
         <hr className="mr-auto ml-auto h-0.5 w-24 bg-linear-to-r from-transparent via-zinc-500 to-transparent" />
@@ -19,12 +23,14 @@ export default function TheEvolutionSection() {
             <Badge variant={"outline"} className="mb-4">
               2018
             </Badge>
-            <h3 className="mb-4 text-3xl uppercase md:text-4xl">CURIOSITY</h3>
+            <h3 className="mb-4 text-3xl uppercase md:text-4xl">
+              {t("Curiosity_Title")}
+            </h3>
             <p className="text-foreground/60 mb-1.5 max-w-72 text-sm tracking-wide">
-              10 years old. Pentium 4. Trying to understand how games worked.
+              {t("Curiosity_P1")}
             </p>
             <p className="text-foreground/60 max-w-72 text-sm tracking-wide">
-              The obsession started here.
+              {t("Curiosity_P2")}
             </p>
           </div>
 
@@ -38,16 +44,18 @@ export default function TheEvolutionSection() {
         {/* Row 2 */}
         <div className="grid grid-cols-11">
           {/* Content Right */}
-          <div className="order-2 col-span-10 pb-8 md:col-span-5">
+          <div className="order-2 col-span-10 pb-8 md:col-span-5 md:col-start-7">
             <Badge variant={"outline"} className="mb-4">
               2020
             </Badge>
-            <h3 className="mb-4 text-3xl uppercase md:text-4xl">PRECISION</h3>
+            <h3 className="mb-4 text-3xl uppercase md:text-4xl">
+              {t("Precision_Title")}
+            </h3>
             <p className="text-foreground/60 mb-1.5 max-w-72 text-sm tracking-wide">
-              Dental labs. Every crown, every bridge—0.1mm accuracy or failure.
+              {t("Precision_P1")}
             </p>
             <p className="text-foreground/60 max-w-72 text-sm tracking-wide">
-              Learned: Details aren&apos;t details. They&apos;re everything.
+              {t("Precision_P2")}
             </p>
           </div>
 
@@ -65,13 +73,14 @@ export default function TheEvolutionSection() {
             <Badge variant={"outline"} className="mb-4">
               2023
             </Badge>
-            <h3 className="mb-4 text-3xl uppercase md:text-4xl">TRANSITION</h3>
+            <h3 className="mb-4 text-3xl uppercase md:text-4xl">
+              {t("Transition_Title")}
+            </h3>
             <p className="text-foreground/60 mb-1.5 max-w-72 text-sm tracking-wide">
-              Back to code. But different. I brought the craftsman mindset with
-              me.
+              {t("Transition_P1")}
             </p>
             <p className="text-foreground/60 max-w-72 text-sm tracking-wide">
-              Same obsession. Different medium.
+              {t("Transition_P2")}
             </p>
           </div>
 
@@ -85,17 +94,18 @@ export default function TheEvolutionSection() {
         {/* Row 4 */}
         <div className="grid grid-cols-11">
           {/* Content Right */}
-          <div className="order-2 col-span-10 pb-8 md:col-span-5">
+          <div className="order-2 col-span-10 pb-8 md:col-span-5 md:col-start-7">
             <Badge variant={"outline"} className="mb-4">
               2024
             </Badge>
-            <h3 className="mb-4 text-3xl uppercase md:text-4xl">EXECUTION</h3>
+            <h3 className="mb-4 text-3xl uppercase md:text-4xl">
+              {t("Execution_Title")}
+            </h3>
             <p className="text-foreground/60 mb-1.5 max-w-72 text-sm tracking-wide">
-              Two degrees. Completed Computer Science bachelor with 93.8% GPA.
-              Product built and sold.
+              {t("Execution_P1")}
             </p>
             <p className="text-foreground/60 max-w-72 text-sm tracking-wide">
-              All while working full-time. No excuses.
+              {t("Execution_P2")}
             </p>
           </div>
 
@@ -113,12 +123,14 @@ export default function TheEvolutionSection() {
             <Badge variant={"surface"} intent={"success"} className="mb-4">
               2025
             </Badge>
-            <h3 className="mb-4 text-3xl uppercase md:text-4xl">BUILDING</h3>
+            <h3 className="mb-4 text-3xl uppercase md:text-4xl">
+              {t("Building_Title")}
+            </h3>
             <p className="text-foreground/60 mb-1.5 max-w-72 text-sm tracking-wide">
-              Enterprise software. Healthcare SaaS. Real problems. Real users.
+              {t("Building_P1")}
             </p>
             <p className="text-foreground/60 max-w-72 text-sm tracking-wide">
-              No more toy projects. Building for production.
+              {t("Building_P2")}
             </p>
           </div>
 

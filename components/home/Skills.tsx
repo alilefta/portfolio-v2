@@ -1,16 +1,23 @@
 import { professionalSkills, technicalSkills } from "@/lib/db/skills_section";
 
 import { SkillItem } from "@/lib/types/common";
+import { getTranslations } from "next-intl/server";
+
+const sanitizeKey = (key: string) =>
+  key.replaceAll(" ", "_").replaceAll(".", "DOT");
 
 export default async function SkillsSection() {
+  const t = await getTranslations("HomePage.Skills");
+
   return (
     <section className="mx-auto flex max-w-7xl flex-col gap-12 px-6 py-8 lg:px-8 lg:py-16">
       <div className="text-center">
-        <h3 className="mb-1 text-4xl tracking-tighter lg:text-6xl">
-          The <span className="text-foreground/50">Skills</span>
+        <h3 className="mb-1 text-4xl font-bold tracking-tighter lg:text-6xl ltr:flex ltr:items-center ltr:gap-1.5">
+          <span>{t("Title_The")}</span>
+          <span className="text-foreground/50">{t("Title_Skills")}</span>
         </h3>
-        <p className="text-foreground/40 mx-auto max-w-3xl text-lg lg:text-xl">
-          Beyond code—what makes me effective
+        <p className="text-foreground/40 mx-auto max-w-3xl text-lg font-light lg:text-xl rtl:mt-8">
+          {t("Subtitle")}
         </p>
       </div>
 
@@ -18,25 +25,29 @@ export default async function SkillsSection() {
       <div className="grid w-full grid-cols-1 gap-16 rounded-4xl border border-zinc-200 bg-zinc-100/70 p-6 shadow-xl backdrop-blur-sm md:grid-cols-2 md:gap-12 lg:p-12 dark:border-white/10 dark:bg-zinc-900/40">
         {/* Core Development Column */}
         <ColumnContainer
-          title="professional Skills"
+          title={t("Columns.Professional")}
           data={professionalSkills}
         />
 
         {/* Frameworks And Libraries Column */}
-        <ColumnContainer title="Technicial Skills" data={technicalSkills} />
+        <ColumnContainer
+          title={t("Columns.Technical")}
+          data={technicalSkills}
+        />
       </div>
     </section>
   );
 }
 
-function ColumnContainer({
-  title,
-  data,
-}: {
+interface ColumnContainerProps {
   title: string;
   data: SkillItem[];
   color?: string;
-}) {
+}
+async function ColumnContainer({ title, data }: ColumnContainerProps) {
+  const tNames = await getTranslations("SkillNames");
+  const tDesc = await getTranslations("SkillDescriptions");
+
   return (
     <div className="flex flex-col">
       {/* 3. COLUMN HEADER: Applied Architectural Styling */}
@@ -52,8 +63,8 @@ function ColumnContainer({
         {data.map(({ name, description }, i) => (
           <SkillRow
             key={`${i}_${name}_${description.substring(0, 4)}`}
-            name={name}
-            description={description}
+            name={tNames(sanitizeKey(name))}
+            description={tDesc(sanitizeKey(name))}
           />
         ))}
       </div>

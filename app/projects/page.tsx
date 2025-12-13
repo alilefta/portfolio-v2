@@ -15,18 +15,30 @@ import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { Code2, Database, Globe, Layers } from "lucide-react";
 import { getFilteredProjects } from "@/lib/projects";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Selected Work",
-  description:
-    "Case studies of production-grade systems. From Enterprise Dental Lab Management to Cloud-based SaaS platforms. Built with precision.",
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({
+    locale,
+    namespace: "ProjectsPage.Metadata",
+  });
+  return {
+    title: t("Title"),
+    description: t("Description"),
+  };
+}
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;
 }
 export default async function ProjectsPage({ searchParams }: PageProps) {
   const params = await searchParams;
-
+  const t = await getTranslations("ProjectsPage");
+  // Reuse Home translations for breadcrumbs
+  const tHome = await getTranslations("HomePage");
   const { data, error } = filtersSchema.safeParse(params);
 
   if (error) {
@@ -50,7 +62,7 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
           {/* Subtle grid pattern that lets the aurora shine through */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
           {/* A fade-out mask at the bottom so the grid integrates smoothly */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50 dark:to-black/50" />
+          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/50 dark:to-black/50" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-8 py-16 lg:px-8 lg:py-24">
@@ -59,11 +71,11 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                  <BreadcrumbLink href="/">{tHome("Home")}</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Projects</BreadcrumbPage>
+                  <BreadcrumbPage>{tHome("Projects")}</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -74,13 +86,13 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
             <div className="flex flex-col justify-center lg:col-span-8">
               {/* Metadata Badge */}
               <div className="mb-6 flex items-center gap-3">
-                <div className="flex items-center gap-2 rounded-full border border-zinc-200/50 bg-white/40 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur-md dark:border-zinc-700/50 dark:bg-zinc-900/40 dark:text-zinc-300">
+                <div className="flex items-center gap-2 rounded-full border border-zinc-200/50 bg-white/40 text-xs font-medium text-zinc-700 backdrop-blur-md ltr:px-3 ltr:py-1 rtl:px-3.5 rtl:py-2 dark:border-zinc-700/50 dark:bg-zinc-900/40 dark:text-zinc-300">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
                   </span>
                   <span className="font-mono tracking-tight">
-                    SYSTEM: ONLINE
+                    {t("Hero.SystemOnline")}
                   </span>
                 </div>
                 <span className="font-mono text-xs text-zinc-400 dark:text-zinc-500">
@@ -88,18 +100,20 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
                 </span>
               </div>
 
-              <h1 className="mb-6 text-5xl font-bold tracking-tight text-zinc-900 md:text-7xl dark:text-zinc-100">
-                Built for{" "}
-                <span className="text-zinc-400 dark:text-zinc-600">Scale.</span>
+              <h1 className="mb-6 text-5xl font-bold tracking-tight text-zinc-900 md:text-7xl rtl:leading-[1.4] dark:text-zinc-100">
+                {t("Hero.BuiltFor")}{" "}
+                <span className="text-zinc-400 dark:text-zinc-600">
+                  {t("Hero.Scale")}
+                </span>
                 <br />
-                Engineered for{" "}
-                <span className="text-blue-600 dark:text-blue-500">Speed.</span>
+                {t("Hero.EngineeredFor")}{" "}
+                <span className="text-blue-600 dark:text-blue-500">
+                  {t("Hero.Speed")}
+                </span>
               </h1>
 
               <p className="max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-                A collection of high-performance applications, from dental lab
-                management systems to cryptographic research tools. No filler,
-                just production code.
+                {t("Hero.Subtitle")}
               </p>
 
               {/* Tech Stack Indicator */}
@@ -122,7 +136,7 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
               <div className="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/40 p-6 shadow-lg backdrop-blur-sm transition-all hover:border-blue-500/30 hover:bg-white/60 dark:border-zinc-800/50 dark:bg-zinc-900/20 dark:hover:bg-zinc-900/40">
                 <div className="mb-1 flex items-center justify-between">
                   <span className="text-xs font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-                    Total Projects
+                    {t("Hero.TotalProjects")}
                   </span>
                   <Layers className="h-4 w-4 text-zinc-400 transition-colors group-hover:text-blue-500" />
                 </div>
@@ -130,7 +144,9 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
                   <span className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
                     {totalCount}
                   </span>
-                  <span className="text-xs text-zinc-500">Shipped</span>
+                  <span className="text-xs text-zinc-500">
+                    {t("Hero.Shipped")}
+                  </span>
                 </div>
               </div>
 
@@ -138,7 +154,7 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
               <div className="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/40 p-6 shadow-lg backdrop-blur-sm transition-all hover:border-emerald-500/30 hover:bg-white/60 dark:border-zinc-800/50 dark:bg-zinc-900/20 dark:hover:bg-zinc-900/40">
                 <div className="mb-1 flex items-center justify-between">
                   <span className="text-xs font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
-                    Focus
+                    {t("Hero.Focus")}
                   </span>
                   <Globe className="h-4 w-4 text-zinc-400 transition-colors group-hover:text-emerald-500" />
                 </div>
@@ -147,7 +163,7 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
                     SaaS
                   </span>
                   <span className="text-xs text-zinc-500">
-                    & Desktop Systems
+                    {t("Hero.SaaS_Desktop")}
                   </span>
                 </div>
               </div>
@@ -186,7 +202,7 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
                   href="/projects"
                   className="text-red-500 hover:text-red-600 dark:text-red-400"
                 >
-                  Reset
+                  {t("Filters.Reset")}
                 </Link>
               )}
             </div>
@@ -213,14 +229,12 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
         {/* Empty State */}
         {filteredCount === 0 && hasSelectedFilters && (
           <div className="py-24 text-center">
-            <p className="text-lg text-zinc-500">
-              No projects found matching your filters.
-            </p>
+            <p className="text-lg text-zinc-500">{t("EmptyState.Message")}</p>
             <Link
               href={"/projects"}
               className="mt-4 text-sm text-zinc-900 underline underline-offset-4 hover:text-zinc-700 dark:text-white dark:hover:text-zinc-300"
             >
-              Clear all filters
+              {t("EmptyState.Clear")}
             </Link>
           </div>
         )}

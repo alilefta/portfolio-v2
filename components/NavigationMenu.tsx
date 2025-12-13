@@ -77,7 +77,7 @@ export function NavigationMenu() {
                 {t("HomePage.Contact")}
               </Link>
               <Link href={"/blog"} className="text-2xl rtl:text-base">
-                {t("HomePage.Blog")}
+                {t("Navbar.Log")}
               </Link>
             </div>
           </div>

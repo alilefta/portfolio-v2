@@ -8,6 +8,7 @@ import Link from "next/link";
 export default async function HeroSection() {
   const t = await getTranslations();
   const local = await getLocale();
+  const isRTL = local === "ar";
 
   return (
     <section className="min-h-[calc(min-h-dvh - 40px)] relative mx-auto w-full py-12 pt-18">
@@ -86,7 +87,7 @@ export default async function HeroSection() {
               <span className="text-foreground/50">/</span>
               <span className="text-green-400">ali-portfolio</span>
               <span className="text-foreground/50">
-                {'git commit -m "Refining the user experience"'}
+                {`git commit -m "feat: ${t("HomePage.Cards.CommitMessage")}"`}
               </span>
               <span className="bg-foreground/50 animate-caret-blink ml-1 inline-block h-4 w-2 align-middle"></span>
             </div>

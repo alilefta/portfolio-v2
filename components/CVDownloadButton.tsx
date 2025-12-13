@@ -8,14 +8,14 @@ export function CVDownloadButton({ hasLabel }: { hasLabel?: boolean }) {
   const t = useTranslations();
 
   return (
-    <Button variant="outline" size="default" title={t("Controls.DownloadCV")}>
+    <Button variant="outline" size="default" title={t("Navbar.DownloadCV")}>
       <Paperclip className="size-5" />
       {hasLabel ? (
         <span className="text-sm tracking-tight rtl:text-xs">
-          {t("Controls.DownloadCV")}
+          {t("Navbar.DownloadCV")}
         </span>
       ) : (
-        <span className="sr-only">{t("Controls.DownloadCV")}</span>
+        <span className="sr-only">{t("Navbar.DownloadCV")}</span>
       )}
     </Button>
   );

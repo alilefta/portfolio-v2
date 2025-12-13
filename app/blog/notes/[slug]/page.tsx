@@ -38,9 +38,9 @@ export async function generateMetadata({ params }: PageProps) {
     description: `Engineering snippet about ${tags?.join(", ") || "development"}.`,
     openGraph: {
       title: title,
-      description: `Ali Mohsin Lab Note #${noteNumber}`,
+      description: `Ali Lefta Lab Note #${noteNumber}`,
       type: "article",
-      url: `https://ali-mohsin.dev/blog/notes/${slug}`,
+      url: `https://ali-Lefta.dev/blog/notes/${slug}`,
       // Notes usually rely on the default OG image unless you generate dynamic ones
     },
   };
@@ -80,7 +80,7 @@ export default async function SingleNotePage({ params }: PageProps) {
               <div className="relative h-12 w-12 overflow-hidden rounded-full border border-zinc-200 shadow-sm dark:border-zinc-800">
                 <Image
                   src="/images/avatars/avatar.jpg" // Replace with your avatar
-                  alt="Ali Mohsin"
+                  alt="Ali Lefta"
                   fill
                   className="object-cover"
                 />
@@ -93,9 +93,9 @@ export default async function SingleNotePage({ params }: PageProps) {
               <div className="mb-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-zinc-900 dark:text-zinc-100">
-                    Ali Mohsin
+                    Ali Lefta
                   </span>
-                  <span className="text-sm text-zinc-500">@alimohsin</span>
+                  <span className="text-sm text-zinc-500">@aliLefta</span>
                   <span className="text-zinc-300 dark:text-zinc-700">·</span>
                   <span className="text-sm text-zinc-500 hover:underline">
                     {note.metadata.date}

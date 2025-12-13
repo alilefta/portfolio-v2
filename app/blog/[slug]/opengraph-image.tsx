@@ -5,7 +5,7 @@ import { getPost } from "@/lib/blog"; // Ensure this import path is correct
 export const runtime = "nodejs";
 
 // Image metadata
-export const alt = "Blog Post | Ali Mohsin";
+export const alt = "Blog Post | Ali Lefta";
 export const size = {
   width: 1200,
   height: 630,
@@ -33,7 +33,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             color: "white",
           }}
         >
-          Ali Mohsin | Engineering Log
+          Ali Lefta | Engineering Log
         </div>
       ),
       { ...size },
@@ -145,7 +145,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: 24, color: "white", fontWeight: 600 }}>
-                Ali Mohsin
+                Ali Lefta
               </span>
               <span style={{ fontSize: 18, color: "#a1a1aa" }}>
                 System Architect
@@ -155,7 +155,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
 
           {/* Brand/Domain */}
           <div style={{ fontSize: 24, color: "#52525b", fontWeight: 600 }}>
-            ali-mohsin.dev/blog
+            ali-Lefta.dev/blog
           </div>
         </div>
       </div>

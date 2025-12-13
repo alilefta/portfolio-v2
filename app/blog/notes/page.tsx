@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 
 export const metadata = {
-  title: "Lab Notes | Ali Mohsin",
+  title: "Lab Notes | Ali Lefta",
   description: "Snippets, hacks, and configuration files for my future self.",
 };
 

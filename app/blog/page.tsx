@@ -17,7 +17,7 @@ import { BlogPost } from "@/lib/blog";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Engineering Log", // Becomes: "Engineering Log | Ali Mohsin"
+  title: "Engineering Log", // Becomes: "Engineering Log | Ali Lefta"
   description:
     "Technical deep dives into System Architecture, Database Scaling, .NET optimization, and Next.js performance. A digital garden of engineering problems solved.",
 };

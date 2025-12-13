@@ -73,8 +73,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN_URL),
 
   title: {
-    default: "Ali Mohsin | System Architect & Full Stack Engineer",
-    template: "%s | Ali Mohsin",
+    default: "Ali Lefta | System Architect & Full Stack Engineer",
+    template: "%s | Ali Lefta",
   },
 
   description:
@@ -95,23 +95,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: DOMAIN_URL,
-    siteName: "Ali Mohsin",
-    images: [
-      {
-        url: "/images/og-default.jpg", // Create a default brand card in public/images
-        width: 1200,
-        height: 630,
-        alt: "Ali Mohsin - System Architect",
-      },
-    ],
+    siteName: "Ali Lefta",
   },
 
   // 6. Twitter / X
   twitter: {
     card: "summary_large_image",
-    title: "Ali Mohsin | System Architect",
+    title: "Ali Lefta | System Architect",
     creator: "@alilefta", // Replace with your handle
-    images: ["/images/og-default.jpg"],
+    // images: ["/images/og-default.jpg"],
   },
 
   // 7. Robots (Ensure Google indexes you)

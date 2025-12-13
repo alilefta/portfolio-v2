@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { getBlogPosts } from "@/lib/blog";
 import { getProjects } from "@/lib/projects";
 import { DOMAIN_URL } from "@/lib/info";
+import { getLabNotes } from "@/lib/notes";
 
 // Helper function: Tries to parse the date, falls back to today if invalid
 function safeDate(dateStr: string | undefined): Date {
@@ -53,5 +54,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...routes, ...posts, ...projects];
+  // 3. Dynamic Projects
+  const notes = getLabNotes().map((note) => ({
+    url: `${baseUrl}/blog/notes/${note.slug}`,
+    // Use the helper here (Checks note.metadata.date first)
+    lastModified: safeDate(note.metadata.date || note.metadata.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
+  return [...routes, ...posts, ...projects, ...notes];
 }

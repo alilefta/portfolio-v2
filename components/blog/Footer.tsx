@@ -27,10 +27,10 @@ export default function Footer() {
             <div className="rounded-md bg-zinc-900 p-1 text-white dark:bg-zinc-100 dark:text-zinc-900">
               <Terminal className="h-4 w-4" />
             </div>
-            <span className="font-bold tracking-tight">Ali Mohsin</span>
+            <span className="font-bold tracking-tight">Ali Lefta</span>
           </Link>
           <p className="text-xs text-zinc-500">
-            © {new Date().getFullYear()} Ali Mohsin. Built with Next.js &
+            © {new Date().getFullYear()} Ali Lefta. Built with Next.js &
             Tailwind.
           </p>
         </div>

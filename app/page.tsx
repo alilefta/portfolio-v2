@@ -15,7 +15,7 @@ import IndustryImpact from "@/components/home/IndustryImpact";
 import ServicesSection from "@/components/home/ServicesSection";
 
 export const metadata: Metadata = {
-  title: "Ali Mohsin | System Architect & Full Stack Engineer",
+  title: "Ali Lefta | System Architect & Full Stack Engineer",
   description:
     "Bridging the gap between clinical precision and software architecture. Specialized in building scalable SaaS platforms and enterprise desktop systems.",
 };

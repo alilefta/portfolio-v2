@@ -34,7 +34,7 @@ export default function AuthorCTA() {
             <div className="relative h-32 w-32 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg md:h-44 md:w-44 dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-xl">
               <Image
                 src={"/images/avatars/avatar.jpg"}
-                alt="Ali mohsin's photo"
+                alt="Ali Lefta's photo"
                 width={400}
                 height={400}
               />
@@ -63,7 +63,7 @@ export default function AuthorCTA() {
           {/* MIDDLE: Content */}
           <div className="grow text-center lg:text-left">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 md:text-5xl dark:text-zinc-100">
-              Ali Mohsin
+              Ali Lefta
               <span className="mt-2 block text-xl font-medium text-zinc-500 md:text-2xl dark:text-zinc-400">
                 The Architect.
               </span>

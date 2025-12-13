@@ -24,7 +24,7 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (!post) return;
   return {
-    title: `${post.metadata.title} | Ali Mohsin`,
+    title: `${post.metadata.title} | Ali Lefta`,
     description: post.metadata.summary,
     openGraph: {
       title: post.metadata.title,
@@ -144,14 +144,14 @@ export default async function BlogPost({
               <div className="relative h-12 w-12 overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-700">
                 <Image
                   src="/images/avatars/avatar.jpg" // Ensure this path is correct
-                  alt="Ali Mohsin"
+                  alt="Ali Lefta"
                   fill
                   className="object-cover"
                 />
               </div>
               <div>
                 <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                  Ali Mohsin
+                  Ali Lefta
                 </h3>
                 <p className="text-xs text-zinc-500">
                   Engineering precision meets software architecture.

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"; // Assuming Shadcn Button
 import { ArrowLeft, Home, Terminal } from "lucide-react";
 
 export const metadata = {
-  title: "404: System Error | Ali Mohsin",
+  title: "404: System Error | Ali Lefta",
   description: "The requested resource could not be found.",
 };
 
@@ -12,7 +12,7 @@ export default function NotFound() {
     <main className="font-inter relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden bg-white text-zinc-900 dark:bg-black dark:text-zinc-100">
       {/* 1. Background Grid & Glow (Reusing your industrial theme) */}
       <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]" />
       </div>
 
       {/* Subtle Red/Amber Error Glow */}

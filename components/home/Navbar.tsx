@@ -47,7 +47,7 @@ export function Navbar() {
           </div>
           <div className="flex flex-col rtl:gap-1.5">
             <span className="text-xs leading-none font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-              {t("MainTitles.Ali")} {t("MainTitles.Mohsin")}
+              {t("MainTitles.Ali")} {t("MainTitles.Lefta")}
             </span>
             <span className="text-[10px] font-medium text-zinc-500 dark:text-zinc-400">
               {t("Navbar.SystemArchitect")}

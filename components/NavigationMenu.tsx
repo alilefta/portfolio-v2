@@ -98,7 +98,7 @@ export function NavigationMenu() {
           <p className="font-alexandria text-[10px] tracking-tight">
             <span className="font-light">{t("MainTitles.Ali")}</span>{" "}
             <span className="font-black tracking-wider">
-              {t("MainTitles.Mohsin")}
+              {t("MainTitles.Lefta")}
             </span>
           </p>
         </DrawerFooter>

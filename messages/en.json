@@ -179,6 +179,51 @@
         "Link": "Let's talk—I'll help you choose the right approach"
       },
       "Proven": "Proven"
+    },
+    "AboutMe": {
+      "Title_Who": "Who",
+      "Title_Iam": "I am",
+      "Subtitle": "From Dental Labs To Software Engineering",
+      "HeroTitle": "Full Stack Developer and Dental Technician",
+      "Biography": {
+        "Title": "Biography",
+        "P1": "I'm Ali, a full-stack engineer with a strong focus on building practical, high-impact software. My background in both technology and medical environments taught me how to solve real-world problems with clarity, structure, and a calm, analytical mindset. Whether I'm architecting a SaaS system, designing a UI, or optimizing backend logic, I care about the details that make a product dependable, efficient, and pleasant to use.",
+        "P2": "Outside of code, I'm someone who enjoys learning deeply, simplifying complex ideas, and creating things that feel intentional. I love systems thinking, clean design, and the craft behind turning an idea into something functional and polished. Every project I work on—big or small—is an opportunity to improve, refine my approach, and deliver something meaningful."
+      },
+      "Stats": {
+        "KeyFacts": "Key Facts",
+        "Achievement": "Achievement",
+        "Achievement_Desc": "Built and sold an Enterprise product",
+        "Experience": "Experience",
+        "Years": "years",
+        "DentalTech": "Dental Technology",
+        "Education": "Education",
+        "Degrees": "degrees",
+        "DualMajor": "Dental Tech & CS",
+        "Academic": "Academic Performance",
+        "CS_Degree": "Computer Science",
+        "Bachelor": "Bachelor's Degree",
+        "Technologies": "Technologies",
+        "CoreStack": "Core Tech Stack",
+        "Availability": "Availability",
+        "Sure": "Sure.",
+        "Timezone": "Remote • UTC+3",
+        "BasedIn": "Based in",
+        "Location": "Babil, Iraq",
+        "Global": "Working with clients worldwide"
+      },
+      "Differentiators": {
+        "Title": "What Makes This Different",
+        "Card1_Title": "Precision Training",
+        "Card1_Desc": "Six years creating dental restorations taught me that perfection isn't optional—it's the baseline.",
+        "Card2_Tag": "Healthcare",
+        "Card2_Title": "Industry Insider",
+        "Card2_Desc": "I don't learn your industry—I lived it. Real workflows. Real problems. Real solutions.",
+        "Card3_Tag": "Track Record",
+        "Card3_Title": "Proven Builder",
+        "Card3_Desc": "Not just coding tutorials. Built a product. Sold it. Supported real users. That's the difference."
+      },
+      "CTA": "See what I've built"
     }
   },
   "ContactPage": {
@@ -250,52 +295,6 @@
       "Message": "No projects found matching your filters.",
       "Clear": "Clear all filters"
     }
-  },
-
-  "AboutMe": {
-    "Title_Who": "Who",
-    "Title_Iam": "I am",
-    "Subtitle": "From Dental Labs To Software Engineering",
-    "HeroTitle": "Full Stack Developer and Dental Technician",
-    "Biography": {
-      "Title": "Biography",
-      "P1": "I'm Ali, a full-stack engineer with a strong focus on building practical, high-impact software. My background in both technology and medical environments taught me how to solve real-world problems with clarity, structure, and a calm, analytical mindset. Whether I'm architecting a SaaS system, designing a UI, or optimizing backend logic, I care about the details that make a product dependable, efficient, and pleasant to use.",
-      "P2": "Outside of code, I'm someone who enjoys learning deeply, simplifying complex ideas, and creating things that feel intentional. I love systems thinking, clean design, and the craft behind turning an idea into something functional and polished. Every project I work on—big or small—is an opportunity to improve, refine my approach, and deliver something meaningful."
-    },
-    "Stats": {
-      "KeyFacts": "Key Facts",
-      "Achievement": "Achievement",
-      "Achievement_Desc": "Built and sold an Enterprise product",
-      "Experience": "Experience",
-      "Years": "years",
-      "DentalTech": "Dental Technology",
-      "Education": "Education",
-      "Degrees": "degrees",
-      "DualMajor": "Dental Tech & CS",
-      "Academic": "Academic Performance",
-      "CS_Degree": "Computer Science",
-      "Bachelor": "Bachelor's Degree",
-      "Technologies": "Technologies",
-      "CoreStack": "Core Tech Stack",
-      "Availability": "Availability",
-      "Sure": "Sure.",
-      "Timezone": "Remote • UTC+3",
-      "BasedIn": "Based in",
-      "Location": "Babil, Iraq",
-      "Global": "Working with clients worldwide"
-    },
-    "Differentiators": {
-      "Title": "What Makes This Different",
-      "Card1_Title": "Precision Training",
-      "Card1_Desc": "Six years creating dental restorations taught me that perfection isn't optional—it's the baseline.",
-      "Card2_Tag": "Healthcare",
-      "Card2_Title": "Industry Insider",
-      "Card2_Desc": "I don't learn your industry—I lived it. Real workflows. Real problems. Real solutions.",
-      "Card3_Tag": "Track Record",
-      "Card3_Title": "Proven Builder",
-      "Card3_Desc": "Not just coding tutorials. Built a product. Sold it. Supported real users. That's the difference."
-    },
-    "CTA": "See what I've built"
   },
 
   "Tags": {

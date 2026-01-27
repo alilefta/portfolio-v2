@@ -12,10 +12,10 @@ export default async function MyApproach() {
       <h2 className="mb-6 text-5xl font-medium tracking-tighter text-white md:text-8xl">
         WRITE CODE
       </h2>
-      <h2 className="mb-6 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-5xl font-medium tracking-tighter text-transparent md:text-8xl">
+      <h2 className="mb-6 bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-5xl font-medium tracking-tighter text-transparent md:text-8xl">
         I BUILD
       </h2>
-      <h2 className="mb-20 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-5xl font-medium tracking-tighter text-transparent md:text-8xl">
+      <h2 className="mb-20 bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-5xl font-medium tracking-tighter text-transparent md:text-8xl">
         SOLUTIONS
       </h2>
 

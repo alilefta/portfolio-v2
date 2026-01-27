@@ -12,7 +12,7 @@ export default async function HeroSection() {
 
   return (
     <section className="min-h-[calc(min-h-dvh - 40px)] relative mx-auto w-full py-12 pt-18">
-      <div className="pointer-events-none absolute top-0 left-0 z-0 h-[700px] w-full rounded-2xl bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+      <div className="pointer-events-none absolute top-0 left-0 z-0 h-[800px] w-full rounded-2xl bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-5 py-12 lg:grid-cols-12">
         {/* Big card */}
         <div className="glass-card group min-h-[500px] rounded-2xl p-8 md:p-12 lg:col-span-8">

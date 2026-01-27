@@ -155,7 +155,7 @@
 //             <h1 className="mb-4 text-3xl leading-tight font-bold md:mb-6 md:text-5xl lg:text-6xl">
 //               From Dental Precision
 //               <br />
-//               <span className="animate-pulse bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+//               <span className="animate-pulse bg-linear-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
 //                 to Digital Products
 //               </span>
 //             </h1>
@@ -168,7 +168,7 @@
 //             </p>
 
 //             <div className="mb-6 flex flex-col flex-wrap gap-3 sm:flex-row md:mb-8 md:gap-4">
-//               <button className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105 hover:from-purple-600 hover:to-pink-600 hover:shadow-xl hover:shadow-purple-500/25 md:px-8 md:py-4">
+//               <button className="flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-purple-500 to-pink-500 px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105 hover:from-purple-600 hover:to-pink-600 hover:shadow-xl hover:shadow-purple-500/25 md:px-8 md:py-4">
 //                 {"Let's Work Together"}
 //                 <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
 //               </button>
@@ -212,7 +212,7 @@
 
 //             <div className="grid grid-cols-2 gap-4 md:gap-6">
 //               <div className="group/stat transition-transform duration-300 hover:scale-105">
-//                 <div className="mb-1 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+//                 <div className="mb-1 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
 //                   4+
 //                 </div>
 //                 <div className="text-xs text-slate-400 md:text-sm">
@@ -221,7 +221,7 @@
 //               </div>
 
 //               <div className="group/stat transition-transform duration-300 hover:scale-105">
-//                 <div className="mb-1 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+//                 <div className="mb-1 bg-linear-to-r from-pink-400 to-purple-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
 //                   10+
 //                 </div>
 //                 <div className="text-xs text-slate-400 md:text-sm">
@@ -230,7 +230,7 @@
 //               </div>
 
 //               <div className="group/stat col-span-2 transition-transform duration-300 hover:scale-105">
-//                 <div className="mb-1 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+//                 <div className="mb-1 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
 //                   1 Sold
 //                 </div>
 //                 <div className="text-xs text-slate-400 md:text-sm">
@@ -286,7 +286,7 @@
 //                 ></div>
 //               </div>
 //               <span
-//                 className={`bg-gradient-to-r text-xs md:text-sm ${codeSnippets[activeCode].color} bg-clip-text font-mono font-bold text-transparent`}
+//                 className={`bg-linear-to-r text-xs md:text-sm ${codeSnippets[activeCode].color} bg-clip-text font-mono font-bold text-transparent`}
 //               >
 //                 {codeSnippets[activeCode].lang}
 //               </span>

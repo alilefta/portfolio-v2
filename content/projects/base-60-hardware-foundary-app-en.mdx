@@ -1,0 +1,170 @@
+---
+title: "BASE 60: High-Fidelity Hardware Foundry"
+status: { type: "deployed", deployement_year: "2026" }
+description: "An immersive 3D PC configurator and industrial e-commerce platform that transforms hardware selection into a precision engineering experience."
+environment: "Web_App"
+publishedAt: "2025"
+date: "2025-01-28"
+tech_stack:
+  [
+    "Next.js_15",
+    "React_Three_Fiber",
+    "Framer/motion",
+    "Zustand",
+    "Prisma_ORM",
+    "PostgreSQL",
+    "Stripe",
+    "UploadThing",
+  ]
+github_url: "https://github.com/alilefta/base-60"
+live_preview: "https://base-60.vercel.app"
+privacy: "open_source"
+screenshots:
+  {
+    theme: "dark",
+    dark_screenshot_url: "base_60_crucible_dark.png",
+    ext: "png",
+  }
+badge_tag_1: "3D Configurator"
+badge_tag_2: "E-Commerce"
+---
+
+## The Challenge: E-Commerce Lacks Physics
+
+Buying high-end PC hardware is an engineering task, yet most retailers treat a $2,000 GPU the same way they treat a t-shirt: static white images, generic lists, and zero context.
+
+The disconnect creates anxiety: _"Will this GPU fit in this case?"_ _"Is this RAM compatible with my motherboard?"_ _"Do I have enough wattage?"_
+
+I built **BASE 60** to solve this by replacing the "Storefront" with a **"Foundry."** It bridges the gap between high-precision CAD software and the fluidity of the modern web.
+
+## System Architecture
+
+The platform operates on a "Server-Container, Client-Island" architecture to balance heavy 3D rendering with SEO performance.
+
+### Core Stack Decisions
+
+- **Framework:** **Next.js 15 (App Router)** for aggressive server-side rendering of product registries and SEO metadata.
+- **3D Engine:** **React Three Fiber (R3F)** coupled with **GSAP** for high-performance, timeline-based animation sequences (e.g., "Exploded View").
+- **State Management:** **Zustand** was chosen over Redux or Context for the 3D Builder because it allows for transient state updates (60fps camera movements) without triggering React re-renders in the main DOM.
+- **Data Layer:** **PostgreSQL** accessed via **Prisma ORM**, ensuring atomic transactions for critical inventory operations.
+
+## Key Modules
+
+### 1. The Crucible Architect (3D Configurator)
+
+The crown jewel of the platform. Instead of a list, users build their machine in a physically simulated environment.
+
+- **Asset Pipeline:** Uses **Draco-compressed GLB** models loaded dynamically based on the active manifest.
+- **Kinetic Assembly:** When a user selects a part, it doesn't just appear. It flies in from a specific vector, scales up using a spring physics curve, and "snaps" into the correct socket (e.g., CPU into Motherboard).
+- **Exploded View Protocol:** A togglable mode that uses vector mathematics to separate components along their relative axes ($X$ for Motherboard, $Z$ for GPU) to allow inspection of internal parts.
+
+### 2. The Logic Resolver Engine
+
+Building a PC requires strict compatibility rules. I engineered a `resolveCompatibility` engine that runs in real-time as the user modifies their build. It is decoupled from the UI, acting as a pure logic layer.
+
+It validates complex physical and electrical constraints:
+
+1.  **Geometric Clearance:** Checks GPU length vs. Chassis maximum clearance.
+2.  **Thermal Height:** Checks Air Cooler height vs. Chassis width.
+3.  **Socket Handshake:** Validates CPU socket (LGA1700/AM5) against Motherboard.
+4.  **Energy Grid:** Calculates total TDP + overhead and warns if it exceeds PSU capacity (80% efficiency rule).
+
+```typescript
+// Example: Geometric Clearance Logic
+if (
+  GPU?.compatibility?.type === "GPU" &&
+  CHASSIS?.compatibility?.type === "CASE"
+) {
+  if (GPU.compatibility.length > CHASSIS.compatibility.maxGpuLength) {
+    alerts.push({
+      code: "PHYSICAL_OVERFLOW",
+      message: `GPU Length (${GPU.compatibility.length}mm) exceeds Chassis clearance.`,
+      severity: "CRITICAL",
+    });
+  }
+}
+```
+
+### 3. The Overseer Dashboard (Admin)
+
+The backend interface abandons the "CMS" look for a **"Command Center"** aesthetic.
+
+- **Registry Management:** Uses **TanStack Table** logic for high-density data grids, managing stock allocations and SKU tracking.
+- **Visual Ingest Terminal:** A custom Drag-and-Drop zone that handles local `blob` previews for instant feedback while asynchronously uploading assets to the cloud (UploadThing).
+- **Telemetry:** Real-time visualization of sales velocity and stock saturation using customized **Recharts** with a "Cuneiform" industrial styling.
+
+### 4. Atomic Transaction Protocol
+
+Processing an order in a high-demand environment requires strict data integrity. The checkout flow utilizes a **Two-Stage Authorization**:
+
+1.  **Logistics Sync:** User data is validated, and a `PaymentIntent` is generated server-side.
+2.  **Capital Transfer:** Stripe processes the payment.
+3.  **Atomic Commit:** A Prisma Transaction ensures that the Order is created, Stock is decremented, and the Cart is wiped **simultaneously**. If any step fails, the entire operation rolls back to prevent "Ghost Orders."
+
+```typescript
+// Atomic Handshake
+await prisma.$transaction(async (tx) => {
+  // 1. Create Order
+  const order = await tx.order.create({ ...data, status: "PAID" });
+
+  // 2. Decrement Physical Inventory
+  for (const item of order.items) {
+    await tx.product.update({
+      where: { id: item.productId },
+      data: { stock: { decrement: item.quantity } },
+    });
+  }
+});
+```
+
+## Core Capabilities
+
+BASE 60 was engineered to reject the standard "Catalogue" model of e-commerce. Every feature is designed to simulate a high-tech industrial workstation.
+
+### 1. The Crucible Architect (3D Configurator)
+
+A real-time WebGL environment where users assemble hardware in 3D space.
+
+- **GSAP Animation:** Components don't just appear; they "deploy" with spring-physics trajectories.
+- **Exploded View Protocol:** Users can toggle a schematic view that separates components along their relative axes to inspect internal clearances.
+- **Holographic Fallbacks:** Missing 3D assets are gracefully handled by procedurally generated wireframe "Blueprints," maintaining immersion without breaking the app.
+
+### 2. The Logic Resolver Engine
+
+A decoupled compatibility layer that validates the "Hardware Handshake" in real-time.
+
+- **Physical Constraints:** Calculates GPU length vs. Chassis clearance and CPU Cooler height vs. Case width.
+- **Electrical Grid:** Validates PSU wattage against the total TDP of selected modules (+20% safety overhead).
+- **Architecture Sync:** Prevents socket mismatches (LGA1700 vs AM5) and memory generation conflicts (DDR4 vs DDR5).
+
+### 3. The Overseer Dashboard
+
+A high-density "Command Center" for administrators, replacing standard CMS tables with tactical data grids.
+
+- **Live Telemetry:** Visualizes sales velocity and inventory saturation using "Oscilloscope-style" charts (Recharts).
+- **Visual Ingest Terminal:** A drag-and-drop asset manager that handles local blob previews for instant feedback before syncing with cloud storage.
+- **Atomic Inventory Control:** Stock levels are adjusted within the same database transaction as the payment, preventing "overselling" race conditions.
+
+### 4. Cinematic Immersion
+
+- **Audio-Visual Feedback:** UI elements feature "Kinetic Beams" and "Scanline" animations to simulate physical interactions.
+- **Responsive Telemetry:** The interface adapts from a "3D Spatial" view on desktop to a "Schematic List" view on mobile, ensuring the "Foundry" feel remains intact across devices.
+
+---
+
+## Target Audience
+
+BASE 60 is not for the casual laptop buyer. It is built for the **"Vanguard"**—the top 1% of hardware enthusiasts.
+
+1.  **The System Architects:**
+    Professional PC builders who need to verify physical clearances (e.g., _Will this 360mm radiator fit with this E-ATX motherboard?_) before purchasing. The Logic Resolver acts as their safety net.
+
+2.  **The Visual Purists:**
+    Users who care as much about the aesthetic of their build as the performance. The **Crucible Architect** allows them to see the color and form-factor synergy of their components before spending capital.
+
+3.  **The Performance Hunters:**
+    Data-driven buyers who rely on "Telemetry." By displaying specs like "VRM Phases," "TDP," and "Memory Timings" as primary data points (rather than hidden details), the platform speaks their language.
+
+## Conclusion
+
+BASE 60 demonstrates that e-commerce doesn't have to be static. By leveraging WebGL and strict type safety, we created a platform where the user feels less like a shopper and more like an architect.

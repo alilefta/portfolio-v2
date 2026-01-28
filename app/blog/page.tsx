@@ -13,7 +13,7 @@ import FocusSpotlight from "@/components/blog/FocusSpotlight";
 import LabNotesScroll from "@/components/blog/LabNotesScroll";
 import AuthorCTA from "@/components/blog/AuthorCTA";
 import SystemStatus from "@/components/blog/SystemStatus";
-import { BlogPost } from "@/lib/blog";
+import { BlogPost, getBlogPosts } from "@/lib/blog";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -93,13 +93,13 @@ const archive_posts: BlogPost[] = [
 ];
 
 export default async function BlogPage() {
-  // const posts = getBlogPosts();
+  const posts = getBlogPosts();
 
   // Separate the newest post for the Hero section
   // (Assuming the first one is the "Featured" or "Newest")
-  // const featuredPost = posts[0];
-  // const recentPost = posts[1];
-  // const archivePosts = posts.slice(2); // The rest go in the list
+  const featuredPost = posts[0];
+  const recentPost = posts[1];
+  const archivePosts = posts.slice(2); // The rest go in the list
   return (
     <div className="mx-auto min-h-dvh w-full max-w-7xl pt-18">
       <Breadcrumb className="mt-8">
@@ -115,8 +115,8 @@ export default async function BlogPage() {
       </Breadcrumb>
 
       {/* Hero */}
-      <BlogHero featured={FEATURED_POST} recent={RECENT_POST} />
-      <PostList posts={archive_posts} />
+      <BlogHero featured={featuredPost} recent={recentPost} />
+      <PostList posts={archivePosts} />
       <FocusSpotlight />
       <LabNotesScroll />
       <AuthorCTA />

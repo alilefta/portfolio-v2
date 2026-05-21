@@ -1,213 +1,156 @@
 import { getTranslations, getLocale } from "next-intl/server";
-
 import { Button } from "../ui/custom/Button";
-import { Cpu, Download, MapPin, MoveLeft, MoveRight } from "lucide-react";
-import { Badge } from "../ui/custom/Badge";
+import { Download, MoveLeft, MoveRight, Cpu, Handshake, GraduationCap } from "lucide-react";
 import Link from "next/link";
 
 export default async function HeroSection() {
   const t = await getTranslations();
-  const local = await getLocale();
-  const isRTL = local === "ar";
+  const locale = await getLocale();
+  const isRTL = locale === "ar";
 
   return (
-    <section className="min-h-[calc(min-h-dvh - 40px)] relative mx-auto w-full py-12 pt-18">
-      <div className="pointer-events-none absolute top-0 left-0 z-0 h-[800px] w-full rounded-2xl bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-5 py-12 lg:grid-cols-12">
-        {/* Big card */}
-        <div className="glass-card group min-h-[500px] rounded-2xl p-8 md:p-12 lg:col-span-8">
-          <div className="relative z-10">
-            <Badge
-              className="mb-6"
-              size={"lg"}
-              variant="surface"
-              intent={"accent"}
-            >
-              <p className="uppercase">{t("Tags.FullStackDentalTech")}</p>
-            </Badge>
-
-            <h1 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tighter md:text-6xl lg:text-7xl">
-              {t("HomePage.Cards.Intro_Heading_Part1")} <br />
-              <span className="to-foreground bg-linear-to-r from-blue-700/80 bg-clip-text text-transparent rtl:bg-linear-to-l dark:from-blue-400/50">
-                {t("HomePage.Cards.Intro_Heading_Part2")}
-              </span>
-            </h1>
-
-            <p className="text-foreground/80 mb-8 max-w-xl text-lg leading-relaxed font-light">
-              {t("HomePage.Cards.Intro_Paragraph")}
-            </p>
-
-            <div className="flex flex-wrap items-center justify-start gap-4">
-              <Button
-                className="group cursor-pointer"
-                size={"lg"}
-                variant={"primary"}
-              >
-                <Link
-                  href="#selected-work"
-                  className="flex items-center gap-2.5"
-                >
-                  {t("HomePage.Cards.CTA_SeeSelectedWork")}
-
-                  {local === "en" ? (
-                    <MoveRight className="relative h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  ) : (
-                    <MoveLeft className="relative h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                  )}
-                </Link>
-              </Button>
-
-              <Button
-                className="cursor-pointer gap-1.5"
-                variant={"secondary"}
-                size={"lg"}
-              >
-                {t("Common.CV")}
-                <Download className="size-4" />
-              </Button>
-            </div>
+    <section className="relative mx-auto w-full min-h-[90vh] flex flex-col justify-center py-16 md:py-24">
+      {/* Subtle grain texture */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.015] dark:opacity-[0.03]" />
+      
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
+        {/* Main content */}
+        <div className="flex flex-col gap-8">
+          {/* Status indicator */}
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            </span>
+            <span className="text-foreground/60 text-sm font-medium">
+              {t("HomePage.Cards.RemoteReady")}
+            </span>
           </div>
 
-          <div
-            className="border-foreground/10 group mt-10 block w-full border-t pt-6 font-mono"
-            dir="ltr"
-          >
-            {/* Terminal Header */}
-            <div className="flex items-center justify-between text-zinc-500">
-              <div className="flex items-center gap-2">
-                <span className="bg-foreground/10 size-2.5 rounded-full transition-colors group-hover:bg-red-900/80"></span>
-                <span className="bg-foreground/10 size-2.5 rounded-full transition-colors group-hover:bg-yellow-600/80"></span>
-              </div>
+          {/* Name & Title */}
+          <div className="flex flex-col gap-4">
+            <h1 className="text-foreground text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+              {t("HomePage.Cards.Intro_Heading_Part1")}
+            </h1>
+            <h2 className="text-foreground/50 text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+              {t("HomePage.Cards.Intro_Heading_Part2")}
+            </h2>
+          </div>
 
-              <p className="font-mono text-[10px]">terminal - zsh</p>
-            </div>
-            {/* terminal body */}
-            <div className="text-foreground/60 mt-2 flex items-center gap-2 font-mono text-sm">
-              <span className="text-blue-400">~</span>
-              <span className="text-foreground/50">/</span>
-              <span className="text-green-400">ali-portfolio</span>
-              <span className="text-foreground/50">
-                {`git commit -m "feat: ${t("HomePage.Cards.CommitMessage")}"`}
+          {/* Bio paragraph */}
+          <p className="text-foreground/70 max-w-2xl text-lg leading-relaxed md:text-xl">
+            {t("HomePage.Cards.Intro_Paragraph")}
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <Button
+              className="group cursor-pointer"
+              size="lg"
+              variant="primary"
+            >
+              <Link
+                href="#selected-work"
+                className="flex items-center gap-2.5"
+              >
+                {t("HomePage.Cards.CTA_SeeSelectedWork")}
+                {isRTL ? (
+                  <MoveLeft className="relative h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                ) : (
+                  <MoveRight className="relative h-4 w-4 transition-transform group-hover:translate-x-1" />
+                )}
+              </Link>
+            </Button>
+
+            <Button
+              className="cursor-pointer gap-1.5"
+              variant="secondary"
+              size="lg"
+            >
+              {t("Common.CV")}
+              <Download className="size-4" />
+            </Button>
+          </div>
+        </div>
+
+        {/* Stats row - minimal horizontal layout */}
+        <div className="mt-20 md:mt-28">
+          <div className="border-border/50 grid grid-cols-2 gap-8 border-t pt-8 md:grid-cols-4 md:gap-12">
+            {/* Stat 1: Years */}
+            <div className="group flex flex-col gap-1">
+              <span className="text-foreground text-3xl font-bold tracking-tighter md:text-4xl">
+                6<span className="text-foreground/30">+</span>
               </span>
-              <span className="bg-foreground/50 animate-caret-blink ml-1 inline-block h-4 w-2 align-middle"></span>
+              <span className="text-foreground/50 text-sm">
+                {t("HomePage.SocialProof.YearsExperience") || "Years Building"}
+              </span>
+            </div>
+
+            {/* Stat 2: Tech Stack */}
+            <div className="group flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <Cpu className="text-foreground/30 h-5 w-5" />
+                <span className="text-foreground text-3xl font-bold tracking-tighter md:text-4xl">
+                  10<span className="text-foreground/30">+</span>
+                </span>
+              </div>
+              <span className="text-foreground/50 text-sm">
+                {t("HomePage.SocialProof.CoreTechnologies")}
+              </span>
+            </div>
+
+            {/* Stat 3: Commercial */}
+            <div className="group flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <Handshake className="text-foreground/30 h-5 w-5" />
+                <span className="text-foreground text-3xl font-bold tracking-tighter md:text-4xl">
+                  1 <span className="text-emerald-500 text-2xl font-semibold md:text-3xl">{t("HomePage.SocialProof.Exit")}</span>
+                </span>
+              </div>
+              <span className="text-foreground/50 text-sm">
+                {t("HomePage.SocialProof.ProductAcquired")}
+              </span>
+            </div>
+
+            {/* Stat 4: Education */}
+            <div className="group flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <GraduationCap className="text-foreground/30 h-5 w-5" />
+                <span className="text-foreground text-3xl font-bold tracking-tighter md:text-4xl">
+                  {t("HomePage.SocialProof.Dual")}
+                </span>
+              </div>
+              <span className="text-foreground/50 text-sm">
+                {t("HomePage.SocialProof.CSAndDentalTech")}
+              </span>
             </div>
           </div>
         </div>
 
-        {/* Right Cards */}
-        <div className="col-span-1 flex h-full flex-col gap-5 lg:col-span-4">
-          {/* Top Card */}
-          <div className="glass-card group relative flex-1 overflow-hidden rounded-2xl p-6">
-            <div className="absolute inset-0 flex items-center bg-linear-to-b from-blue-500/20 to-transparent opacity-5 transition duration-500 group-hover:opacity-50">
-              <div className="relative h-32 w-full lg:h-64">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')] bg-repeat-round opacity-30"></div>
-              </div>
+        {/* Terminal - smaller, subtler */}
+        <div
+          className="border-border/30 mt-16 w-full max-w-xl rounded-lg border bg-card/30 p-4 font-mono backdrop-blur-sm"
+          dir="ltr"
+        >
+          {/* Terminal Header */}
+          <div className="flex items-center justify-between text-foreground/40">
+            <div className="flex items-center gap-1.5">
+              <span className="bg-foreground/20 h-2.5 w-2.5 rounded-full" />
+              <span className="bg-foreground/20 h-2.5 w-2.5 rounded-full" />
+              <span className="bg-foreground/20 h-2.5 w-2.5 rounded-full" />
             </div>
-            <div className="relative z-10">
-              <div className="mb-8 flex items-center justify-between">
-                <Badge
-                  variant="surface"
-                  size={"lg"}
-                  className="rounded-lg p-2.5"
-                  intent={"neutral"}
-                >
-                  <Cpu size={16} className="text-blue-400/70" />
-                </Badge>
-
-                <div className="font-mono">
-                  <h5 className="text-foreground/40 text-[10px] uppercase">
-                    {t("Tags.Tolerance")}
-                  </h5>
-                  <p className="text-md text-foreground/80 rtl:text-sm">
-                    {t("Tags.0_1MM")}
-                  </p>
-                </div>
-              </div>
-
-              <h4 className="mb-2 text-xl font-semibold tracking-tight">
-                {t("HomePage.Cards.ObsessedWithDetail")}
-              </h4>
-
-              <p className="text-foreground/70 text-sm leading-relaxed">
-                {t("HomePage.Cards.ObsessedWithDetail_Paragraph")}
-              </p>
-            </div>
+            <span className="text-[10px]">terminal</span>
           </div>
-
-          {/* Bottom Card */}
-          <div className="glass-card group relative h-auto overflow-hidden rounded-2xl p-6">
-            <div className="relative z-10">
-              <div className="flex flex-col gap-8">
-                <div>
-                  <p className="text-foreground/50 mb-3 text-[10px] font-light tracking-wider uppercase">
-                    {t("Common.CoreStack")}
-                  </p>
-                  <div className="flex flex-wrap items-center justify-start gap-1.5">
-                    <Badge
-                      variant={"outline"}
-                      className="text-foreground/80"
-                      size={"lg"}
-                    >
-                      React
-                    </Badge>
-                    <Badge
-                      variant={"outline"}
-                      className="text-foreground/80"
-                      size={"lg"}
-                    >
-                      Next.js
-                    </Badge>
-                    <Badge
-                      variant={"outline"}
-                      className="text-foreground/80"
-                      size={"lg"}
-                    >
-                      Typescript
-                    </Badge>
-                    <Badge
-                      variant={"outline"}
-                      className="text-foreground/80"
-                      size={"lg"}
-                    >
-                      Design
-                    </Badge>
-                    <Badge
-                      variant={"outline"}
-                      className="text-foreground/80"
-                      size={"lg"}
-                    >
-                      C#/WPF
-                    </Badge>
-                  </div>
-                </div>
-                <div className="bg-foreground/8 h-px w-full"></div>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center justify-start gap-4">
-                    <Badge
-                      variant={"surface"}
-                      intent={"neutral"}
-                      size={"md"}
-                      className="p-1.5"
-                    >
-                      <MapPin size={16} />
-                    </Badge>
-                    <div className="flex flex-col gap-px">
-                      <p className="text-foreground/75 text-[12px] tracking-wider">
-                        {t("HomePage.Cards.Location")}
-                      </p>
-                      <p className="text-foreground/50 font-mono text-xs tracking-tight">
-                        GMT+3
-                      </p>
-                    </div>
-                  </div>
-
-                  <Badge className="rtl:font-alexandria rtl:text-xs rtl:tracking-tighter">
-                    {t("HomePage.Cards.RemoteReady")}
-                  </Badge>
-                </div>
-              </div>
-            </div>
+          
+          {/* Terminal Body */}
+          <div className="text-foreground/60 mt-3 flex items-center gap-2 text-sm">
+            <span className="text-blue-400">~</span>
+            <span className="text-foreground/30">/</span>
+            <span className="text-emerald-400">portfolio</span>
+            <span className="text-foreground/40">
+              {`git commit -m "feat: ${t("HomePage.Cards.CommitMessage")}"`}
+            </span>
+            <span className="bg-foreground/50 animate-caret-blink ml-1 inline-block h-4 w-[2px]" />
           </div>
         </div>
       </div>

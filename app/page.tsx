@@ -2,17 +2,10 @@ import { Navbar } from "@/components/home/Navbar";
 import { CTASection } from "@/components/home/CTA";
 import FooterSection from "@/components/home/Footer";
 import HeroSection from "@/components/home/Hero";
-import SkillsSection from "@/components/home/Skills";
-import SocialProof from "@/components/home/SocialProof";
-import TechStack from "@/components/home/TechStack";
-import TheEvolutionSection from "@/components/home/TheEvolution";
-import HowIWork from "@/components/home/HowIWork";
 import SelectedWork from "@/components/home/SelectedWork";
-import AboutMe_Redesign from "@/components/home/AboutMe_Redesign";
+import About from "@/components/home/About";
+import Stack from "@/components/home/Stack";
 import { Metadata } from "next";
-import { Testimonials } from "@/components/home/Testimonials";
-import IndustryImpact from "@/components/home/IndustryImpact";
-import ServicesSection from "@/components/home/ServicesSection";
 
 export const metadata: Metadata = {
   title: "Ali Lefta | System Architect & Full Stack Engineer",
@@ -27,18 +20,12 @@ export default async function Home() {
 
       <main className="font-inter rtl:font-alexandria relative w-full">
         <HeroSection />
-        <SocialProof />
         <SelectedWork />
-        <TechStack />
-        <SkillsSection />
-        <AboutMe_Redesign />
-        <TheEvolutionSection />
-        <HowIWork />
-        <IndustryImpact />
-        <ServicesSection />
-        <Testimonials />
+        <About />
+        <Stack />
         <CTASection />
       </main>
+
       <FooterSection />
     </>
   );

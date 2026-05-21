@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Button } from "../ui/custom/Button";
-import { MoveUpLeft, MoveUpRight, Stars } from "lucide-react";
-import { Badge } from "../ui/custom/Badge";
+import { MoveUpLeft, MoveUpRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
+import { AnimateOnScroll } from "../ui/AnimateOnScroll";
 
 export async function CTASection() {
   const t = await getTranslations("HomePage.CTASection");
@@ -10,43 +10,45 @@ export async function CTASection() {
   const isRTL = locale === "ar";
 
   return (
-    <section className="from-background bg-aurora to-background via-80& relative mx-auto min-h-96 w-full bg-radial from-10% via-indigo-400/30 to-100% px-4 py-0 md:px-8 lg:py-0 dark:via-indigo-600/30">
-      <div className={`bg-cta-section absolute inset-0`} />
-
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center gap-8 rounded-4xl bg-purple-500/20 px-4 py-4 backdrop-blur-3xl md:px-8 lg:py-12 dark:bg-indigo-600">
-        <div className="flex flex-col gap-2.5">
-          <Badge
-            variant={"glass"}
-            className="mx-auto mb-6 flex items-center gap-2"
-          >
-            <Stars size={14} />
-            <span>{t("Badge")}</span>
-          </Badge>
-          <h2 className="text-foreground mb-6 text-center text-5xl font-light tracking-tighter md:text-7xl">
+    <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24 md:py-32">
+      <AnimateOnScroll animation="fade-up">
+        <div className="border-border/30 bg-card/30 flex flex-col items-center gap-6 rounded-2xl border p-6 text-center backdrop-blur-sm sm:gap-8 sm:rounded-3xl sm:p-12 md:p-16 lg:p-24">
+          {/* Heading */}
+          <h2 className="text-foreground text-2xl font-bold tracking-tight text-balance sm:text-3xl md:text-4xl lg:text-5xl">
             {t("Title_Line1")}
             <br />
-            <span className="bg-foreground bg-linear-to-r bg-clip-text pb-6 text-wrap text-transparent">
+            <span className="text-foreground/50">
               {t("Title_Line2")}
             </span>
           </h2>
-          <p className="text-foreground/60 max-w-2xl text-center text-lg leading-snug md:text-lg rtl:leading-normal">
+
+          {/* Description */}
+          <p className="text-foreground/60 max-w-xl text-base leading-relaxed sm:text-lg">
             {t("Subtitle")}
           </p>
-        </div>
 
-        <div className="">
+          {/* CTA Button */}
           <Button
             asChild
-            size={"lg"}
-            className="group items-center gap-3 bg-black px-6 py-6 transition-all duration-300 hover:scale-105 dark:bg-white hover:dark:bg-zinc-200"
+            size="lg"
+            className="group mt-4"
           >
-            <Link href={"/contact"} className="flex items-center gap-2">
+            <Link href="/contact" className="flex items-center gap-2">
               <span>{t("Button")}</span>
-              {isRTL ? <MoveUpLeft size={16} /> : <MoveUpRight size={16} />}
+              {isRTL ? (
+                <MoveUpLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1" />
+              ) : (
+                <MoveUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              )}
             </Link>
           </Button>
+
+          {/* Email hint */}
+          <p className="text-foreground/40 mt-4 font-mono text-sm">
+            ali@alilefta.dev
+          </p>
         </div>
-      </div>
+      </AnimateOnScroll>
     </section>
   );
 }

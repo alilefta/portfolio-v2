@@ -505,3 +505,16 @@
     background-position: -100% 0;
   }
 }
+
+@keyframes caret-blink {
+  0%, 70% {
+    opacity: 1;
+  }
+  71%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-caret-blink {
+  animation: caret-blink 1s step-end infinite;
+}

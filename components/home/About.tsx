@@ -6,20 +6,20 @@ export default async function About() {
   const t = await getTranslations("HomePage.AboutMe");
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-24 md:py-32">
+    <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24 md:py-32">
       {/* Section Header */}
       <AnimateOnScroll animation="fade-up">
-        <div className="mb-16 flex flex-col gap-2">
-          <span className="text-foreground/40 font-mono text-sm uppercase tracking-widest">
+        <div className="mb-10 flex flex-col gap-2 sm:mb-16">
+          <span className="text-foreground/40 font-mono text-xs uppercase tracking-widest sm:text-sm">
             {t("Title_Who")}
           </span>
-          <h2 className="text-foreground text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <h2 className="text-foreground text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             {t("Title_Iam")}
           </h2>
         </div>
       </AnimateOnScroll>
 
-      <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+      <div className="grid gap-10 sm:gap-16 lg:grid-cols-12 lg:gap-20">
         {/* Main Content */}
         <div className="lg:col-span-7">
           {/* Hero Title */}
@@ -58,12 +58,12 @@ export default async function About() {
         {/* Sidebar - Key Facts */}
         <div className="lg:col-span-5">
           <AnimateOnScroll animation="fade-up" delay={150}>
-            <div className="border-border/30 bg-card/50 rounded-2xl border p-8">
-              <h4 className="text-foreground/40 mb-8 font-mono text-xs uppercase tracking-widest">
+            <div className="border-border/30 bg-card/50 rounded-2xl border p-5 sm:p-8">
+              <h4 className="text-foreground/40 mb-6 font-mono text-xs uppercase tracking-widest sm:mb-8">
                 {t("Stats.KeyFacts")}
               </h4>
 
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-6 sm:gap-8">
                 {/* Experience */}
                 <div className="border-border/30 border-b pb-6">
                   <p className="text-foreground/50 mb-1 text-sm">

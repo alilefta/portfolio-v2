@@ -18,16 +18,16 @@ export default async function SelectedWork() {
   return (
     <section
       id="selected-work"
-      className="mx-auto w-full max-w-6xl px-6 py-24 md:py-32"
+      className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24 md:py-32"
     >
       {/* Section Header */}
       <AnimateOnScroll animation="fade-up">
-        <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-10 flex flex-col gap-4 sm:mb-16 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-2">
-            <span className="text-foreground/40 font-mono text-sm uppercase tracking-widest">
+            <span className="text-foreground/40 font-mono text-xs uppercase tracking-widest sm:text-sm">
               {t("Title_Selected")}
             </span>
-            <h2 className="text-foreground text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+            <h2 className="text-foreground text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
               {t("Title_Work")}
             </h2>
           </div>
@@ -44,12 +44,12 @@ export default async function SelectedWork() {
         </div>
       </AnimateOnScroll>
 
-      <p className="text-foreground/50 mb-12 max-w-2xl text-lg">
+      <p className="text-foreground/50 mb-8 max-w-2xl text-base sm:mb-12 sm:text-lg">
         {t("Subtitle")}
       </p>
 
       {/* Projects List */}
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-6 sm:gap-8">
         {displayProjects.map((project, index) => (
           <AnimateOnScroll
             key={project.slug}

@@ -40,7 +40,8 @@
       "ProductAcquired": "Product Acquired",
       "Education": "Education",
       "Dual": "Dual",
-      "CSAndDentalTech": "CS & Dental Tech"
+      "CSAndDentalTech": "CS & Dental Tech",
+      "YearsExperience": "Years Building"
     },
     "SelectedWork": {
       "Title_Selected": "Selected",

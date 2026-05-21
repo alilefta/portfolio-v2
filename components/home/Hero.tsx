@@ -74,53 +74,53 @@ export default async function HeroSection() {
         </div>
 
         {/* Stats row - minimal horizontal layout */}
-        <div className="mt-20 md:mt-28">
-          <div className="border-border/50 grid grid-cols-2 gap-8 border-t pt-8 md:grid-cols-4 md:gap-12">
+        <div className="mt-16 sm:mt-20 md:mt-28">
+          <div className="border-border/50 grid grid-cols-2 gap-6 border-t pt-6 sm:gap-8 sm:pt-8 md:grid-cols-4 md:gap-12">
             {/* Stat 1: Years */}
             <div className="group flex flex-col gap-1">
-              <span className="text-foreground text-3xl font-bold tracking-tighter md:text-4xl">
+              <span className="text-foreground text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
                 6<span className="text-foreground/30">+</span>
               </span>
-              <span className="text-foreground/50 text-sm">
+              <span className="text-foreground/50 text-xs sm:text-sm">
                 {t("HomePage.SocialProof.YearsExperience") || "Years Building"}
               </span>
             </div>
 
             {/* Stat 2: Tech Stack */}
             <div className="group flex flex-col gap-1">
-              <div className="flex items-center gap-2">
-                <Cpu className="text-foreground/30 h-5 w-5" />
-                <span className="text-foreground text-3xl font-bold tracking-tighter md:text-4xl">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Cpu className="text-foreground/30 h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="text-foreground text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
                   10<span className="text-foreground/30">+</span>
                 </span>
               </div>
-              <span className="text-foreground/50 text-sm">
+              <span className="text-foreground/50 text-xs sm:text-sm">
                 {t("HomePage.SocialProof.CoreTechnologies")}
               </span>
             </div>
 
             {/* Stat 3: Commercial */}
             <div className="group flex flex-col gap-1">
-              <div className="flex items-center gap-2">
-                <Handshake className="text-foreground/30 h-5 w-5" />
-                <span className="text-foreground text-3xl font-bold tracking-tighter md:text-4xl">
-                  1 <span className="text-emerald-500 text-2xl font-semibold md:text-3xl">{t("HomePage.SocialProof.Exit")}</span>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Handshake className="text-foreground/30 h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="text-foreground text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
+                  1 <span className="text-emerald-500 text-xl font-semibold sm:text-2xl md:text-3xl">{t("HomePage.SocialProof.Exit")}</span>
                 </span>
               </div>
-              <span className="text-foreground/50 text-sm">
+              <span className="text-foreground/50 text-xs sm:text-sm">
                 {t("HomePage.SocialProof.ProductAcquired")}
               </span>
             </div>
 
             {/* Stat 4: Education */}
             <div className="group flex flex-col gap-1">
-              <div className="flex items-center gap-2">
-                <GraduationCap className="text-foreground/30 h-5 w-5" />
-                <span className="text-foreground text-3xl font-bold tracking-tighter md:text-4xl">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <GraduationCap className="text-foreground/30 h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="text-foreground text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
                   {t("HomePage.SocialProof.Dual")}
                 </span>
               </div>
-              <span className="text-foreground/50 text-sm">
+              <span className="text-foreground/50 text-xs sm:text-sm">
                 {t("HomePage.SocialProof.CSAndDentalTech")}
               </span>
             </div>
@@ -129,7 +129,7 @@ export default async function HeroSection() {
 
         {/* Terminal - smaller, subtler */}
         <div
-          className="border-border/30 mt-16 w-full max-w-xl rounded-lg border bg-card/30 p-4 font-mono backdrop-blur-sm"
+          className="border-border/30 mt-12 w-full max-w-xl rounded-lg border bg-card/30 p-3 font-mono backdrop-blur-sm sm:mt-16 sm:p-4"
           dir="ltr"
         >
           {/* Terminal Header */}
@@ -143,14 +143,14 @@ export default async function HeroSection() {
           </div>
           
           {/* Terminal Body */}
-          <div className="text-foreground/60 mt-3 flex items-center gap-2 text-sm">
+          <div className="text-foreground/60 mt-2 flex flex-wrap items-center gap-1.5 text-xs sm:mt-3 sm:gap-2 sm:text-sm">
             <span className="text-blue-400">~</span>
             <span className="text-foreground/30">/</span>
             <span className="text-emerald-400">portfolio</span>
-            <span className="text-foreground/40">
+            <span className="text-foreground/40 break-all">
               {`git commit -m "feat: ${t("HomePage.Cards.CommitMessage")}"`}
             </span>
-            <span className="bg-foreground/50 animate-caret-blink ml-1 inline-block h-4 w-[2px]" />
+            <span className="bg-foreground/50 animate-caret-blink ml-0.5 inline-block h-3.5 w-[2px] sm:ml-1 sm:h-4" />
           </div>
         </div>
       </div>

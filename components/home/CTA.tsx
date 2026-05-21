@@ -10,11 +10,11 @@ export async function CTASection() {
   const isRTL = locale === "ar";
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-24 md:py-32">
+    <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24 md:py-32">
       <AnimateOnScroll animation="fade-up">
-        <div className="border-border/30 bg-card/30 flex flex-col items-center gap-8 rounded-3xl border p-12 text-center backdrop-blur-sm md:p-16 lg:p-24">
+        <div className="border-border/30 bg-card/30 flex flex-col items-center gap-6 rounded-2xl border p-6 text-center backdrop-blur-sm sm:gap-8 sm:rounded-3xl sm:p-12 md:p-16 lg:p-24">
           {/* Heading */}
-          <h2 className="text-foreground text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl text-balance">
+          <h2 className="text-foreground text-2xl font-bold tracking-tight text-balance sm:text-3xl md:text-4xl lg:text-5xl">
             {t("Title_Line1")}
             <br />
             <span className="text-foreground/50">
@@ -23,7 +23,7 @@ export async function CTASection() {
           </h2>
 
           {/* Description */}
-          <p className="text-foreground/60 max-w-xl text-lg leading-relaxed">
+          <p className="text-foreground/60 max-w-xl text-base leading-relaxed sm:text-lg">
             {t("Subtitle")}
           </p>
 

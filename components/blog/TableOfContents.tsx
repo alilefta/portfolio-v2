@@ -9,7 +9,7 @@ interface TocItem {
   level: number;
 }
 
-export default function TableOfContents() {
+export default function TableOfContents({ label = "On this page" }: { label?: string }) {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
 
@@ -68,15 +68,16 @@ export default function TableOfContents() {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="sticky top-32 hidden max-h-[calc(100vh-8rem)] w-64 overflow-y-auto lg:block">
-      <h4 className="mb-4 text-xs font-bold tracking-wider text-zinc-900 uppercase dark:text-zinc-100">
-        On this page
-      </h4>
-      <ul className="space-y-2 text-sm">
+    <nav
+      aria-label={label}
+      className="sticky top-28 hidden max-h-[calc(100vh-8rem)] w-full overflow-y-auto border-t-2 border-v3-ink pt-5 lg:block"
+    >
+      <h2 className="v3-label mb-5 text-v3-muted">{label}</h2>
+      <ol className="space-y-1 font-v3-text text-sm">
         {headings.map((heading) => (
           <li
             key={heading.id}
-            style={{ paddingLeft: heading.level === 3 ? "1rem" : "0" }}
+            className={heading.level === 3 ? "ps-4" : undefined}
           >
             <a
               href={`#${heading.id}`}
@@ -88,17 +89,17 @@ export default function TableOfContents() {
                 setActiveId(heading.id);
               }}
               className={cn(
-                "block border-l-2 py-1 pl-3 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100",
+                "block border-s-2 py-2 ps-3 leading-5 transition-colors hover:text-v3-ink",
                 activeId === heading.id
-                  ? "border-blue-500 font-medium text-blue-600 dark:text-blue-400"
-                  : "border-zinc-200 text-zinc-500 dark:border-zinc-800 dark:text-zinc-500",
+                  ? "border-v3-blue font-bold text-v3-blue"
+                  : "border-v3-line text-v3-muted",
               )}
             >
               {heading.text}
             </a>
           </li>
         ))}
-      </ul>
+      </ol>
     </nav>
   );
 }

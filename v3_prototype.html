@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ali Lefta — Software Engineer & Product Builder</title>
+    <meta
+      name="description"
+      content="Software engineer and product builder with dual degrees in Computer Science and Dental Technology."
+    />
+
+    <!-- Modern clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: [
+                "Geist",
+                "-apple-system",
+                "BlinkMacSystemFont",
+                "sans-serif",
+              ],
+              mono: ['"Geist Mono"', "monospace"],
+            },
+            colors: {
+              sand: {
+                50: "#FAF9F6",
+                100: "#F4F2EC",
+                200: "#E8E5DC",
+                800: "#1C1C1E",
+                900: "#0F0F11",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-sand-50 dark:bg-sand-900 font-sans text-zinc-800 antialiased transition-colors duration-200 selection:bg-zinc-200 dark:text-zinc-200 dark:selection:bg-zinc-800"
+  >
+    <!-- WRAPPER: Single-Column Layout (Optimal for HR / Recruiter Scannability) -->
+    <div class="mx-auto max-w-[700px] space-y-16 px-6 py-16 sm:py-24">
+      <!-- 1. HEADER & IDENTITY -->
+      <header class="flex items-center justify-between">
+        <div class="space-y-1">
+          <h1
+            class="text-xl font-bold tracking-tight text-zinc-900 sm:text-2xl dark:text-white"
+          >
+            Ali Lefta
+          </h1>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400">
+            Software Engineer & Product Builder · Babil, Iraq (Remote)
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <!-- Direct CV Link (Essential for HR) -->
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            class="rounded-full border border-zinc-300 px-3 py-1.5 text-xs font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+          >
+            Resume / CV ↗
+          </a>
+          <!-- Theme Switcher -->
+          <button
+            id="themeToggle"
+            class="rounded-full border border-zinc-300 p-2 text-xs text-zinc-600 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800"
+            aria-label="Toggle Theme"
+          >
+            🌓
+          </button>
+        </div>
+      </header>
+
+      <!-- 2. THE HOOK: HUMAN, HONEST BIO -->
+      <section
+        class="space-y-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-300"
+      >
+        <p>
+          I build high-performance web applications, desktop software, and
+          data-intensive systems. I hold two bachelor degrees—one in
+          <strong class="font-medium text-zinc-900 dark:text-white"
+            >Computer Science</strong
+          >
+          (93.8% GPA) and one in
+          <strong class="font-medium text-zinc-900 dark:text-white"
+            >Dental Technology</strong
+          >.
+        </p>
+        <p>
+          Having spent 6 years in medical dental laboratories before moving into
+          software engineering, I treat software architecture with the same
+          standard as physical prosthetics: built for structural reliability,
+          zero data loss, and intuitive daily use.
+        </p>
+      </section>
+
+      <!-- 3. CURRENT FOCUS (What are you building right now?) -->
+      <section
+        class="flex items-start gap-3 rounded-xl border border-emerald-500/20 bg-emerald-50/50 p-4 dark:bg-emerald-950/10"
+      >
+        <div
+          class="mt-2 h-2 w-2 shrink-0 animate-pulse rounded-full bg-emerald-500"
+        ></div>
+        <div class="space-y-1 text-sm">
+          <div class="font-medium text-emerald-900 dark:text-emerald-300">
+            Currently Building: Labora SaaS
+          </div>
+          <p
+            class="text-xs leading-normal text-emerald-800/80 dark:text-emerald-400/80"
+          >
+            A multi-tenant cloud operations platform for dental laboratories,
+            streamlining case tracking, 3D file handoffs, and billing.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. SELECTED WORK / PROJECTS (Real Screenshots, Clear Metrics) -->
+      <section class="space-y-6">
+        <div
+          class="flex items-baseline justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800"
+        >
+          <h2
+            class="font-mono text-xs font-medium tracking-wider text-zinc-400 uppercase dark:text-zinc-500"
+          >
+            Featured Work
+          </h2>
+          <a
+            href="https://github.com"
+            class="text-xs text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-white"
+          >
+            View GitHub ↗
+          </a>
+        </div>
+
+        <div class="space-y-8">
+          <!-- PROJECT 1: Oscar Lab System (Commercial Exit / Proven Track Record) -->
+          <div
+            class="group dark:bg-sand-800 block space-y-3 rounded-2xl border border-zinc-200 bg-white p-5 transition-all duration-200 hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3
+                    class="font-semibold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
+                  >
+                    Oscar Lab System
+                  </h3>
+                  <span
+                    class="rounded-full bg-emerald-100 px-2 py-0.5 font-mono text-[10px] font-medium text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300"
+                  >
+                    Deployed & Acquired
+                  </span>
+                </div>
+                <p class="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                  Enterprise Windows desktop application for complete dental lab
+                  management.
+                </p>
+              </div>
+              <span class="font-mono text-xs text-zinc-400">2024</span>
+            </div>
+
+            <p class="text-sm text-zinc-600 dark:text-zinc-300">
+              Digitized end-to-end case tracking, doctor invoicing, and
+              automated technician payroll. Reduced lost case rates by 100% and
+              eliminated 15+ hours of manual administrative paperwork weekly.
+            </p>
+
+            <div
+              class="flex flex-wrap gap-1.5 pt-1 font-mono text-[11px] text-zinc-500 dark:text-zinc-400"
+            >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >C#</span
+              >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >.NET / WPF</span
+              >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >Entity Framework</span
+              >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >SQLite</span
+              >
+            </div>
+          </div>
+
+          <!-- PROJECT 2: BASE 60 (3D Configurator / Modern Web Stack) -->
+          <div
+            class="group dark:bg-sand-800 block space-y-3 rounded-2xl border border-zinc-200 bg-white p-5 transition-all duration-200 hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3
+                    class="font-semibold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
+                  >
+                    BASE 60: Hardware Foundry
+                  </h3>
+                  <span
+                    class="rounded-full bg-zinc-100 px-2 py-0.5 font-mono text-[10px] text-zinc-600 dark:bg-zinc-700 dark:text-zinc-300"
+                  >
+                    Web Application
+                  </span>
+                </div>
+                <p class="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                  Interactive 3D custom PC builder and hardware commerce engine.
+                </p>
+              </div>
+              <span class="font-mono text-xs text-zinc-400">2026</span>
+            </div>
+
+            <p class="text-sm text-zinc-600 dark:text-zinc-300">
+              Real-time WebGL component assembly with dynamic physical dimension
+              validation, compatibility checking algorithms, and instant quote
+              generation.
+            </p>
+
+            <div
+              class="flex flex-wrap gap-1.5 pt-1 font-mono text-[11px] text-zinc-500 dark:text-zinc-400"
+            >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >Next.js 15</span
+              >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >React Three Fiber</span
+              >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >PostgreSQL</span
+              >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >Tailwind CSS</span
+              >
+            </div>
+          </div>
+
+          <!-- PROJECT 3: 5D Hyperchaotic Cryptography (Deep CS / Math Foundation) -->
+          <div
+            class="group dark:bg-sand-800 block space-y-3 rounded-2xl border border-zinc-200 bg-white p-5 transition-all duration-200 hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3
+                    class="font-semibold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
+                  >
+                    5D Hyperchaotic Image Cryptography
+                  </h3>
+                  <span
+                    class="rounded-full bg-purple-100 px-2 py-0.5 font-mono text-[10px] text-purple-700 dark:bg-purple-950/50 dark:text-purple-300"
+                  >
+                    Research
+                  </span>
+                </div>
+                <p class="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                  High-security encryption algorithm for medical and correlated
+                  digital images.
+                </p>
+              </div>
+              <span class="font-mono text-xs text-zinc-400">2024</span>
+            </div>
+
+            <p class="text-sm text-zinc-600 dark:text-zinc-300">
+              Developed a multi-dimensional chaotic map algorithm achieving
+              7.999 Shannon entropy with resistance against differential,
+              statistical, and brute-force attacks.
+            </p>
+
+            <div
+              class="flex flex-wrap gap-1.5 pt-1 font-mono text-[11px] text-zinc-500 dark:text-zinc-400"
+            >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >Python</span
+              >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >Chaos Theory</span
+              >
+              <span class="rounded bg-zinc-100 px-2 py-0.5 dark:bg-zinc-700/50"
+                >NumPy</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. EXPERIENCE & CREDENTIALS (Linear, Clean Timeline) -->
+      <section class="space-y-6">
+        <div class="border-b border-zinc-200 pb-3 dark:border-zinc-800">
+          <h2
+            class="font-mono text-xs font-medium tracking-wider text-zinc-400 uppercase dark:text-zinc-500"
+          >
+            Background & Education
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+          <div
+            class="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline"
+          >
+            <div>
+              <div class="font-medium text-zinc-900 dark:text-white">
+                Software Engineer & Founder
+              </div>
+              <div class="text-xs text-zinc-500 dark:text-zinc-400">
+                Independent Product Development · Web & Desktop
+              </div>
+            </div>
+            <div class="font-mono text-xs text-zinc-400">2023 — Present</div>
+          </div>
+
+          <div
+            class="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline"
+          >
+            <div>
+              <div class="font-medium text-zinc-900 dark:text-white">
+                B.S. in Computer Science
+              </div>
+              <div class="text-xs text-zinc-500 dark:text-zinc-400">
+                Graduated with 93.8% GPA · Focus on Systems & Algorithms
+              </div>
+            </div>
+            <div class="font-mono text-xs text-zinc-400">Class of 2024</div>
+          </div>
+
+          <div
+            class="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline"
+          >
+            <div>
+              <div class="font-medium text-zinc-900 dark:text-white">
+                Dental Technology Specialist & B.S.
+              </div>
+              <div class="text-xs text-zinc-500 dark:text-zinc-400">
+                6 Years Lab Operations, CAD/CAM Milling & Biomechanics
+              </div>
+            </div>
+            <div class="font-mono text-xs text-zinc-400">2018 — 2024</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. WRITING / BLOG (Optional, Clean List) -->
+      <section class="space-y-4">
+        <div
+          class="flex items-baseline justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800"
+        >
+          <h2
+            class="font-mono text-xs font-medium tracking-wider text-zinc-400 uppercase dark:text-zinc-500"
+          >
+            Selected Writing
+          </h2>
+          <a
+            href="/blog"
+            class="text-xs text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-white"
+          >
+            All Posts ↗
+          </a>
+        </div>
+
+        <div class="space-y-3">
+          <a
+            href="/blog/why-i-transitioned"
+            class="group flex items-baseline justify-between gap-4 py-1 text-sm"
+          >
+            <span
+              class="text-zinc-700 transition-colors group-hover:text-blue-600 dark:text-zinc-300 dark:group-hover:text-blue-400"
+            >
+              From Dental Prosthetics to Full-Stack Software Architecture
+            </span>
+            <span class="shrink-0 font-mono text-xs text-zinc-400"
+              >Jan 2026</span
+            >
+          </a>
+          <a
+            href="/blog/state-machines"
+            class="group flex items-baseline justify-between gap-4 py-1 text-sm"
+          >
+            <span
+              class="text-zinc-700 transition-colors group-hover:text-blue-600 dark:text-zinc-300 dark:group-hover:text-blue-400"
+            >
+              Building Zero-Data-Loss State Machines in Desktop .NET
+            </span>
+            <span class="shrink-0 font-mono text-xs text-zinc-400"
+              >Nov 2025</span
+            >
+          </a>
+        </div>
+      </section>
+
+      <!-- 7. DIRECT CONTACT / CONNECT -->
+      <footer
+        class="space-y-4 border-t border-zinc-200 pt-8 dark:border-zinc-800"
+      >
+        <div
+          class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center"
+        >
+          <div class="text-sm text-zinc-600 dark:text-zinc-400">
+            Interested in working together or hiring? Reach out directly.
+          </div>
+          <a
+            href="mailto:alilefta95@gmail.com"
+            class="inline-flex items-center justify-center rounded-lg bg-zinc-900 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+          >
+            alilefta95@gmail.com ↗
+          </a>
+        </div>
+
+        <div
+          class="flex items-center gap-6 pt-2 font-mono text-xs text-zinc-500 dark:text-zinc-400"
+        >
+          <a
+            href="https://github.com"
+            class="transition-colors hover:text-zinc-900 dark:hover:text-white"
+            >GitHub</a
+          >
+          <a
+            href="https://linkedin.com"
+            class="transition-colors hover:text-zinc-900 dark:hover:text-white"
+            >LinkedIn</a
+          >
+          <a
+            href="https://x.com"
+            class="transition-colors hover:text-zinc-900 dark:hover:text-white"
+            >X / Twitter</a
+          >
+          <span class="ml-auto text-[11px] text-zinc-400"
+            >© 2026 Ali Lefta</span
+          >
+        </div>
+      </footer>
+    </div>
+
+    <!-- Minimal Dark Mode Toggle Script -->
+    <script>
+      const themeToggle = document.getElementById("themeToggle");
+      const html = document.documentElement;
+
+      // Check saved or system preference
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        html.classList.add("dark");
+      } else {
+        html.classList.remove("dark");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        if (html.classList.contains("dark")) {
+          html.classList.remove("dark");
+          localStorage.theme = "light";
+        } else {
+          html.classList.add("dark");
+          localStorage.theme = "dark";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,12 +1,4 @@
 import type { Metadata } from "next";
-import {
-  Alexandria,
-  Geist,
-  Geist_Mono,
-  Playfair_Display,
-  Inter,
-  Noto_Kufi_Arabic,
-} from "next/font/google";
 import "./globals.css";
 import "katex/dist/katex.min.css"; // for math
 
@@ -17,21 +9,35 @@ import { getLocale } from "next-intl/server";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "sonner";
-import { DOMAIN_URL } from "@/lib/info";
-const geistSans = Geist({
+import { DOMAIN_URL, SOCIAL_IMAGE_URL } from "@/lib/info";
+const geistSans = localFont({
+  src: "../node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const playfair_display = Playfair_Display({
+const playfair_display = localFont({
+  src: [
+    {
+      path: "../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2",
+      style: "normal",
+    },
+    {
+      path: "../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-italic.woff2",
+      style: "italic",
+    },
+  ],
   variable: "--font-playfair-display",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: "400 900",
+  display: "swap",
 });
 
-const alexandria = Alexandria({
+const alexandria = localFont({
+  src: "../node_modules/@fontsource-variable/alexandria/files/alexandria-arabic-wght-normal.woff2",
   variable: "--font-alexandria",
-  subsets: ["arabic", "latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
 const bixie = localFont({
@@ -52,21 +58,65 @@ const tido = localFont({
   variable: "--font-tido",
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: [
+    {
+      path: "../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+      style: "normal",
+    },
+    {
+      path: "../node_modules/@fontsource-variable/inter/files/inter-latin-wght-italic.woff2",
+      style: "italic",
+    },
+  ],
   variable: "--font-inter",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const noto_kufi = Noto_Kufi_Arabic({
+const noto_kufi = localFont({
+  src: "../node_modules/@fontsource-variable/noto-kufi-arabic/files/noto-kufi-arabic-arabic-wght-normal.woff2",
   variable: "--font-noto-kufi",
-  subsets: ["arabic"],
-  weight: "700",
+  weight: "100 900",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
+});
+
+const v3Display = localFont({
+  src: "../node_modules/@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2",
+  variable: "--font-v3-display",
+  weight: "100 900",
+  display: "swap",
+});
+
+const v3Text = localFont({
+  src: "../node_modules/@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2",
+  variable: "--font-v3-text",
+  weight: "200 800",
+  display: "swap",
+});
+
+const v3Mono = localFont({
+  src: [
+    {
+      path: "../node_modules/@fontsource/dm-mono/files/dm-mono-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../node_modules/@fontsource/dm-mono/files/dm-mono-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-v3-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -96,28 +146,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: DOMAIN_URL,
     siteName: "Ali Lefta",
+    images: [{ url: SOCIAL_IMAGE_URL, alt: "Ali Lefta portfolio" }],
   },
 
-  // 6. Twitter / X
   twitter: {
     card: "summary_large_image",
     title: "Ali Lefta | System Architect",
-    creator: "@alilefta", // Replace with your handle
-    // images: ["/images/og-default.jpg"],
+    creator: "@alilefta",
+    images: [SOCIAL_IMAGE_URL],
   },
 
-  // 7. Robots (Ensure Google indexes you)
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
 };
 
 export default async function RootLayout({
@@ -133,7 +171,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${noto_kufi.variable} ${playfair_display.variable} ${bixie.variable} ${tido.variable} ${alexandria.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${noto_kufi.variable} ${playfair_display.variable} ${bixie.variable} ${tido.variable} ${alexandria.variable} ${v3Display.variable} ${v3Text.variable} ${v3Mono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

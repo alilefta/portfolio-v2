@@ -46,6 +46,20 @@
   --font-bixie: var(--font-bixie);
   --font-tido: var(--font-tido);
   --font-alexandria: var(--font-alexandria);
+  --font-v3-display: var(--font-v3-display);
+  --font-v3-text: var(--font-v3-text);
+  --font-v3-mono: var(--font-v3-mono);
+
+  --color-v3-paper: var(--v3-paper);
+  --color-v3-ink: var(--v3-ink);
+  --color-v3-muted: var(--v3-muted);
+  --color-v3-line: var(--v3-line);
+  --color-v3-blue: var(--v3-blue);
+  --color-v3-blue-strong: var(--v3-blue-strong);
+  --color-v3-yellow: var(--v3-yellow);
+  --color-v3-coral: var(--v3-coral);
+  --color-v3-surface: var(--v3-surface);
+  --color-v3-surface-dark: var(--v3-surface-dark);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -71,6 +85,25 @@
 
 :root,
 .light {
+  color-scheme: light;
+  --v3-paper: #f4efe5;
+  --v3-ink: #171714;
+  --v3-muted: #68675f;
+  --v3-line: #c9c3b7;
+  --v3-blue: #2457e6;
+  --v3-blue-strong: #163eb7;
+  --v3-yellow: #f2cc3d;
+  --v3-coral: #df654b;
+  --v3-surface: #fffdf7;
+  --v3-surface-dark: #20201d;
+  --v3-focus: #2457e6;
+  --v3-reading-width: 44rem;
+  --v3-page-gutter: clamp(1rem, 4vw, 4.5rem);
+  --v3-section-space: clamp(4.5rem, 10vw, 9rem);
+  --v3-radius-control: 0.45rem;
+  --v3-radius-media: clamp(0.85rem, 2vw, 1.5rem);
+  --v3-shadow-short: 0 5px 0 rgb(23 23 20 / 0.16);
+  --v3-shadow-media: 0 18px 50px rgb(23 23 20 / 0.12);
   --background: oklch(1 0 0);
   --foreground: oklch(0.2077 0.0398 265.7549);
   --card: oklch(1 0 0);
@@ -253,6 +286,20 @@
 }
 
 .dark {
+  color-scheme: dark;
+  --v3-paper: #191917;
+  --v3-ink: #f3efe4;
+  --v3-muted: #b0ada3;
+  --v3-line: #484740;
+  --v3-blue: #7d9cff;
+  --v3-blue-strong: #a5b9ff;
+  --v3-yellow: #e5c858;
+  --v3-coral: #ed866e;
+  --v3-surface: #242421;
+  --v3-surface-dark: #111110;
+  --v3-focus: #f2cc3d;
+  --v3-shadow-short: 0 5px 0 rgb(0 0 0 / 0.45);
+  --v3-shadow-media: 0 18px 55px rgb(0 0 0 / 0.32);
   --background: oklch(9.839% 0.02451 260.986);
   --foreground: oklch(0.9842 0.0034 247.8575);
   --card: oklch(0.1363 0.0364 259.201);
@@ -493,6 +540,76 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  ::selection {
+    background: var(--v3-yellow);
+    color: #171714;
+  }
+
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--v3-focus);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .v3-display {
+    font-family: var(--font-v3-display), var(--font-alexandria), sans-serif;
+    font-size: clamp(3rem, 9vw, 8.5rem);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.065em;
+  }
+
+  .v3-heading {
+    font-family: var(--font-v3-display), var(--font-alexandria), sans-serif;
+    font-size: clamp(2rem, 5vw, 4.75rem);
+    font-weight: 650;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+  }
+
+  .v3-body {
+    font-family: var(--font-v3-text), var(--font-alexandria), sans-serif;
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    line-height: 1.75;
+  }
+
+  .v3-label {
+    font-family: var(--font-v3-text), var(--font-alexandria), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 750;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .v3-technical {
+    font-family: var(--font-v3-mono), var(--font-alexandria), monospace;
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+
+  [dir="rtl"] .v3-display,
+  [dir="rtl"] .v3-heading {
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  [dir="rtl"] .v3-label {
+    letter-spacing: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

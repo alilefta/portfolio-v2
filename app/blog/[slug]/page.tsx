@@ -1,185 +1,265 @@
-import { getBlogPosts, getPost } from "@/lib/blog";
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, Tag, ChevronRight } from "lucide-react";
-import { CustomMDX } from "@/mdx-components";
-import FooterSection from "@/components/home/Footer"; // Your footer
-import NewsletterCTA from "@/components/blog/NewsletterCta";
+import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+import { Container } from "@/components/v3/layout/Container";
+import { Section } from "@/components/v3/layout/Section";
+import { Button } from "@/components/v3/ui/Button";
 import TableOfContents from "@/components/blog/TableOfContents";
+import { notebookMdxComponents } from "@/components/v3/blog/NotebookMdxComponents";
+import { CustomMDX } from "@/mdx-components";
+import { getBlogPosts, getPost } from "@/lib/blog";
+import { getCategoryTitle } from "@/lib/taxonomy";
+import { DOMAIN_URL, SOCIAL_IMAGE_URL } from "@/lib/info";
 
-export async function generateStaticParams() {
-  const posts = getBlogPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+type BlogPostPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export function generateStaticParams() {
+  return getBlogPosts().map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+}: BlogPostPageProps): Promise<Metadata | undefined> {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return;
+
   return {
-    title: `${post.metadata.title} | Ali Lefta`,
+    title: post.metadata.title,
     description: post.metadata.summary,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.metadata.title,
       description: post.metadata.summary,
       type: "article",
-      images: [post.metadata.coverImage || "/images/og-default.jpg"],
+      url: `${DOMAIN_URL}/blog/${slug}`,
+      publishedTime: post.metadata.publishedAt,
+      images: post.metadata.coverImage
+        ? [post.metadata.coverImage]
+        : [SOCIAL_IMAGE_URL],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: post.metadata.coverImage
+        ? [post.metadata.coverImage]
+        : [SOCIAL_IMAGE_URL],
     },
   };
 }
 
-export default async function BlogPost({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+function formatDate(value: string, locale: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+
+  return new Intl.DateTimeFormat(locale, {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = getPost(slug);
+  if (!post) notFound();
 
-  if (!post) {
-    notFound();
-  }
+  const locale = await getLocale();
+  const t = await getTranslations("V3.Notebook.Article");
+  const posts = getBlogPosts();
+  const currentIndex = posts.findIndex((candidate) => candidate.slug === slug);
+  const newerPost = currentIndex > 0 ? posts[currentIndex - 1] : undefined;
+  const olderPost = currentIndex >= 0 ? posts[currentIndex + 1] : undefined;
+  const entryNumber = String(currentIndex + 1).padStart(2, "0");
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${DOMAIN_URL}/blog/${slug}#article`,
+    url: `${DOMAIN_URL}/blog/${slug}`,
+    headline: post.metadata.title,
+    description: post.metadata.summary,
+    datePublished: post.metadata.publishedAt,
+    image: post.metadata.coverImage
+      ? new URL(post.metadata.coverImage, DOMAIN_URL).toString()
+      : undefined,
+    author: { "@id": `${DOMAIN_URL}/#person` },
+    publisher: { "@id": `${DOMAIN_URL}/#person` },
+    mainEntityOfPage: `${DOMAIN_URL}/blog/${slug}`,
+    inLanguage: locale === "ar" ? "ar" : "en",
+  };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
-      {/* 1. PROGRESS BAR / HEADER (Optional, sticky top) */}
-
-      <article className="mx-auto w-full max-w-7xl px-4 pt-24 pb-20 md:px-6">
-        {/* 2. NAVIGATION BREADCRUMB */}
-        <div className="mb-8 flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-300">
-          <Link
-            href="/blog"
-            className="flex items-center gap-1 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            <span className="font-medium">Blog</span>
-          </Link>
-          <ChevronRight className="h-3 w-3 text-zinc-400" />
-          <span className="truncate font-medium text-zinc-900 dark:text-zinc-100">
-            {post.metadata.title}
-          </span>
-        </div>
-
-        {/* 3. ARTICLE HEADER */}
-        <header className="mb-12 border-b border-zinc-100 pb-12 dark:border-zinc-800">
-          {/* Metadata Row */}
-          <div className="mb-6 flex flex-wrap items-center gap-4 text-xs font-medium text-zinc-500 md:text-sm">
-            <span className="flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-2.5 py-0.5 text-blue-700 dark:border-blue-900/50 dark:bg-blue-900/20 dark:text-blue-400">
-              <Tag className="h-3 w-3" />
-              {post.metadata.category}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Calendar className="h-3.5 w-3.5" />
-              {post.metadata.publishedAt}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="h-3.5 w-3.5" />
-              {post.metadata.readTime || "5 min read"}
-            </span>
-          </div>
-
-          {/* Title */}
-          <h1 className="mb-6 text-3xl leading-tight font-bold tracking-tight text-zinc-900 md:text-5xl lg:leading-[1.1] dark:text-zinc-100">
-            {post.metadata.title}
-          </h1>
-
-          {/* Summary/Subtitle */}
-          <p className="mb-8 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            {post.metadata.summary}
-          </p>
-
-          {/* Featured Image */}
-          {post.metadata.coverImage && (
-            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm dark:border-zinc-800">
-              <Image
-                src={post.metadata.coverImage}
-                alt={post.metadata.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          )}
-        </header>
-
-        <div className="relative mt-12 grid grid-cols-1 gap-12 lg:grid-cols-12">
-          {/* MAIN CONTENT (Spans 8 or 9 columns) */}
-          <div className="prose prose-zinc prose-lg dark:prose-invert max-w-none lg:col-span-9">
-            <CustomMDX source={post.content} />
-          </div>
-
-          {/* SIDEBAR (TOC) (Spans 3 columns) */}
-          <aside className="hidden lg:col-span-3 lg:block">
-            <TableOfContents />
-          </aside>
-        </div>
-
-        {/* 5. ARTICLE FOOTER */}
-        <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">
-          {/* Tags */}
-          {post.metadata.tags && (
-            <div className="mb-10 flex flex-wrap gap-2">
-              {post.metadata.tags.map((tag) => (
-                <Link
-                  href={`/blog?q=${tag.toLocaleLowerCase().replaceAll(" ", "-")}#archive`}
-                  key={tag}
-                  className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400"
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* Author Signature */}
-          <div className="flex items-center justify-between rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/30">
-            <div className="flex items-center gap-4">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-700">
-                <Image
-                  src="/images/avatars/avatar.jpg" // Ensure this path is correct
-                  alt="Ali Lefta"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                  Ali Lefta
-                </h3>
-                <p className="text-xs text-zinc-500">
-                  Engineering precision meets software architecture.
-                </p>
-              </div>
-            </div>
-
-            {/* Share/Action (Optional) */}
-            <Link
-              href="https://twitter.com/intent/tweet" // Add your actual share logic
-              target="_blank"
-              className="transition-hover hidden rounded-lg bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm ring-1 ring-zinc-200 hover:bg-zinc-50 sm:block dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-700"
-            >
-              Share Article
-            </Link>
-          </div>
-
-          <div className="mt-10">
+    <main className="bg-v3-paper text-v3-ink">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
+      <article>
+        <Section tone="surface" spacing="none">
+          <Container className="py-[clamp(3rem,7vw,6.5rem)]">
             <Link
               href="/blog"
-              className="group flex w-fit items-center gap-2 text-sm font-semibold text-zinc-500 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              className="group inline-flex items-center gap-2 font-v3-text text-sm font-bold text-v3-blue"
             >
-              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-              Back to Archive
+              <ArrowLeft
+                className="size-4 transition-transform group-hover:-translate-x-1 rtl:rotate-180"
+                aria-hidden="true"
+              />
+              {t("Back")}
             </Link>
-          </div>
-        </div>
+
+            <div className="mt-10 grid gap-9 border-t-2 border-v3-ink pt-7 lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-14">
+              <dl className="grid grid-cols-2 gap-x-5 gap-y-6 lg:block">
+                <div className="lg:border-b lg:border-v3-line lg:pb-5">
+                  <dt className="v3-label text-v3-muted">{t("Entry")}</dt>
+                  <dd className="v3-technical mt-2 text-v3-blue">{entryNumber}</dd>
+                </div>
+                <div className="lg:border-b lg:border-v3-line lg:py-5">
+                  <dt className="v3-label text-v3-muted">{t("Published")}</dt>
+                  <dd className="v3-technical mt-2">{formatDate(post.metadata.publishedAt, locale)}</dd>
+                </div>
+                <div className="lg:border-b lg:border-v3-line lg:py-5">
+                  <dt className="v3-label text-v3-muted">{t("ReadingTime")}</dt>
+                  <dd className="v3-technical mt-2">{post.metadata.readTime || t("ReadTimeFallback")}</dd>
+                </div>
+                <div className="lg:pt-5">
+                  <dt className="v3-label text-v3-muted">{t("Discipline")}</dt>
+                  <dd className="v3-technical mt-2 text-v3-coral">
+                    {getCategoryTitle(post.metadata.category ?? "Engineering")}
+                  </dd>
+                </div>
+              </dl>
+
+              <header>
+                <p className="v3-label text-v3-coral">{t("Eyebrow")}</p>
+                <h1 className="mt-6 max-w-6xl font-v3-display text-[clamp(3.25rem,7vw,7.25rem)] font-bold leading-[0.94] tracking-[-0.04em] text-balance">
+                  {post.metadata.title}
+                </h1>
+                <p className="v3-body mt-8 max-w-3xl text-v3-muted">
+                  {post.metadata.summary}
+                </p>
+              </header>
+            </div>
+
+            {post.metadata.coverImage ? (
+              <figure className="mt-12 border border-v3-line bg-v3-ink p-2 sm:p-3">
+                <div className="relative aspect-video overflow-hidden">
+                  <Image
+                    src={post.metadata.coverImage}
+                    alt={post.metadata.title}
+                    fill
+                    priority
+                    sizes="(max-width: 1536px) 100vw, 1536px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="flex flex-col gap-2 px-2 pt-3 pb-1 text-[#f5f1e8] sm:flex-row sm:items-center sm:justify-between">
+                  <span className="v3-technical text-white/65">{t("Figure", { number: entryNumber })}</span>
+                  <span className="v3-technical text-white/42">{getCategoryTitle(post.metadata.category ?? "Engineering")}</span>
+                </figcaption>
+              </figure>
+            ) : null}
+          </Container>
+        </Section>
+
+        <Section tone="paper" spacing="none">
+          <Container className="py-[clamp(4rem,8vw,7rem)]">
+            <div className="grid min-w-0 gap-14 lg:grid-cols-[minmax(0,48rem)_17rem] lg:justify-center lg:gap-20">
+              <div className="min-w-0">
+                <div className="mb-12 grid grid-cols-[3.25rem_minmax(0,1fr)] gap-4 border-y border-v3-line py-5">
+                  <span className="font-v3-display text-4xl font-bold leading-none text-v3-yellow">“</span>
+                  <p className="font-v3-display text-xl font-bold leading-8 tracking-[-0.015em] text-v3-ink">
+                    {post.metadata.summary}
+                  </p>
+                </div>
+
+                <div className="min-w-0 overflow-hidden">
+                  <CustomMDX
+                    source={post.content}
+                    components={notebookMdxComponents}
+                  />
+                </div>
+
+                {post.metadata.tags?.length ? (
+                  <div className="mt-16 border-t-2 border-v3-ink pt-6">
+                    <p className="v3-label text-v3-muted">{t("Tags")}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {post.metadata.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="border border-v3-line bg-v3-surface px-3 py-1.5 v3-technical text-v3-muted"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                <aside className="mt-12 border-s-4 border-v3-blue bg-v3-surface p-6 sm:p-8">
+                  <p className="v3-label text-v3-blue">{t("AuthorEyebrow")}</p>
+                  <p className="mt-4 max-w-2xl font-v3-display text-2xl font-bold leading-8 tracking-[-0.02em]">
+                    {t("AuthorText")}
+                  </p>
+                  <Button asChild variant="text" className="mt-6">
+                    <Link href="/contact">
+                      {t("Discuss")}
+                      <ArrowUpRight className="rtl:rotate-[-90deg]" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </aside>
+              </div>
+
+              <aside className="hidden lg:block">
+                <TableOfContents label={t("OnThisPage")} />
+              </aside>
+            </div>
+          </Container>
+        </Section>
       </article>
+
+      <Section tone="surface" spacing="none">
+        <Container className="py-10 sm:py-14">
+          <nav aria-label={t("EntryNavigation")} className="grid border-t border-s border-v3-line md:grid-cols-2">
+            {olderPost ? (
+              <Link
+                href={`/blog/${olderPost.slug}`}
+                className="group flex min-h-40 flex-col justify-between border-e border-b border-v3-line p-6 transition-colors hover:bg-v3-yellow"
+              >
+                <span className="v3-label text-v3-muted">{t("Older")}</span>
+                <span className="mt-6 flex items-end justify-between gap-5 font-v3-display text-xl font-bold tracking-[-0.02em]">
+                  <span>{olderPost.metadata.title}</span>
+                  <ArrowLeft className="size-5 shrink-0 rtl:rotate-180" aria-hidden="true" />
+                </span>
+              </Link>
+            ) : (
+              <div className="hidden border-e border-b border-v3-line md:block" />
+            )}
+            {newerPost ? (
+              <Link
+                href={`/blog/${newerPost.slug}`}
+                className="group flex min-h-40 flex-col justify-between border-e border-b border-v3-line p-6 transition-colors hover:bg-v3-yellow"
+              >
+                <span className="v3-label text-v3-muted">{t("Newer")}</span>
+                <span className="mt-6 flex items-end justify-between gap-5 font-v3-display text-xl font-bold tracking-[-0.02em]">
+                  <span>{newerPost.metadata.title}</span>
+                  <ArrowRight className="size-5 shrink-0 rtl:rotate-180" aria-hidden="true" />
+                </span>
+              </Link>
+            ) : (
+              <div className="hidden border-e border-b border-v3-line md:block" />
+            )}
+          </nav>
+        </Container>
+      </Section>
     </main>
   );
 }

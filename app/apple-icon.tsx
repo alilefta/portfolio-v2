@@ -6,7 +6,7 @@ export const size = {
   height: 180,
 };
 export const contentType = "image/png";
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export default async function Icon() {
   // We can fetch the font here because it's a larger image
@@ -24,8 +24,8 @@ export default async function Icon() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#09090b", // zinc-950
-          color: "white",
+          background: "#2f5be7",
+          color: "#f5f1e8",
           borderRadius: "36px", // Apple style squircle-ish
         }}
       >
@@ -49,11 +49,13 @@ export default async function Icon() {
             marginTop: -10, // Visual center adjustment
           }}
         >
-          AM
+          AL
         </div>
 
         {/* Subtle bottom text */}
-        <div style={{ fontSize: 18, marginTop: 5, color: "#a1a1aa" }}>DEV</div>
+        <div style={{ fontSize: 18, marginTop: 5, color: "#f6d13a" }}>
+          MAKER
+        </div>
       </div>
     ),
     {

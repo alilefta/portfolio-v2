@@ -1,7 +1,10 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { Environment, Technology } from "./db/environments_tech/types";
+import { z } from "zod";
+import type { ProjectMetadata } from "./project-schema";
+import type { ProjectCaseStudy } from "./project-schema";
+import { parseProjectMetadata } from "./project-schema";
 import {
   EnvironmentsFilter,
   TechnologiesFilter,
@@ -9,44 +12,24 @@ import {
 
 export interface Project {
   slug: string;
-  metadata: {
-    title: string;
-    description: string;
-    tech_stack: Technology[];
-    additional_info?: {
-      business_impact?: string;
-    };
-    environment: Environment;
-    github_url?: string;
-    live_preview?: string;
-    year?: string;
-
-    publishedAt?: string;
-    date: string;
-    status:
-      | {
-          type: "deployed";
-          deployement_year: string;
-        }
-      | {
-          type: "undeployed";
-          expected_deployment: string;
-        };
-    is_future_project?: boolean;
-    privacy: "open_source" | "close_source";
-    screenshots: {
-      theme: "dark" | "light" | "both" | "none";
-      dark_screenshot_url?: string;
-      light_screenshot_url?: string;
-      ext: "png" | "webp" | "jpg" | "jpeg";
-    };
-
-    badge_tag_1?: string;
-    badge_tag_2?: string;
-  };
+  metadata: ProjectMetadata;
   content: string;
   imagesDir: string;
 }
+
+const featuredMetadataSchema = z.object({
+  featured: z.literal(true),
+  featuredOrder: z.number().int().positive(),
+  homepage_key: z.enum(["oscar", "labora", "cryptography"]),
+});
+
+export type FeaturedProject = Project & {
+  metadata: Project["metadata"] & z.infer<typeof featuredMetadataSchema>;
+};
+
+export type V3Project = Project & {
+  metadata: Project["metadata"] & { case_study: ProjectCaseStudy };
+};
 
 const contentDirectory = path.join(process.cwd(), "/content/projects");
 
@@ -68,6 +51,7 @@ export function getProjects(): Project[] {
 
       // Parse metadata section
       const { data, content } = matter(fileContents);
+      const metadata = parseProjectMetadata(data, fileName);
 
       let imagesDir = slug;
 
@@ -76,7 +60,7 @@ export function getProjects(): Project[] {
 
       return {
         slug,
-        metadata: data as Project["metadata"],
+        metadata,
         content,
         imagesDir,
       };
@@ -85,8 +69,12 @@ export function getProjects(): Project[] {
   // Sort posts by date (newest first)
   return allProjects.sort((a, b) => {
     // Convert the strict ISO dates to timestamps
-    const dateA = new Date(a.metadata.date).getTime();
-    const dateB = new Date(b.metadata.date).getTime();
+    const dateA = new Date(
+      a.metadata.date ?? a.metadata.publishedAt ?? "",
+    ).getTime();
+    const dateB = new Date(
+      b.metadata.date ?? b.metadata.publishedAt ?? "",
+    ).getTime();
 
     // Handle invalid dates gracefully (push to bottom)
     if (isNaN(dateA)) return 1;
@@ -100,6 +88,44 @@ export function getProjects(): Project[] {
 export function getProject(slug: string): Project | undefined {
   const projects = getProjects();
   return projects.find((project) => project.slug === slug);
+}
+
+export function getV3Project(slug: string): V3Project | undefined {
+  const project = getProject(slug);
+
+  if (!project?.metadata.case_study) return undefined;
+
+  return project as V3Project;
+}
+
+export function getFeaturedProjects(): FeaturedProject[] {
+  const featuredProjects = getProjects()
+    .filter((project) => project.metadata.featured === true)
+    .map((project) => {
+      const featuredMetadata = featuredMetadataSchema.parse(project.metadata);
+
+      return {
+        ...project,
+        metadata: {
+          ...project.metadata,
+          ...featuredMetadata,
+        },
+      };
+    })
+    .sort(
+      (first, second) =>
+        first.metadata.featuredOrder - second.metadata.featuredOrder,
+    );
+
+  const featuredKeys = new Set(
+    featuredProjects.map((project) => project.metadata.homepage_key),
+  );
+
+  if (featuredKeys.size !== featuredProjects.length) {
+    throw new Error("Featured projects must use unique homepage_key values.");
+  }
+
+  return featuredProjects;
 }
 
 export async function getFilteredProjects(

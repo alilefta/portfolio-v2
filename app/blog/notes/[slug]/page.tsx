@@ -1,168 +1,144 @@
-import { getLabNote, getLabNotes } from "@/lib/notes";
-import { notFound } from "next/navigation";
-import { CustomMDX } from "@/mdx-components";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, MoreHorizontal, Terminal } from "lucide-react";
-import Image from "next/image";
-// import { CopyButton } from "@/components/CopyButton"; // We'll create a tiny helper below
-import { Button } from "@/components/ui/custom/Button";
-import { ShareButton } from "@/components/ShareButton";
+import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+import { Container } from "@/components/v3/layout/Container";
+import { Section } from "@/components/v3/layout/Section";
+import { Button } from "@/components/v3/ui/Button";
+import { notebookMdxComponents } from "@/components/v3/blog/NotebookMdxComponents";
+import { CustomMDX } from "@/mdx-components";
+import { getLabNote, getLabNotes } from "@/lib/notes";
+import { DOMAIN_URL, SOCIAL_IMAGE_URL } from "@/lib/info";
 
-interface PageProps {
+type NotePageProps = {
   params: Promise<{ slug: string }>;
+};
+
+export function generateStaticParams() {
+  return getLabNotes().map((note) => ({ slug: note.slug }));
 }
 
-// Generate static pages for performance
-// 1. Static Site Generation
-export async function generateStaticParams() {
-  const notes = getLabNotes();
-  return notes.map((note) => ({
-    slug: note.slug,
-  }));
-}
-
-// 2. Dynamic Metadata
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: NotePageProps): Promise<Metadata | undefined> {
   const { slug } = await params;
   const note = getLabNote(slug);
-
-  if (!note) {
-    return;
-  }
-
-  const { title, noteNumber, tags } = note.metadata;
+  if (!note) return;
 
   return {
-    // Result: "Tailwind Hack (Note #005) | Lab Notes"
-    title: `${title} (Note #${noteNumber || "00X"}) | Lab Notes`,
-    description: `Engineering snippet about ${tags?.join(", ") || "development"}.`,
+    title: note.metadata.title,
+    description: `Engineering lab note about ${note.metadata.tags.join(", ")}.`,
+    alternates: { canonical: `/blog/notes/${slug}` },
     openGraph: {
-      title: title,
-      description: `Ali Lefta Lab Note #${noteNumber}`,
+      title: note.metadata.title,
+      description: `Ali Lefta engineering note ${note.metadata.noteNumber || ""}`.trim(),
       type: "article",
-      url: `https://ali-Lefta.dev/blog/notes/${slug}`,
-      // Notes usually rely on the default OG image unless you generate dynamic ones
+      url: `${DOMAIN_URL}/blog/notes/${slug}`,
+      images: [SOCIAL_IMAGE_URL],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: note.metadata.title,
+      description: `Engineering lab note about ${note.metadata.tags.join(", ")}.`,
+      images: [SOCIAL_IMAGE_URL],
     },
   };
 }
 
-export default async function SingleNotePage({ params }: PageProps) {
+function formatDate(value: string, locale: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+
+  return new Intl.DateTimeFormat(locale, {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
+export default async function LabNotePage({ params }: NotePageProps) {
   const { slug } = await params;
   const note = getLabNote(slug);
-
   if (!note) notFound();
 
+  const locale = await getLocale();
+  const t = await getTranslations("V3.Notebook.NotePage");
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${DOMAIN_URL}/blog/notes/${slug}#article`,
+    url: `${DOMAIN_URL}/blog/notes/${slug}`,
+    headline: note.metadata.title,
+    description: `Engineering lab note about ${note.metadata.tags.join(", ")}.`,
+    datePublished: note.metadata.date,
+    author: { "@id": `${DOMAIN_URL}/#person` },
+    publisher: { "@id": `${DOMAIN_URL}/#person` },
+    mainEntityOfPage: `${DOMAIN_URL}/blog/notes/${slug}`,
+    inLanguage: locale === "ar" ? "ar" : "en",
+  };
+
   return (
-    <main className="min-h-screen bg-white pt-24 pb-20 dark:bg-black">
-      <div className="mx-auto max-w-2xl px-4 md:px-0">
-        {/* Navigation / Top Bar */}
-        <div className="mb-8 flex items-center justify-between">
-          <Link
-            href="/blog/notes"
-            className="group flex items-center gap-2 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-          >
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            Back to Feed
-          </Link>
-          <span className="font-mono text-xs text-zinc-400">
-            Lab Note #{note.metadata.noteNumber || "00X"}
-          </span>
-        </div>
+    <main className="bg-v3-paper text-v3-ink">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
+      <article>
+        <Section tone="surface" spacing="none">
+          <Container reading className="py-[clamp(3rem,7vw,6rem)]">
+            <Link
+              href="/blog/notes"
+              className="group inline-flex items-center gap-2 font-v3-text text-sm font-bold text-v3-blue"
+            >
+              <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1 rtl:rotate-180" aria-hidden="true" />
+              {t("Back")}
+            </Link>
 
-        {/* THE "THREAD" CARD */}
-        <article className="relative">
-          {/* Vertical Thread Line (Visual Decoration) */}
-          <div className="absolute top-14 bottom-0 left-[26px] -z-10 w-0.5 bg-zinc-100 dark:bg-zinc-800" />
-
-          <div className="flex gap-4">
-            {/* Left: Avatar */}
-            <div className="flex shrink-0 flex-col items-center">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-zinc-200 shadow-sm dark:border-zinc-800">
-                <Image
-                  src="/images/avatars/avatar.jpg" // Replace with your avatar
-                  alt="Ali Lefta"
-                  fill
-                  className="object-cover"
-                />
+            <header className="mt-10 border-t-2 border-v3-ink pt-7">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <p className="v3-label text-v3-coral">
+                  {t("Note", { number: note.metadata.noteNumber || "—" })}
+                </p>
+                <p className="v3-technical text-v3-muted">
+                  {formatDate(note.metadata.date, locale)} · {note.metadata.type || t("DefaultType")}
+                </p>
               </div>
+              <h1 className="mt-7 font-v3-display text-[clamp(3.25rem,7vw,6.75rem)] font-bold leading-[0.95] tracking-[-0.04em] text-balance">
+                {note.metadata.title}
+              </h1>
+              <div className="mt-8 flex flex-wrap gap-2 border-b border-v3-line pb-8">
+                {note.metadata.tags.map((tag) => (
+                  <span key={tag} className="border border-v3-line bg-v3-paper px-3 py-1.5 v3-technical text-v3-muted">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </header>
+          </Container>
+        </Section>
+
+        <Section tone="paper" spacing="none">
+          <Container reading className="py-[clamp(4rem,8vw,7rem)]">
+            <div className="min-w-0 overflow-hidden">
+              <CustomMDX source={note.content} components={notebookMdxComponents} />
             </div>
 
-            {/* Right: Content */}
-            <div className="w-full pt-1 pb-8">
-              {/* Header: Name & Meta */}
-              <div className="mb-2 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-zinc-900 dark:text-zinc-100">
-                    Ali Lefta
-                  </span>
-                  <span className="text-sm text-zinc-500">@aliLefta</span>
-                  <span className="text-zinc-300 dark:text-zinc-700">·</span>
-                  <span className="text-sm text-zinc-500 hover:underline">
-                    {note.metadata.date}
-                  </span>
-                </div>
-
-                {/* Options Icon (Decorative) */}
-                <Button
-                  variant={"ghost"}
-                  className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200"
-                >
-                  <MoreHorizontal className="h-4 w-4" />
-                </Button>
-              </div>
-
-              {/* The "Post" Body */}
-              <div className="prose prose-zinc prose-sm dark:prose-invert max-w-none">
-                {/* We render the title nicely here as part of the text flow */}
-                <h1 className="mt-0 mb-4 text-lg leading-snug font-semibold text-zinc-900 dark:text-zinc-100">
-                  {note.metadata.title}
-                </h1>
-
-                <CustomMDX source={note.content} />
-              </div>
-
-              {/* Footer: Tags & Actions */}
-              <div className="mt-6 flex flex-col gap-4">
-                {/* Hashtags */}
-                {note.metadata.tags && (
-                  <div className="flex flex-wrap gap-x-3 gap-y-2 text-sm text-blue-600 dark:text-blue-400">
-                    {note.metadata.tags.map((tag) => (
-                      <Link
-                        key={tag}
-                        href={`/blog/notes?tag=${tag}`}
-                        className="hover:underline"
-                      >
-                        #{tag}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-
-                {/* Social Actions Bar */}
-                <div className="flex items-center gap-6 border-t border-zinc-100 pt-4 text-zinc-500 dark:border-zinc-800">
-                  <ShareButton title={note.metadata.title} />
-
-                  {/* Decorative "Replied" count */}
-                  <div className="flex cursor-pointer items-center gap-2 text-xs transition-colors hover:text-blue-500">
-                    <Terminal className="h-4 w-4" />
-                    <span>Run</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        {/* OPTIONAL: "Reply" Input Area (Fake/CTA) */}
-        <div className="mt-4 flex gap-4 pl-18">
-          <Link
-            href="/contact"
-            className="text-sm text-zinc-400 transition-colors hover:text-zinc-600"
-          >
-            Have a better solution? Reply via Email...
-          </Link>
-        </div>
-      </div>
+            <aside className="mt-16 border-s-4 border-v3-blue bg-v3-surface p-6 sm:p-8">
+              <p className="v3-label text-v3-blue">{t("ClosingEyebrow")}</p>
+              <p className="mt-4 font-v3-display text-2xl font-bold leading-8 tracking-[-0.02em]">
+                {t("ClosingTitle")}
+              </p>
+              <Button asChild variant="text" className="mt-5">
+                <Link href="/contact">
+                  {t("ClosingAction")}
+                  <ArrowUpRight className="rtl:rotate-[-90deg]" aria-hidden="true" />
+                </Link>
+              </Button>
+            </aside>
+          </Container>
+        </Section>
+      </article>
     </main>
   );
 }

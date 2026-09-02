@@ -13,6 +13,8 @@ export interface BlogPost {
     tags?: string[];
     readTime: string;
     coverImage?: string;
+    homepageFeatured?: boolean;
+    homepageOrder?: number;
   };
   content: string; //mdx content
 }
@@ -58,4 +60,15 @@ export function getBlogPosts(): BlogPost[] {
 export function getPost(slug: string): BlogPost | undefined {
   const posts = getBlogPosts();
   return posts.find((post) => post.slug === slug);
+}
+
+export function getHomepageBlogPosts(): BlogPost[] {
+  return getBlogPosts()
+    .filter((post) => post.metadata.homepageFeatured)
+    .sort(
+      (a, b) =>
+        (a.metadata.homepageOrder ?? Number.MAX_SAFE_INTEGER) -
+        (b.metadata.homepageOrder ?? Number.MAX_SAFE_INTEGER),
+    )
+    .slice(0, 3);
 }

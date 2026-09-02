@@ -40,7 +40,11 @@ export function NavigationMenu() {
     >
       <DrawerTrigger asChild>
         {/* To be replaced with word menu */}
-        <Button variant={"outline"} className="bg-foreground/10">
+        <Button
+          variant={"outline"}
+          className="bg-foreground/10"
+          aria-label={t("Common.Navigation")}
+        >
           <Menu className="size-4" absoluteStrokeWidth={false} />
         </Button>
       </DrawerTrigger>

@@ -7,8 +7,7 @@ export const size = {
 };
 export const contentType = "image/png";
 
-// Lightweight runtime
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export default function Icon() {
   return new ImageResponse(
@@ -17,7 +16,7 @@ export default function Icon() {
       <div
         style={{
           fontSize: 20,
-          background: "#09090b", // zinc-950
+          background: "#2f5be7",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -29,7 +28,7 @@ export default function Icon() {
           fontFamily: "sans-serif",
         }}
       >
-        A
+        AL
       </div>
     ),
     {

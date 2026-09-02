@@ -4,6 +4,14 @@ import Link from "next/link";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { CodeSnippet } from "@/components/mdx-components/CodeSnippet"; // Assuming you have this
 import { AlertCircle, FileText, Info } from "lucide-react";
+import { DecisionRecord } from "@/components/v3/projects/case-study/DecisionRecord";
+import { OutcomePanel } from "@/components/v3/projects/case-study/OutcomePanel";
+import {
+  Constraints,
+  EvidenceGallery,
+  Problem,
+  Reflection,
+} from "@/components/v3/projects/case-study/MdxDossierBlocks";
 
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -93,6 +101,7 @@ const components = {
       return (
         <span className="inline-block align-middle">
           {/* Standard img tag for badges to avoid Next.js Image optimization overhead on external SVGs */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={props.src as string} alt={props.alt} className="h-auto" />
         </span>
       );
@@ -154,6 +163,14 @@ const components = {
       {children}
     </pre>
   ),
+
+  // --- V3 case-study dossier blocks ---
+  Problem,
+  Constraints,
+  DecisionRecord,
+  EvidenceGallery,
+  OutcomePanel,
+  Reflection,
 
   // --- Custom Callout Component (Optional usage in MDX: <Callout>...</Callout>) ---
   Callout: ({

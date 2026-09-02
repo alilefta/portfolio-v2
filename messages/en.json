@@ -1,4 +1,2036 @@
 {
+  "V3": {
+    "Navigation": {
+      "Primary": "Primary navigation",
+      "Mobile": "Mobile navigation",
+      "Home": "Home",
+      "Projects": "Projects",
+      "Writing": "Writing",
+      "Contact": "Contact",
+      "CV": "Download CV",
+      "Language": "Change language",
+      "Theme": "Change color theme",
+      "Menu": "Open menu",
+      "Close": "Close menu"
+    },
+    "Standard": {
+      "Hero": {
+        "Back": "Back to projects",
+        "Eyebrow": "Case study",
+        "Enter": "Inspect the evidence"
+      },
+      "Meta": {
+        "Eyebrow": "System record",
+        "Status": "Status",
+        "Role": "Role",
+        "Platform": "Platform",
+        "Confidentiality": "Access",
+        "Capabilities": "Capabilities"
+      },
+      "Status": {
+        "shipped": "Shipped",
+        "active": "In development",
+        "experiment": "Research experiment"
+      },
+      "Confidentiality": {
+        "public": "Public",
+        "limited": "Limited access",
+        "private": "Private"
+      },
+      "Evidence": {
+        "Eyebrow": "Evidence",
+        "Title": "The work, in view.",
+        "Description": "Each artifact shows a visible product decision and states the boundary of what it can prove."
+      },
+      "Gallery": {
+        "HeroCaption": "The primary product artifact.",
+        "HeroProves": "This artifact proves only the interface details visible in the image.",
+        "Label": "Project evidence gallery",
+        "Previous": "Previous image",
+        "Next": "Next image",
+        "Slide": "Slide"
+      },
+      "Narrative": {
+        "Eyebrow": "Working notes",
+        "Title": "How the product took shape."
+      },
+      "Outcome": {
+        "Label": "Outcome record",
+        "PendingValue": "In progress",
+        "ConfidenceLabel": "Evidence confidence",
+        "ConfidenceNote": "Confidence reflects the source available for this portfolio record.",
+        "BoundaryLabel": "Evidence boundary",
+        "BoundaryNote": "This dossier separates visible evidence from intended or private outcomes.",
+        "Confidence": {
+          "verified": "Verified",
+          "owner-verified": "Owner verified",
+          "estimate": "Estimate"
+        }
+      },
+      "Navigation": {
+        "Label": "Case study navigation",
+        "PreviousLabel": "Back to archive",
+        "PreviousTitle": "All projects",
+        "NextLabel": "Next step",
+        "NextTitle": "Start a conversation"
+      }
+    },
+    "CaseStudies": {
+      "oscar-lab-system-en": {
+        "Gallery": {
+          "Dashboard": {
+            "Alt": "Oscar Lab System dashboard showing operational and financial summaries",
+            "Caption": "Oscar’s primary dashboard presents operational and financial summaries in one workspace.",
+            "Proves": "This artifact proves the visible navigation and dashboard information architecture; it does not prove unmeasured business impact."
+          }
+        }
+      },
+      "labora-saas-en": {
+        "Gallery": {
+          "InterfaceExploration": {
+            "Alt": "LabOS interface exploration showing a dental laboratory workspace with clinical analysis panels",
+            "Caption": "LabOS interface exploration with synthetic demonstration data; the visual model is directional, not a completion claim.",
+            "Proves": "This artifact establishes the intended visual and information-density direction for LabOS."
+          }
+        }
+      },
+      "image-cryptography-system-en": {
+        "Gallery": {
+          "ResearchWorkspace": {
+            "Alt": "Image cryptography desktop workspace showing source, encrypted, RGB S-box, and recovered images",
+            "Caption": "The working desktop application presents the source image, encrypted result, generated RGB S-box, and recovered image in one research workspace.",
+            "Proves": "This artifact demonstrates a working end-to-end desktop experiment; it does not independently validate cryptographic security."
+          }
+        }
+      },
+      "base-60-hardware-foundary-app-en": {
+        "Gallery": {
+          "Builder": {
+            "Alt": "BASE 60 Crucible 3D PC builder showing an assembled computer and compatibility diagnostics",
+            "Caption": "The Crucible joins the 3D assembly scene with visible socket, chipset, and power diagnostics.",
+            "Proves": "The prototype includes a dedicated 3D configuration interface and visible compatibility feedback."
+          },
+          "Storefront": {
+            "Alt": "BASE 60 storefront landing page with premium graphics hardware",
+            "Caption": "The storefront frames component discovery as the entrance to a connected configuration journey.",
+            "Proves": "The project includes a designed commerce storefront alongside the builder experience."
+          },
+          "Orders": {
+            "Alt": "BASE 60 Overseer order operations interface",
+            "Caption": "The Overseer turns order records and fulfilment states into a dense operations workspace; the displayed records are demo data.",
+            "Proves": "The prototype includes an administrative order-management interface; the visible telemetry is synthetic."
+          },
+          "Upload": {
+            "Alt": "BASE 60 administrative product creation and media upload interface",
+            "Caption": "Module deployment combines product identity, specifications, inventory, and media ingestion in one administrative flow.",
+            "Proves": "The administrative prototype covers product creation, technical attributes, allocation, and asset ingestion."
+          },
+          "Analytics": {
+            "Alt": "BASE 60 Overseer analytics dashboard with capital flow, unit load, dispatch velocity, and live logs",
+            "Caption": "The Overseer exposes the operational picture through capital flow, unit load, dispatch velocity, and live logs.",
+            "Proves": "The prototype includes an analytics surface that connects operational signals to the foundry dashboard."
+          },
+          "BuilderVariant": {
+            "Alt": "BASE 60 Crucible builder view showing component selection and compatibility state",
+            "Caption": "A second Crucible view keeps the configuration loop visible while a component is selected and validated.",
+            "Proves": "The builder experience supports multiple states across the configuration flow."
+          },
+          "Overview": {
+            "Alt": "BASE 60 Foundry Intelligence operational overview dashboard",
+            "Caption": "The wider Foundry Intelligence view connects commercial, inventory, and dispatch signals in one operating surface.",
+            "Proves": "The product direction extends beyond the storefront into an operational system for the team behind the order."
+          }
+        }
+      },
+      "freelancer-command-center-en": {
+        "Gallery": {
+          "Overview": {
+            "Alt": "Freelancer Command Center dashboard showing projects, time, invoices, and next actions",
+            "Caption": "A product direction mockup bringing project health, workload, invoices, and next actions into one calm workspace.",
+            "Proves": "This mockup proves the intended information architecture and visual direction; it does not prove shipped functionality."
+          },
+          "Workspace": {
+            "Alt": "Freelancer Command Center workspace showing the daily project queue and focused next action",
+            "Caption": "A focused workspace view keeps the next action visible without losing the wider project and cash-flow context.",
+            "Proves": "This mockup proves the proposed prioritization pattern and visual hierarchy; it does not prove shipped behavior."
+          }
+        }
+      }
+    },
+    "Home": {
+      "Hero": {
+        "Eyebrow": "Software engineer · Product maker",
+        "TitleLead": "I turn difficult workflows into",
+        "TitleAccent": "dependable products.",
+        "Description": "I'm Ali, a full-stack engineer with six years inside dental laboratories. I design and build web and desktop systems where clarity, precision, and operational reliability matter.",
+        "SelectedWork": "Inspect selected work",
+        "Contact": "Start a conversation",
+        "Availability": "Available for selected product engineering and frontend work · Remote from UTC+3",
+        "VisualLabel": "Portrait of Ali paired with Oscar, his shipped dental laboratory product",
+        "PortraitAlt": "Black-and-white portrait of Ali Lefta",
+        "PortraitCaption": "Ali Lefta / Product engineer",
+        "ArtifactLinkLabel": "Open the Oscar Lab System case study",
+        "ArtifactAlt": "Oscar dental laboratory management dashboard",
+        "ArtifactCaption": "Oscar / Shipped + sold"
+      },
+      "Proof": {
+        "Title": "Selected evidence",
+        "Product": {
+          "Value": "1 product",
+          "Label": "Built, deployed, and sold",
+          "Note": "Oscar Lab System"
+        },
+        "Domain": {
+          "Value": "6+ years",
+          "Label": "Inside dental laboratories",
+          "Note": "Operational domain experience"
+        },
+        "Education": {
+          "Value": "93.8%",
+          "Label": "Computer Science result",
+          "Note": "Bachelor's degree"
+        },
+        "Platforms": {
+          "Value": "Web + desktop",
+          "Label": "Products across environments",
+          "Note": "Next.js · .NET · WPF"
+        }
+      },
+      "SelectedWork": {
+        "Eyebrow": "Chapter 01 / Selected work",
+        "Title": "Products shaped by the workflows behind them.",
+        "Introduction": "Product personality on the surface. Engineering evidence underneath.",
+        "StatusLabel": "Product status",
+        "RoleLabel": "Role",
+        "PlatformLabel": "Platform",
+        "OwnershipLabel": "Ownership",
+        "OpenCase": "Open full case dossier",
+        "OpenProject": "Inspect project",
+        "ViewAll": "View the complete project archive",
+        "Oscar": {
+          "Kicker": "Flagship product",
+          "Status": "Shipped and sold · 2024",
+          "Role": "Product design + implementation",
+          "Platform": "Windows desktop",
+          "Ownership": "Workflow, architecture, UI, delivery",
+          "ImageAlt": "Oscar Lab System operational dashboard",
+          "ImageCaption": "Cases, financial records, production status, and reporting share one operational workspace.",
+          "SummaryLead": "Built from inside the problem.",
+          "Summary": "Oscar replaced fragmented laboratory records with a dependable desktop workflow for cases, billing, payroll, and reporting.",
+          "EvidenceLabel": "Commercial evidence",
+          "Evidence": "Built, deployed, and sold to an operating dental laboratory."
+        },
+        "Labora": {
+          "Kicker": "Healthcare SaaS",
+          "Status": "In development",
+          "Description": "A cloud product direction for connecting laboratory operations, clinical records, scheduling, and collaboration.",
+          "ArtifactValue": "Multi-tenant",
+          "ArtifactLabel": "System model",
+          "ImageAlt": "Labora healthcare SaaS interface exploration"
+        },
+        "Cryptography": {
+          "Kicker": "Applied research",
+          "Status": "Research system · 2024",
+          "Description": "A desktop research system exploring five-dimensional hyperchaotic encryption for highly correlated digital images.",
+          "ArtifactValue": "7.999",
+          "ArtifactLabel": "Reported entropy",
+          "ImageAlt": "Image cryptography desktop research interface showing original, encrypted, and decrypted images"
+        }
+      },
+      "Archive": {
+        "Eyebrow": "Chapter 04 / Project archive",
+        "Title": "A working record, not a showcase wall.",
+        "Introduction": "Each project gets the amount of context its evidence can support.",
+        "AllWork": "All work",
+        "Open": "Open project",
+        "Role": "Role",
+        "Platform": "Platform",
+        "Status": "Status",
+        "Shipped": "Shipped",
+        "InDevelopment": "In development",
+        "Research": "Research system",
+        "Other": "Supporting project",
+        "More": "More projects are being documented as their evidence is ready."
+      },
+      "Transition": {
+        "Eyebrow": "Chapter 02 / Working protocol",
+        "Title": "The interface changes. The quality protocol",
+        "Accent": "does not."
+      },
+      "Protocol": {
+        "Eyebrow": "How the work moves",
+        "Title": "Creativity for the interface. Discipline for the system.",
+        "Description": "The visual personality changes with the product. The way I discover, model, test, and evaluate the work stays consistent.",
+        "Observe": {
+          "Title": "Observe the real workflow",
+          "Note": "People · constraints · exceptions"
+        },
+        "Model": {
+          "Title": "Model states and failure",
+          "Note": "Ownership · recovery · data"
+        },
+        "Design": {
+          "Title": "Design the critical path",
+          "Note": "Clarity · speed · accessibility"
+        },
+        "Measure": {
+          "Title": "Evaluate the production result",
+          "Note": "Evidence before claims"
+        }
+      },
+      "Origin": {
+        "Eyebrow": "Origin / The first workshop",
+        "Title": "Precision was the first system I learned.",
+        "ParagraphOne": "Before software, I spent six years inside dental laboratories, where materials, handoffs, and small errors had physical consequences.",
+        "ParagraphTwo": "That background changed what I notice: where a workflow loses information, where ownership becomes ambiguous, and where a polished surface hides a weak foundation.",
+        "Craft": {
+          "Title": "Physical craft",
+          "Description": "Working with real materials taught me to respect constraints, tolerances, and irreversible decisions."
+        },
+        "Friction": {
+          "Title": "Operational friction",
+          "Description": "Daily laboratory work exposed the gaps between people, paper records, financial tracking, and production status."
+        },
+        "Product": {
+          "Title": "Software products",
+          "Description": "Oscar became the bridge: domain knowledge translated into workflow, interface, architecture, and delivery."
+        },
+        "Closing": "The medium changed. The habit of observing, testing, and refining did not.",
+        "ReadStory": "Read the full origin story"
+      },
+      "Writing": {
+        "Eyebrow": "Chapter 03 / Engineering notes",
+        "Title": "The decisions behind the interface.",
+        "Description": "Selected field notes on visual systems, failure-safe architecture, and performance—the reasoning that rarely fits inside a project screenshot.",
+        "ViewAll": "Open the writing archive",
+        "Lead": "Featured note",
+        "ReadArticle": "Read the note",
+        "Interface": {
+          "Lens": "Interface systems",
+          "Description": "How visual language, density, and component rules can make a specialized product feel like a tool instead of a template."
+        },
+        "Reliability": {
+          "Lens": "Backend reliability",
+          "Description": "A walkthrough of ownership, transactions, and recovery paths in a checkout flow designed around failure—not just the happy path."
+        },
+        "Performance": {
+          "Lens": "Web performance",
+          "Description": "Notes on balancing expressive 3D product work with loading strategy, device constraints, and useful fallbacks."
+        }
+      },
+      "Contact": {
+        "Eyebrow": "Chapter 04 / Start here",
+        "Title": "Bring me the difficult workflow.",
+        "Description": "I’m most useful when a product has real operational complexity: tangled states, specialist users, difficult handoffs, or an interface that has to make all of that feel clear.",
+        "Start": "Start a project conversation",
+        "BriefLabel": "A useful first message includes",
+        "Context": {
+          "Title": "The context",
+          "Description": "Who uses the product and what environment it has to survive."
+        },
+        "Friction": {
+          "Title": "The friction",
+          "Description": "Where the current workflow loses time, clarity, or confidence."
+        },
+        "Outcome": {
+          "Title": "The desired change",
+          "Description": "What should become easier, safer, or more dependable."
+        },
+        "Availability": "Selected product engineering and frontend work · Remote from UTC+3",
+        "FooterLine": "Product engineering for workflows that deserve better tools.",
+        "Copyright": "© 2026 Ali Lefta",
+        "FooterNavigation": "Footer navigation",
+        "Projects": "Projects",
+        "Writing": "Writing",
+        "Contact": "Contact"
+      },
+      "Preview": {
+        "Label": "M2 / Next slice",
+        "Title": "The final homepage chapter turns evidence into a conversation.",
+        "Description": "The next slice will add selected engineering writing, the direct contact invitation, and the final footer before the V3 homepage replaces V2."
+      }
+    },
+    "Contact": {
+      "Metadata": {
+        "Title": "Start a project conversation",
+        "Description": "Tell Ali what workflow needs to become clearer, safer, or more dependable."
+      },
+      "Hero": {
+        "Eyebrow": "Chapter 05 / Start a project",
+        "Title": "Bring the difficult workflow.",
+        "Description": "I help teams turn operational complexity into software people can trust. Start with the context, the friction, and the change you need to make real.",
+        "Availability": "Selected product engineering and frontend work · Remote from UTC+3",
+        "DirectLabel": "Prefer email?",
+        "DirectDescription": "Send the brief in your own words. I read every message.",
+        "EmailAction": "Email Ali",
+        "FitLabel": "A useful first message includes",
+        "FitItems": {
+          "Context": {
+            "Title": "The context",
+            "Description": "Who uses the product and where the workflow has to survive."
+          },
+          "Friction": {
+            "Title": "The friction",
+            "Description": "Where the current process loses time, clarity, or confidence."
+          },
+          "Outcome": {
+            "Title": "The desired change",
+            "Description": "What should become easier, safer, or more dependable."
+          }
+        }
+      },
+      "Form": {
+        "Eyebrow": "Project brief",
+        "Title": "Tell me what needs to become dependable.",
+        "Description": "No pitch deck required. A few concrete details are enough to start a useful conversation.",
+        "Name": "Your name",
+        "NamePlaceholder": "Ali or your team name",
+        "Email": "Work email",
+        "EmailPlaceholder": "you@company.com",
+        "ProjectType": "Project type",
+        "SelectPlaceholder": "Choose a project type",
+        "ProjectTypes": {
+          "Product": "A product or SaaS platform",
+          "Workflow": "A difficult internal workflow",
+          "Review": "Architecture or frontend review",
+          "Other": "Something else"
+        },
+        "Message": "What needs to change?",
+        "MessagePlaceholder": "Tell me what is hard today, who uses it, and what a better outcome looks like.",
+        "Submit": "Send project brief",
+        "Submitting": "Sending brief…",
+        "SuccessTitle": "Your project brief was sent.",
+        "SuccessDescription": "Thanks for the context. Your message has reached my inbox.",
+        "ErrorTitle": "The brief could not be sent.",
+        "ErrorDescription": "Please try again or use the direct email link below.",
+        "UnavailableTitle": "Online delivery is not configured yet.",
+        "UnavailableDescription": "The form is ready for an email provider, but direct email is the reliable path for now.",
+        "Required": "Please fill in this field.",
+        "InvalidEmail": "Enter a valid email address.",
+        "MessageShort": "Give me at least 20 characters so I can understand the workflow.",
+        "Fallback": "Email Ali directly",
+        "Privacy": "Your details are used only to reply to this project enquiry."
+      }
+    },
+    "System": {
+      "Loading": {
+        "Eyebrow": "One moment / Route transition",
+        "Title": "Preparing the next chapter.",
+        "Description": "The page is being assembled. Navigation remains available while the content catches up.",
+        "Status": "Loading content"
+      },
+      "Error": {
+        "Eyebrow": "Recovery / Unexpected interruption",
+        "Title": "This page lost its place.",
+        "Description": "The work is still here, but this view could not be completed. Try the page again or return to a stable starting point.",
+        "Retry": "Try this page again",
+        "Home": "Return home"
+      },
+      "NotFound": {
+        "Metadata": {
+          "Title": "Page not found",
+          "Description": "The requested page is not part of Ali Lefta’s portfolio."
+        },
+        "Eyebrow": "Wayfinding / Page not found",
+        "Title": "Nothing is filed at this address.",
+        "Description": "The link may be old, incomplete, or moved. Start again from the portfolio or continue through the project archive.",
+        "Home": "Return home",
+        "Projects": "Browse projects"
+      }
+    },
+    "Notebook": {
+      "Metadata": {
+        "Title": "Engineering notebook",
+        "Description": "Field notes, technical essays, and implementation records about building dependable software."
+      },
+      "Hero": {
+        "Eyebrow": "Chapter 04 / Engineering notebook",
+        "Title": "Notes from the workbench.",
+        "Description": "Long-form records of product decisions, frontend systems, architecture tradeoffs, and the details that make software dependable.",
+        "Entries": "Long reads",
+        "Topics": "Disciplines",
+        "Notes": "Lab notes",
+        "Latest": "Current entry",
+        "Entry": "Entry {number}",
+        "ReadEntry": "Read the full entry"
+      },
+      "Archive": {
+        "Eyebrow": "The ledger",
+        "Title": "Substantial writing, filed by problem.",
+        "Description": "Each entry documents a constraint, a decision, or an implementation pattern worth carrying into the next product."
+      },
+      "Notes": {
+        "Eyebrow": "Margin notes / Secondary register",
+        "Title": "Small findings. Kept useful.",
+        "Description": "Short fixes, commands, and implementation fragments kept separate from the main essays.",
+        "OpenArchive": "Open all lab notes",
+        "Note": "Note {number}",
+        "DefaultType": "Observation"
+      },
+      "Closing": {
+        "Eyebrow": "From record to product",
+        "Title": "If one of these problems resembles yours, bring me the difficult version.",
+        "Action": "Start a project conversation"
+      },
+      "Article": {
+        "Back": "Engineering notebook",
+        "Eyebrow": "Technical field record",
+        "Entry": "Entry",
+        "Published": "Published",
+        "ReadingTime": "Reading time",
+        "ReadTimeFallback": "5 min read",
+        "Discipline": "Discipline",
+        "Figure": "Figure {number} / Working evidence",
+        "OnThisPage": "In this entry",
+        "Tags": "Filed under",
+        "AuthorEyebrow": "A note from the author",
+        "AuthorText": "I write these records to make the reasoning inspectable—not just the finished interface.",
+        "Discuss": "Discuss a similar problem",
+        "EntryNavigation": "Article navigation",
+        "Older": "Older entry",
+        "Newer": "Newer entry"
+      },
+      "NotesArchive": {
+        "Metadata": {
+          "Title": "Lab notes",
+          "Description": "Short engineering fixes, commands, and implementation fragments from the workbench."
+        },
+        "Back": "Engineering notebook",
+        "Eyebrow": "Secondary register / Lab notes",
+        "Title": "Useful fragments from the workbench.",
+        "Description": "Compact records for fixes and implementation details that do not need a full essay.",
+        "Register": "Register size",
+        "RegisterDescription": "Short, practical entries",
+        "Note": "Note {number}"
+      },
+      "NotePage": {
+        "Back": "All lab notes",
+        "Note": "Lab note {number}",
+        "DefaultType": "Observation",
+        "ClosingEyebrow": "Found a related edge case?",
+        "ClosingTitle": "The useful version of a note is the one another engineer can challenge.",
+        "ClosingAction": "Send your version"
+      }
+    },
+    "Base60": {
+      "Prologue": {
+        "Back": "Back to projects",
+        "Eyebrow": "Prototype 04 / 3D hardware commerce",
+        "Title": "A PC store where compatibility is part of the buying experience.",
+        "Proposition": "An ongoing full-stack prototype connecting a server-rendered storefront, a logic-aware 3D builder, and the operational tools behind the purchase.",
+        "Enter": "Enter the foundry dossier",
+        "ArtifactNote": "Prototype interfaces · demo data",
+        "BoundaryLabel": "Current product boundary",
+        "Boundary": "BASE 60 is an advanced portfolio prototype, not a production store. The storefront, builder, compatibility logic, data layer, and payment foundations are implemented; production authentication, payment reconciliation, live telemetry, broader automated tests, and a complete accessibility review remain future work.",
+        "Status": {
+          "Label": "Product status",
+          "Value": "Advanced prototype",
+          "Note": "Ongoing development · not launched"
+        },
+        "Role": {
+          "Label": "Ownership",
+          "Value": "Product + full stack",
+          "Note": "Concept · interface · 3D · commerce · data"
+        },
+        "Platform": {
+          "Label": "Platform",
+          "Value": "Next.js commerce + WebGL",
+          "Note": "PostgreSQL · Prisma · Three.js"
+        },
+        "Evidence": {
+          "Label": "Evidence level",
+          "Value": "Functional foundations",
+          "Note": "Real interfaces · synthetic telemetry"
+        },
+        "Gallery": {
+          "Label": "BASE 60 product interface gallery",
+          "Previous": "Show previous interface",
+          "Next": "Show next interface",
+          "Slide": "Interface",
+          "Builder": {
+            "Alt": "BASE 60 Crucible 3D PC builder showing an assembled computer and compatibility conflict diagnostics",
+            "Caption": "The Crucible joins the 3D assembly scene with visible socket, chipset, and power diagnostics.",
+            "Proves": "The prototype includes a dedicated 3D configuration interface and visible compatibility feedback."
+          },
+          "Storefront": {
+            "Alt": "BASE 60 storefront landing page with premium graphics hardware",
+            "Caption": "The storefront frames component discovery as the entrance to a connected configuration journey.",
+            "Proves": "The project includes a designed commerce storefront alongside the builder experience."
+          },
+          "Orders": {
+            "Alt": "BASE 60 Overseer order operations interface",
+            "Caption": "The Overseer turns order records and fulfilment states into a dense operations workspace; the displayed records are demo data.",
+            "Proves": "The prototype includes an administrative order-management interface; the visible telemetry is synthetic."
+          },
+          "Upload": {
+            "Alt": "BASE 60 administrative product creation and media upload interface",
+            "Caption": "Module deployment combines product identity, specifications, inventory, and media ingestion in one administrative flow.",
+            "Proves": "The administrative prototype covers product creation, technical attributes, allocation, and asset ingestion."
+          },
+          "Analytics": {
+            "Alt": "BASE 60 Overseer analytics dashboard with capital flow, unit load, dispatch velocity, and live logs",
+            "Caption": "The Overseer exposes the operational picture through capital flow, unit load, dispatch velocity, and live logs.",
+            "Proves": "The prototype includes an analytics surface that connects operational signals to the foundry dashboard."
+          },
+          "BuilderVariant": {
+            "Alt": "BASE 60 Crucible builder view showing component selection and compatibility state",
+            "Caption": "A second Crucible view keeps the configuration loop visible while a component is selected and validated.",
+            "Proves": "The builder experience supports multiple states across the configuration flow."
+          },
+          "Overview": {
+            "Alt": "BASE 60 Foundry Intelligence operational overview dashboard",
+            "Caption": "The wider Foundry Intelligence view connects commercial, inventory, and dispatch signals in one operating surface.",
+            "Proves": "The product direction extends beyond the storefront into an operational system for the team behind the order."
+          }
+        },
+        "Cue": {
+          "Eyebrow": "Foundry dossier / The hidden system",
+          "Title": "The spectacle only works because the rules underneath are real.",
+          "Description": "Next: why PC buying is a constraint problem—and how the compatibility resolver keeps domain logic independent from the 3D scene."
+        }
+      },
+      "Compatibility": {
+        "Intro": {
+          "Eyebrow": "02 / The constraint problem",
+          "Title": "A beautiful build is still wrong if the parts disagree.",
+          "Description": "PC configuration is a chain of physical, electrical, and platform constraints. BASE 60 makes those rules visible before a customer commits to a build."
+        },
+        "Model": {
+          "Label": "Resolver contract",
+          "Description": "The compatibility layer receives a component manifest and returns structured findings. The 3D scene consumes that result; it does not own the rules.",
+          "Valid": "COMPATIBLE / READY",
+          "Invalid": "CONFLICT / EXPLAIN",
+          "Note": "A pure resolver keeps domain decisions testable, reusable, and independent from presentation timing."
+        },
+        "Question": {
+          "Label": "The buyer's question",
+          "Title": "Will these parts actually work together?",
+          "Description": "The interface answers with a reason, not a mysterious disabled button: socket mismatch, memory generation conflict, insufficient power, or a clearance limit.",
+          "Signal": "FEEDBACK BEFORE CHECKOUT"
+        },
+        "Rules": {
+          "Eyebrow": "The rule surface",
+          "Title": "Six families carry the engineering risk.",
+          "Description": "Each family maps to a decision the resolver can explain. The list is intentionally concrete: it gives the visual builder an operational vocabulary.",
+          "Items": {
+            "Socket": {
+              "Title": "Socket + chipset",
+              "Description": "Match CPU and motherboard sockets, then account for chipset and BIOS support."
+            },
+            "Memory": {
+              "Title": "Memory generation",
+              "Description": "Keep DDR generation, capacity, and board limits aligned with the selected platform."
+            },
+            "Power": {
+              "Title": "Power + connectors",
+              "Description": "Compare system demand with PSU capacity and the connectors the build requires."
+            },
+            "Clearance": {
+              "Title": "GPU clearance",
+              "Description": "Check card length against chassis clearance before a physical fit becomes a return."
+            },
+            "Thermal": {
+              "Title": "Cooling envelope",
+              "Description": "Validate cooler height, radiator dimensions, and the case's thermal headroom."
+            },
+            "Storage": {
+              "Title": "M.2 + expansion",
+              "Description": "Respect M.2 slots, lane sharing, and the expansion layout of the chosen board."
+            }
+          }
+        },
+        "Flow": {
+          "Eyebrow": "Architecture / Separation of concerns",
+          "Title": "One source of truth, four ways to experience it.",
+          "Description": "The same result can guide a product card, a builder alert, a cart guard, or an admin review because the rule engine is not coupled to one screen.",
+          "Layers": {
+            "Input": {
+              "Title": "Manifest",
+              "Description": "Selected parts and their compatibility metadata enter as structured input."
+            },
+            "Resolver": {
+              "Title": "Rules",
+              "Description": "Pure checks compare sockets, dimensions, power, thermals, and expansion."
+            },
+            "State": {
+              "Title": "Shared state",
+              "Description": "Zustand carries the build and structured alerts across the experience."
+            },
+            "Scene": {
+              "Title": "3D feedback",
+              "Description": "The Crucible renders the current assembly and makes conflicts legible."
+            }
+          },
+          "Boundary": "The visual layer can animate, explain, and recover from a conflict without silently rewriting the domain decision."
+        },
+        "Next": {
+          "Eyebrow": "Foundry dossier / 03 — The product loop",
+          "Title": "Once the build can explain itself, the commerce flow can earn confidence."
+        }
+      },
+      "Operations": {
+        "Intro": {
+          "Eyebrow": "03 / The operations layer",
+          "Title": "The customer sees a store. The team needs a command center.",
+          "Description": "The Overseer gives the product a second audience: the people who maintain the registry, move orders through fulfilment, and watch the signals behind the experience."
+        },
+        "Surfaces": {
+          "Registry": {
+            "Title": "Registry",
+            "Description": "Product identity, technical attributes, inventory, and media stay coherent as modules are added."
+          },
+          "Dispatch": {
+            "Title": "Dispatch",
+            "Description": "Order records and fulfilment states become a deliberate operational sequence instead of a hidden backend detail."
+          },
+          "Telemetry": {
+            "Title": "Telemetry",
+            "Description": "Signals make sales velocity and stock saturation visible—without pretending demo values are production analytics."
+          }
+        },
+        "Ingest": {
+          "Eyebrow": "Module deployment",
+          "Title": "A product is more than a photo and a price.",
+          "Description": "The ingestion flow treats a hardware module as a system record: its identity, specifications, allocation, and visual assets arrive together.",
+          "PanelLabel": "VISUAL INGEST TERMINAL",
+          "PanelStatus": "READY / DEMO",
+          "Steps": {
+            "Identity": {
+              "Title": "Core identity",
+              "Description": "Name, SKU, manufacturer, and category establish a stable registry record."
+            },
+            "Specifications": {
+              "Title": "Technical parameters",
+              "Description": "Processor, dimensions, compatibility metadata, and other domain facts stay structured."
+            },
+            "Allocation": {
+              "Title": "Stock allocation",
+              "Description": "Pricing and initial inventory are captured as part of the same deployment flow."
+            },
+            "Assets": {
+              "Title": "Visual assets",
+              "Description": "Upload and preview product media before it enters the public catalogue."
+            }
+          },
+          "Note": "The interface and upload flow are portfolio evidence. Cloud delivery, production validation, and permission hardening remain future work."
+        },
+        "Dispatch": {
+          "Eyebrow": "Order operations",
+          "Title": "Every order is a state change someone has to own.",
+          "Description": "The order workspace exposes the handoffs between payment, review, clearance, and fulfilment so the system can be operated—not merely admired.",
+          "PanelLabel": "DISPATCH HUB",
+          "DemoLabel": "SEEDED RECORDS / NOT LIVE",
+          "States": {
+            "Queued": {
+              "Title": "Queued",
+              "Description": "A new order enters the operational queue with its manifest and customer context."
+            },
+            "Review": {
+              "Title": "Review",
+              "Description": "The team checks the order details and the selected configuration before fulfilment."
+            },
+            "Cleared": {
+              "Title": "Cleared",
+              "Description": "A valid order can move forward with an explicit operational status."
+            },
+            "Complete": {
+              "Title": "Complete",
+              "Description": "The final state closes the loop for the team and the customer."
+            }
+          },
+          "Note": "The interface demonstrates the intended order-management surface. Webhooks, idempotency, fulfilment integrations, and refund handling are not claimed as complete."
+        },
+        "Telemetry": {
+          "Eyebrow": "Signals / Evidence boundary",
+          "Title": "A dashboard is useful only when its numbers have provenance.",
+          "Description": "The Overseer visual language makes operational signals easy to scan, while the case study stays precise about what the current prototype can prove.",
+          "PanelLabel": "FOUNDRY TELEMETRY",
+          "DemoLabel": "SYNTHETIC SAMPLE",
+          "ChartLabel": "Synthetic telemetry sample chart",
+          "MetricOne": { "Label": "ACTIVE TRANSFERS", "Value": "008" },
+          "MetricTwo": { "Label": "FOUNDRY HEALTH", "Value": "99.2%" },
+          "MetricThree": { "Label": "SIGNAL STRENGTH", "Value": "99.8 MS" },
+          "Boundary": "The dashboard composition and visualization direction are real interface evidence. The displayed metrics are seeded demonstration values, not measured adoption, revenue, or live operations results."
+        },
+        "Next": {
+          "Eyebrow": "Foundry dossier / 04 — Delivery boundary",
+          "Title": "The final question is not whether the interface looks complete. It is what still needs to become production-grade."
+        }
+      },
+      "Conclusion": {
+        "Current": {
+          "Eyebrow": "05 / What the prototype proves",
+          "Title": "BASE 60 is a connected product idea with real engineering underneath.",
+          "Description": "The prototype demonstrates how storefront, compatibility logic, a 3D builder, cart foundations, and operations can behave as one system—not five disconnected screens.",
+          "StatusLabel": "Current classification",
+          "Status": "Advanced prototype · ongoing",
+          "BoundaryLabel": "Evidence boundary",
+          "Boundary": "This page documents working product foundations and interface decisions. It does not claim a public launch, production authentication, live telemetry, measured conversion, or operational revenue."
+        },
+        "Decisions": {
+          "Eyebrow": "The decisions that hold it together",
+          "Title": "The visual language is expressive. The architecture stays deliberate.",
+          "Description": "Three choices keep the foundry concept useful instead of decorative.",
+          "Items": {
+            "Logic": {
+              "Title": "Rules before spectacle",
+              "Description": "Compatibility is modeled as a separate resolver so the 3D scene can explain decisions without becoming the source of truth."
+            },
+            "Layers": {
+              "Title": "Server + client islands",
+              "Description": "Catalog and commerce foundations stay server-friendly while interactive builder state lives where the feedback needs to be immediate."
+            },
+            "Evidence": {
+              "Title": "Signals with provenance",
+              "Description": "The Overseer makes operations visible, but demo records and telemetry are labeled instead of being presented as business results."
+            }
+          }
+        },
+        "Roadmap": {
+          "Eyebrow": "The next build",
+          "Title": "Make the foundry trustworthy in production.",
+          "Description": "The roadmap is deliberately practical: harden the boundary between an impressive prototype and a dependable commerce product.",
+          "Items": {
+            "Production": {
+              "Title": "Close the transaction loop",
+              "Description": "Complete payment webhooks, idempotency, server-side reconciliation, stock safety, refunds, tax, shipping, and transactional email."
+            },
+            "Trust": {
+              "Title": "Make access explicit",
+              "Description": "Add production authentication, role-aware admin permissions, protected media workflows, and audit trails for sensitive operations."
+            },
+            "Scale": {
+              "Title": "Measure the real system",
+              "Description": "Replace seeded telemetry with live aggregation, add automated coverage for compatibility and checkout, and optimize 3D loading for constrained devices."
+            },
+            "Access": {
+              "Title": "Finish the human layer",
+              "Description": "Run a full keyboard, screen-reader, reduced-motion, contrast, and localization review across the storefront, builder, and operations surfaces."
+            }
+          }
+        },
+        "Closing": {
+          "Eyebrow": "End of dossier / Start of conversation",
+          "Title": "Build the difficult product, then make its rules visible.",
+          "Description": "BASE 60 is a working exploration of how expressive frontend work can carry serious domain logic. The next version is where those foundations become a production system.",
+          "Contact": "Start a project conversation",
+          "AllProjects": "View all projects"
+        },
+        "Navigation": {
+          "Label": "Case study navigation",
+          "PreviousLabel": "Previous case",
+          "PreviousTitle": "Image Cryptography System",
+          "NextLabel": "Back to archive",
+          "NextTitle": "All projects"
+        }
+      }
+    },
+    "ImageCryptography": {
+      "Prologue": {
+        "Back": "Back to projects",
+        "Eyebrow": "Research 03 / Image encryption",
+        "Title": "Can chaos break an image—and put every pixel back?",
+        "Proposition": "A graduation research project combining nonlinear dynamics, a dynamic RGB S-box, and a desktop application to investigate reversible color-image encryption.",
+        "Enter": "Inspect the research",
+        "FigureCaption": "Working desktop prototype / encryption workspace",
+        "ArtifactNote": "Research artifact · 2024",
+        "ResearchBoundary": "This is an academic proof of concept. The reported experiments are presented as research evidence, not as an independently audited or production-ready cryptographic claim.",
+        "Status": {
+          "Label": "Research status",
+          "Value": "Completed prototype",
+          "Note": "B.Sc. graduation research · 2024"
+        },
+        "Role": {
+          "Label": "Ownership",
+          "Value": "Research through delivery",
+          "Note": "Model · algorithm · UI · experiments"
+        },
+        "Method": {
+          "Label": "Core method",
+          "Value": "5D chaos + RGB S-box",
+          "Note": "SciPy simulation · NumPy transformation"
+        },
+        "Boundary": {
+          "Label": "Evidence boundary",
+          "Value": "Not security-audited",
+          "Note": "Experimental results · no production claim"
+        },
+        "Cue": {
+          "Eyebrow": "Research dossier / Method",
+          "Title": "The interface is only the instrument. The case starts with the transformation pipeline.",
+          "Description": "Next: how five coupled nonlinear equations become a dynamic RGB substitution box, then a reversible pixel transformation."
+        }
+      },
+      "Method": {
+        "Intro": {
+          "Eyebrow": "01 / Transformation method",
+          "Title": "The key material begins as motion, not a stored pattern.",
+          "Description": "Five coupled nonlinear state variables evolve from the supplied initial conditions. Their trajectories feed an RGB substitution box, which becomes the repeatable key field used by the image transform.",
+          "BoundaryLabel": "Method boundary",
+          "Boundary": "This chapter documents the implemented research method. It explains reversibility and engineering choices; it does not claim that those properties establish modern cryptographic security."
+        },
+        "System": {
+          "Eyebrow": "The numerical source",
+          "Title": "Five equations generate the changing state.",
+          "Description": "The system couples x, y, z, u, and v through linear, multiplicative, and sinusoidal terms. Small changes to the starting state produce a different numerical trajectory for the experiment.",
+          "SolverLabel": "Implementation record",
+          "IntegratorLabel": "Integrator",
+          "IntervalLabel": "Solve interval",
+          "StepLabel": "Maximum step",
+          "Note": "The displayed equations and solver settings are transcribed from the working Python implementation."
+        },
+        "Pipeline": {
+          "Eyebrow": "From state to pixels",
+          "Title": "One numerical trajectory becomes a reversible image pipeline.",
+          "Description": "Each stage has a specific job: establish the state, sample it, map it into RGB values, transform the image, then perform the inverse in the opposite order.",
+          "Steps": {
+            "Seed": {
+              "Title": "Seed five states",
+              "Description": "The user supplies initial values for x, y, z, u, and v together with an S-box size."
+            },
+            "Solve": {
+              "Title": "Integrate the system",
+              "Description": "SciPy numerically solves the coupled equations and returns five evolving sequences."
+            },
+            "SBox": {
+              "Title": "Map three RGB streams",
+              "Description": "Derived x, y, and z sequences are reduced to 8-bit channel values and arranged as a color S-box."
+            },
+            "Transform": {
+              "Title": "Tile, XOR, shift",
+              "Description": "The S-box repeats across the image. Each channel is XORed with its key field, then shifted modulo 256."
+            },
+            "Reverse": {
+              "Title": "Undo in reverse",
+              "Description": "Decryption subtracts the value shift first, then applies the same XOR key field to recover the pixels."
+            }
+          }
+        },
+        "Reversal": {
+          "Eyebrow": "Forward / inverse",
+          "Title": "The order is what makes the transform reversible.",
+          "Description": "P is the source-channel value, K is the corresponding tiled S-box value, s is the configured shift, and C is the encrypted value.",
+          "EncryptLabel": "Encryption",
+          "DecryptLabel": "Decryption",
+          "Note": "The implementation performs a modular pixel-value shift. It does not spatially rotate or rearrange pixel positions."
+        },
+        "Vector": {
+          "Eyebrow": "Engineering decision / Vectorization",
+          "Title": "Operate on image planes, not one pixel at a time.",
+          "Description": "The first approach expressed the algorithm as nested channel, row, and column loops. The working path tiles the S-box with NumPy and transforms complete channel arrays, reducing Python-level work while preserving the same inverse operation."
+        },
+        "Next": {
+          "Eyebrow": "Next research slice / 03",
+          "Title": "A reversible pipeline is only the beginning. The next chapter examines what the experiments actually measured."
+        }
+      },
+      "Evidence": {
+        "Intro": {
+          "Eyebrow": "02 / Experimental evidence",
+          "Title": "A number matters only when its claim stays in bounds.",
+          "Description": "The research evaluated statistical behavior, sensitivity, visual similarity, recovery, and execution time. This chapter keeps the reported results visible alongside the limits of their interpretation.",
+          "BoundaryLabel": "Evidence boundary",
+          "Boundary": "These values come from the supplied graduation paper and its representative 256 × 256 image experiments. They have not been independently reproduced or security-audited for this portfolio."
+        },
+        "Metrics": {
+          "Eyebrow": "Reported result register",
+          "Title": "Eight signals describe the experiment from different angles.",
+          "Description": "No single score validates an encryption design. Read together, the measurements describe the output distribution, response to change, recovery fidelity, and observed runtime.",
+          "SourceNote": "Values are reported to their paper precision. Precision in the table does not imply independent verification or broader generalization.",
+          "Items": {
+            "Entropy": {
+              "Label": "Encrypted entropy",
+              "Note": "Reported information density near the 8-bit upper bound."
+            },
+            "NPCR": {
+              "Label": "NPCR",
+              "Note": "Reported percentage of changed encrypted pixels under the paper's comparison."
+            },
+            "UACI": {
+              "Label": "UACI",
+              "Note": "Reported average intensity change between compared cipher images."
+            },
+            "Horizontal": {
+              "Label": "Horizontal correlation",
+              "Note": "Reported adjacent-pixel coefficient in the encrypted image."
+            },
+            "Vertical": {
+              "Label": "Vertical correlation",
+              "Note": "Reported adjacent-pixel coefficient in the encrypted image."
+            },
+            "PSNR": {
+              "Label": "Original → encrypted PSNR",
+              "Note": "Low reported similarity between the source and encrypted image."
+            },
+            "SSIM": {
+              "Label": "Recovery fidelity",
+              "Note": "Original-to-decrypted structural similarity reported as exact recovery."
+            },
+            "Time": {
+              "Label": "Encryption time",
+              "Note": "Typical reported runtime for the paper's representative experiment."
+            }
+          }
+        },
+        "Reading": {
+          "Eyebrow": "Interpretation discipline",
+          "Title": "Separate what the test supports from what it cannot certify.",
+          "Description": "The useful story is not that every value is high or low. It is that each metric answers a narrower question about the experiment.",
+          "SupportsLabel": "What it supports",
+          "LimitLabel": "What it does not prove",
+          "Items": {
+            "Randomness": {
+              "Title": "Distribution",
+              "Supports": "Entropy near 8 bits, near-zero adjacent correlation, and low original-to-encrypted PSNR are consistent with a visually flattened output unlike its source.",
+              "Limit": "Statistical appearance alone does not establish resistance to cryptanalysis, key recovery, or structural attacks."
+            },
+            "Sensitivity": {
+              "Title": "Change sensitivity",
+              "Supports": "The reported NPCR and UACI values indicate that the tested comparison produced broad pixel and intensity changes.",
+              "Limit": "A representative differential test is not a substitute for a defined threat model or systematic adversarial evaluation."
+            },
+            "Recovery": {
+              "Title": "Reversibility",
+              "Supports": "An original-to-decrypted SSIM of 1.0 supports lossless recovery for the reported test image and parameters.",
+              "Limit": "Successful inversion confirms implementation behavior, not confidentiality or authenticity under attack."
+            },
+            "Runtime": {
+              "Title": "Observed speed",
+              "Supports": "The reported 0.7–0.8 second encryption time shows the vectorized prototype was interactive in its test setting.",
+              "Limit": "It is not a cross-device benchmark, scale guarantee, or real-time performance claim."
+            }
+          }
+        },
+        "Artifact": {
+          "Eyebrow": "Artifact / Working prototype",
+          "Title": "The interface keeps the experiment inspectable.",
+          "Description": "Original, encrypted, generated S-box, and decrypted states appear together, allowing the researcher to run and visually review the complete transformation loop.",
+          "Label": "Image cryptography research artifact",
+          "Previous": "Previous research artifact",
+          "Next": "Next research artifact",
+          "Slide": "Artifact",
+          "Caption": "The working desktop application presents the source image, encrypted result, generated RGB S-box, and recovered image in one research workspace.",
+          "Proves": "This artifact demonstrates a working end-to-end desktop experiment; it does not independently validate cryptographic security."
+        },
+        "Limits": {
+          "Eyebrow": "Research limits",
+          "Title": "Credibility grows when the unknowns remain visible.",
+          "Items": {
+            "Dataset": {
+              "Title": "Representative scope",
+              "Description": "The supplied results describe representative 256 × 256 color-image experiments, not a broad standardized corpus."
+            },
+            "Reproduction": {
+              "Title": "Reported, not rerun",
+              "Description": "This portfolio records the paper's measurements. It does not present a fresh independent benchmark run or reproducibility package."
+            },
+            "Audit": {
+              "Title": "No independent audit",
+              "Description": "The system remains an academic proof of concept and should not be treated as suitable for security-critical production use."
+            }
+          }
+        },
+        "Next": {
+          "Eyebrow": "Next research slice / 04",
+          "Title": "The final layer is the product work: turning a mathematical experiment into a usable desktop research instrument."
+        }
+      },
+      "Product": {
+        "Intro": {
+          "Eyebrow": "03 / Productization",
+          "Title": "The research became something another person could operate.",
+          "Description": "The desktop application connects configuration, transformation, visual inspection, measurement, and export in one controlled workflow. The interface is not decoration around the algorithm; it is how the experiment becomes repeatable and understandable.",
+          "BoundaryLabel": "Product boundary",
+          "Boundary": "This chapter documents implemented desktop behavior visible in the supplied source and application artifact. It does not claim commercial adoption, accessibility certification, or production-security readiness."
+        },
+        "Workspace": {
+          "Eyebrow": "Interface model",
+          "Title": "Keep the full transformation loop in view.",
+          "Description": "The main workspace places source, cipher, generated S-box, and recovered image side by side. Inputs and actions stay beneath the evidence, while a separate Evaluation tab handles measurement and plotting.",
+          "GeneralTab": "General",
+          "EvaluationTab": "Evaluation",
+          "Panels": {
+            "Original": "Original image",
+            "Encrypted": "Encrypted image",
+            "SBox": "RGB S-box",
+            "Decrypted": "Decrypted image"
+          },
+          "Caption": "Interface reconstruction based on the working application structure; it explains information architecture rather than replacing the real screenshot above."
+        },
+        "Workflow": {
+          "Eyebrow": "The researcher workflow",
+          "Title": "Configure, run, inspect, preserve.",
+          "Description": "The product follows the sequence of an experiment instead of exposing implementation modules as disconnected controls.",
+          "Steps": {
+            "Configure": {
+              "Title": "Configure the experiment",
+              "Description": "Load an image, normalize it to RGB when needed, enter five initial conditions, and choose an S-box size."
+            },
+            "Run": {
+              "Title": "Run the transformation",
+              "Description": "Encrypt and decrypt on worker threads while progress feedback keeps the desktop interface responsive."
+            },
+            "Inspect": {
+              "Title": "Inspect the evidence",
+              "Description": "Compare four image states, update metrics, view three histograms, and plot chaotic-system trajectories."
+            },
+            "Export": {
+              "Title": "Preserve or repeat",
+              "Description": "Save encrypted, decrypted, and S-box PNG files—or reload an encrypted image with matching parameters for decryption."
+            }
+          }
+        },
+        "Capabilities": {
+          "Eyebrow": "Capability map",
+          "Title": "A small application covers the complete research cycle.",
+          "Groups": {
+            "Experiment": {
+              "Title": "Configure",
+              "Items": {
+                "RGB": "Load PNG, JPG, or JPEG and convert non-RGB input.",
+                "Conditions": "Edit all five chaotic-system initial conditions.",
+                "SBoxSize": "Choose and validate the substitution-box size."
+              }
+            },
+            "Observe": {
+              "Title": "Observe",
+              "Items": {
+                "Previews": "Review original, encrypted, S-box, and decrypted states together.",
+                "Metrics": "Calculate statistical, similarity, correlation, and timing metrics.",
+                "Plots": "Open image histograms and chaotic trajectory plots."
+              }
+            },
+            "Operate": {
+              "Title": "Operate",
+              "Items": {
+                "Async": "Run encryption and decryption outside the UI thread.",
+                "Reload": "Load an encrypted image into a dedicated decryption path.",
+                "Themes": "Switch between ttkbootstrap light and dark themes."
+              }
+            },
+            "Deliver": {
+              "Title": "Deliver",
+              "Items": {
+                "PNG": "Export encrypted, decrypted, and generated S-box images.",
+                "Executable": "Package the application as a standalone Windows executable.",
+                "Resources": "Resolve bundled assets consistently in development and PyInstaller builds."
+              }
+            }
+          }
+        },
+        "Stack": {
+          "Eyebrow": "Software layers",
+          "Title": "The mathematics stays separated from the interface that operates it.",
+          "Description": "A modular structure lets the GUI coordinate work without owning the chaotic model, transformation logic, or evaluation formulas.",
+          "Layers": {
+            "Interface": {
+              "Title": "Tkinter + ttkbootstrap",
+              "Description": "Tabs, inputs, previews, progress, dialogs, and theme switching."
+            },
+            "Orchestrator": {
+              "Title": "ImageEncryptor",
+              "Description": "Image state, S-box generation, forward and inverse transforms, and export methods."
+            },
+            "Numerical": {
+              "Title": "NumPy + SciPy",
+              "Description": "Vectorized channel operations and numerical integration of the five-dimensional system."
+            },
+            "Analysis": {
+              "Title": "Pillow + scikit-image + Matplotlib",
+              "Description": "Image I/O, similarity and statistical evaluation, histograms, and trajectory plots."
+            },
+            "Package": {
+              "Title": "PyInstaller",
+              "Description": "Windows executable packaging with runtime-safe paths for bundled resources."
+            }
+          }
+        },
+        "Decisions": {
+          "Eyebrow": "Product engineering decisions",
+          "Title": "Three choices turned a script into an instrument.",
+          "Items": {
+            "Workspace": {
+              "Title": "Show the loop, not isolated outputs.",
+              "Description": "Keeping all four image states visible makes reversibility inspectable and reduces the mental work of comparing separate files or windows."
+            },
+            "Threading": {
+              "Title": "Keep numerical work off the UI thread.",
+              "Description": "Encryption and decryption run in worker threads; UI updates return through Tkinter's event loop so progress remains visible during computation."
+            },
+            "Validation": {
+              "Title": "Reject invalid experiments early.",
+              "Description": "The interface checks missing images, numeric initial conditions, positive S-box size, and image-size bounds before starting the transformation."
+            }
+          }
+        },
+        "Package": {
+          "Eyebrow": "Delivery record",
+          "Title": "From Python project to a Windows application.",
+          "Description": "A PyInstaller specification, application icon, and runtime resource-path helper package the research workspace so it can run outside the development environment."
+        },
+        "Next": {
+          "Eyebrow": "Next research slice / 05",
+          "Title": "The closing chapter will connect the research contribution, engineering ownership, and the work required before any security-critical use."
+        }
+      },
+      "Conclusion": {
+        "Outcome": {
+          "Eyebrow": "04 / Research outcome",
+          "Title": "A mathematical proposal became a complete, inspectable software experiment.",
+          "ResultLabel": "Delivered outcome",
+          "ResultLead": "Graduation research",
+          "ResultAccent": "+ working Windows prototype",
+          "Description": "The project joins a proposed five-dimensional chaotic model, RGB S-box generation, reversible image transformation, experimental evaluation, desktop interaction, technical writing, and executable packaging in one authored body of work.",
+          "Confidence": {
+            "Label": "Evidence confidence",
+            "Value": "Source + paper supported",
+            "Note": "Verified against the supplied brief, working Python source, application artifact, and owner-provided research record."
+          },
+          "Boundary": {
+            "Label": "Current classification",
+            "Value": "Academic proof of concept",
+            "Note": "Completed as research software; not independently audited or approved for security-critical production use."
+          }
+        },
+        "Ownership": {
+          "Eyebrow": "End-to-end contribution",
+          "Title": "The contribution spans the equation, the experiment, and the experience.",
+          "Description": "The strongest signal is not one metric. It is the ability to move across research, numerical implementation, image processing, evaluation, interface design, and delivery without losing the thread between them.",
+          "Phases": {
+            "Formulate": {
+              "Title": "Formulate",
+              "Description": "Develop the five-dimensional chaotic model and define how its state can feed an image-encryption experiment."
+            },
+            "Implement": {
+              "Title": "Implement",
+              "Description": "Build the RGB S-box, reversible transform, vectorized image path, and modular Python structure."
+            },
+            "Evaluate": {
+              "Title": "Evaluate",
+              "Description": "Implement statistical and image-quality measures, conduct experiments, interpret results, and document the research."
+            },
+            "Deliver": {
+              "Title": "Deliver",
+              "Description": "Design the desktop workflow, add inspection and export tools, and package the application for Windows."
+            }
+          }
+        },
+        "Future": {
+          "Eyebrow": "What serious continuation requires",
+          "Title": "The next milestone is stronger evidence, not a larger claim.",
+          "Description": "Progress from prototype to credible security research would require a reproducible evaluation system, broader comparisons, explicit threat modeling, and scrutiny from specialists outside the project.",
+          "Items": {
+            "Reproduce": {
+              "Title": "Automate reproduction",
+              "Description": "Create deterministic experiment scripts, fixtures, parameter records, and regression tests so every reported result can be rerun."
+            },
+            "Benchmark": {
+              "Title": "Broaden benchmarks",
+              "Description": "Evaluate more image sizes, formats, datasets, hardware profiles, competing methods, and adverse parameter choices."
+            },
+            "Audit": {
+              "Title": "Invite cryptographic review",
+              "Description": "Define the threat model and submit the construction, key space, attack surface, and evaluation method to independent specialists."
+            },
+            "Extend": {
+              "Title": "Extend only after proof",
+              "Description": "Explore acceleration or additional media such as video and audio only after the core design and evaluation process become dependable."
+            }
+          }
+        },
+        "Closing": {
+          "Eyebrow": "End of research dossier / Start of a conversation",
+          "Title": "I build where difficult logic still has to feel operable.",
+          "Description": "This project represents the kind of engineering I value: translating an unfamiliar technical idea into software people can inspect, question, and use—without hiding the limits of the evidence.",
+          "Contact": "Discuss a technical project",
+          "AllProjects": "View all projects"
+        },
+        "Navigation": {
+          "Label": "Case study navigation",
+          "PreviousLabel": "Previous project",
+          "PreviousTitle": "LabOS",
+          "NextLabel": "Next project",
+          "NextTitle": "BASE 60"
+        }
+      }
+    },
+    "LabOS": {
+      "Prologue": {
+        "Back": "Back to projects",
+        "Eyebrow": "Product 02 / Dental operations SaaS",
+        "Title": "The operating system for a laboratory still being built.",
+        "Proposition": "An in-development multi-tenant SaaS platform for connecting dental-laboratory cases, people, production, finance, and reporting under one tenant-aware system.",
+        "Enter": "Enter the build dossier",
+        "FigureCaption": "LabOS / Interface exploration",
+        "ArtifactNote": "Synthetic demonstration data",
+        "Status": {
+          "Label": "Status",
+          "Value": "Under development",
+          "Note": "Foundation work is active"
+        },
+        "Role": {
+          "Label": "Ownership",
+          "Value": "Product + platform",
+          "Note": "Domain · modeling · engineering"
+        },
+        "Platform": {
+          "Label": "Platform",
+          "Value": "Multi-tenant SaaS",
+          "Note": "Next.js · PostgreSQL · Prisma"
+        },
+        "Access": {
+          "Label": "Evidence access",
+          "Value": "Limited public view",
+          "Note": "Exploration image · no live tenant data"
+        },
+        "Cue": {
+          "Eyebrow": "Build dossier starts here",
+          "Title": "The foundation is part of the product story.",
+          "Description": "The next chapters will inspect the dental-laboratory workflow, tenant boundary, authorization model, and the migration work that makes the platform safe to grow."
+        },
+        "Gallery": {
+          "Label": "LabOS interface gallery",
+          "Previous": "Previous interface view",
+          "Next": "Next interface view",
+          "Slide": "Interface view",
+          "Proves": "This exploration shows the intended product surface; it does not prove completed feature coverage."
+        },
+        "Next": {
+          "Eyebrow": "Next build slice / 02",
+          "Title": "The workflow, tenant boundary, and authorization model come next."
+        }
+      },
+      "Workflow": {
+        "Intro": {
+          "Eyebrow": "01 / Domain context",
+          "Title": "The problem is coordination, not another CRUD screen.",
+          "Description": "A dental laboratory coordinates cases, people, materials, deadlines, money, and communication at the same time. LabOS is being shaped around that operating reality instead of treating each record as an isolated feature.",
+          "BoundaryLabel": "Product boundary",
+          "Boundary": "This chapter describes the intended domain model and current product direction. It does not claim that every listed workflow is complete or deployed."
+        },
+        "Comparison": {
+          "Eyebrow": "Before / Product model",
+          "Title": "One operating picture replaces a stack of disconnected handoffs.",
+          "FragmentedLabel": "Fragmented work",
+          "LabOSLabel": "LabOS direction",
+          "Items": {
+            "Records": {
+              "Before": "Case details split across paper, spreadsheets, and messages.",
+              "After": "A case becomes the shared operational reference."
+            },
+            "People": {
+              "Before": "Staff knowledge and application access are treated as the same thing.",
+              "After": "Staff records and application members remain separate, then can be linked deliberately."
+            },
+            "Visibility": {
+              "Before": "Production state and deadlines require manual follow-up.",
+              "After": "The product is designed to make ownership, stage, and next action visible."
+            },
+            "Relationships": {
+              "Before": "Dentists, clinics, finance, and work history sit in separate contexts.",
+              "After": "The domain model connects relationships to the work they create."
+            }
+          }
+        },
+        "Workflow": {
+          "Eyebrow": "The connected domain",
+          "Title": "LabOS is designed around the chain a laboratory already has to manage.",
+          "Description": "The sequence is a product model and a design test: every new surface should preserve the organization context and clarify what happens next.",
+          "Items": {
+            "Cases": {
+              "Title": "Cases",
+              "Description": "The unit of work: patient and restoration context, deadlines, notes, and history."
+            },
+            "Dentists": {
+              "Title": "Dentists + clinics",
+              "Description": "The relationships that originate work and give a case operational context."
+            },
+            "Staff": {
+              "Title": "Staff",
+              "Description": "People, responsibilities, and assignments—whether or not each person has an account."
+            },
+            "Production": {
+              "Title": "Production",
+              "Description": "Stages, queues, assignments, and delivery visibility across the work in progress."
+            },
+            "Inventory": {
+              "Title": "Inventory",
+              "Description": "Materials and stock movements connected to the work that consumes them."
+            },
+            "Finance": {
+              "Title": "Finance",
+              "Description": "Prices, payments, balances, and financial records protected by separate integrity rules."
+            },
+            "Reporting": {
+              "Title": "Reporting",
+              "Description": "Operational summaries that help a laboratory understand what needs attention."
+            }
+          }
+        },
+        "Next": {
+          "Eyebrow": "Next build slice / 03",
+          "Title": "The tenant boundary and permission model determine who can act on that shared picture."
+        }
+      },
+      "Architecture": {
+        "Intro": {
+          "Eyebrow": "02 / Trust architecture",
+          "Title": "The product promise depends on boundaries people can trust.",
+          "Description": "For a multi-tenant laboratory platform, the difficult question is not only what a user can see. It is which organization context, membership, permission, and resource policy must all agree before an action is allowed.",
+          "BoundaryLabel": "Architecture boundary",
+          "Boundary": "This is the current foundation and migration direction. It is not a security certification, a scale claim, or a statement that every policy is finished."
+        },
+        "Map": {
+          "Eyebrow": "The trust path",
+          "Title": "Identity enters through the organization. Every domain action stays inside it.",
+          "Steps": {
+            "Identity": {
+              "Title": "Identity",
+              "Description": "Better Auth verifies the user and session."
+            },
+            "Organization": {
+              "Title": "Organization",
+              "Description": "Membership supplies the active tenant context."
+            },
+            "Permission": {
+              "Title": "Permission",
+              "Description": "A fixed role bundle is evaluated with default-deny rules."
+            },
+            "Resource": {
+              "Title": "Resource",
+              "Description": "The action is checked against the tenant-owned record and its policy."
+            }
+          },
+          "Caption": "The intended authorization path keeps authentication, membership, permission, and resource ownership distinct."
+        },
+        "Decisions": {
+          "Eyebrow": "Authorization V1 / Decision records",
+          "Title": "Make the safe path the understandable path.",
+          "Fields": {
+            "Context": "Why it matters",
+            "Choice": "Current direction",
+            "Tradeoff": "What it costs"
+          },
+          "Organization": {
+            "Status": "Active migration",
+            "Title": "Derive tenant context from verified organization membership.",
+            "Context": "Loose lab identifiers make it too easy for a request boundary to drift away from the signed-in organization.",
+            "Choice": "Use Better Auth Organizations as the canonical membership layer and link the Lab domain entity to it.",
+            "Tradeoff": "Every server action must carry and validate context deliberately while legacy paths are migrated.",
+            "Evidence": "The brief documents this as the current tenancy migration focus; production isolation results are not claimed here."
+          },
+          "Permissions": {
+            "Status": "Authorization V1",
+            "Title": "Centralize permissions instead of scattering role checks.",
+            "Context": "As a product grows, ad-hoc role conditions become hard to audit and can disagree across actions.",
+            "Choice": "Use version-controlled role bundles, explicit permissions, centralized evaluation, and default-deny behavior.",
+            "Tradeoff": "The policy surface needs design, tests, and migration effort before every module can rely on it.",
+            "Evidence": "The current brief names Owner, Admin, Manager, and Staff rules plus resource policies; it does not claim complete rollout."
+          },
+          "Staff": {
+            "Status": "Domain boundary",
+            "Title": "Keep a person’s job record separate from their application access.",
+            "Context": "A laboratory may need to track a technician who does not have a LabOS account—or revoke access without deleting the staff record.",
+            "Choice": "Model staff records and application members separately, then link them through explicit invitation and membership flows.",
+            "Tradeoff": "Lifecycle operations become more deliberate, but access changes no longer erase domain history or rely on implied roles.",
+            "Evidence": "This separation is a stated product and architecture rule in the supplied LabOS brief."
+          }
+        },
+        "Next": {
+          "Eyebrow": "Next build slice / 04",
+          "Title": "The evidence room will show the states that make this architecture tangible."
+        }
+      },
+      "Evidence": {
+        "Intro": {
+          "Eyebrow": "03 / Evidence room",
+          "Title": "Show the operating surface. Label the unknowns.",
+          "Description": "LabOS has one public interface exploration today. It gives the product a visual direction; the registry below keeps the missing proof visible instead of filling the page with invented screens.",
+          "BoundaryLabel": "Evidence boundary",
+          "Boundary": "The available image uses synthetic demonstration data and proves interface direction only. It does not prove that the displayed modules, workflows, or metrics are complete or deployed."
+        },
+        "Gallery": {
+          "Label": "LabOS evidence gallery",
+          "Previous": "Previous artifact",
+          "Next": "Next artifact",
+          "Slide": "Artifact",
+          "Caption": "LabOS interface exploration with synthetic demonstration data; the visual model is directional, not a completion claim.",
+          "Proves": "This artifact establishes the intended visual and information-density direction for LabOS."
+        },
+        "Registry": {
+          "Eyebrow": "Capture registry",
+          "Title": "The next screenshot should answer a question.",
+          "Description": "A credible case study grows by capturing the states that explain the product’s trust model and day-to-day value.",
+          "Available": "Available",
+          "Required": "Capture required",
+          "Items": {
+            "Organization": {
+              "Title": "Organization switcher",
+              "Purpose": "Show the active tenant context and how a user knows which laboratory they are operating in.",
+              "Status": "Required"
+            },
+            "Membership": {
+              "Title": "Members + invitations",
+              "Purpose": "Show the distinction between staff records, members, roles, and invitation lifecycle.",
+              "Status": "Required"
+            },
+            "CaseWorkflow": {
+              "Title": "Case workflow",
+              "Purpose": "Show intake, assignment, production stage, deadline, and the next accountable action.",
+              "Status": "Required"
+            },
+            "Authorization": {
+              "Title": "Permission boundary",
+              "Purpose": "Show a safe allowed/denied state without exposing tenant or user data.",
+              "Status": "Required"
+            },
+            "Reporting": {
+              "Title": "Operational reporting",
+              "Purpose": "Show how shared domain records become a useful view for laboratory decisions.",
+              "Status": "Required"
+            }
+          }
+        },
+        "Protocol": {
+          "Eyebrow": "Capture protocol",
+          "Title": "Proof without leakage.",
+          "Items": {
+            "DemoData": "Use seeded demonstration records only; never patient, clinic, email, or tenant-identifying data.",
+            "Question": "Give each capture one job and caption the exact question it answers.",
+            "Redaction": "Remove names, addresses, identifiers, tokens, and environment secrets before export.",
+            "State": "Record whether the image is shipped, active development, or an interface exploration."
+          }
+        },
+        "Next": {
+          "Eyebrow": "Next build slice / 05",
+          "Title": "The migration story explains who is making this foundation safe to grow."
+        }
+      },
+      "Ownership": {
+        "Intro": {
+          "Eyebrow": "04 / Engineering ownership",
+          "Title": "The hard part is making a SaaS platform safe to grow.",
+          "Description": "LabOS is being evolved in migration slices: each replacement has to protect tenant boundaries, preserve domain history, and make the next change easier to reason about.",
+          "BoundaryLabel": "Current state",
+          "Boundary": "Authorization V1, tenant-context migration, invitations, and isolation testing are active engineering work. This page does not present the migration as finished."
+        },
+        "Migration": {
+          "Eyebrow": "The migration path",
+          "Title": "Replace ambiguity one boundary at a time.",
+          "Description": "The sequence keeps the platform reversible while the new rules become trustworthy enough to carry more of the product.",
+          "Items": {
+            "Inventory": {
+              "Title": "Inventory",
+              "Description": "Classify existing server actions, tenant assumptions, and authorization paths before changing them."
+            },
+            "Context": {
+              "Title": "Move context",
+              "Description": "Derive organization scope from verified membership instead of trusting a loose lab identifier."
+            },
+            "Cutover": {
+              "Title": "Cut over access",
+              "Description": "Migrate invitations, membership lifecycle, and staff linking to the organization model."
+            },
+            "Verify": {
+              "Title": "Verify isolation",
+              "Description": "Test allowed and denied paths, invariants, and legacy removal before widening the cutover."
+            }
+          }
+        },
+        "Challenges": {
+          "Eyebrow": "What the engineering has to protect",
+          "Title": "The valuable work lives in the boundaries.",
+          "Items": {
+            "Tenant": {
+              "Title": "Tenant isolation",
+              "Description": "A user must not reach another laboratory’s resources by changing an identifier in a request."
+            },
+            "Identity": {
+              "Title": "Identity ≠ access",
+              "Description": "Knowing who a person is, which organization they belong to, and what they may do are separate decisions."
+            },
+            "Lifecycle": {
+              "Title": "Membership lifecycle",
+              "Description": "Invites, revocations, staff links, and departures need explicit rules that preserve history."
+            },
+            "Invariants": {
+              "Title": "Invariants under pressure",
+              "Description": "Ownership, financial mutations, and self-service actions need concurrency-safe behavior—not only a role check."
+            }
+          }
+        },
+        "Ownership": {
+          "Eyebrow": "Where I contribute",
+          "Title": "Domain knowledge becomes platform leverage.",
+          "Description": "My role spans the translation layer: observing how a laboratory works, modeling the business boundaries, engineering the system, and testing whether the rules hold when the happy path disappears.",
+          "Phases": {
+            "Observe": {
+              "Title": "Observe",
+              "Description": "Use first-hand dental-laboratory context to identify the handoffs and exceptions worth modeling."
+            },
+            "Model": {
+              "Title": "Model",
+              "Description": "Turn those realities into tenant-aware entities, membership boundaries, permissions, and resource policies."
+            },
+            "Build": {
+              "Title": "Build",
+              "Description": "Implement the Next.js, PostgreSQL, Prisma, Better Auth, and organization workflows in reversible slices."
+            },
+            "Prove": {
+              "Title": "Prove",
+              "Description": "Test isolation, lifecycle behavior, and denial paths before calling a foundation dependable."
+            }
+          }
+        },
+        "Next": {
+          "Eyebrow": "Next build slice / 06",
+          "Title": "The final chapter separates today’s foundation from tomorrow’s product direction."
+        }
+      },
+      "Conclusion": {
+        "Current": {
+          "Eyebrow": "05 / Current state",
+          "Title": "A serious foundation is already a product decision.",
+          "Description": "LabOS is under active development. The current focus is the platform layer that makes future dental-laboratory workflows safe to build on: organizations, tenant context, invitations, staff/member linking, and permission evaluation.",
+          "StatusLabel": "Product status",
+          "Status": "Under development / work in progress",
+          "BoundaryLabel": "What this page does not claim",
+          "Boundary": "No adoption, tenant-count, performance, security-certification, or business-impact metric is asserted. Future modules remain direction, not shipped proof."
+        },
+        "Direction": {
+          "Eyebrow": "The direction",
+          "Title": "From connected records to a laboratory operating system.",
+          "Description": "The long-term opportunity is not another dashboard. It is one tenant-aware operating picture where cases, relationships, staff, production, inventory, finance, and reporting can reinforce one another.",
+          "Items": {
+            "Now": {
+              "Title": "Now / Foundation",
+              "Description": "Harden organization context, membership lifecycle, Authorization V1, and isolation testing."
+            },
+            "Next": {
+              "Title": "Next / Workflow",
+              "Description": "The next credible proof is an authenticated, tenant-scoped workflow: switch organization, move a case, and show an allowed or denied action without crossing the boundary."
+            },
+            "Later": {
+              "Title": "Later / Operating picture",
+              "Description": "Connect inventory, finance, reporting, and notifications without losing tenant or permission clarity."
+            }
+          }
+        },
+        "Closing": {
+          "Eyebrow": "End of build dossier / Start of conversation",
+          "Title": "Bring me the workflow that has outgrown its tools.",
+          "Description": "LabOS is the kind of product I want to keep building: domain-heavy, operationally real, and designed so trust is part of the experience—not a patch added after the interface.",
+          "Contact": "Start a project conversation",
+          "AllProjects": "View all projects",
+          "NextProject": "See the next project",
+          "NavigationLabel": "Case study navigation"
+        }
+      }
+    },
+    "Oscar": {
+      "Prologue": {
+        "Back": "Back to projects",
+        "Eyebrow": "Product 01 / Dental operations",
+        "Title": "Built inside the workflow it needed to replace.",
+        "Proposition": "A dependable Windows desktop product for coordinating cases, financial records, payroll, reporting, licensing, and delivery inside a dental laboratory.",
+        "Enter": "Enter the case dossier",
+        "FigureCaption": "Oscar / Primary operational workspace",
+        "ArtifactNote": "Authentic product interface",
+        "Status": {
+          "Label": "Status",
+          "Value": "Shipped + sold",
+          "Note": "Commercial record is private"
+        },
+        "Role": {
+          "Label": "Ownership",
+          "Value": "End-to-end product",
+          "Note": "Discovery · design · engineering · delivery"
+        },
+        "Platform": {
+          "Label": "Platform",
+          "Value": "Windows desktop",
+          "Note": ".NET · WPF · SQLite"
+        },
+        "Access": {
+          "Label": "Evidence access",
+          "Value": "Limited public view",
+          "Note": "Proprietary system · sensitive records excluded"
+        },
+        "Cue": {
+          "Eyebrow": "Case study starts here",
+          "Title": "From laboratory friction to a working product system.",
+          "Description": "The next chapters inspect the original workflow, the product model, consequential decisions, and the evidence that can be shared responsibly."
+        }
+      },
+      "Workflow": {
+        "Context": {
+          "Eyebrow": "01 / Operational context",
+          "Title": "The difficult part was not storing a case. It was keeping the whole laboratory aligned around it.",
+          "Intro": "A dental case moves through people, materials, production stages, payments, and delivery. When those parts live in separate records—or only in someone’s memory—the laboratory loses a shared view of what is happening and who owns the next action.",
+          "EvidenceLabel": "Evidence boundary",
+          "Evidence": "This model is grounded in six years of direct laboratory work and the shipped Oscar product. It describes the workflow and design intent; it does not claim an unmeasured time saving."
+        },
+        "Comparison": {
+          "Eyebrow": "Before / Product model",
+          "Title": "Fragmented ownership became one shared record.",
+          "BeforeLabel": "Fragmented workflow",
+          "WithLabel": "Oscar’s product model",
+          "Before": {
+            "Record": {
+              "Title": "Disconnected case records",
+              "Description": "Case details could be split across paper, conversations, and separate operational notes."
+            },
+            "Status": {
+              "Title": "Status lived with people",
+              "Description": "Knowing where work stood depended on asking the person closest to it."
+            },
+            "Finance": {
+              "Title": "Finance sat beside production",
+              "Description": "Billing and payroll needed their own reconciliation with the work being produced."
+            },
+            "Reporting": {
+              "Title": "Reports required assembly",
+              "Description": "A useful overview had to be reconstructed from several operational sources."
+            }
+          },
+          "With": {
+            "Record": {
+              "Title": "One accountable case record",
+              "Description": "The case becomes the common reference for operational and financial activity."
+            },
+            "Status": {
+              "Title": "Explicit production state",
+              "Description": "Progress is represented in the product instead of remaining implicit in memory."
+            },
+            "Finance": {
+              "Title": "Connected financial records",
+              "Description": "Billing and payroll are modeled alongside the work that gives them context."
+            },
+            "Reporting": {
+              "Title": "Reports from shared data",
+              "Description": "Operational views can be produced from the same underlying record system."
+            }
+          },
+          "Qualifier": "The comparison documents the product model and intended operational change. No quantitative efficiency claim is made until supporting records can be published."
+        },
+        "Flow": {
+          "Eyebrow": "Workflow model",
+          "Title": "One case moves through one accountable chain.",
+          "Description": "Oscar treats each stage as part of the same operational story, so the record remains useful from intake through reporting.",
+          "Intake": {
+            "Title": "Intake",
+            "Description": "The laboratory receives the work and its identifying details."
+          },
+          "CaseRecord": {
+            "Title": "Case record",
+            "Description": "The job, customer, requirements, and dates gain one reference point."
+          },
+          "ProductionState": {
+            "Title": "Production state",
+            "Description": "The current stage and next action become visible to the operation."
+          },
+          "FinancialRecord": {
+            "Title": "Financial record",
+            "Description": "Charges and related payroll entries remain connected to the work."
+          },
+          "Reporting": {
+            "Title": "Reporting",
+            "Description": "Shared records become an operational and financial overview."
+          }
+        },
+        "Constraints": {
+          "Eyebrow": "Design constraints",
+          "Title": "The architecture followed the room, not a trend.",
+          "Desktop": {
+            "Title": "Windows-native environment",
+            "Description": "The product had to fit the computers and working habits already present in the laboratory."
+          },
+          "Local": {
+            "Title": "Local-first operation",
+            "Description": "SQLite, backup, and export kept day-to-day ownership close to the laboratory instead of requiring a cloud dependency."
+          },
+          "Roles": {
+            "Title": "Clear access boundaries",
+            "Description": "Operational and financial responsibilities required permissions that reflected different kinds of work."
+          },
+          "Delivery": {
+            "Title": "Proprietary delivery",
+            "Description": "Licensing and update behavior were product concerns, not tasks left outside the application architecture."
+          }
+        },
+        "Next": {
+          "Eyebrow": "Next inspection / 02",
+          "Title": "Architecture, tradeoffs, and the decisions behind the interface."
+        }
+      },
+      "Architecture": {
+        "Intro": {
+          "Eyebrow": "02 / Architecture inspection",
+          "Title": "Local where the work happens. Connected only where delivery requires it.",
+          "Description": "Oscar keeps the operational record inside a Windows desktop application and uses a narrower external edge for activation and updates. The architecture favors fit, ownership, and recoverability over infrastructure breadth."
+        },
+        "Map": {
+          "People": {
+            "Label": "Operators",
+            "Title": "Admin + user roles",
+            "Description": "Different responsibilities enter the same product through explicit access boundaries."
+          },
+          "Application": {
+            "Label": "Application shell",
+            "Title": "Oscar desktop"
+          },
+          "Modules": {
+            "Cases": {
+              "Title": "Cases",
+              "Description": "Work details, deadlines, documents, and production state."
+            },
+            "Relationships": {
+              "Title": "Relationships",
+              "Description": "Dentists, technicians, and sales representatives."
+            },
+            "Finance": {
+              "Title": "Finance",
+              "Description": "Charges, debt, payroll, salary history, and profit views."
+            },
+            "Reporting": {
+              "Title": "Reporting",
+              "Description": "Operational and financial summaries from shared records."
+            }
+          },
+          "Storage": {
+            "Label": "Local data",
+            "Description": "Entity Framework Core connects the application model to a local database.",
+            "Support": "Import · export · backup · restore"
+          },
+          "Delivery": {
+            "Label": "Delivery edge",
+            "Title": "Activation + updates",
+            "Description": "GitHub API, Octokit, and AutoUpdater.NET support license checks and release delivery."
+          },
+          "Caption": "A conceptual architecture map reconstructed from the documented Oscar feature set and technology inventory. It shows responsibility boundaries, not a claim about undocumented internal class structure."
+        },
+        "Decisions": {
+          "Eyebrow": "Decision records",
+          "Title": "Three choices shaped the product more than any visual detail.",
+          "Fields": {
+            "Context": "Context",
+            "Choice": "Choice",
+            "Tradeoff": "Tradeoff"
+          },
+          "Desktop": {
+            "Status": "Implemented / platform",
+            "Title": "Build for the computers already in the laboratory.",
+            "Context": "The product needed to fit a Windows-based working environment and support a dense operational interface.",
+            "Choice": "Use C# and WPF on .NET for a native desktop application with direct OS integration.",
+            "Tradeoff": "The result is intentionally Windows-specific and requires desktop packaging and update management.",
+            "Evidence": "Supported by Oscar’s published platform and technology inventory; device distribution is not publicly documented."
+          },
+          "Data": {
+            "Status": "Implemented / data",
+            "Title": "Keep the operational record local and recoverable.",
+            "Context": "A laboratory needed day-to-day control of its records without making a hosted service part of every operation.",
+            "Choice": "Use SQLite through Entity Framework Core, with import, export, backup, and restore paths.",
+            "Tradeoff": "Backup discipline becomes explicit, and this case study does not claim multi-device synchronization.",
+            "Evidence": "Supported by the documented SQLite, EF Core, database import, export, backup, and restore capabilities."
+          },
+          "Delivery": {
+            "Status": "Implemented / distribution",
+            "Title": "Treat licensing and updates as part of the product.",
+            "Context": "Commercial desktop software needs controlled activation and a practical way to deliver fixes after installation.",
+            "Choice": "Use a GitHub-backed activation process and AutoUpdater.NET for release checks and installer delivery.",
+            "Tradeoff": "Activation and updates depend on external connectivity and GitHub availability, while operational data remains local.",
+            "Evidence": "Supported by the documented activation flow, Octokit/GitHub API integration, and AutoUpdater.NET technology inventory."
+          }
+        },
+        "Next": {
+          "Eyebrow": "Next inspection / 03",
+          "Title": "Interface states, product evidence, and what can be shown responsibly."
+        }
+      },
+      "Evidence": {
+        "Intro": {
+          "Eyebrow": "03 / Evidence room",
+          "Title": "One authentic artifact. No manufactured proof.",
+          "Description": "The current public evidence set contains one Oscar dashboard capture. It is useful, but limited. This inspection separates what is directly visible from what still needs a dedicated, privacy-safe artifact."
+        },
+        "Artifact": {
+          "Caption": "Oscar’s primary dashboard presents operational and financial summaries in one workspace.",
+          "Status": "Authentic interface / available"
+        },
+        "Gallery": {
+          "Label": "Oscar evidence gallery",
+          "Previous": "Previous artifact",
+          "Next": "Next artifact",
+          "Slide": "Artifact"
+        },
+        "Inspection": {
+          "ProvesLabel": "Visible evidence",
+          "ProvesTitle": "What this screen establishes.",
+          "Proves": {
+            "Navigation": {
+              "Title": "Operational scope",
+              "Description": "The navigation visibly includes cases, technicians, clinics, sales representatives, categories, reports, account, and settings."
+            },
+            "Action": {
+              "Title": "A primary case action",
+              "Description": "Adding a case is available from the global application frame rather than buried inside a secondary view."
+            },
+            "Overview": {
+              "Title": "A shared dashboard model",
+              "Description": "Case counts, revenue, completion, profit, debt, and work-type summaries occupy the same operational surface."
+            },
+            "Scope": {
+              "Title": "A real desktop product",
+              "Description": "The capture supports Oscar’s existence as a designed application with product-specific information architecture."
+            }
+          },
+          "LimitsLabel": "Evidence boundary",
+          "LimitsTitle": "What this screen cannot establish.",
+          "Limits": {
+            "Impact": {
+              "Title": "Measured business impact",
+              "Description": "A dashboard image cannot prove time saved, cases recovered, adoption, or operational improvement."
+            },
+            "Accuracy": {
+              "Title": "Accuracy of visible values",
+              "Description": "The numbers displayed are interface data, not independently verified financial or performance results."
+            },
+            "Depth": {
+              "Title": "Workflow depth and resilience",
+              "Description": "Case detail, validation, empty, error, recovery, permissions, and export states are not visible here."
+            },
+            "Commercial": {
+              "Title": "The private commercial record",
+              "Description": "The image does not prove the sale; that outcome remains owner-verified with its supporting record kept private."
+            }
+          }
+        },
+        "Registry": {
+          "Eyebrow": "Evidence registry",
+          "Title": "A gallery becomes credible when every image has a job.",
+          "Description": "These are the minimum captures needed to document the product rather than merely decorate the case study.",
+          "Available": "Available",
+          "Required": "Capture required",
+          "Items": {
+            "Dashboard": {
+              "Title": "Operational dashboard",
+              "Purpose": "Establish the product shell, navigation scope, primary action, and summary model."
+            },
+            "CaseLifecycle": {
+              "Title": "Case lifecycle",
+              "Purpose": "Show intake, case detail, production state, deadlines, and the transition to completion."
+            },
+            "Finance": {
+              "Title": "Finance + payroll",
+              "Purpose": "Demonstrate how charges, debt, technician payroll, and salary history connect to work."
+            },
+            "Reports": {
+              "Title": "Reports + export",
+              "Purpose": "Show filters, report structure, and the Excel or PDF export path with safe demo data."
+            },
+            "Recovery": {
+              "Title": "Backup + recovery",
+              "Purpose": "Document the import, export, backup, and restore controls behind the local-first claim."
+            },
+            "Delivery": {
+              "Title": "Activation + update",
+              "Purpose": "Demonstrate the proprietary delivery flow without exposing license, account, repository, or machine identifiers."
+            }
+          }
+        },
+        "Protocol": {
+          "Eyebrow": "Capture protocol",
+          "Title": "Proof without leakage.",
+          "Items": {
+            "DemoData": "Use seeded demonstration records—never patient, client, payroll, or production data.",
+            "Consistency": "Capture one consistent desktop size, theme, application version, and data scenario.",
+            "Redaction": "Remove names, emails, license values, machine identifiers, and private repository details before capture.",
+            "Caption": "Give every image a caption stating exactly what it proves and any limitation that remains."
+          }
+        },
+        "Next": {
+          "Eyebrow": "Next inspection / 04",
+          "Title": "Outcome, ownership, reflection, and the honest closing argument."
+        }
+      },
+      "Conclusion": {
+        "Outcome": {
+          "Eyebrow": "04 / Commercial outcome",
+          "Title": "The strongest verified result is simple: Oscar left the prototype stage.",
+          "ResultLabel": "Recorded outcome",
+          "ResultLead": "Shipped.",
+          "ResultAccent": "Sold.",
+          "Description": "Oscar was built, deployed, and sold to an operating dental laboratory. That is the supported commercial result; broader operational impact remains unmeasured publicly.",
+          "Confidence": {
+            "Label": "Evidence confidence",
+            "Value": "Owner-verified",
+            "Note": "The supporting commercial record exists but is not published."
+          },
+          "Boundary": {
+            "Label": "Public evidence boundary",
+            "Value": "No impact metric",
+            "Note": "No time-saving, adoption, case-loss, or financial-improvement number is asserted."
+          }
+        },
+        "Ownership": {
+          "Eyebrow": "End-to-end ownership",
+          "Title": "The work extended from domain observation to product delivery.",
+          "Description": "Oscar demonstrates product ownership across the entire path—not only implementation inside a predefined specification.",
+          "Phases": {
+            "Observe": {
+              "Title": "Observe",
+              "Description": "Six years inside dental laboratories supplied the operational context, vocabulary, handoffs, and constraints."
+            },
+            "Define": {
+              "Title": "Define",
+              "Description": "Translate fragmented case, relationship, financial, payroll, and reporting work into one product model."
+            },
+            "Build": {
+              "Title": "Build",
+              "Description": "Design and engineer the Windows interface, local data layer, access roles, reporting, and recovery paths."
+            },
+            "Deliver": {
+              "Title": "Deliver",
+              "Description": "Package a commercial desktop product with activation, updates, deployment, and ongoing support concerns."
+            }
+          }
+        },
+        "Reflection": {
+          "Eyebrow": "What I would change now",
+          "Title": "A shipped product is evidence—and a better specification for version two.",
+          "Description": "These are retrospective improvements informed by the first delivery. They are proposed directions, not features presented as already shipped.",
+          "Items": {
+            "Evidence": {
+              "Title": "Design evidence into delivery.",
+              "Description": "Maintain seeded demonstration scenarios and a release-level capture checklist so workflow, validation, recovery, and permission states can be documented safely as the product evolves."
+            },
+            "Distribution": {
+              "Title": "Decouple the delivery plane.",
+              "Description": "Move activation and update metadata behind a small, auditable service to reduce GitHub coupling and make license state, release policy, and failure handling easier to inspect."
+            },
+            "Recovery": {
+              "Title": "Verify recovery, not only backup.",
+              "Description": "Make scheduled backups, restore checks, retention rules, and visible recovery status first-class product behavior rather than relying on a manual safety path."
+            }
+          }
+        },
+        "Closing": {
+          "Eyebrow": "End of dossier / Start of conversation",
+          "Title": "Bring me the workflow that has outgrown its tools.",
+          "Description": "I’m most useful where domain knowledge, difficult operational states, and product engineering have to meet in one dependable interface.",
+          "Contact": "Start a project conversation",
+          "AllProjects": "View all projects"
+        },
+        "Navigation": {
+          "Label": "Case study navigation",
+          "PreviousLabel": "Back to archive",
+          "PreviousTitle": "All projects",
+          "NextLabel": "Next case",
+          "NextTitle": "LabOS"
+        }
+      }
+    }
+  },
   "Navbar": {
     "SystemArchitect": "System Architect",
     "Available": "Available",

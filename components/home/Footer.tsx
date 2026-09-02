@@ -128,6 +128,7 @@ export default async function FooterSection() {
               key={`${label}_${i}`}
               href={link}
               target="_blank"
+              aria-label={label}
               aria-description={alt_icon}
               className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-600 shadow-sm transition-all hover:scale-110 hover:text-blue-600 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:text-blue-400"
             >

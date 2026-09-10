@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "tsx --test tests/*.test.ts",
+    "verify": "pnpm test && pnpm lint && pnpm build",
     "db:generate": "pnpx drizzle-kit generate",
     "db:migrate": "pnpm tsx db/migrate.ts"
   },

@@ -70,9 +70,9 @@ export default function TableOfContents({ label = "On this page" }: { label?: st
   return (
     <nav
       aria-label={label}
-      className="sticky top-28 hidden max-h-[calc(100vh-8rem)] w-full overflow-y-auto border-t-2 border-v3-ink pt-5 lg:block"
+      className="sticky top-28 hidden max-h-[calc(100vh-8rem)] w-full overflow-y-auto border-t border-[#d9d2c5] pt-5 lg:block"
     >
-      <h2 className="v3-label mb-5 text-v3-muted">{label}</h2>
+      <h2 className="mb-5 font-v3-text text-xs font-bold uppercase tracking-[0.1em] text-[#6a645d]">{label}</h2>
       <ol className="space-y-1 font-v3-text text-sm">
         {headings.map((heading) => (
           <li
@@ -83,16 +83,16 @@ export default function TableOfContents({ label = "On this page" }: { label?: st
               href={`#${heading.id}`}
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector(`#${heading.id}`)?.scrollIntoView({
-                  behavior: "smooth",
+                document.getElementById(heading.id)?.scrollIntoView({
+                  behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
                 });
                 setActiveId(heading.id);
               }}
               className={cn(
-                "block border-s-2 py-2 ps-3 leading-5 transition-colors hover:text-v3-ink",
+                "block border-s-2 py-2 ps-3 leading-5 transition-colors hover:text-[#191715] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#244b9b]",
                 activeId === heading.id
-                  ? "border-v3-blue font-bold text-v3-blue"
-                  : "border-v3-line text-v3-muted",
+                  ? "border-[#b84b3d] font-bold text-[#191715]"
+                  : "border-[#d9d2c5] text-[#6a645d]",
               )}
             >
               {heading.text}

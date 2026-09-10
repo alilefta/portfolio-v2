@@ -1,13 +1,14 @@
 ---
-title: "The Atomic Handshake: Architecting a Fail-Safe Checkout Protocol"
+title: "Designing a checkout that cannot create ghost orders"
 publishedAt: "2026-02-12"
 summary: "How I solved race conditions and 'ghost orders' in Next.js using Stripe Webhooks and Prisma Transactions. A deep dive into building a production-grade checkout system."
-category: "Backend Architecture"
+category: "backend"
 tags: ["Next.js", "Stripe", "Prisma", "Server Actions", "Database Design"]
 readTime: "7 min read"
 coverImage: "/images/blog/the-atomic-handshake-architecting-a-fail-safe-checkout-protocol/atomic-handshake-hero.png"
+coverAlt: "Checkout workflow diagram showing an atomic order handoff"
 homepageFeatured: true
-homepageOrder: 2
+homepageOrder: 3
 ---
 
 In e-commerce, the "Happy Path" is a myth. Users close tabs mid-payment, internet connections drop, and two people try to buy the last GPU at the exact same millisecond.

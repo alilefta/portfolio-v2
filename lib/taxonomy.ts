@@ -1,26 +1,25 @@
-import {
-  Database,
-  LayoutGrid,
-  Server,
-  Code,
-  Terminal,
-  Brain,
-  Cog,
-} from "lucide-react";
+import { Code, LayoutGrid, Server, Sparkles, Workflow } from "lucide-react";
 
 export const ALL_CATEGORIES = [
   { slug: "architecture", title: "System Architecture", icon: LayoutGrid },
   { slug: "backend", title: "Backend Engineering", icon: Server },
-  { slug: "dental-tech", title: "Dental Technology", icon: Cog },
-  { slug: "database", title: "Databases", icon: Database },
-  { slug: "frontend", title: "Frontend & UI", icon: Code },
-  { slug: "devops", title: "DevOps & CI/CD", icon: Terminal },
-  { slug: "ai", title: "AI & Data", icon: Brain },
-  { slug: "career", title: "Career & Soft Skills", icon: null },
+  { slug: "frontend", title: "Frontend Systems", icon: Code },
+  { slug: "performance", title: "Performance Engineering", icon: Sparkles },
+  { slug: "product", title: "Product Decisions", icon: Workflow },
+  { slug: "career", title: "Career & Practice", icon: null },
+] as const;
+
+export const blogCategorySlugs = [
+  "architecture",
+  "backend",
+  "frontend",
+  "performance",
+  "product",
+  "career",
 ] as const;
 
 // Type helper to extract slugs
-export type CategorySlug = (typeof ALL_CATEGORIES)[number]["slug"];
+export type CategorySlug = (typeof blogCategorySlugs)[number];
 
 // Helper to get display title from slug
 export function getCategoryTitle(slug: string) {
@@ -30,5 +29,5 @@ export function getCategoryTitle(slug: string) {
 
 // Helper to check validity (useful for MDX parsing)
 export function isValidCategory(slug: string): boolean {
-  return ALL_CATEGORIES.some((c) => c.slug === slug);
+  return blogCategorySlugs.some((category) => category === slug);
 }

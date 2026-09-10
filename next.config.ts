@@ -8,9 +8,33 @@ const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   transpilePackages: ["next-mdx-remote"],
   async redirects() {
-    if (process.env.NODE_ENV !== "production") return [];
+    const redirects = [
+      {
+        source: "/blog",
+        destination: "/en/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/notes",
+        destination: "/en/blog/notes",
+        permanent: true,
+      },
+      {
+        source: "/blog/notes/:slug",
+        destination: "/en/blog/notes/:slug",
+        permanent: true,
+      },
+      {
+        source: "/blog/:slug",
+        destination: "/en/blog/:slug",
+        permanent: true,
+      },
+    ];
+
+    if (process.env.NODE_ENV !== "production") return redirects;
 
     return [
+      ...redirects,
       {
         source: "/dev/v3-oscar",
         destination: "/projects/oscar-lab-system-en",

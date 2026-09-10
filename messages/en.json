@@ -443,6 +443,49 @@
         "Title": "Engineering notebook",
         "Description": "Field notes, technical essays, and implementation records about building dependable software."
       },
+      "Masthead": { "Eyebrow": "Essays / Engineering writing", "Title": "The Editorial Index", "Description": "Engineering writing on systems, performance, and the trade-offs that shape software." },
+      "Featured": { "Label": "Featured essay", "Read": "Read the essay" },
+      "PublicationHeader": { "Navigation": "Publication navigation", "Essays": "Essays", "Projects": "Projects", "Notes": "Lab notes", "About": "About", "Locale": { "en": "English", "ar": "العربية" }, "Menu": "Menu", "Search": "Search", "Subscribe": "Subscribe" },
+      "PublicationFooter": { "RSS": "RSS feed", "Contact": "Contact" },
+      "SearchPanel": { "Label": "Search essays", "Placeholder": "Search essays, topics, or technologies", "Submit": "Search", "Clear": "Clear search", "Close": "Close", "Hint": "Search titles, summaries, topics, and technologies mentioned in an essay.", "Results": "{count, plural, =0 {No essays found} one {1 essay found} other {# essays found}}", "Empty": "Try a broader term, a topic such as performance, or a technology such as Next.js." },
+      "FieldNotes": { "Eyebrow": "Field notes", "Title": "Small findings, kept useful.", "Description": "Short fixes, commands, and observations from the workbench.", "Browse": "Browse field notes" },
+      "Pending": { "Title": "The Arabic edition is in progress.", "Description": "Translated essays will appear here as each edition is ready.", "EnglishSiteAction": "Read the English edition" },
+      "Categories": {
+        "architecture": "System architecture",
+        "backend": "Backend engineering",
+        "frontend": "Frontend systems",
+        "performance": "Performance engineering",
+        "product": "Product decisions",
+        "career": "Career and practice"
+      },
+      "Topics": {
+        "Eyebrow": "Browse by topic",
+        "Title": "Find the problem you are solving.",
+        "Description": "A small index of the systems, interfaces, and decisions I write about most.",
+        "All": "All essays",
+        "Count": "{count} essays",
+        "Back": "Back to all essays"
+      },
+      "Subscribe": {
+        "Eyebrow": "A quiet inbox",
+        "Title": "Get the next field note.",
+        "Description": "Occasional essays on product engineering, frontend systems, and the trade-offs behind dependable software.",
+        "EmailLabel": "Email address",
+        "EmailPlaceholder": "you@example.com",
+        "Consent": "I agree to receive engineering essays and occasional project updates.",
+        "Action": "Subscribe",
+        "Submitting": "Joining…",
+        "Success": "You are on the list. The next note will arrive when it is ready.",
+        "AlreadySubscribed": "You are already on the list.",
+        "Error": "We could not add you right now. Please try again or email Ali directly.",
+        "ConfigurationError": "Subscriptions are being configured. Please email Ali directly for updates.",
+        "Unsubscribe": "Unsubscribe at any time.",
+        "Privacy": "Your address is used only for this publication."
+      },
+      "Feed": {
+        "Title": "Engineering essays by Ali Lefta",
+        "Description": "Field notes, technical essays, and implementation records about building dependable software."
+      },
       "Hero": {
         "Eyebrow": "Chapter 04 / Engineering notebook",
         "Title": "Notes from the workbench.",
@@ -457,7 +500,11 @@
       "Archive": {
         "Eyebrow": "The ledger",
         "Title": "Substantial writing, filed by problem.",
-        "Description": "Each entry documents a constraint, a decision, or an implementation pattern worth carrying into the next product."
+        "Description": "Each entry documents a constraint, a decision, or an implementation pattern worth carrying into the next product.",
+        "Date": "Date",
+        "Topic": "Topic",
+        "Article": "Article",
+        "ReadingTime": "Reading time"
       },
       "Notes": {
         "Eyebrow": "Margin notes / Secondary register",
@@ -501,12 +548,20 @@
         "Description": "Compact records for fixes and implementation details that do not need a full essay.",
         "Register": "Register size",
         "RegisterDescription": "Short, practical entries",
-        "Note": "Note {number}"
+        "Note": "Note {number}",
+        "Columns": { "Number": "ID", "Type": "Format", "Note": "Note", "Topics": "Topics" },
+        "Types": { "Fix": "Fix", "Review": "Review", "Snippet": "Snippet" }
       },
       "NotePage": {
         "Back": "All lab notes",
         "Note": "Lab note {number}",
         "DefaultType": "Observation",
+        "Intro": "A compact technical record: the context, the useful detail, and the implementation path.",
+        "RecordLabel": "Working note.",
+        "RecordText": "Short by design, but complete enough to return to when the same problem appears again.",
+        "EntryNavigation": "More lab notes",
+        "Older": "Older note",
+        "Newer": "Newer note",
         "ClosingEyebrow": "Found a related edge case?",
         "ClosingTitle": "The useful version of a note is the one another engineer can challenge.",
         "ClosingAction": "Send your version"

@@ -1,69 +1,63 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { CategorySlug } from "./taxonomy";
+import { defaultLocale, locales, type Locale } from "@/i18n/config";
+import { parseBlogPostMetadata, type BlogPostMetadata } from "./blog-schema";
 
 export interface BlogPost {
   slug: string;
-  metadata: {
-    title: string;
-    publishedAt: string;
-    summary: string;
-    category?: CategorySlug;
-    tags?: string[];
-    readTime: string;
-    coverImage?: string;
-    homepageFeatured?: boolean;
-    homepageOrder?: number;
-  };
-  content: string; //mdx content
+  locale: Locale;
+  metadata: BlogPostMetadata;
+  content: string;
 }
 
-const contentDirectory = path.join(process.cwd(), "/content/blog");
+const contentDirectory = path.join(process.cwd(), "content/blog");
 
-// 2. Function to get all posts (for the list page)
-export function getBlogPosts(): BlogPost[] {
-  // Create directory if it doesn't exist to prevent errors
-  if (!fs.existsSync(contentDirectory)) {
-    return [];
-  }
+function localeDirectory(locale: Locale) {
+  return locale === defaultLocale ? contentDirectory : path.join(contentDirectory, locale);
+}
 
-  const fileNames = fs.readdirSync(contentDirectory);
+function readPosts(locale: Locale): BlogPost[] {
+  const directory = localeDirectory(locale);
+  if (!fs.existsSync(directory)) return [];
 
-  const allPostsData = fileNames
+  const seen = new Set<string>();
+  return fs
+    .readdirSync(directory)
     .filter((fileName) => fileName.endsWith(".mdx"))
     .map((fileName) => {
       const slug = fileName.replace(/\.mdx$/, "");
-      const fullPath = path.join(contentDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-
-      // Parse metadata section
-      const { data, content } = matter(fileContents);
+      if (seen.has(slug)) throw new Error(`Duplicate ${locale} blog slug: ${slug}`);
+      seen.add(slug);
+      const { data, content } = matter(fs.readFileSync(path.join(directory, fileName), "utf8"));
 
       return {
         slug,
-        metadata: data as BlogPost["metadata"],
+        locale,
+        metadata: parseBlogPostMetadata(data, `${locale}/${fileName}`),
         content,
       };
     });
-
-  // Sort posts by date (newest first)
-  return allPostsData.sort((a, b) => {
-    if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-      return -1;
-    }
-    return 1;
-  });
 }
 
-// 3. Function to get a single post (for the [slug] page)
-export function getPost(slug: string): BlogPost | undefined {
-  const posts = getBlogPosts();
-  return posts.find((post) => post.slug === slug);
+function sortPosts(posts: BlogPost[]) {
+  return posts.sort(
+    (a, b) =>
+      new Date(`${b.metadata.publishedAt}T00:00:00Z`).getTime() -
+      new Date(`${a.metadata.publishedAt}T00:00:00Z`).getTime(),
+  );
 }
 
-export function getHomepageBlogPosts(): BlogPost[] {
-  return getBlogPosts()
+export function getBlogPosts(locale: Locale = defaultLocale): BlogPost[] {
+  return sortPosts(readPosts(locale));
+}
+
+export function getPost(slug: string, locale: Locale = defaultLocale): BlogPost | undefined {
+  return getBlogPosts(locale).find((post) => post.slug === slug);
+}
+
+export function getHomepageBlogPosts(locale: Locale = defaultLocale): BlogPost[] {
+  return getBlogPosts(locale)
     .filter((post) => post.metadata.homepageFeatured)
     .sort(
       (a, b) =>
@@ -72,3 +66,21 @@ export function getHomepageBlogPosts(): BlogPost[] {
     )
     .slice(0, 3);
 }
+
+export function getAvailableBlogLocales(): Locale[] {
+  return locales.filter((locale) => getBlogPosts(locale).length > 0);
+}
+
+export function hasLocalizedPost(slug: string, locale: Locale) {
+  return Boolean(getPost(slug, locale));
+}
+
+export function getBlogTopicPosts(locale: Locale, topic: string) {
+  return getBlogPosts(locale).filter((post) => post.metadata.category === topic);
+}
+
+export function getBlogTopics(locale: Locale = defaultLocale) {
+  return Array.from(new Set(getBlogPosts(locale).map((post) => post.metadata.category)));
+}
+
+export type { BlogPostMetadata };

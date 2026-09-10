@@ -10,7 +10,6 @@ import {
   CodeBlockFilename,
 } from "@/components/ui/shadcn-io/code-block";
 import type { BundledLanguage } from "@/components/ui/shadcn-io/code-block";
-import { Terminal } from "lucide-react";
 
 type CodeProps = {
   children: React.ReactNode;
@@ -33,62 +32,44 @@ export const CodeSnippet = ({
     const language = match[1] as BundledLanguage;
     const code = String(children).trim();
 
-    // Default label if no filename is passed
-    const displayLabel = filename || language || "Terminal";
+    const displayLabel = filename || "Snippet";
 
     return (
-      <div className="group my-8 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950/50">
+      <div lang="en" dir="ltr" className="group my-10 overflow-hidden border border-[#4a4943] bg-[#20201d] text-left shadow-[0_12px_28px_rgb(23_23_20_/_0.14)]">
         <ShadcnCodeBlock
-          className="relative"
+          className="relative bg-[#20201d]"
           data={[{ language, filename: displayLabel, code }]}
           defaultValue={language}
         >
-          {/* Header: Mimics a clean editor tab */}
-          <CodeBlockHeader className="flex h-12 items-center justify-between border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900">
-            {/* Left: Icon + Filename/Language */}
+          <CodeBlockHeader className="flex min-h-11 items-center justify-between border-b border-[#4a4943] bg-[#292925] px-4">
             <CodeBlockFiles>
               {(item) => (
-                <div className="flex items-center gap-2" key={item.language}>
-                  <div className="flex gap-1.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-red-400/20" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-amber-400/20" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-green-400/20" />
-                  </div>
-                  <div className="ml-3 border-l border-zinc-200 pl-3 dark:border-zinc-800">
-                    <CodeBlockFilename
-                      key={item.language}
-                      value={item.language}
-                      className="flex items-center gap-2 font-mono text-xs font-medium text-zinc-600 dark:text-zinc-400"
-                    >
-                      <div className="flex items-center gap-2">
-                        <Terminal className="h-3 w-3 opacity-50" />
-                        <span>{item.filename}</span>
-                      </div>
-                    </CodeBlockFilename>
-                  </div>
+                <div className="flex items-center gap-3" key={item.language}>
+                  <span className="font-v3-mono text-[0.68rem] font-medium uppercase tracking-[0.13em] text-[#ed866e]">{item.language}</span>
+                  <span aria-hidden="true" className="h-3 w-px bg-[#65635b]" />
+                  <CodeBlockFilename key={item.language} value={item.language} className="font-v3-mono text-xs text-[#d9d3c8]">
+                    {item.filename}
+                  </CodeBlockFilename>
                 </div>
               )}
             </CodeBlockFiles>
 
-            {/* Right: Copy Button */}
             <div className="flex items-center">
               <CodeBlockCopyButton
-                className="text-zinc-400 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-200"
-                onCopy={() => console.log("Copied code to clipboard")}
-                onError={() =>
-                  console.error("Failed to copy code to clipboard")
-                }
+                aria-label="Copy code"
+                title="Copy code"
+                className="size-8 rounded-none text-[#c5beb2] transition-colors hover:bg-[#3b3a35] hover:text-[#fffaf0] focus-visible:ring-2 focus-visible:ring-[#f2cc3d]"
               />
             </div>
           </CodeBlockHeader>
 
-          {/* Body: The actual code content */}
           <CodeBlockBody className="p-0">
             {(item) => (
               <CodeBlockItem key={item.language} value={item.language}>
                 <CodeBlockContent
-                  className="overflow-x-auto p-4 text-sm leading-6"
+                  className="overflow-x-auto bg-[#20201d] p-5 font-v3-mono text-[0.82rem] leading-7 text-[#f3eee4] [&_.line]:px-5 [&_.line]:text-[#f3eee4] [&_.line]:before:text-[#858176] [&_.shiki]:!bg-[#20201d] [&_.shiki]:!text-[#f3eee4] [&_.shiki_span]:!text-inherit"
                   language={item.language as BundledLanguage}
+                  themes={{ light: "vitesse-dark", dark: "vitesse-dark" }}
                 >
                   {item.code}
                 </CodeBlockContent>
@@ -103,7 +84,7 @@ export const CodeSnippet = ({
   // --- INLINE CODE ---
   return (
     <code
-      className="mx-0.5 rounded-md border border-zinc-200 bg-zinc-100 px-1.5 py-0.5 font-mono text-[0.875em] font-medium text-zinc-900 dark:border-zinc-800 dark:bg-zinc-800 dark:text-zinc-200"
+      className="mx-0.5 border border-[#d9d2c5] bg-[#f0ebe1] px-1.5 py-0.5 font-v3-mono text-[0.84em] font-medium text-[#28241f]"
       {...props}
     >
       {children}

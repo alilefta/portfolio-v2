@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/v3/layout/Container";
 import { EMAIL, GITHUB, LINKEDIN } from "@/lib/info";
 
-export function SiteFooter() {
+export function SiteFooter({ locale }: { locale?: "en" | "ar" } = {}) {
   const t = useTranslations("V3.Home.Contact");
   const tNav = useTranslations("V3.Navigation");
 
@@ -49,7 +49,7 @@ export function SiteFooter() {
               <li>
                 <Link
                   className="hover:text-v3-yellow transition-colors"
-                  href="/blog"
+                  href={locale ? `/${locale}/blog` : "/blog"}
                 >
                   {tNav("Writing")}
                 </Link>

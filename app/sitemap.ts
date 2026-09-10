@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getBlogPosts } from "@/lib/blog";
+import { getBlogPosts, getBlogTopics } from "@/lib/blog";
 import { getProjects } from "@/lib/projects";
 import { DOMAIN_URL } from "@/lib/info";
 import { getLabNotes } from "@/lib/notes";
@@ -22,13 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [
     { url: baseUrl, changeFrequency: "monthly", priority: 1 },
     { url: `${baseUrl}/projects`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/blog`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${baseUrl}/blog/notes`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/en/blog`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/en/blog/notes`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/en/blog/feed.xml`, changeFrequency: "daily", priority: 0.3 },
     { url: `${baseUrl}/contact`, changeFrequency: "yearly", priority: 0.7 },
   ];
 
-  const posts = getBlogPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+  const posts = getBlogPosts("en").map((post) => ({
+    url: `${baseUrl}/en/blog/${post.slug}`,
     lastModified: safeDate(post.metadata.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.7,
@@ -53,11 +54,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const notes = getLabNotes().map((note) => ({
-    url: `${baseUrl}/blog/notes/${note.slug}`,
+    url: `${baseUrl}/en/blog/notes/${note.slug}`,
     lastModified: safeDate(note.metadata.date),
     changeFrequency: "yearly" as const,
     priority: 0.5,
   }));
 
-  return [...routes, ...posts, ...projects, ...notes];
+  const topics = getBlogTopics("en").map((topic) => ({ url: `${baseUrl}/en/blog/topics/${topic}`, changeFrequency: "weekly" as const, priority: 0.6 }));
+  const arabicPosts = getBlogPosts("ar").map((post) => ({ url: `${baseUrl}/ar/blog/${post.slug}`, lastModified: safeDate(post.metadata.publishedAt), changeFrequency: "monthly" as const, priority: 0.6 }));
+  const arabicTopics = getBlogTopics("ar").map((topic) => ({ url: `${baseUrl}/ar/blog/topics/${topic}`, changeFrequency: "weekly" as const, priority: 0.5 }));
+  const arabicFeed = getBlogPosts("ar").length ? [{ url: `${baseUrl}/ar/blog/feed.xml`, changeFrequency: "daily" as const, priority: 0.2 }] : [];
+
+  return [...routes, ...posts, ...projects, ...notes, ...topics, ...arabicPosts, ...arabicTopics, ...arabicFeed];
 }

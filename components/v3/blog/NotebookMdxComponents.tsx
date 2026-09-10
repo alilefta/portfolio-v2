@@ -6,49 +6,49 @@ import { CodeSnippet } from "@/components/mdx-components/CodeSnippet";
 export const notebookMdxComponents = {
   h1: ({ className, ...props }: ComponentPropsWithoutRef<"h1">) => (
     <h2
-      className={`mt-16 mb-6 font-v3-display text-4xl font-bold leading-[1.06] tracking-[-0.03em] text-v3-ink ${className ?? ""}`}
+      className={`mt-16 mb-6 font-playfair text-4xl font-semibold leading-[1.06] tracking-[-0.03em] text-[#191715] ${className ?? ""}`}
       {...props}
     />
   ),
   h2: ({ className, ...props }: ComponentPropsWithoutRef<"h2">) => (
     <h2
-      className={`mt-16 mb-6 scroll-mt-28 border-t-2 border-v3-ink pt-6 font-v3-display text-[clamp(2rem,4vw,3.35rem)] font-bold leading-[1.06] tracking-[-0.03em] text-v3-ink first:mt-0 ${className ?? ""}`}
+      className={`mt-16 mb-6 scroll-mt-28 border-t border-[#d9d2c5] pt-6 font-playfair text-[clamp(2rem,4vw,3.15rem)] font-semibold leading-[1.06] tracking-[-0.035em] text-[#191715] first:mt-0 [&>a]:text-inherit [&>a]:no-underline [&>a:hover]:text-inherit ${className ?? ""}`}
       {...props}
     />
   ),
   h3: ({ className, ...props }: ComponentPropsWithoutRef<"h3">) => (
     <h3
-      className={`mt-11 mb-4 scroll-mt-28 font-v3-display text-2xl font-bold leading-tight tracking-[-0.02em] text-v3-ink ${className ?? ""}`}
+      className={`mt-11 mb-4 scroll-mt-28 font-playfair text-2xl font-semibold leading-tight tracking-[-0.025em] text-[#191715] [&>a]:text-inherit [&>a]:no-underline [&>a:hover]:text-inherit ${className ?? ""}`}
       {...props}
     />
   ),
   h4: ({ className, ...props }: ComponentPropsWithoutRef<"h4">) => (
     <h4
-      className={`mt-8 mb-3 font-v3-text text-base font-extrabold text-v3-ink ${className ?? ""}`}
+      className={`mt-8 mb-3 font-v3-text text-base font-extrabold text-[#191715] ${className ?? ""}`}
       {...props}
     />
   ),
   p: ({ className, ...props }: ComponentPropsWithoutRef<"p">) => (
     <p
-      className={`mb-7 font-v3-text text-[1.04rem] leading-[1.85] text-v3-muted sm:text-[1.1rem] ${className ?? ""}`}
+      className={`mb-7 font-v3-text text-[1.05rem] leading-[1.85] text-[#645e58] sm:text-[1.1rem] ${className ?? ""}`}
       {...props}
     />
   ),
   strong: ({ className, ...props }: ComponentPropsWithoutRef<"strong">) => (
     <strong
-      className={`font-extrabold text-v3-ink ${className ?? ""}`}
+      className={`font-extrabold text-[#191715] ${className ?? ""}`}
       {...props}
     />
   ),
   ul: ({ className, ...props }: ComponentPropsWithoutRef<"ul">) => (
     <ul
-      className={`mb-8 ms-5 list-disc space-y-3 font-v3-text text-[1.04rem] leading-8 text-v3-muted marker:text-v3-blue sm:text-[1.1rem] ${className ?? ""}`}
+      className={`mb-8 ms-5 list-disc space-y-3 font-v3-text text-[1.04rem] leading-8 text-[#645e58] marker:text-[#b84b3d] sm:text-[1.1rem] ${className ?? ""}`}
       {...props}
     />
   ),
   ol: ({ className, ...props }: ComponentPropsWithoutRef<"ol">) => (
     <ol
-      className={`mb-8 ms-6 list-decimal space-y-3 font-v3-text text-[1.04rem] leading-8 text-v3-muted marker:font-v3-mono marker:text-v3-blue sm:text-[1.1rem] ${className ?? ""}`}
+      className={`mb-8 ms-6 list-decimal space-y-3 font-v3-text text-[1.04rem] leading-8 text-[#645e58] marker:font-v3-mono marker:text-[#b84b3d] sm:text-[1.1rem] ${className ?? ""}`}
       {...props}
     />
   ),
@@ -57,12 +57,12 @@ export const notebookMdxComponents = {
   ),
   blockquote: ({ className, ...props }: ComponentPropsWithoutRef<"blockquote">) => (
     <blockquote
-      className={`my-10 border-s-4 border-v3-yellow bg-v3-surface px-6 py-5 font-v3-display text-xl font-bold leading-8 tracking-[-0.025em] text-v3-ink [&>p]:m-0 [&>p]:font-v3-display [&>p]:text-xl [&>p]:font-bold [&>p]:text-v3-ink ${className ?? ""}`}
+      className={`my-10 border-s-2 border-[#b84b3d] bg-[#f0ebe1] px-6 py-5 font-playfair text-xl font-semibold leading-8 tracking-[-0.025em] text-[#191715] [&>p]:m-0 [&>p]:font-playfair [&>p]:text-xl [&>p]:font-semibold [&>p]:text-[#191715] ${className ?? ""}`}
       {...props}
     />
   ),
   a: ({ href, className, ...props }: ComponentPropsWithoutRef<"a">) => {
-    const styles = `font-bold text-v3-blue underline decoration-2 underline-offset-4 transition-colors hover:text-v3-blue-strong ${className ?? ""}`;
+    const styles = `font-bold text-[#244b9b] underline decoration-2 underline-offset-4 transition-colors hover:text-[#191715] ${className ?? ""}`;
     const isExternal = href?.startsWith("http");
 
     if (isExternal) {
@@ -79,9 +79,9 @@ export const notebookMdxComponents = {
 
     return <Link href={href || "#"} className={styles} {...props} />;
   },
-  hr: () => <hr className="my-14 border-0 border-t-2 border-v3-ink" />,
+  hr: () => <hr className="my-14 border-0 border-t border-[#d9d2c5]" />,
   table: ({ className, ...props }: ComponentPropsWithoutRef<"table">) => (
-    <div className="my-10 w-full overflow-x-auto border border-v3-line bg-v3-surface">
+    <div className="my-10 w-full overflow-x-auto border border-[#d9d2c5] bg-[#f0ebe1]">
       <table
         className={`min-w-[38rem] w-full border-collapse text-start font-v3-text text-sm ${className ?? ""}`}
         {...props}
@@ -90,12 +90,12 @@ export const notebookMdxComponents = {
   ),
   thead: ({ className, ...props }: ComponentPropsWithoutRef<"thead">) => (
     <thead
-      className={`border-b-2 border-v3-ink bg-v3-yellow text-v3-ink ${className ?? ""}`}
+      className={`border-b border-[#d9d2c5] bg-[#e8e0d2] text-[#191715] ${className ?? ""}`}
       {...props}
     />
   ),
   tbody: ({ className, ...props }: ComponentPropsWithoutRef<"tbody">) => (
-    <tbody className={`divide-y divide-v3-line ${className ?? ""}`} {...props} />
+    <tbody className={`divide-y divide-[#d9d2c5] ${className ?? ""}`} {...props} />
   ),
   th: ({ className, ...props }: ComponentPropsWithoutRef<"th">) => (
     <th
@@ -105,7 +105,7 @@ export const notebookMdxComponents = {
   ),
   td: ({ className, ...props }: ComponentPropsWithoutRef<"td">) => (
     <td
-      className={`px-4 py-3 align-top leading-6 text-v3-muted ${className ?? ""}`}
+      className={`px-4 py-3 align-top leading-6 text-[#645e58] ${className ?? ""}`}
       {...props}
     />
   ),

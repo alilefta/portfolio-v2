@@ -10,9 +10,10 @@ import { cn } from "@/lib/utils";
 import { setUserLocale } from "@/lib/localization/getLocale";
 import type { Locale } from "@/i18n/config";
 
-export function SiteHeader() {
+export function SiteHeader({ locale }: { locale?: Locale } = {}) {
   const pathname = usePathname();
-  const locale = useLocale();
+  const detectedLocale = useLocale();
+  const activeLocale = locale ?? detectedLocale;
   const t = useTranslations("V3.Navigation");
   const { setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
@@ -20,12 +21,12 @@ export function SiteHeader() {
   const links = [
     { href: "/", label: t("Home") },
     { href: "/projects", label: t("Projects") },
-    { href: "/blog", label: t("Writing") },
+    { href: locale ? `/${locale}/blog` : "/blog", label: t("Writing") },
     { href: "/contact", label: t("Contact") },
   ];
 
   const changeLocale = () => {
-    const nextLocale: Locale = locale === "ar" ? "en" : "ar";
+    const nextLocale: Locale = activeLocale === "ar" ? "en" : "ar";
     setUserLocale(nextLocale);
   };
 

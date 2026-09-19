@@ -77,7 +77,7 @@ export async function MakerHero() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 24rem, 72vw"
-                className="object-cover object-[center_18%] grayscale"
+                className="object-cover object-[center_18%]"
               />
             </div>
             <figcaption className="v3-technical text-v3-muted flex h-[2.35rem] items-end justify-between gap-2 px-1">

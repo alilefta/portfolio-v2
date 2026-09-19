@@ -72,7 +72,7 @@ export async function MakerHero() {
           <figure className="bg-v3-surface absolute inset-[0_23%_15%_0] -rotate-3 p-2.5 shadow-[12px_14px_0_rgb(23_23_20/0.16)] dark:shadow-[12px_14px_0_rgb(0_0_0/0.38)]">
             <div className="bg-v3-line relative h-[calc(100%_-_2.35rem)] min-h-0 overflow-hidden">
               <Image
-                src="/images/avatars/avatar1.png"
+                src="/images/avatars/avatar1.jpg"
                 alt={t("PortraitAlt")}
                 fill
                 priority
